@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.zerowarning</groupId>
+		<artifactId>material-design-lite-gwt</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>material-design-lite-gwt-demo</artifactId>
+	<packaging>war</packaging>
+
+	<name>Material Design Lite Gwt Demo</name>
+
+	<prerequisites>
+		<maven>${mavenVersion}</maven>
+	</prerequisites>
+
+	<dependencies>
+		<!-- Using GWT for client side code -->
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>${gwt.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Using Material Design Lite for GWT -->
+		<dependency>
+			<groupId>org.zerowarning</groupId>
+			<artifactId>material-design-lite-gwt-lib</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<configuration>
+					<strict>true</strict>
+					<sourceLevel>${java.version}</sourceLevel>
+				</configuration>
+				<executions>
+					<execution>
+						<id>gwt-compile</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+						<configuration>
+							<!-- For the default build life cycle and before packaging the client 
+								module, attach the compile goal of the gwt maven plugin to this phase and 
+								compile the module using all possible permutations in obfuscated mode and 
+								set the optimizations to the maximum level. The compiler will produce the 
+								fastest and most optimized version for production environment. -->
+							<module>org.zerowarning.gwt.mdl.demo.App</module>
+							<style>OBF</style>
+							<optimizationLevel>9</optimizationLevel>
+							<genParam>FALSE</genParam>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${warplugin.version}</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<packagingExcludes>WEB-INF/classes/org/zerowarning/gwt/mdl/demo/*.class</packagingExcludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>debugclient</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>gwt-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>gwt-compile</id>
+								<configuration>
+									<skip>true</skip>
+								</configuration>
+							</execution>
+							<execution>
+								<id>gwt-debug</id>
+								<phase>process-classes</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<!-- Speed up code generation -->
+									<draftCompile>true</draftCompile>
+									<!-- Maximize debugging by setting code styling to detailed -->
+									<style>DETAILED</style>
+									<!-- Minimizing code optimization to keep as much debugging symbols 
+										as possible. -->
+									<optimizationLevel>0</optimizationLevel>
+									<!-- Display java method names in native JavaScrit generated code -->
+									<methodNameDisplayMode>FULL</methodNameDisplayMode>
+									<genParam>TRUE</genParam>
+									<!-- Run a single permutation module definition to speed up code 
+										generation. -->
+									<module>org.zerowarning.gwt.mdl.demo.App-dev</module>
+									<!-- Do not manage server side code. -->
+									<noServer>true</noServer>
+									<!-- Set the application landing page for codeserver. -->
+									<runTarget>http://localhost:${tomcat.run.port}/</runTarget>
+									<workDir>${project.build.directory}</workDir>
+								</configuration>
+							</execution>
+						</executions>
+						<!-- Notice how codeserver dependency is made available only for the 
+							plugin at runtime inside debugclient profile. -->
+						<dependencies>
+							<dependency>
+								<groupId>com.google.gwt</groupId>
+								<artifactId>gwt-codeserver</artifactId>
+								<version>${gwt.version}</version>
+								<scope>runtime</scope>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>debugserver</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>${antrunplugin.version}</version>
+						<executions>
+							<!-- Some of the application resources needs to be copied to Tomcat 
+								configuration folder for the application to run properly like for example 
+								context.xml. The Plugin does not check whether the most up to date version 
+								of these files are used. To enforce this requirement it is necessary to delete 
+								Tomcat configuration folder forcing the Plugin to re deploy the application 
+								each time the server boots. -->
+							<execution>
+								<phase>process-classes</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<delete includeEmptyDirs="true" failonerror="false">
+											<fileset dir="${project.build.directory}/tomcat" />
+										</delete>
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.tomcat.maven</groupId>
+						<artifactId>tomcat7-maven-plugin</artifactId>
+						<version>${tomcat7plugin.version}</version>
+						<executions>
+							<execution>
+								<id>tomcat-run</id>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<phase>process-classes</phase>
+							</execution>
+						</executions>
+						<configuration>
+							<configurationDir>${project.build.directory}/tomcat</configurationDir>
+							<path>/</path>
+							<uriEncoding>UTF-8</uriEncoding>
+							<skip>false</skip>
+							<port>${tomcat.run.port}</port>
+							<additionalConfigFilesDir>src/main/tomcatconf</additionalConfigFilesDir>
+						</configuration>
+					</plugin>
+					<!-- You. Never. Know. -->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>gwt-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>gwt-compile</id>
+								<configuration>
+									<skip>true</skip>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

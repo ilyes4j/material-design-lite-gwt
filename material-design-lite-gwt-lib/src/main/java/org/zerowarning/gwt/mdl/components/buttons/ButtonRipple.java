@@ -1,4 +1,4 @@
-package org.zerowarning.gwt.mdl;
+package org.zerowarning.gwt.mdl.components.buttons;
 
 public enum ButtonRipple {
 

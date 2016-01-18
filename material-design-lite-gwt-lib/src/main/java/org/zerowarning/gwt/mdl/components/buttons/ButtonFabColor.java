@@ -1,4 +1,4 @@
-package org.zerowarning.gwt.mdl;
+package org.zerowarning.gwt.mdl.components.buttons;
 
 public enum ButtonFabColor {
 	FAB_NO_COLOR(""), COLORED("mdl-button--colored");

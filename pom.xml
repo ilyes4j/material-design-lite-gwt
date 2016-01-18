@@ -6,55 +6,62 @@
 	<groupId>org.zerowarning</groupId>
 	<artifactId>material-design-lite-gwt</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
 	<properties>
+		<!-- Ensure encoding is UTF-8 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<!-- Using JAVA JDK version -->
-		<java.version>1.7</java.version>
+		<!-- Using Maven version -->
+		<mavenVersion>3.0</mavenVersion>
 
 		<!-- Using Maven Compiler Plugin version -->
 		<compilerplugin.version>3.3</compilerplugin.version>
 
+		<!-- Using Maven War Plugin version -->
+		<warplugin.version>2.6</warplugin.version>
+
+		<!-- Using JAVA JDK version -->
+		<java.version>1.7</java.version>
+
 		<!-- Using GWT version -->
 		<gwt.version>2.7.0</gwt.version>
+
+		<tomcat.run.port>8080</tomcat.run.port>
+
+		<!-- Using Tomcat7 plugin version -->
+		<tomcat7plugin.version>2.2</tomcat7plugin.version>
+
+		<!-- Using Ant Run plugin version -->
+		<antrunplugin.version>1.7</antrunplugin.version>
 	</properties>
 
-	<dependencies>
-		<!-- GWT -->
-		<dependency>
-			<groupId>com.google.gwt</groupId>
-			<artifactId>gwt-user</artifactId>
-			<version>${gwt.version}</version>
-			<scope>provided</scope>
-		</dependency>
-	</dependencies>
+	<prerequisites>
+		<maven>${mavenVersion}</maven>
+	</prerequisites>
 
 	<build>
-
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>gwt-maven-plugin</artifactId>
-				<version>${gwt.version}</version>
-				<executions>
-					<execution>
-						<id>gwt-resources</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>resources</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${compilerplugin.version}</version>
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-				</configuration>
-			</plugin>
-		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${compilerplugin.version}</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>gwt-maven-plugin</artifactId>
+					<version>${gwt.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
+
+	<modules>
+		<module>material-design-lite-gwt-lib</module>
+		<module>material-design-lite-gwt-demo</module>
+	</modules>
 </project>

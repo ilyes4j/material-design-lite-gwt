@@ -1,12 +1,13 @@
-package org.zerowarning.gwt.mdl;
+package org.zerowarning.gwt.mdl.components.buttons;
 
-import static org.zerowarning.gwt.mdl.ButtonColor.BTN_NO_COLOR;
-import static org.zerowarning.gwt.mdl.ButtonFabColor.FAB_NO_COLOR;
-import static org.zerowarning.gwt.mdl.ButtonRipple.NONE;
-import static org.zerowarning.gwt.mdl.ButtonType.FAB;
-import static org.zerowarning.gwt.mdl.ButtonType.FLAT;
-import static org.zerowarning.gwt.mdl.ButtonType.ICON;
-import static org.zerowarning.gwt.mdl.ButtonType.RAISED;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonRipple.NONE;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.FAB;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.FLAT;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.ICON;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.MINIFAB;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.RAISED;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
@@ -58,6 +59,16 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 		return button;
 	}
 
+	public static Button createMiniFab(ButtonFabColor color, ButtonRipple ripple, String icon) {
+		Button button = new Button();
+		button.setType(MINIFAB);
+		button.setFabColor(color);
+		button.setRipple(ripple);
+		button.setIcon(icon);
+		button.upgrade();
+		return button;
+	}
+
 	public Button() {
 		setStylePrimaryName(MDL_BTN);
 		addStyleName(MDL_JS_BTN);
@@ -75,8 +86,8 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 	public void upgrade() {
 		if (upgraded) {
 			return;
-		}				
-		
+		}
+
 		upgradeElement(getElement());
 	}
 
@@ -124,18 +135,18 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 		this.upgraded = upgraded;
 	}
 
-	public void addStyleName(String styleName){
-		if( styleName == null || styleName.isEmpty()){
+	public void addStyleName(String styleName) {
+		if (styleName == null || styleName.isEmpty()) {
 			return;
 		}
 		super.addStyleName(styleName);
 	}
-	
+
 	private native void upgradeElement(Element element)
 	/*-{
 		$wnd.componentHandler.upgradeElement(element);
 	}-*/;
-	
+
 	private ButtonType type = FAB;
 
 	private ButtonColor color = BTN_NO_COLOR;
@@ -151,8 +162,8 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 	private static final String MDL_BTN = "mdl-button";
 
 	private static final String MDL_JS_BTN = "mdl-js-button";
-	
+
 	private static final String I_TAG = "i";
-	
+
 	private static final String MATERIAL_ICONS = "material-icons";
 }
