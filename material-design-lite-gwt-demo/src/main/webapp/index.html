@@ -2,24 +2,58 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Components</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="mdl/material.css">
-<script src="mdl/material.js"></script>
+<link rel="stylesheet"
+	href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+<script
+	src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <script src="app/app.nocache.js"></script>
 
+<!-- Work in progress, please don't judge -->
+<style type="text/css">
+.about-content {
+	margin-left: 80px;
+	color: #8A8885;
+}
+
+.components-content {
+	margin-left: 80px;
+	margin-top: 32px;
+}
+</style>
+
 </head>
 <body>
-	<table>
-		<tr>
-			<td id="buttonsContainer"></td>
-		</tr>
-	</table>
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header class="mdl-layout__header">
+			<div class="mdl-layout__header-row">
+				<!-- Title -->
+				<span class="mdl-layout-title">Material Design Lite for GWT</span>
+			</div>
+			<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+				<a href="#about" class="mdl-layout__tab">about</a> <a
+					href="#components" class="mdl-layout__tab is-active">Components</a>
+			</div>
+		</header>
+		<main class="mdl-layout__content">
+		<section class="mdl-layout__tab-panel" id="about">
+			<div class="page-content about-content">
+				<h1>About.</h1>
+			</div>
+		</section>
+		<section class="mdl-layout__tab-panel is-active" id="components">
+			<div id="buttonsContainer" class="page-content components-content"></div>
+		</section>
+		</main>
+	</div>
 </body>
 </html>
