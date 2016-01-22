@@ -13,7 +13,9 @@
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-<link rel="stylesheet" type="text/css" href="styles/main.css">
+<script src="../app/app.nocache.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../styles/main.css">
 </head>
 <body>
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -23,15 +25,13 @@
 				<span class="mdl-layout-title">Material Design Lite for GWT</span>
 			</div>
 			<div class="mdl-layout__header-row">
-				<a class="layout-tab-option is-active">about</a> <a
-					href="components/components.html" class="layout-tab-option">components</a>
+				<a href="../" class="layout-tab-option e">about</a> <a href="components"
+					class="layout-tab-option is-active">components</a>
 			</div>
 		</header>
 		<div class="mdl-layout__content">
 			<section>
-				<div class="page-content about-content">
-					<h1>About.</h1>
-				</div>
+				<div id="buttonsContainer" class="page-content components-content"></div>
 			</section>
 		</div>
 	</div>

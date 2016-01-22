@@ -1,0 +1,26 @@
+.layout-tab-option {
+	color: #FFFFFF;
+	-moz-box-sizing: border-box;
+	align-items: flex-end;
+	display: flex;
+	height: 100%;
+	padding: 0 10px 10px;
+	text-transform: uppercase;
+	-moz-box-sizing: border-box;
+	border-bottom: 3px solid rgba(0, 0, 0, 0);
+	text-decoration: none;
+}
+
+.is-active {
+	border-bottom: 3px solid #FF4081;
+}
+
+.about-content {
+	margin-left: 80px;
+	color: #8A8885;
+}
+
+.components-content {
+	margin-left: 80px;
+	margin-top: 32px;
+}
