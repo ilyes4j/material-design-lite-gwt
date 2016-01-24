@@ -1,5 +1,26 @@
 @CHARSET "UTF-8";
 
+/*set the active tab marker according to the the current theme color set*/
 .is-active {
 	border-bottom: 3px solid #FFAB40;
+}
+
+/*component page main section layout*/
+.mdl-components {
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+}
+
+/*layout and colors for the components navigation panel*/
+.mdl-components__nav {
+	width: 150px;
+	padding: 50px 20px;
+	background-color: hsl(0, 0%, 90%);
+}
+
+/*component descriptions section layout */
+.mdl-components__page {
+	margin-left: 80px;
+	margin-top: 32px;
 }
