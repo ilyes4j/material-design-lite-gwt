@@ -1,12 +1,22 @@
 .layout-tab-option {
 	color: #FFFFFF;
+	/*box-sizing*/
 	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	/*align-items*/
+	-moz-align-items: flex-end;
+	-webkit-align-items: flex-end;
+	-ms-align-items: flex-end;
 	align-items: flex-end;
+	/*display: flex;*/
+	display: -ms-flex;
+	display: -moz-flex;
+	display: -webkit-flex;
 	display: flex;
 	height: 100%;
 	padding: 0 10px 10px;
 	text-transform: uppercase;
-	-moz-box-sizing: border-box;
 	border-bottom: 3px solid rgba(0, 0, 0, 0);
 	text-decoration: none;
 }

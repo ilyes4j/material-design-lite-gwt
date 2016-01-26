@@ -7,8 +7,9 @@
 
 /*component page main section layout*/
 .mdl-components {
-	display: -webkit-flex;
 	display: -ms-flex;
+	display: -moz-flex;
+	display: -webkit-flex;
 	display: flex;
 }
 
