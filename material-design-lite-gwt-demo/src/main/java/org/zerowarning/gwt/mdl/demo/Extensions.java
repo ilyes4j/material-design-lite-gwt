@@ -2,10 +2,11 @@ package org.zerowarning.gwt.mdl.demo;
 
 import static com.google.gwt.core.client.GWT.getModuleBaseURL;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.COLORED;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonRipple.RIPPLE;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 import static org.zerowarning.gwt.mdl.exts.components.buttons.ImgButton.createFabI;
 
-import org.zerowarning.gwt.mdl.exts.components.menu.SelectBox;
+import org.zerowarning.gwt.mdl.components.buttons.Button;
+import org.zerowarning.gwt.mdl.components.menus.Menu;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.Image;
@@ -13,7 +14,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 /**
  * 
- * @author Mohamed Ilyes Dimassi
+ * @author Mohamed Ilyes DIMASSI
  */
 public class Extensions implements EntryPoint {
 
@@ -24,11 +25,14 @@ public class Extensions implements EntryPoint {
 
 		RootPanel extensPanel = RootPanel.get("extensContainer");
 
+		Menu menu = new Menu("select");
+		menu.getElement().setAttribute("style", "padding-right: 4px;");
+		extensPanel.add(menu);
+
 		String url = getModuleBaseURL() + "ic_info_black_24dp_1x.png";
 		Image img = new Image(url);
-		extensPanel.add(createFabI(COLORED, RIPPLE, img));
-
-		SelectBox btn = new SelectBox();
+		Button btn = createFabI(COLORED, HAS_RIPPLE, img);
+		btn.setEnabled(false);
 		extensPanel.add(btn);
 	}
 }

@@ -2,7 +2,7 @@ package org.zerowarning.gwt.mdl.exts.components.menu;
 
 import static org.zerowarning.gwt.mdl.components.buttons.Button.createRaised;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonRipple.RIPPLE;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 
 import org.zerowarning.gwt.mdl.components.buttons.Button;
 
@@ -20,7 +20,7 @@ public class SelectBox extends Composite {
 		FlowPanel panel = new FlowPanel();
 		panel.setStylePrimaryName("gwt-mdl-selectbox-container");
 
-		btn = createRaised(BTN_NO_COLOR, RIPPLE, "SelectBox");
+		btn = createRaised(BTN_NO_COLOR, HAS_RIPPLE, "SelectBox");
 		panel.add(btn);
 		btn.addDomHandler(new ButtonClickHandler(), ClickEvent.getType());
 

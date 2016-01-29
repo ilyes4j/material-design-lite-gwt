@@ -10,14 +10,14 @@ import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLO
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.PRIMARY;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.COLORED;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonRipple.RIPPLE;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
 
 /**
  * 
- * @author Mohamed Ilyes Dimassi
+ * @author Mohamed Ilyes DIMASSI
  */
 public class Components implements EntryPoint {
 
@@ -28,22 +28,22 @@ public class Components implements EntryPoint {
 
 		RootPanel buttonsPanel = RootPanel.get("buttonsContainer");
 
-		buttonsPanel.add(createFab(FAB_NO_COLOR, RIPPLE, "add"));
-		buttonsPanel.add(createFab(COLORED, RIPPLE, "info"));
+		buttonsPanel.add(createFab(FAB_NO_COLOR, HAS_RIPPLE, "add"));
+		buttonsPanel.add(createFab(COLORED, HAS_RIPPLE, "info"));
 
-		buttonsPanel.add(createRaised(BTN_NO_COLOR, RIPPLE, "Button"));
-		buttonsPanel.add(createRaised(PRIMARY, RIPPLE, "Button"));
-		buttonsPanel.add(createRaised(ACCENT, RIPPLE, "Button"));
+		buttonsPanel.add(createRaised(BTN_NO_COLOR, HAS_RIPPLE, "Button"));
+		buttonsPanel.add(createRaised(PRIMARY, HAS_RIPPLE, "Button"));
+		buttonsPanel.add(createRaised(ACCENT, HAS_RIPPLE, "Button"));
 
-		buttonsPanel.add(createFlat(BTN_NO_COLOR, RIPPLE, "Button"));
-		buttonsPanel.add(createFlat(PRIMARY, RIPPLE, "Button"));
-		buttonsPanel.add(createFlat(ACCENT, RIPPLE, "Button"));
+		buttonsPanel.add(createFlat(BTN_NO_COLOR, HAS_RIPPLE, "Button"));
+		buttonsPanel.add(createFlat(PRIMARY, HAS_RIPPLE, "Button"));
+		buttonsPanel.add(createFlat(ACCENT, HAS_RIPPLE, "Button"));
 
-		buttonsPanel.add(createIcon(BTN_NO_COLOR, RIPPLE, "mood"));
-		buttonsPanel.add(createIcon(PRIMARY, RIPPLE, "mood"));
-		buttonsPanel.add(createIcon(ACCENT, RIPPLE, "mood"));
+		buttonsPanel.add(createIcon(BTN_NO_COLOR, HAS_RIPPLE, "mood"));
+		buttonsPanel.add(createIcon(PRIMARY, HAS_RIPPLE, "mood"));
+		buttonsPanel.add(createIcon(ACCENT, HAS_RIPPLE, "mood"));
 
-		buttonsPanel.add(createMiniFab(FAB_NO_COLOR, RIPPLE, "add"));
-		buttonsPanel.add(createMiniFab(COLORED, RIPPLE, "add"));
+		buttonsPanel.add(createMiniFab(FAB_NO_COLOR, HAS_RIPPLE, "add"));
+		buttonsPanel.add(createMiniFab(COLORED, HAS_RIPPLE, "add"));
 	}
 }

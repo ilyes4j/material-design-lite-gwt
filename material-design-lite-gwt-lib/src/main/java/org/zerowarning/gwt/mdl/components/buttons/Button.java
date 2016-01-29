@@ -1,13 +1,16 @@
 package org.zerowarning.gwt.mdl.components.buttons;
 
+import static org.zerowarning.gwt.mdl.components.ComponentHandler.upgradeElement;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonRipple.NONE;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.FAB;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.FLAT;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.ICON;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.MINIFAB;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.RAISED;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
+
+import org.zerowarning.gwt.mdl.components.ripples.Ripple;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
@@ -15,11 +18,11 @@ import com.google.gwt.dom.client.Element;
 /**
  * Material Button
  * 
- * @author Mohamed Ilyes Dimassi
+ * @author Mohamed Ilyes DIMASSI
  */
 public class Button extends com.google.gwt.user.client.ui.Button {
 
-	public static Button createRaised(ButtonColor color, ButtonRipple ripple, String text) {
+	public static Button createRaised(ButtonColor color, Ripple ripple, String text) {
 		Button button = new Button();
 		button.setType(RAISED);
 		button.setColor(color);
@@ -29,7 +32,7 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 		return button;
 	}
 
-	public static Button createFlat(ButtonColor color, ButtonRipple ripple, String text) {
+	public static Button createFlat(ButtonColor color, Ripple ripple, String text) {
 		Button button = new Button();
 		button.setType(FLAT);
 		button.setColor(color);
@@ -39,7 +42,7 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 		return button;
 	}
 
-	public static Button createFab(ButtonFabColor color, ButtonRipple ripple, String icon) {
+	public static Button createFab(ButtonFabColor color, Ripple ripple, String icon) {
 		Button button = new Button();
 		button.setType(FAB);
 		button.setFabColor(color);
@@ -49,7 +52,7 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 		return button;
 	}
 
-	public static Button createIcon(ButtonColor color, ButtonRipple ripple, String icon) {
+	public static Button createIcon(ButtonColor color, Ripple ripple, String icon) {
 		Button button = new Button();
 		button.setType(ICON);
 		button.setColor(color);
@@ -59,7 +62,7 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 		return button;
 	}
 
-	public static Button createMiniFab(ButtonFabColor color, ButtonRipple ripple, String icon) {
+	public static Button createMiniFab(ButtonFabColor color, Ripple ripple, String icon) {
 		Button button = new Button();
 		button.setType(MINIFAB);
 		button.setFabColor(color);
@@ -118,11 +121,11 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 		addStyleName(fabColor.toString());
 	}
 
-	public ButtonRipple getRipple() {
+	public Ripple getRipple() {
 		return ripple;
 	}
 
-	public void setRipple(ButtonRipple ripple) {
+	public void setRipple(Ripple ripple) {
 		this.ripple = ripple;
 		addStyleName(ripple.toString());
 	}
@@ -142,18 +145,13 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 		super.addStyleName(styleName);
 	}
 
-	private native void upgradeElement(Element element)
-	/*-{
-		$wnd.componentHandler.upgradeElement(element);
-	}-*/;
-
 	private ButtonType type = FAB;
 
 	private ButtonColor color = BTN_NO_COLOR;
 
 	private ButtonFabColor fabColor = FAB_NO_COLOR;
 
-	private ButtonRipple ripple = NONE;
+	private Ripple ripple = NONE;
 
 	private boolean upgraded = false;
 

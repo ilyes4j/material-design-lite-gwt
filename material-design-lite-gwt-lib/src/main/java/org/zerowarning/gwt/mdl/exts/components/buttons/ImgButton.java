@@ -7,7 +7,7 @@ import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.MINIFAB;
 import org.zerowarning.gwt.mdl.components.buttons.Button;
 import org.zerowarning.gwt.mdl.components.buttons.ButtonColor;
 import org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor;
-import org.zerowarning.gwt.mdl.components.buttons.ButtonRipple;
+import org.zerowarning.gwt.mdl.components.ripples.Ripple;
 
 import com.google.gwt.user.client.ui.Image;
 
@@ -18,7 +18,7 @@ public class ImgButton extends Button {
 		addStyleName(IMG_BTN_RESET);
 	}
 
-	public static Button createFabI(ButtonFabColor color, ButtonRipple ripple, Image img) {
+	public static Button createFabI(ButtonFabColor color, Ripple ripple, Image img) {
 		ImgButton button = new ImgButton();
 		button.setType(FAB);
 		button.setFabColor(color);
@@ -28,7 +28,7 @@ public class ImgButton extends Button {
 		return button;
 	}
 
-	public static Button createIconI(ButtonColor color, ButtonRipple ripple, Image img) {
+	public static Button createIconI(ButtonColor color, Ripple ripple, Image img) {
 		ImgButton button = new ImgButton();
 		button.setType(ICON);
 		button.setColor(color);
@@ -38,7 +38,7 @@ public class ImgButton extends Button {
 		return button;
 	}
 
-	public static Button createMiniFabI(ButtonFabColor color, ButtonRipple ripple, Image img) {
+	public static Button createMiniFabI(ButtonFabColor color, Ripple ripple, Image img) {
 		ImgButton button = new ImgButton();
 		button.setType(MINIFAB);
 		button.setFabColor(color);
