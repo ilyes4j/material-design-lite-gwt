@@ -18,6 +18,41 @@
 
 <link rel="stylesheet" type="text/css" href="../styles/main.css">
 <link rel="stylesheet" type="text/css" href="styles/extensions.css">
+
+<script type="text/javascript">
+	var itemsCount = 0;
+
+	var onAddItemClick = function() {
+		ul_menu_var = document.getElementById("ul_menu");
+		var menuUp = ul_menu_var.MaterialMenu;
+
+		anLi = document.createElement('li');
+		anLi.innerHTML = "Another Action " + itemsCount;
+		itemsCount++;
+		anLi.classList.add("mdl-menu__item");
+
+		// Add a listener to each menu item.
+		anLi.addEventListener('click', menuUp.boundItemClick_);
+		// Add a tab index to each menu item.
+		anLi.tabIndex = '-1';
+		// Add a keyboard listener to each menu item.
+		anLi.addEventListener('keydown', menuUp.boundItemKeydown_);
+
+		var rippleContainer = document.createElement('span');
+		rippleContainer.classList.add(menuUp.CssClasses_.ITEM_RIPPLE_CONTAINER);
+
+		var ripple = document.createElement('span');
+		ripple.classList.add(menuUp.CssClasses_.RIPPLE);
+		rippleContainer.appendChild(ripple);
+		anLi.appendChild(rippleContainer);
+
+		anLi.classList.add(menuUp.CssClasses_.RIPPLE_EFFECT);
+
+		menuUp.element_.appendChild(anLi);
+
+		componentHandler.upgradeElement(anLi);
+	}
+</script>
 </head>
 <body>
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -36,6 +71,23 @@
 			<aside class="mdl-components__nav mdl-shadow--8dp"></aside>
 			<div class="mdl-components__page page-content" align="center">
 				<div id="extensContainer"></div>
+				<div style="padding-top: 100px;">
+					<!-- Left aligned menu below button -->
+					<button id="demo-menu-lower-left"
+						class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">Select</button>
+
+					<ul id="ul_menu"
+						class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-left"
+						for="demo-menu-lower-left">
+						<li class="mdl-menu__item">Some Action</li>
+					</ul>
+
+					<button
+						class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
+						onclick="onAddItemClick();">
+						<i class="material-icons">add</i>
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
