@@ -119,10 +119,6 @@ public class Menu extends Composite {
 		// ... which is activated by the button whose id is
 		menu.getElement().setAttribute("for", menuId);
 
-		MenuItem sample = new MenuItem("SomeOption");
-		menu.add(sample);
-		sample.addDomHandler(clickHandler, ClickEvent.getType());
-
 		// add the menu to the DOM
 		panel.add(menu);
 	}

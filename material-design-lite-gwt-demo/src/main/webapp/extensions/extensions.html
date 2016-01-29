@@ -9,8 +9,13 @@
 <link rel="stylesheet"
 	href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-orange.min.css" />
 
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+	type="text/css">
+
 <script
 	src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -69,9 +74,12 @@
 		</header>
 		<div class="mdl-components mdl-layout__content">
 			<aside class="mdl-components__nav mdl-shadow--8dp"></aside>
-			<div class="mdl-components__page page-content" align="center">
+			<div class="mdl-components__page page-content">
+				<h1 class="mdl-typography--display-1">Menu event handling</h1>
 				<div id="extensContainer"></div>
-				<div style="padding-top: 100px;">
+				<h1 class="mdl-typography--display-1 menu-add-item-section">Adding
+					items</h1>
+				<div>
 					<!-- Left aligned menu below button -->
 					<button id="demo-menu-lower-left"
 						class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">Select</button>
@@ -83,7 +91,7 @@
 					</ul>
 
 					<button
-						class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
+						class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored"
 						onclick="onAddItemClick();">
 						<i class="material-icons">add</i>
 					</button>

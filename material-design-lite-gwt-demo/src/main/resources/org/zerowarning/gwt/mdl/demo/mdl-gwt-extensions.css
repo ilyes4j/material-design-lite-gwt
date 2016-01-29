@@ -1,0 +1,11 @@
+@CHARSET "ISO-8859-1";
+
+.mdl-gwt-select-menu {
+	padding-right: 15px;
+}
+
+.mdl-gwt-select-status {
+	vertical-align: middle;
+	display: inline;
+	padding-left: 10px;
+}
