@@ -2,22 +2,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Components</title>
+<title>Extensions</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet"
-	href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.blue_grey-orange.min.css">
+	href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-orange.min.css" />
 
 <script
 	src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-<script src="../components/components.nocache.js"></script>
+<script src="../extensions/extensions.nocache.js"></script>
 
 <link rel="stylesheet" type="text/css" href="../styles/main.css">
-<link rel="stylesheet" type="text/css" href="styles/components.css">
+<link rel="stylesheet" type="text/css" href="styles/extensions.css">
 </head>
 <body>
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -27,15 +27,16 @@
 				<span class="mdl-layout-title">Material Design Lite for GWT</span>
 			</div>
 			<div class="mdl-layout__header-row">
-				<a href="../" class="layout-tab-option e">about</a> <a
-					href="components" class="layout-tab-option is-active">components</a>
-				<a href="../extensions/extensions.html" class="layout-tab-option">extensions</a>
+				<a href="../" class="layout-tab-option">about</a> <a
+					href="../components/components.html" class="layout-tab-option">components</a>
+				<a class="layout-tab-option is-active">extensions</a>
 			</div>
 		</header>
 		<div class="mdl-components mdl-layout__content">
 			<aside class="mdl-components__nav mdl-shadow--8dp"></aside>
-			<div id="buttonsContainer" class="mdl-components__page"
-				align="center"></div>
+			<div class="mdl-components__page page-content" align="center">
+				<div id="extensContainer"></div>
+			</div>
 		</div>
 	</div>
 </body>

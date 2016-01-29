@@ -16,11 +16,10 @@ import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
 
 /**
- * Entry point classes define <code>onModuleLoad()</code>.
  * 
  * @author Mohamed Ilyes Dimassi
  */
-public class App implements EntryPoint {
+public class Components implements EntryPoint {
 
 	/**
 	 * This is the entry point method.
@@ -30,7 +29,7 @@ public class App implements EntryPoint {
 		RootPanel buttonsPanel = RootPanel.get("buttonsContainer");
 
 		buttonsPanel.add(createFab(FAB_NO_COLOR, RIPPLE, "add"));
-		buttonsPanel.add(createFab(COLORED, RIPPLE, "add"));
+		buttonsPanel.add(createFab(COLORED, RIPPLE, "info"));
 
 		buttonsPanel.add(createRaised(BTN_NO_COLOR, RIPPLE, "Button"));
 		buttonsPanel.add(createRaised(PRIMARY, RIPPLE, "Button"));

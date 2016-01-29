@@ -20,3 +20,27 @@
 	border-bottom: 3px solid rgba(0, 0, 0, 0);
 	text-decoration: none;
 }
+
+/*component page main section layout*/
+.mdl-components {
+	display: -ms-flex;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: flex;
+}
+
+/*layout and colors for the components navigation panel*/
+.mdl-components__nav {
+	width: 150px;
+	padding: 50px 20px;
+	background-color: hsl(0, 0%, 90%);
+}
+
+/*component descriptions section layout */
+/* make the main content area as wide as possible */
+.mdl-components__page {
+	margin-left: 80px;
+	margin-right: 80px;
+	margin-top: 32px;
+	width: 100%;
+}

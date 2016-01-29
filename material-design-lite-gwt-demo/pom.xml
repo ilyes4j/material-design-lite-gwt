@@ -59,7 +59,11 @@
 								compile the module using all possible permutations in obfuscated mode and 
 								set the optimizations to the maximum level. The compiler will produce the 
 								fastest and most optimized version for production environment. -->
-							<module>org.zerowarning.gwt.mdl.demo.App</module>
+							<modules>
+								<module>org.zerowarning.gwt.mdl.demo.Components</module>
+								<module>org.zerowarning.gwt.mdl.demo.Extensions</module>
+							</modules>
+							<!-- <module>org.zerowarning.gwt.mdl.demo.App</module> -->
 							<style>OBF</style>
 							<optimizationLevel>9</optimizationLevel>
 							<genParam>FALSE</genParam>
@@ -113,7 +117,11 @@
 									<genParam>TRUE</genParam>
 									<!-- Run a single permutation module definition to speed up code 
 										generation. -->
-									<module>org.zerowarning.gwt.mdl.demo.App-dev</module>
+									<modules>
+										<module>org.zerowarning.gwt.mdl.demo.Components-dev</module>
+										<module>org.zerowarning.gwt.mdl.demo.Extensions-dev</module>
+									</modules>
+
 									<!-- Do not manage server side code. -->
 									<noServer>true</noServer>
 									<!-- Set the application landing page for codeserver. -->
