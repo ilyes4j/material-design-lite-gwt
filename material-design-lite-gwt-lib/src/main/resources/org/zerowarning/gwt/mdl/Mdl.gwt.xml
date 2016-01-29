@@ -4,4 +4,6 @@
 <module>
 	<inherits name="com.google.gwt.user.User" />
 	<source path="" />
+	<public path="" />
+	<stylesheet src="mdl-gwt.css" />
 </module>
