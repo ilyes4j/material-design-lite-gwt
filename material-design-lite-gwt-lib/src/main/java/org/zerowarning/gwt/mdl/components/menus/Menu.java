@@ -22,7 +22,7 @@ import com.google.gwt.user.client.ui.HTMLPanel;
  * <br>
  * 
  * When a {@link MenuItem} in the {@link Menu} is clicked, an
- * {@link ItemClickEvent} is sent
+ * {@link ItemClickEvent} is sent to the registered {@link ItemClickListener}s.
  * 
  * @author Mohamed Ilyes DIMASSI
  *
@@ -84,10 +84,11 @@ public class Menu extends HTMLPanel {
 	 * @param item
 	 *            the item to be added.
 	 */
-	public void addItem(MenuItem item) {
-		items.add(item);
-		add(item);
-		item.addDomHandler(clickHandler, ClickEvent.getType());
+	public void addItem(String item) {
+		MenuItem menuItem = new MenuItem(item);
+		items.add(menuItem);
+		add(menuItem);
+		menuItem.addDomHandler(clickHandler, ClickEvent.getType());
 	}
 
 	public void addItemClickListener(ItemClickListener listener) {

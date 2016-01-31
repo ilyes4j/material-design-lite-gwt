@@ -7,7 +7,6 @@ import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 import org.zerowarning.gwt.mdl.components.buttons.Button;
 import org.zerowarning.gwt.mdl.components.menus.ItemClickEvent;
 import org.zerowarning.gwt.mdl.components.menus.Menu;
-import org.zerowarning.gwt.mdl.components.menus.MenuItem;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.Label;
@@ -31,9 +30,9 @@ public class Extensions implements EntryPoint {
 		extensPanel.add(btn);
 
 		Menu menu = new Menu("menu_event_sample");
-		menu.addItem(new MenuItem("First option"));
-		menu.addItem(new MenuItem("Second option"));
-		menu.addItem(new MenuItem("Third option"));
+		menu.addItem("First option");
+		menu.addItem("Second option");
+		menu.addItem("Third option");
 
 		extensPanel.add(menu);
 
