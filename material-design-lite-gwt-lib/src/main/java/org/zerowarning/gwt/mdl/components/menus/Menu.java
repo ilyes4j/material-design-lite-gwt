@@ -31,17 +31,32 @@ import com.google.gwt.user.client.ui.HTMLPanel;
  */
 public class Menu extends HTMLPanel {
 
-	// menu main style
+	/**
+	 * {@link Menu} main style.
+	 */
 	public static final String CSS_MDL_MENU = "mdl-menu";
 
-	// left side of the menu is aligned with the left side of the action button.
-	// The top of the menu is right below the the bottom edge of the action
-	// button.
+	/**
+	 * Bottom Left anchor for the menu.<br>
+	 * <br>
+	 * 
+	 * left side of the menu is aligned with the left side of the action button.
+	 * The top of the menu is right below the the bottom edge of the action
+	 * button.
+	 */
 	public static final String ANCHOR_BOTTOM_LEFT = "mdl-menu--bottom-left";
 
-	// css flag for component upgrade
+	/**
+	 * css flag intended for component upgrade
+	 */
 	public static final String CSS__JS_MENU = "mdl-js-menu";
 
+	/**
+	 * Objects can register themselves to the {@link Menu} to be updated when an
+	 * item from the menu is clicked.
+	 * 
+	 * @author Mohamed Ilyes DIMASSI
+	 */
 	public static interface ItemClickListener {
 		public void onItemClicked(ItemClickEvent event);
 	}
@@ -85,14 +100,40 @@ public class Menu extends HTMLPanel {
 		listeners = new ArrayList<>();
 	}
 
+	/**
+	 * Apply magic to bring the menu to life.<br>
+	 * <br>
+	 * 
+	 * After being attached to the DOM, the {@link Menu} is upgraded using
+	 * componentHandler.upgradeElement(element) which in turn uses <a href=
+	 * "https://github.com/google/material-design-lite/blob/master/src/menu/menu.
+	 * js">MaterialMenu</a> to change the DOM tree of the component and add
+	 * required event handlers.<br>
+	 * <br>
+	 * 
+	 * The upgrade process in MaterialMenu requires that the {@link Menu} to be
+	 * upgraded is already attached to the menu. MaterialMenu references the
+	 * Menu's parent to insert a div between Menu and its parent.<br>
+	 * <br>
+	 * 
+	 * When performing the upgrade MaterialMenu will look for the associated
+	 * button in the page DOM to attach the required events to it. That's why,
+	 * it is also mandatory that the related action button is attached to the
+	 * DOM before {@link Menu}.<br>
+	 * <br>
+	 * 
+	 * 
+	 */
+	@Override
 	public void onLoad() {
 
-		// apply magic to bring the menu to life
-		// the upgrade function scan the document looking for the menu in the
-		// DOM tree. Therefore the menu should only call this method after it is
-		// attached to the DOM.
 		upgradeElement(getElement());
 
+		// componentHandler.upgradeElement(element) only operates on the very
+		// element it is applied on. It does not operate on inner elements
+		// within. Intuitively, the upgrade should be performed on the DOM tree
+		// that has element as root but this is not the case. This issue is
+		// fixed by upgrading each inner element individually.
 		for (MenuItem item : items) {
 			upgradeElement(item.getElement());
 		}
@@ -141,8 +182,13 @@ public class Menu extends HTMLPanel {
 		this.listeners.add(listener);
 	}
 
-	// This method should be extended when additional behaviour is required on
-	// items click.
+	/**
+	 * This method should be extended when additional behavior is required when
+	 * {@link MenuItem}s are clicked.
+	 * 
+	 * @param event
+	 * 
+	 */
 	protected void itemClicked(ClickEvent event) {
 		// get the sender of the click event
 		Object source = event.getSource();
@@ -168,7 +214,12 @@ public class Menu extends HTMLPanel {
 		}
 	}
 
-	// this class defines what should happen if the user clicks a menu item
+	/**
+	 * this class defines what should happen if the user clicks a menu item
+	 * 
+	 * @author Mohamed Ilyes DIMASSI
+	 *
+	 */
 	private class ItemClickHandler implements ClickHandler {
 
 		// when a click is detected, first, perform internal routines to keep
@@ -181,19 +232,30 @@ public class Menu extends HTMLPanel {
 		}
 	}
 
-	// all MenuItems are stored here. Useful to find the sequential order of the
-	// selected item
+	/**
+	 * all MenuItems are stored here. Useful to find the sequential order of the
+	 * selected item
+	 */
 	protected List<MenuItem> items;
 
-	// keep track of handler registration.
+	/**
+	 * keep track of handler registration.
+	 * 
+	 */
 	protected List<HandlerRegistration> handlerRegs;
 
-	// item click listeners
+	/**
+	 * item click listeners
+	 */
 	protected List<ItemClickListener> listeners;
 
-	// DOM event listener
+	/**
+	 * DOM event listener
+	 */
 	protected ItemClickHandler clickHandler;
 
-	// an id that enables the button and the menu to communicate
+	/**
+	 * an id that enables the button and the menu to communicate
+	 */
 	protected String menuId;
 }
