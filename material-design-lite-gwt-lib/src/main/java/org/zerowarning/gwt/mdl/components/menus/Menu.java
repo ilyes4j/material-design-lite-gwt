@@ -34,7 +34,7 @@ public class Menu extends HTMLPanel {
 	}
 
 	/**
-	 * Create a menu and the button controlling the menu.
+	 * Create the menu component.
 	 */
 	public Menu(String id) {
 
@@ -50,7 +50,7 @@ public class Menu extends HTMLPanel {
 		// ...that acts like a menu
 		addStyleName("mdl-js-menu");
 
-		// ...which items has ripples (for now)
+		// ...whose items has ripples (for now)
 		addStyleName(Ripple.HAS_RIPPLE.toString());
 
 		// ... which is placed below the related button
@@ -94,6 +94,31 @@ public class Menu extends HTMLPanel {
 		this.listeners.add(listener);
 	}
 
+	protected void itemClicked(ClickEvent event) {
+		// get the sender of the click event
+		Object source = event.getSource();
+
+		// is the sender one of the items of the menu
+		if (source instanceof MenuItem) {
+
+			// cast the sender into a MenuItem
+			MenuItem itemSrc = (MenuItem) source;
+
+			// the sequential order of the item in the list of items
+			int itemIndex = items.indexOf(itemSrc);
+			String itemValue = itemSrc.getText();
+
+			// create the event containing the required informations about
+			// the selected item
+			ItemClickEvent evt = new ItemClickEvent(itemIndex, itemValue);
+
+			// dispatch the selected item to all listeners
+			for (ItemClickListener listener : listeners) {
+				listener.onItemClicked(evt);
+			}
+		}
+	}
+
 	// this class defines what should happen if the user clicks a menu item
 	private class ItemClickHandler implements ClickHandler {
 
@@ -103,49 +128,28 @@ public class Menu extends HTMLPanel {
 		// response of the Item Click
 		@Override
 		public void onClick(ClickEvent event) {
-			// get the sender of the click event
-			Object source = event.getSource();
-
-			// is the sender one of the items of the menu
-			if (source instanceof MenuItem) {
-
-				// cast the sender into a MenuItem
-				MenuItem itemSrc = (MenuItem) source;
-
-				// the sequential order of the item in the list of items
-				int itemIndex = items.indexOf(itemSrc);
-				String itemValue = itemSrc.getText();
-
-				// create the event containing the required informations about
-				// the selected item
-				ItemClickEvent evt = new ItemClickEvent(itemIndex, itemValue);
-
-				// dispatch the selected item to all listeners
-				for (ItemClickListener listener : listeners) {
-					listener.onItemClicked(evt);
-				}
-			}
+			itemClicked(event);
 		}
 	}
 
 	// all MenuItems are stored here. Useful to find the sequencial order of the
 	// selected item
-	private List<MenuItem> items;
+	protected List<MenuItem> items;
 
 	// item click listeners
-	private List<ItemClickListener> listeners;
+	protected List<ItemClickListener> listeners;
 
 	// DOM event listener
-	private ItemClickHandler clickHandler;
+	protected ItemClickHandler clickHandler;
 
 	// an id that enables the button and the menu to communicate
-	private String menuId;
+	protected String menuId;
 
 	// menu main style
-	private static final String CSS_MDL_MENU = "mdl-menu";
+	public static final String CSS_MDL_MENU = "mdl-menu";
 
 	// left side of the menu is aligned with the left side of the action button.
 	// The top of the menu is right below the the bottom edge of the action
 	// button.
-	private static final String ANCHOR_BOTTOM_LEFT = "mdl-menu--bottom-left";
+	public static final String ANCHOR_BOTTOM_LEFT = "mdl-menu--bottom-left";
 }
