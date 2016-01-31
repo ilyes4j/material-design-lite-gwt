@@ -31,6 +31,17 @@ import com.google.gwt.user.client.ui.HTMLPanel;
  */
 public class Menu extends HTMLPanel {
 
+	// menu main style
+	public static final String CSS_MDL_MENU = "mdl-menu";
+
+	// left side of the menu is aligned with the left side of the action button.
+	// The top of the menu is right below the the bottom edge of the action
+	// button.
+	public static final String ANCHOR_BOTTOM_LEFT = "mdl-menu--bottom-left";
+
+	// css flag for component upgrade
+	public static final String CSS__JS_MENU = "mdl-js-menu";
+
 	public static interface ItemClickListener {
 		public void onItemClicked(ItemClickEvent event);
 	}
@@ -50,7 +61,7 @@ public class Menu extends HTMLPanel {
 		addStyleName(CSS_MDL_MENU);
 
 		// ...that acts like a menu
-		addStyleName("mdl-js-menu");
+		addStyleName(CSS__JS_MENU);
 
 		// ...whose items has ripples (for now)
 		addStyleName(Ripple.HAS_RIPPLE.toString());
@@ -81,6 +92,10 @@ public class Menu extends HTMLPanel {
 		// DOM tree. Therefore the menu should only call this method after it is
 		// attached to the DOM.
 		upgradeElement(getElement());
+
+		for (MenuItem item : items) {
+			upgradeElement(item.getElement());
+		}
 	}
 
 	/**
@@ -181,12 +196,4 @@ public class Menu extends HTMLPanel {
 
 	// an id that enables the button and the menu to communicate
 	protected String menuId;
-
-	// menu main style
-	public static final String CSS_MDL_MENU = "mdl-menu";
-
-	// left side of the menu is aligned with the left side of the action button.
-	// The top of the menu is right below the the bottom edge of the action
-	// button.
-	public static final String ANCHOR_BOTTOM_LEFT = "mdl-menu--bottom-left";
 }
