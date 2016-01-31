@@ -1,5 +1,10 @@
 package org.zerowarning.gwt.mdl.demo;
 
+import static org.zerowarning.gwt.mdl.components.buttons.Button.createRaised;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
+
+import org.zerowarning.gwt.mdl.components.buttons.Button;
 import org.zerowarning.gwt.mdl.components.menus.ItemClickEvent;
 import org.zerowarning.gwt.mdl.components.menus.Menu;
 import org.zerowarning.gwt.mdl.components.menus.MenuItem;
@@ -21,9 +26,12 @@ public class Extensions implements EntryPoint {
 
 		RootPanel extensPanel = RootPanel.get("extensContainer");
 
-		Menu menu = new Menu("Choose option");
-		menu.getElement().setAttribute("style", "padding-right: 4px;");
+		Button btn = createRaised(BTN_NO_COLOR, HAS_RIPPLE, "Choose option");
+		btn.getElement().setId("menu_event_sample");
+		extensPanel.add(btn);
 
+		Menu menu = new Menu("menu_event_sample");
+		menu.getElement().setAttribute("style", "padding-right: 4px;");
 		menu.addItem(new MenuItem("First option"));
 		menu.addItem(new MenuItem("Second option"));
 		menu.addItem(new MenuItem("Third option"));
