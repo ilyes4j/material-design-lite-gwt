@@ -31,7 +31,6 @@ public class Extensions implements EntryPoint {
 		extensPanel.add(btn);
 
 		Menu menu = new Menu("menu_event_sample");
-		menu.getElement().setAttribute("style", "padding-right: 4px;");
 		menu.addItem(new MenuItem("First option"));
 		menu.addItem(new MenuItem("Second option"));
 		menu.addItem(new MenuItem("Third option"));
