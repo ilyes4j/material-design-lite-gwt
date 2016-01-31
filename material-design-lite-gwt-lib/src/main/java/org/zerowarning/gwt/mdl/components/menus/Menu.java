@@ -163,19 +163,25 @@ public class Menu extends HTMLPanel {
 	 * @param item
 	 *            the item to be added.
 	 */
-	public void addItem(String item) {
+	public void addItem(String item, boolean enabled) {
 		HandlerRegistration reg;
 
 		// create the item holder
 		MenuItem menuItem = new MenuItem(item);
+
+		menuItem.setEnabled(enabled);
+
 		// ... add it the items list
 		items.add(menuItem);
 		// ... add the MenuItem to the DOM.
 		add(menuItem);
 
+		// register a click handler for the item only if the item is enabled.
 		// keep the handler reference
-		reg = menuItem.addDomHandler(clickHandler, getType());
-		handlerRegs.add(reg);
+		if (enabled) {
+			reg = menuItem.addDomHandler(clickHandler, getType());
+			handlerRegs.add(reg);
+		}
 	}
 
 	public void addItemClickListener(ItemClickListener listener) {
