@@ -1,5 +1,6 @@
 package org.zerowarning.gwt.mdl.components.menus;
 
+import static com.google.gwt.event.dom.client.ClickEvent.getType;
 import static org.zerowarning.gwt.mdl.components.ComponentHandler.upgradeElement;
 
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import org.zerowarning.gwt.mdl.components.ripples.Ripple;
 import com.google.gwt.dom.client.UListElement;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.HTMLPanel;
 
 /**
@@ -65,6 +67,9 @@ public class Menu extends HTMLPanel {
 		// create the items list
 		items = new ArrayList<>();
 
+		// create the handlers references for future listeners removal.
+		handlerRegs = new ArrayList<>();
+
 		// create the array that will hold item click listeners
 		listeners = new ArrayList<>();
 	}
@@ -79,22 +84,50 @@ public class Menu extends HTMLPanel {
 	}
 
 	/**
+	 * Remove all items from the menu.
+	 */
+	public void clearMenu() {
+
+		// remove click handlers
+		for (HandlerRegistration reg : handlerRegs) {
+			reg.removeHandler();
+		}
+		handlerRegs.clear(); // reset the handlers registrations list
+
+		// remove items from the DOM
+		for (MenuItem item : items) {
+			remove(item);
+		}
+		items.clear(); // reset the item list.
+	}
+
+	/**
 	 * Adds a new option to the list of options of the menu.
 	 * 
 	 * @param item
 	 *            the item to be added.
 	 */
 	public void addItem(String item) {
+		HandlerRegistration reg;
+
+		// create the item holder
 		MenuItem menuItem = new MenuItem(item);
+		// ... add it the items list
 		items.add(menuItem);
+		// ... add the MenuItem to the DOM.
 		add(menuItem);
-		menuItem.addDomHandler(clickHandler, ClickEvent.getType());
+
+		// keep the handler reference
+		reg = menuItem.addDomHandler(clickHandler, getType());
+		handlerRegs.add(reg);
 	}
 
 	public void addItemClickListener(ItemClickListener listener) {
 		this.listeners.add(listener);
 	}
 
+	// This method should be extended when additional behaviour is required on
+	// items click.
 	protected void itemClicked(ClickEvent event) {
 		// get the sender of the click event
 		Object source = event.getSource();
@@ -133,9 +166,12 @@ public class Menu extends HTMLPanel {
 		}
 	}
 
-	// all MenuItems are stored here. Useful to find the sequencial order of the
+	// all MenuItems are stored here. Useful to find the sequential order of the
 	// selected item
 	protected List<MenuItem> items;
+
+	// keep track of handler registration.
+	protected List<HandlerRegistration> handlerRegs;
 
 	// item click listeners
 	protected List<ItemClickListener> listeners;

@@ -33,6 +33,10 @@ public class Extensions implements EntryPoint {
 		menu.addItem("First option");
 		menu.addItem("Second option");
 		menu.addItem("Third option");
+		menu.clear();
+		menu.addItem("Option #1");
+		menu.addItem("Option #2");
+		menu.addItem("Option #3");
 
 		extensPanel.add(menu);
 
