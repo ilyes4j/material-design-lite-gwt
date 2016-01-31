@@ -1,5 +1,7 @@
 package org.zerowarning.gwt.mdl.components.menus;
 
+import static com.google.gwt.dom.client.Style.Overflow.SCROLL;
+import static com.google.gwt.dom.client.Style.Unit.PX;
 import static com.google.gwt.event.dom.client.ClickEvent.getType;
 import static org.zerowarning.gwt.mdl.components.ComponentHandler.upgradeElement;
 
@@ -129,6 +131,9 @@ public class Menu extends HTMLPanel {
 
 		upgradeElement(getElement());
 
+		// make sure the menu height does not exceed the threshold.
+		assertMaxHeight();
+
 		// componentHandler.upgradeElement(element) only operates on the very
 		// element it is applied on. It does not operate on inner elements
 		// within. Intuitively, the upgrade should be performed on the DOM tree
@@ -239,6 +244,20 @@ public class Menu extends HTMLPanel {
 	}
 
 	/**
+	 * If the menu approximate height exceeds the max threshold, add a scroll
+	 * bar.
+	 */
+	private void assertMaxHeight() {
+
+		int height = getElement().getClientHeight();
+
+		if (height > MAX_HEIGHT) {
+			getElement().getStyle().setOverflowY(SCROLL);
+			getElement().getStyle().setHeight(MAX_HEIGHT, PX);
+		}
+	}
+
+	/**
 	 * all MenuItems are stored here. Useful to find the sequential order of the
 	 * selected item
 	 */
@@ -264,4 +283,9 @@ public class Menu extends HTMLPanel {
 	 * an id that enables the button and the menu to communicate
 	 */
 	protected String menuId;
+
+	/**
+	 * Maximum value not to be exceeded by the menu's height.
+	 */
+	private static final int MAX_HEIGHT = 200;
 }
