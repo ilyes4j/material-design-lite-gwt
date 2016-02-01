@@ -12,8 +12,3 @@ at least the header renders nicely across browsers*/
 	background-color: rgb(63, 81, 181);
 	color: #FFFFFF;
 }
-
-.mdl-gwt-title {
-	color: hsl(0, 0%, 40%);
-	padding-top: 30px;
-}
