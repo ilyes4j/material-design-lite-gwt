@@ -5,7 +5,7 @@
 	border-bottom: 3px solid rgb(255, 171, 64);
 }
 
-/*Because of this https://github.com/google/material-design-lite/issues/1676
+/*Because of https://github.com/google/material-design-lite/issues/1676
 we are dropping the mdl-layout__header for a less fancy implementation but
 at least the header renders nicely across browsers*/
 .mdl-layout__simplified-header {
@@ -13,6 +13,7 @@ at least the header renders nicely across browsers*/
 	color: #FFFFFF;
 }
 
-.menu-add-item-section {
+.mdl-gwt-title {
+	color: hsl(0, 0%, 40%);
 	padding-top: 30px;
 }

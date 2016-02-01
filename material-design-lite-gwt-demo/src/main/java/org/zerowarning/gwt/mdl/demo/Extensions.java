@@ -23,28 +23,34 @@ public class Extensions implements EntryPoint {
 	 */
 	public void onModuleLoad() {
 
-		RootPanel extensPanel = RootPanel.get("extensContainer");
+		eventClickDemo();
+		menusScrollDemo();
+	}
 
-		Button btn = createRaised(BTN_NO_COLOR, HAS_RIPPLE, "Choose option");
-		btn.getElement().setId("menu_event_sample");
-		extensPanel.add(btn);
+	private void eventClickDemo() {
 
-		Menu menu = new Menu("menu_event_sample");
-		menu.addItem("First option", true);
-		menu.addItem("Second option", true);
-		menu.addItem("Third option", false);
-		menu.clear();
-		menu.addItem("Option #1", false);
-		menu.addItem("Option #2", true);
-		menu.addItem("Option #3", true);
+		final String EVENT_CONTAINER = "eventContainer";
+		final String COMBO_ID = "menu_event_sample";
+		final String BTN_TEXT = "Choose option";
+		final String ITEM_VALUE = "I choose Option #";
 
-		extensPanel.add(menu);
+		RootPanel eventPanel = RootPanel.get(EVENT_CONTAINER);
+
+		Button btn = createRaised(BTN_NO_COLOR, HAS_RIPPLE, BTN_TEXT);
+		btn.getElement().setId(COMBO_ID);
+		eventPanel.add(btn);
+
+		Menu menu = new Menu(COMBO_ID);
+		menu.addItem(ITEM_VALUE + "1", true);
+		menu.addItem(ITEM_VALUE + "2", false);
+		menu.addItem(ITEM_VALUE + "3", true);
+		eventPanel.add(menu);
 
 		final Label lbl = new Label();
 		lbl.setText("Choose option");
-		lbl.addStyleName("mdl-typography--headline");
+		lbl.addStyleName("mdl-typography--title");
 		lbl.addStyleName("mdl-gwt-select-status");
-		extensPanel.add(lbl);
+		eventPanel.add(lbl);
 
 		menu.addItemClickListener(new Menu.ItemClickListener() {
 
@@ -53,5 +59,24 @@ public class Extensions implements EntryPoint {
 				lbl.setText(event.getValue());
 			}
 		});
+	}
+
+	private void menusScrollDemo() {
+		final String SCROLL_CONTAINER = "scrollContainer";
+		final String BTN_TEXT = "I need a scroll";
+		final String COMBO_ID = "menu_scroll_sample";
+		final String ITEM_VALUE = "Menu Option #";
+
+		RootPanel eventPanel = RootPanel.get(SCROLL_CONTAINER);
+
+		Button btn = createRaised(BTN_NO_COLOR, HAS_RIPPLE, BTN_TEXT);
+		btn.getElement().setId(COMBO_ID);
+		eventPanel.add(btn);
+
+		Menu menu = new Menu(COMBO_ID);
+		for (int i = 0; i < 20; i++) {
+			menu.addItem(ITEM_VALUE + i, true);
+		}
+		eventPanel.add(menu);
 	}
 }
