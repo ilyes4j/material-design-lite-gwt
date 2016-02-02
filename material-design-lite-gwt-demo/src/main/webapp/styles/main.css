@@ -1,3 +1,8 @@
+/*Make roboto the default font for the demo*/
+.demo-global {
+	font-family: "roboto", "Helvetica", "Arial", sans-serif;
+}
+
 /*A tab title in the header tab bar*/
 .demo-header-tab-option {
 	color: #FFFFFF;
