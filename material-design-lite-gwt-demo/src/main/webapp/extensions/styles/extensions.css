@@ -1,14 +1,14 @@
 @CHARSET "UTF-8";
 
 /*set the active tab marker according to the the current theme color set*/
-.is-active {
+.demo-is-active {
 	border-bottom: 3px solid rgb(255, 171, 64);
 }
 
 /*Because of https://github.com/google/material-design-lite/issues/1676
 we are dropping the mdl-layout__header for a less fancy implementation but
 at least the header renders nicely across browsers*/
-.mdl-layout__simplified-header {
+.demo-simplified-header {
 	background-color: rgb(63, 81, 181);
 	color: #FFFFFF;
 }
