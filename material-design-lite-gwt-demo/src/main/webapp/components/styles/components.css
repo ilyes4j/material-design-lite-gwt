@@ -12,3 +12,16 @@ at least the header renders nicely across browsers*/
 	background-color: rgb(96, 125, 139);
 	color: #FFFFFF;
 }
+
+.gwt-mdl-buttons-row {
+	margin: 30px 0;
+}
+
+.gwt-mdl-button-container {
+	display: inline-block;
+	margin: 0 30px;
+}
+
+.gwt-mdl-button-caption {
+	margin-top: 10px;
+}

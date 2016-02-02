@@ -12,6 +12,7 @@ import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.PRIMARY;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.COLORED;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
 import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
 
 import com.google.gwt.core.client.EntryPoint;
 
@@ -26,30 +27,33 @@ public class Components implements EntryPoint {
 	 */
 	public void onModuleLoad() {
 
-		final String BTN_CTNR = "buttonsContainer";
-		
+		final String CTNR_1 = "ctnr_1";
+		final String CTNR_2 = "ctnr_2";
+		final String CTNR_3 = "ctnr_3";
+
 		final String TXT = "Button";
-		
 		final String ICO_1 = "add";
-		final String ICO_2 = "info";
 		final String ICO_3 = "mood";
 
-		get(BTN_CTNR).add(createFab(FAB_NO_COLOR, HAS_RIPPLE, ICO_1));
-		get(BTN_CTNR).add(createFab(COLORED, HAS_RIPPLE, ICO_2));
+		//colored fab button with an add icon
+		get(CTNR_1).add(createFab(FAB_NO_COLOR, NONE, ICO_1));
+		
+		//colored fab button with an add icon and ripples
+		get(CTNR_2).add(createFab(COLORED, HAS_RIPPLE, ICO_1));
 
-		get(BTN_CTNR).add(createRaised(BTN_NO_COLOR, HAS_RIPPLE, TXT));
-		get(BTN_CTNR).add(createRaised(PRIMARY, HAS_RIPPLE, TXT));
-		get(BTN_CTNR).add(createRaised(ACCENT, HAS_RIPPLE, TXT));
+		get(CTNR_3).add(createRaised(BTN_NO_COLOR, HAS_RIPPLE, TXT));
+		get(CTNR_3).add(createRaised(PRIMARY, HAS_RIPPLE, TXT));
+		get(CTNR_3).add(createRaised(ACCENT, HAS_RIPPLE, TXT));
 
-		get(BTN_CTNR).add(createFlat(BTN_NO_COLOR, HAS_RIPPLE, TXT));
-		get(BTN_CTNR).add(createFlat(PRIMARY, HAS_RIPPLE, TXT));
-		get(BTN_CTNR).add(createFlat(ACCENT, HAS_RIPPLE, TXT));
+		get(CTNR_3).add(createFlat(BTN_NO_COLOR, HAS_RIPPLE, TXT));
+		get(CTNR_3).add(createFlat(PRIMARY, HAS_RIPPLE, TXT));
+		get(CTNR_3).add(createFlat(ACCENT, HAS_RIPPLE, TXT));
 
-		get(BTN_CTNR).add(createIcon(BTN_NO_COLOR, HAS_RIPPLE, ICO_3));
-		get(BTN_CTNR).add(createIcon(PRIMARY, HAS_RIPPLE, ICO_3));
-		get(BTN_CTNR).add(createIcon(ACCENT, HAS_RIPPLE, ICO_3));
+		get(CTNR_3).add(createIcon(BTN_NO_COLOR, HAS_RIPPLE, ICO_3));
+		get(CTNR_3).add(createIcon(PRIMARY, HAS_RIPPLE, ICO_3));
+		get(CTNR_3).add(createIcon(ACCENT, HAS_RIPPLE, ICO_3));
 
-		get(BTN_CTNR).add(createMiniFab(FAB_NO_COLOR, HAS_RIPPLE, ICO_1));
-		get(BTN_CTNR).add(createMiniFab(COLORED, HAS_RIPPLE, ICO_1));
+		get(CTNR_3).add(createMiniFab(FAB_NO_COLOR, HAS_RIPPLE, ICO_1));
+		get(CTNR_3).add(createMiniFab(COLORED, HAS_RIPPLE, ICO_1));
 	}
 }

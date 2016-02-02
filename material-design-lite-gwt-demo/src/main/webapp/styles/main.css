@@ -47,6 +47,9 @@
 
 /*Make each title grey and leave a space before*/
 .mdl-gwt-title {
-	color: hsl(0, 0%, 40%);
 	padding-top: 30px;
+}
+
+.mdl-gwt-title, .mdl-gwt-text {
+	color: hsl(0, 0%, 46%);
 }
