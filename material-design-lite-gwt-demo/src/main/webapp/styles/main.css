@@ -1,4 +1,5 @@
-.layout-tab-option {
+/*A tab title in the header tab bar*/
+.demo-header-tab-option {
 	color: #FFFFFF;
 	/*box-sizing*/
 	-moz-box-sizing: border-box;
@@ -21,35 +22,36 @@
 	text-decoration: none;
 }
 
-/*component page main section layout*/
-.mdl-components {
+/*the main section of the page*/
+.demo-main {
 	display: -ms-flex;
 	display: -moz-flex;
 	display: -webkit-flex;
 	display: flex;
 }
 
-/*layout and colors for the components navigation panel*/
-.mdl-components__nav {
+/*the navigation panel under the main area*/
+.demo-main .nav {
 	width: 150px;
 	padding: 50px 20px;
 	background-color: hsl(0, 0%, 90%);
 }
 
-/*component descriptions section layout */
-/* make the main content area as wide as possible */
-.mdl-components__page {
+/*the content under the main area*/
+/*make the content area as wide as possible */
+.demo-main .page {
 	margin-left: 80px;
 	margin-right: 80px;
 	margin-top: 32px;
 	width: 100%;
 }
 
-/*Make each title grey and leave a space before*/
-.mdl-gwt-title {
+/*leave a space before every title*/
+.demo-title {
 	padding-top: 30px;
 }
 
-.mdl-gwt-title, .mdl-gwt-text {
+/*default color for paragraphs and titles*/
+.demo-title, .demo-text {
 	color: hsl(0, 0%, 46%);
 }
