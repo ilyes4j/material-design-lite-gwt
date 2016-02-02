@@ -34,7 +34,6 @@
 .demo-main .nav {
 	width: 150px;
 	padding: 50px 20px;
-	background-color: hsl(0, 0%, 90%);
 }
 
 /*the content under the main area*/
@@ -54,4 +53,14 @@
 /*default color for paragraphs and titles*/
 .demo-title, .demo-text {
 	color: hsl(0, 0%, 46%);
+}
+
+/* make backgrounds grey*/
+pre.prettyprint, .demo-main .nav {
+	background-color: hsl(0, 0%, 90%);
+}
+
+/* remove the black thin border*/
+pre.prettyprint {
+	border: none;
 }

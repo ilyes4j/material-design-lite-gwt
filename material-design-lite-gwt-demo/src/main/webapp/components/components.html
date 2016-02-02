@@ -14,6 +14,9 @@
 	type="text/css">
 
 <script
+	src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+<script
 	src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -37,27 +40,53 @@
 					class="demo-header-tab-option">extensions</a>
 			</div>
 		</header>
-		<div class="demo-main mdl-layout__content">
-			<aside class="nav mdl-shadow--8dp"></aside>
-			<div id="buttonsContainer" class="page">
-				<h4 class="demo-title">Buttons</h4>
+		<div class="mdl-layout__content">
+			<div class="demo-main">
+				<aside class="nav mdl-shadow--8dp"></aside>
+				<div id="buttonsContainer" class="page">
+					<h4 class="demo-title">Buttons</h4>
 
-				<span>Variations on Material Design buttons.</span>
+					<span>Variations on Material Design buttons.</span>
 
-				<div class="gwt-mdl-buttons-row" align="center">
-					<div class="gwt-mdl-button-container">
+					<h5 class="demo-title">Colored Fab</h5>
+
+					<div class="gwt-mdl-button-container" align="center">
 						<div id="ctnr_1"></div>
 						<div class="gwt-mdl-button-caption demo-text">Colored FAB</div>
 					</div>
 
-					<div class="gwt-mdl-button-container">
-						<div id="ctnr_2"></div>
-						<div class="gwt-mdl-button-caption demo-text">With
-							ripples</div>
-					</div>
-				</div>
+					<pre class="prettyprint lang-java">
+package org.zerowarning.gwt.mdl.demo;
 
-				<div id="ctnr_3"></div>
+import static com.google.gwt.user.client.ui.RootPanel.get;
+import static org.zerowarning.gwt.mdl.components.buttons.Button.createFab;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
+
+import com.google.gwt.core.client.EntryPoint;
+
+public class Components implements EntryPoint {
+
+	public void onModuleLoad() {
+	
+		//The container where the button is placed
+		final String CTNR = "ctnr";
+	
+		//the icon to be displayed
+		final String ICO = "add";
+	
+		//colored fab button with an add icon
+		get(CTNR).add(createFab(FAB_NO_COLOR, NONE, ICO));
+	}
+}</pre>
+
+					<div class="gwt-mdl-button-container" align="center">
+						<div id="ctnr_2"></div>
+						<div class="gwt-mdl-button-caption demo-text">With ripples</div>
+					</div>
+
+					<div id="ctnr_3"></div>
+				</div>
 			</div>
 		</div>
 	</div>
