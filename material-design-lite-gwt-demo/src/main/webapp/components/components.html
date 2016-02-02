@@ -56,29 +56,18 @@
 					</div>
 
 					<pre class="prettyprint lang-java">
-package org.zerowarning.gwt.mdl.demo;
-
-import static com.google.gwt.user.client.ui.RootPanel.get;
+//adding the required import at the class header
 import static org.zerowarning.gwt.mdl.components.buttons.Button.createFab;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
 import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
 
-import com.google.gwt.core.client.EntryPoint;
+import org.zerowarning.gwt.mdl.components.buttons.Button;
 
-public class Components implements EntryPoint {
+//then at some point, create the button
+//colored fab button with an add icon
+Button btn = createFab(FAB_NO_COLOR, NONE, "add"));
 
-	public void onModuleLoad() {
-	
-		//The container where the button is placed
-		final String CTNR = "ctnr";
-	
-		//the icon to be displayed
-		final String ICO = "add";
-	
-		//colored fab button with an add icon
-		get(CTNR).add(createFab(FAB_NO_COLOR, NONE, ICO));
-	}
-}</pre>
+//then use the created button</pre>
 
 					<div class="gwt-mdl-button-container" align="center">
 						<div id="ctnr_2"></div>
