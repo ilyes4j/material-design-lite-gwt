@@ -35,10 +35,10 @@ public class Components implements EntryPoint {
 		final String ICO_1 = "add";
 		final String ICO_3 = "mood";
 
-		//colored fab button with an add icon
-		get(CTNR_1).add(createFab(FAB_NO_COLOR, NONE, ICO_1));
-		
-		//colored fab button with an add icon and ripples
+		// colored fab button with an add icon
+		get(CTNR_1).add(createFab(COLORED, NONE, ICO_1));
+
+		// colored fab button with an add icon and ripples
 		get(CTNR_2).add(createFab(COLORED, HAS_RIPPLE, ICO_1));
 
 		get(CTNR_3).add(createRaised(BTN_NO_COLOR, HAS_RIPPLE, TXT));
