@@ -45,9 +45,10 @@
 				<div id="buttonsContainer" class="page">
 					<h4 class="demo-title">Buttons</h4>
 
-					<span class="demo-text">Variations on Material Design buttons.</span>
+					<span class="demo-text">Variations on Material Design
+						buttons.</span>
 
-					<h5 class="demo-title">Colored Fab</h5>
+					<h5 class="demo-title">Colored fab</h5>
 
 					<div class="demo-button-container" align="center">
 						<div id="ctnr_1"></div>
@@ -68,10 +69,22 @@ Button btn = createFab(COLORED, NONE, "add"));
 
 //then use the created button</pre>
 
+					<h5 class="demo-title">Colored fab with ripples</h5>
+
 					<div class="demo-button-container" align="center">
 						<div id="ctnr_2"></div>
 						<div class="demo-button-caption demo-text">With ripples</div>
 					</div>
+
+					<pre class="prettyprint lang-java">
+import static org.zerowarning.gwt.mdl.components.buttons.Button.createFab;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.COLORED;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
+
+import org.zerowarning.gwt.mdl.components.buttons.Button;
+
+//colored fab button with an add icon
+Button btn = createFab(COLORED, HAS_RIPPLE, "add"));</pre>
 
 					<div id="ctnr_3"></div>
 				</div>
