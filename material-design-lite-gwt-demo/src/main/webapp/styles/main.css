@@ -51,6 +51,11 @@
 	width: 100%;
 }
 
+/*limit the width of the content for better readability*/
+.demo-main .page .content {
+	max-width: 840px;
+}
+
 /*leave a space before every title*/
 .demo-title {
 	padding-top: 30px;
