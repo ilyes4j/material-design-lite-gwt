@@ -39,6 +39,7 @@
 .demo-main .nav {
 	width: 150px;
 	padding: 50px 20px;
+	display: none;
 }
 
 /*the content under the main area*/
