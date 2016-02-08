@@ -65,15 +65,15 @@ import org.zerowarning.gwt.mdl.components.buttons.Button;
 
 //then at some point, create the button
 //colored fab button with an add icon
-Button btn = createFab(COLORED, NONE, "add"));
+Button btn = createFab(COLORED, NONE, "add");
 
 //then use the created button</pre>
 
-					<h5 class="demo-title">Colored fab with ripples</h5>
+					<h5 class="demo-title">Colored fab with ripple</h5>
 
 					<div class="demo-button-container" align="center">
 						<div id="ctnr_2"></div>
-						<div class="demo-button-caption demo-text">With ripples</div>
+						<div class="demo-button-caption demo-text">With ripple</div>
 					</div>
 
 					<pre class="prettyprint lang-java">
@@ -83,10 +83,62 @@ import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 
 import org.zerowarning.gwt.mdl.components.buttons.Button;
 
-//colored fab button with an add icon
-Button btn = createFab(COLORED, HAS_RIPPLE, "add"));</pre>
+//colored fab button with an add icon and ripple
+Button btn = createFab(COLORED, HAS_RIPPLE, "add");</pre>
 
-					<div id="ctnr_3"></div>
+					<h5 class="demo-title">Plain fab</h5>
+
+					<div class="demo-button-container" align="center">
+						<div id="ctnr_3"></div>
+						<div class="demo-button-caption demo-text">Plain FAB</div>
+					</div>
+
+					<pre class="prettyprint lang-java">
+import static org.zerowarning.gwt.mdl.components.buttons.Button.createFab;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
+
+import org.zerowarning.gwt.mdl.components.buttons.Button;
+
+//Plain fab button with an add icon
+Button btn = createFab(BTN_NO_COLOR, NONE, "add");</pre>
+
+					<h5 class="demo-title">Plain fab with ripple</h5>
+
+					<div class="demo-button-container" align="center">
+						<div id="ctnr_4"></div>
+						<div class="demo-button-caption demo-text">With ripple</div>
+					</div>
+
+					<pre class="prettyprint lang-java">
+import static org.zerowarning.gwt.mdl.components.buttons.Button.createFab;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
+
+import org.zerowarning.gwt.mdl.components.buttons.Button;
+
+//Plain fab button with an add icon and ripple
+Button btn = createFab(BTN_NO_COLOR, HAS_RIPPLE, "add");</pre>
+
+					<h5 class="demo-title">Disabled fab</h5>
+
+					<div class="demo-button-container" align="center">
+						<div id="ctnr_5"></div>
+						<div class="demo-button-caption demo-text">Disabled</div>
+					</div>
+
+					<pre class="prettyprint lang-java">
+import static org.zerowarning.gwt.mdl.components.buttons.Button.createFab;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
+
+import org.zerowarning.gwt.mdl.components.buttons.Button;
+
+//Disabled fab button with an add icon
+Button btn = createFab(BTN_NO_COLOR, NONE, "add");
+btn.setEnabled(false);</pre>
+
+					<div id="ctnr"></div>
 				</div>
 			</div>
 		</div>
