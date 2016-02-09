@@ -29,14 +29,15 @@ public class Components implements EntryPoint {
 	 */
 	public void onModuleLoad() {
 
-		final String CTNR_1 = "ctnr_1";
-		final String CTNR_2 = "ctnr_2";
-		final String CTNR_3 = "ctnr_3";
-		final String CTNR_4 = "ctnr_4";
-		final String CTNR_5 = "ctnr_5";
-		final String CTNR_6 = "ctnr_6";
-		final String CTNR_7 = "ctnr_7";
-		final String CTNR_8 = "ctnr_8";
+		final String CTNR_01 = "ctnr_01";
+		final String CTNR_02 = "ctnr_02";
+		final String CTNR_03 = "ctnr_03";
+		final String CTNR_04 = "ctnr_04";
+		final String CTNR_05 = "ctnr_05";
+		final String CTNR_06 = "ctnr_06";
+		final String CTNR_07 = "ctnr_07";
+		final String CTNR_08 = "ctnr_08";
+		final String CTNR_09 = "ctnr_09";
 		final String CTNR = "ctnr";
 
 		final String TXT = "Button";
@@ -44,32 +45,35 @@ public class Components implements EntryPoint {
 		final String ICO_3 = "mood";
 
 		// colored fab button with an add icon
-		get(CTNR_1).add(createFab(COLORED, NONE, ICO_1));
+		get(CTNR_01).add(createFab(COLORED, NONE, ICO_1));
 
 		// colored fab button with an add icon and ripple
-		get(CTNR_2).add(createFab(COLORED, HAS_RIPPLE, ICO_1));
+		get(CTNR_02).add(createFab(COLORED, HAS_RIPPLE, ICO_1));
 
 		// Plain fab button with an add icon
-		get(CTNR_3).add(createFab(FAB_NO_COLOR, NONE, ICO_1));
+		get(CTNR_03).add(createFab(FAB_NO_COLOR, NONE, ICO_1));
 
 		// Plain fab button with an add icon and ripple
-		get(CTNR_4).add(createFab(FAB_NO_COLOR, HAS_RIPPLE, ICO_1));
+		get(CTNR_04).add(createFab(FAB_NO_COLOR, HAS_RIPPLE, ICO_1));
 
 		// Disabled fab button with an add icon
 		Button btnFab = createFab(FAB_NO_COLOR, NONE, ICO_1);
 		btnFab.setEnabled(false);
-		get(CTNR_5).add(btnFab);
+		get(CTNR_05).add(btnFab);
 
 		//create a plain raised button
-		get(CTNR_6).add(createRaised(BTN_NO_COLOR, NONE, TXT));
+		get(CTNR_06).add(createRaised(BTN_NO_COLOR, NONE, TXT));
 		
 		//create a plain raised button with ripple
-		get(CTNR_7).add(createRaised(BTN_NO_COLOR, HAS_RIPPLE, TXT));
+		get(CTNR_07).add(createRaised(BTN_NO_COLOR, HAS_RIPPLE, TXT));
 		
 		//create a plain raised disabled button
 		Button btnRaised = createRaised(BTN_NO_COLOR, NONE, TXT);
 		btnRaised.setEnabled(false);
-		get(CTNR_8).add(btnRaised);
+		get(CTNR_08).add(btnRaised);
+		
+		//create a colored button with a ripple
+		get(CTNR_09).add(createRaised(PRIMARY, HAS_RIPPLE, TXT));
 		
 		get(CTNR).add(createRaised(BTN_NO_COLOR, HAS_RIPPLE, TXT));
 		get(CTNR).add(createRaised(PRIMARY, HAS_RIPPLE, TXT));
