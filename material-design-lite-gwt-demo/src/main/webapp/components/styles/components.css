@@ -14,7 +14,7 @@ at least the header renders nicely across browsers*/
 }
 
 .demo-button-container {
-	/*display: inline-block;*/
+	display: inline-block;
 	margin: 0 30px;
 }
 

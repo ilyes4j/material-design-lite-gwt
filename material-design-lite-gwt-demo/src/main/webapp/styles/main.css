@@ -68,10 +68,11 @@
 
 /* make backgrounds grey*/
 pre.prettyprint, .demo-main .nav {
-	background-color: hsl(0, 0%, 90%);
+	background-color: hsl(0, 0%, 95%);
 }
 
 /* remove the black thin border*/
 pre.prettyprint {
 	border: none;
+	font-size: 12px;
 }

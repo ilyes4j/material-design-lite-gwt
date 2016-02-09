@@ -38,6 +38,9 @@ public class Components implements EntryPoint {
 		final String CTNR_07 = "ctnr_07";
 		final String CTNR_08 = "ctnr_08";
 		final String CTNR_09 = "ctnr_09";
+		final String CTNR_10 = "ctnr_10";
+		final String CTNR_11 = "ctnr_11";
+
 		final String CTNR = "ctnr";
 
 		final String TXT = "Button";
@@ -74,6 +77,12 @@ public class Components implements EntryPoint {
 		
 		//create a colored button with a ripple
 		get(CTNR_09).add(createRaised(PRIMARY, HAS_RIPPLE, TXT));
+		
+		//create an accent colored button
+		get(CTNR_10).add(createRaised(ACCENT, NONE, TXT));
+		
+		//create an accent colored button with a ripple
+		get(CTNR_11).add(createRaised(ACCENT, HAS_RIPPLE, TXT));
 		
 		get(CTNR).add(createRaised(BTN_NO_COLOR, HAS_RIPPLE, TXT));
 		get(CTNR).add(createRaised(PRIMARY, HAS_RIPPLE, TXT));
