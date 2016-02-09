@@ -139,6 +139,58 @@ import org.zerowarning.gwt.mdl.components.buttons.Button;
 Button btn = createFab(FAB_NO_COLOR, NONE, "add");
 btn.setEnabled(false);</pre>
 
+						<h5 class="demo-title">Raised Button</h5>
+
+						<div class="demo-button-container" align="center">
+							<div id="ctnr_6"></div>
+							<div class="demo-button-caption demo-text">Raised Button</div>
+						</div>
+
+						<pre class="prettyprint lang-java">
+import static org.zerowarning.gwt.mdl.components.buttons.Button.createRaised;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
+
+import org.zerowarning.gwt.mdl.components.buttons.Button;
+
+//Plain raised button
+Button btn = createRaised(BTN_NO_COLOR, NONE, "Button");</pre>
+
+						<h5 class="demo-title">Raised Button with ripple</h5>
+
+						<div class="demo-button-container" align="center">
+							<div id="ctnr_7"></div>
+							<div class="demo-button-caption demo-text">With ripple</div>
+						</div>
+
+						<pre class="prettyprint lang-java">
+import static org.zerowarning.gwt.mdl.components.buttons.Button.createRaised;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
+
+import org.zerowarning.gwt.mdl.components.buttons.Button;
+
+//Plain raised button with a ripple
+Button btn = createRaised(BTN_NO_COLOR, HAS_RIPPLE, "Button");</pre>
+
+						<h5 class="demo-title">Disabled raised button</h5>
+
+						<div class="demo-button-container" align="center">
+							<div id="ctnr_8"></div>
+							<div class="demo-button-caption demo-text">Disabled</div>
+						</div>
+
+						<pre class="prettyprint lang-java">
+import static org.zerowarning.gwt.mdl.components.buttons.Button.createRaised;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
+
+import org.zerowarning.gwt.mdl.components.buttons.Button;
+
+//Disabled raised button
+Button btn = createRaised(BTN_NO_COLOR, NONE, "Button");
+btn.setEnabled(false);</pre>
+
 						<div id="ctnr"></div>
 					</div>
 				</div>

@@ -34,6 +34,9 @@ public class Components implements EntryPoint {
 		final String CTNR_3 = "ctnr_3";
 		final String CTNR_4 = "ctnr_4";
 		final String CTNR_5 = "ctnr_5";
+		final String CTNR_6 = "ctnr_6";
+		final String CTNR_7 = "ctnr_7";
+		final String CTNR_8 = "ctnr_8";
 		final String CTNR = "ctnr";
 
 		final String TXT = "Button";
@@ -53,10 +56,21 @@ public class Components implements EntryPoint {
 		get(CTNR_4).add(createFab(FAB_NO_COLOR, HAS_RIPPLE, ICO_1));
 
 		// Disabled fab button with an add icon
-		Button btn = createFab(FAB_NO_COLOR, NONE, ICO_1);
-		btn.setEnabled(false);
-		get(CTNR_5).add(btn);
+		Button btnFab = createFab(FAB_NO_COLOR, NONE, ICO_1);
+		btnFab.setEnabled(false);
+		get(CTNR_5).add(btnFab);
 
+		//create a plain raised button
+		get(CTNR_6).add(createRaised(BTN_NO_COLOR, NONE, TXT));
+		
+		//create a plain raised button with ripple
+		get(CTNR_7).add(createRaised(BTN_NO_COLOR, HAS_RIPPLE, TXT));
+		
+		//create a plain raised disabled button
+		Button btnRaised = createRaised(BTN_NO_COLOR, NONE, TXT);
+		btnRaised.setEnabled(false);
+		get(CTNR_8).add(btnRaised);
+		
 		get(CTNR).add(createRaised(BTN_NO_COLOR, HAS_RIPPLE, TXT));
 		get(CTNR).add(createRaised(PRIMARY, HAS_RIPPLE, TXT));
 		get(CTNR).add(createRaised(ACCENT, HAS_RIPPLE, TXT));
