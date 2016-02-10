@@ -76,7 +76,7 @@ public class Components implements EntryPoint {
 		get(CTNR_08).add(btnRaised);
 		
 		//create a colored button with a ripple
-		get(CTNR_09).add(createRaised(PRIMARY, HAS_RIPPLE, TXT));
+		get(CTNR_09).add(createRaised(PRIMARY, NONE, TXT));
 		
 		//create an accent colored button
 		get(CTNR_10).add(createRaised(ACCENT, NONE, TXT));
