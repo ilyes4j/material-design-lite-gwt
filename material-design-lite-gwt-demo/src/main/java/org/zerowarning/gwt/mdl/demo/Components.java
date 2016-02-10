@@ -46,6 +46,10 @@ public class Components implements EntryPoint {
 		final String CTNR_15 = "ctnr_15";
 		final String CTNR_16 = "ctnr_16";
 		final String CTNR_17 = "ctnr_17";
+		final String CTNR_18 = "ctnr_18";
+		final String CTNR_19 = "ctnr_19";
+		final String CTNR_20 = "ctnr_20";
+		final String CTNR_21 = "ctnr_21";
 
 		final String CTNR = "ctnr";
 
@@ -110,9 +114,17 @@ public class Components implements EntryPoint {
 		// create an accent colored flat button with a ripple
 		get(CTNR_17).add(createFlat(ACCENT, HAS_RIPPLE, TXT));
 
-		get(CTNR).add(createIcon(BTN_NO_COLOR, HAS_RIPPLE, ICO_3));
-		get(CTNR).add(createIcon(PRIMARY, HAS_RIPPLE, ICO_3));
-		get(CTNR).add(createIcon(ACCENT, HAS_RIPPLE, ICO_3));
+		// create an icon button
+		get(CTNR_18).add(createIcon(BTN_NO_COLOR, NONE, ICO_3));
+
+		// create a colored icon button
+		get(CTNR_19).add(createIcon(PRIMARY, NONE, ICO_3));
+
+		// create an accent colored icon button
+		get(CTNR_20).add(createIcon(ACCENT, NONE, ICO_3));
+
+		// create an accent colored icon button with ripple
+		get(CTNR_21).add(createIcon(ACCENT, HAS_RIPPLE, ICO_3));
 
 		get(CTNR).add(createMiniFab(FAB_NO_COLOR, HAS_RIPPLE, ICO_1));
 		get(CTNR).add(createMiniFab(COLORED, HAS_RIPPLE, ICO_1));

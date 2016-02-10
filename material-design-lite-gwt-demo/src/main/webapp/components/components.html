@@ -256,7 +256,50 @@ Button act = createFlat(ACCENT, NONE, "Button");
 //create a flat button
 Button rpl = createFlat(ACCENT, HAS_RIPPLE, "Button");</pre>
 
-						<div id="ctnr"></div>
+						<h5 class="demo-title">Icon button</h5>
+
+						<div align="center">
+							<div class="demo-button-container">
+								<div id="ctnr_18"></div>
+								<div class="demo-button-caption demo-text">Icon button</div>
+							</div>
+							<div class="demo-button-container">
+								<div id="ctnr_19"></div>
+								<div class="demo-button-caption demo-text">Colored</div>
+							</div>
+							<div class="demo-button-container">
+								<div id="ctnr_20"></div>
+								<div class="demo-button-caption demo-text">Accent</div>
+							</div>
+							<div class="demo-button-container">
+								<div id="ctnr_21"></div>
+								<div class="demo-button-caption demo-text">With ripple</div>
+							</div>
+						</div>
+
+						<pre class="prettyprint lang-java">
+import static org.zerowarning.gwt.mdl.components.buttons.Button.createIcon;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.PRIMARY;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.ACCENT;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
+
+import org.zerowarning.gwt.mdl.components.buttons.Button;
+
+// create an icon button
+Button ico = createIcon(BTN_NO_COLOR, NONE, "mood");
+
+// create a colored icon button
+Button clr = createIcon(PRIMARY, NONE, "mood");
+
+// create an accent colored icon button
+Button act = createIcon(ACCENT, NONE, "mood");
+
+// create an accent colored icon button with ripple
+Button rpl = createIcon(ACCENT, HAS_RIPPLE, "mood");</pre>
+
+						<div id="ctnr" style="display: none"></div>
 					</div>
 				</div>
 			</div>
