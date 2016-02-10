@@ -299,7 +299,33 @@ Button act = createIcon(ACCENT, NONE, "mood");
 // create an accent colored icon button with ripple
 Button rpl = createIcon(ACCENT, HAS_RIPPLE, "mood");</pre>
 
-						<div id="ctnr" style="display: none"></div>
+						<h5 class="demo-title">Mini fab button</h5>
+
+						<div align="center">
+							<div class="demo-button-container">
+								<div id="ctnr_22"></div>
+								<div class="demo-button-caption demo-text">Mini FAB</div>
+							</div>
+							<div class="demo-button-container">
+								<div id="ctnr_23"></div>
+								<div class="demo-button-caption demo-text">Colored</div>
+							</div>
+						</div>
+
+						<pre class="prettyprint lang-java">
+import static org.zerowarning.gwt.mdl.components.buttons.Button.createIcon;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.COLORED;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
+
+import org.zerowarning.gwt.mdl.components.buttons.Button;
+
+// create a mini fab
+Button min = createMiniFab(FAB_NO_COLOR, NONE, "add");
+
+// create a colored mini fab
+Button clr = createMiniFab(COLORED, NONE, "add");</pre>
+
 					</div>
 				</div>
 			</div>
