@@ -151,7 +151,7 @@ Button rpl = createRaised(BTN_NO_COLOR, HAS_RIPPLE, "Button");
 Button dbl = createRaised(BTN_NO_COLOR, NONE, "Button");
 dbl.setEnabled(false);</pre>
 
-						<h5 class="demo-title">Colored and raised button</h5>
+						<h5 class="demo-title">Raised Colored</h5>
 
 						<div align="center">
 							<div class="demo-button-container">
@@ -184,6 +184,77 @@ Button act = createRaised(ACCENT, NONE, "Button");
 
 //create an accent colored button with a ripple
 Button rpl = createRaised(ACCENT, HAS_RIPPLE, "Button"));</pre>
+
+						<h5 class="demo-title">Flat button</h5>
+
+						<div align="center">
+							<div class="demo-button-container">
+								<div id="ctnr_12"></div>
+								<div class="demo-button-caption demo-text">Flat button</div>
+							</div>
+							<div class="demo-button-container">
+								<div id="ctnr_13"></div>
+								<div class="demo-button-caption demo-text">With ripple</div>
+							</div>
+							<div class="demo-button-container">
+								<div id="ctnr_14"></div>
+								<div class="demo-button-caption demo-text">Disabled</div>
+							</div>
+						</div>
+
+						<pre class="prettyprint lang-java">
+import static org.zerowarning.gwt.mdl.components.buttons.Button.createFlat;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
+
+import org.zerowarning.gwt.mdl.components.buttons.Button;
+
+//create a flat button
+Button flt = createFlat(BTN_NO_COLOR, NONE, "Button");
+
+//create a flat button with a ripple
+Button rpl = createFlat(BTN_NO_COLOR, HAS_RIPPLE, "Button");
+
+//create disabled flat button
+Button dbl = createFlat(BTN_NO_COLOR, NONE, "Button"));
+dbl.setEnabled(false);</pre>
+
+						<h5 class="demo-title">Flat colored</h5>
+
+						<div align="center">
+							<div class="demo-button-container">
+								<div id="ctnr_15"></div>
+								<div class="demo-button-caption demo-text">Primary colored
+									flat</div>
+							</div>
+							<div class="demo-button-container">
+								<div id="ctnr_16"></div>
+								<div class="demo-button-caption demo-text">Accent colored</div>
+							</div>
+							<div class="demo-button-container">
+								<div id="ctnr_17"></div>
+								<div class="demo-button-caption demo-text">With ripple</div>
+							</div>
+						</div>
+
+						<pre class="prettyprint lang-java">
+import static org.zerowarning.gwt.mdl.components.buttons.Button.createFlat;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.PRIMARY;
+import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.ACCENT;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
+
+import org.zerowarning.gwt.mdl.components.buttons.Button;
+
+// create a primary colored flat button
+Button prm = createFlat(PRIMARY, NONE, "Button");
+
+//create a flat button with a ripple
+Button act = createFlat(ACCENT, NONE, "Button");
+
+//create a flat button
+Button rpl = createFlat(ACCENT, HAS_RIPPLE, "Button");</pre>
 
 						<div id="ctnr"></div>
 					</div>
