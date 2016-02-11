@@ -60,8 +60,8 @@
 								set the optimizations to the maximum level. The compiler will produce the 
 								fastest and most optimized version for production environment. -->
 							<modules>
-								<module>org.zerowarning.gwt.mdl.demo.Components</module>
-								<module>org.zerowarning.gwt.mdl.demo.Extensions</module>
+								<module>org.zerowarning.gwt.mdl.demo.ButtonDemo</module>
+								<module>org.zerowarning.gwt.mdl.demo.MenuDemo</module>
 							</modules>
 							<!-- <module>org.zerowarning.gwt.mdl.demo.App</module> -->
 							<style>OBF</style>
@@ -118,8 +118,8 @@
 									<!-- Run a single permutation module definition to speed up code 
 										generation. -->
 									<modules>
-										<module>org.zerowarning.gwt.mdl.demo.Components-dev</module>
-										<module>org.zerowarning.gwt.mdl.demo.Extensions-dev</module>
+										<module>org.zerowarning.gwt.mdl.demo.ButtonDemo-dev</module>
+										<module>org.zerowarning.gwt.mdl.demo.MenuDemo-dev</module>
 									</modules>
 
 									<!-- Do not manage server side code. -->

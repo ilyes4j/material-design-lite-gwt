@@ -24,7 +24,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 /**
  * @author Mohamed Ilyes DIMASSI
  */
-public class Extensions implements EntryPoint {
+public class MenuDemo implements EntryPoint {
 
 	/**
 	 * This is the entry point method.

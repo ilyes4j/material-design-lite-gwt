@@ -22,7 +22,7 @@ import com.google.gwt.core.client.EntryPoint;
  * 
  * @author Mohamed Ilyes DIMASSI
  */
-public class Components implements EntryPoint {
+public class ButtonDemo implements EntryPoint {
 
 	/**
 	 * This is the entry point method.
