@@ -1,0 +1,136 @@
+<!-- How to use this header-->
+<!-- This header can be embedded in any page but some requirements needs
+to be fulfilled The host page should import jquery and main script The
+location of the header is indicated by an element as follows
+<div id="header" class="inject"></div>
+where id is the location of the header and the "inject" css selector is a flag
+to indicate that this element should be replaced by a component. The main.js
+script will replace the element with the html content of the component -->
+<style>
+<!-- /*styles related to the header*/
+
+/*link on the header containing an icon and a caption*/
+.demo-header-link {
+	text-decoration: none;
+	color: hsl(0, 0%, 100%);
+	display: table;
+	height: 100%;
+	padding-bottom: 10px;
+}
+
+/* the icon inside the header link */
+.demo-header-link .icon {
+	display: table-cell;
+	vertical-align: bottom;
+	padding-right: 2px;
+}
+
+/*the caption following the icon*/
+.demo-header-link .text {
+	display: table-cell;
+	vertical-align: bottom;
+}
+
+/*make the icon stand out when hovered*/
+.demo-header-link:hover {
+	text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5);
+}
+
+/*A tab title in the header tab bar*/
+.demo-header-tab-option {
+	color: #FFFFFF;
+	/*box-sizing*/
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	/*align-items*/
+	-moz-align-items: flex-end;
+	-webkit-align-items: flex-end;
+	-ms-align-items: flex-end;
+	align-items: flex-end;
+	/*display: flex;*/
+	display: -ms-flex;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: flex;
+	height: 100%;
+	padding: 0 10px 10px;
+	text-transform: uppercase;
+	border-bottom: 3px solid rgba(0, 0, 0, 0);
+	text-decoration: none;
+}
+
+/*Because of https://github.com/google/material-design-lite/issues/1676
+we are dropping the mdl-layout__header for a less fancy implementation but
+at least the header renders nicely across browsers. This selector contains
+the base setup for the header. On older version of firefox 26 this setup
+ensures the header is not squashed when the page has a scrollbar*/
+.demo-simplified-header {
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px
+		rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+}
+-->
+</style>
+<!-- Use a simplified version of the header css -->
+<header id="header" class="demo-simplified-header">
+
+	<!-- On the first row, put the demo title  -->
+	<div class="mdl-layout__header-row">
+	
+		<!-- Title -->
+		<span class="mdl-layout-title">Material Design Lite for GWT</span>
+	</div>
+
+	<!-- On the second row put the tabs and external links -->
+	<div class="mdl-layout__header-row">
+
+		<!-- Tab : The about section of the demo -->
+		<a href="/about/about.html" class="demo-header-tab-option">about</a>
+
+		<!-- Tab : The components section of the demo -->
+		<a href="/components/buttondemo.html" class="demo-header-tab-option">components</a>
+
+		<!-- Tab : The menu section of the demo -->
+		<a href="/extensions/menudemo.html" class="demo-header-tab-option">extensions</a>
+
+		<!-- Put a spacer to push the external links to the right -->
+		<div class="mdl-layout-spacer"></div>
+
+		<!-- A link to the source code -->
+		<a href="https://github.com/ilyes4j/material-design-lite-gwt"
+			class="demo-header-link"><span class="icon material-icons">code</span><span
+			class="text">GitHub</span></a>
+	</div>
+</header>
+<!-- To achieve even better encapsulation, the code responsible
+for initializing the header is shipped in the same page and placed
+below the header to active it right after the header is parsed-->
+<script type="text/javascript">
+	(function() {
+
+		//select all tabs under the header element
+		var tabs = $("#header .demo-header-tab-option");
+
+		//store the current page url
+		var localurl = window.location.href;
+
+		//for each tab element
+		tabs.each(function(index, element) {
+
+			//get a jQuery object for the tab element
+			var tabElt = $(this);
+
+			//if the tab element corresponds to the current page being displayed
+			//then make that tab standout visually. 
+			if (localurl.indexOf(tabElt.attr("href")) > -1) {
+
+				//active tab css selector
+				tabElt.addClass("demo-is-active");
+			}
+		});
+
+	})();
+</script>
