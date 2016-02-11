@@ -4,6 +4,9 @@ import static com.google.gwt.dom.client.Style.Overflow.SCROLL;
 import static com.google.gwt.dom.client.Style.Unit.PX;
 import static com.google.gwt.event.dom.client.ClickEvent.getType;
 import static org.zerowarning.gwt.mdl.components.ComponentHandler.upgradeElement;
+import static org.zerowarning.gwt.mdl.components.MdlGwtUtils.addStyle;
+import static org.zerowarning.gwt.mdl.components.MdlGwtUtils.removeStyle;
+import static org.zerowarning.gwt.mdl.components.menus.MenuAnchor.BOTTOM_LEFT;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,16 +42,6 @@ public class Menu extends HTMLPanel {
 	public static final String CSS_MDL_MENU = "mdl-menu";
 
 	/**
-	 * Bottom Left anchor for the menu.<br>
-	 * <br>
-	 * 
-	 * left side of the menu is aligned with the left side of the action button.
-	 * The top of the menu is right below the the bottom edge of the action
-	 * button.
-	 */
-	public static final String ANCHOR_BOTTOM_LEFT = "mdl-menu--bottom-left";
-
-	/**
 	 * css flag intended for component upgrade
 	 */
 	public static final String CSS__JS_MENU = "mdl-js-menu";
@@ -74,6 +67,9 @@ public class Menu extends HTMLPanel {
 		// ... which is activated by the button whose id is
 		menuId = id;
 
+		// ... which is placed below the related button
+		setAnchor(BOTTOM_LEFT);
+
 		// ...that has the menu selector
 		addStyleName(CSS_MDL_MENU);
 
@@ -82,9 +78,6 @@ public class Menu extends HTMLPanel {
 
 		// ...whose items has ripples (for now)
 		addStyleName(Ripple.HAS_RIPPLE.toString());
-
-		// ... which is placed below the related button
-		addStyleName(ANCHOR_BOTTOM_LEFT);
 
 		// set the binding between the menu and the action button
 		getElement().setAttribute("for", menuId);
@@ -100,6 +93,45 @@ public class Menu extends HTMLPanel {
 
 		// create the array that will hold item click listeners
 		listeners = new ArrayList<>();
+	}
+
+	/**
+	 * Sets the position of the {@link Menu} on the screen related to its
+	 * associated action button using one of the available anchoring options
+	 * provided by {@link MenuAnchor}.<br>
+	 * <br>
+	 * 
+	 * An extra care should be taken when anchoring the menu. According to this
+	 * <a href="https://github.com/google/material-design-lite/issues/952">
+	 * thread</a>, the menu's parent need a position:relative in order for the
+	 * menu to be anchored correctly.
+	 * 
+	 * @param anchor
+	 *            the requested new anchoring for the {@link Menu}.
+	 * 
+	 * @see MenuAnchor
+	 */
+	public void setAnchor(MenuAnchor anchor) {
+
+		// don't do anything if the requested anchor is not defined
+		if (anchor == null) {
+			return;
+		}
+
+		// don't do anything if the requested anchoring is the same anchoring
+		// already applied
+		if (this.anchor == anchor) {
+			return;
+		}
+
+		// remove the previously set anchoring
+		removeStyle(this, this.anchor);
+
+		// save the requested anchoring
+		this.anchor = anchor;
+
+		// use the safe method to set the css selector
+		addStyle(this, this.anchor);
 	}
 
 	/**
@@ -283,6 +315,11 @@ public class Menu extends HTMLPanel {
 	 * an id that enables the button and the menu to communicate
 	 */
 	protected String menuId;
+
+	/**
+	 * store the added anchor to ease its removal later
+	 */
+	protected MenuAnchor anchor;
 
 	/**
 	 * Maximum value not to be exceeded by the menu's height.
