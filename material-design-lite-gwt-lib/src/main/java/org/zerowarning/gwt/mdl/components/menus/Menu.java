@@ -87,13 +87,10 @@ public class Menu extends HTMLPanel {
 	 * 
 	 * @see Button
 	 */
-	public Menu(String id) {
+	public Menu() {
 
 		// creating the menu that is a unordered list
 		super(UListElement.TAG, "");
-
-		// ... which is activated by the button whose id is
-		menuId = id;
 
 		// ... which is placed below the related button
 		setAnchor(BOTTOM_LEFT);
@@ -107,9 +104,6 @@ public class Menu extends HTMLPanel {
 		// ...whose items has ripples (for now)
 		addStyleName(Ripple.HAS_RIPPLE.toString());
 
-		// set the binding between the menu and the action button
-		getElement().setAttribute("for", menuId);
-
 		// create the listener that will handle items selection
 		clickHandler = new ItemClickHandler();
 
@@ -121,6 +115,40 @@ public class Menu extends HTMLPanel {
 
 		// create the array that will hold item click listeners
 		listeners = new ArrayList<>();
+	}
+
+	/**
+	 * Set the id of the related action {@link Button} enabling mdl to bind the
+	 * {@link Menu} to it. This method can only be invoked when the menu is not
+	 * already attached to the DOM. If the menu is attached and therefore
+	 * upgraded, the action button cannot be changed.
+	 * 
+	 * @param forId
+	 *            The id of the action {@link Button}.
+	 * 
+	 * @throws IllegalStateException
+	 *             mdl does not allow re binding the menu when the menu is not
+	 *             yet upgraded. If the menu is already upgraded an exception is
+	 *             raised.
+	 */
+	public void setActionId(String forId) throws IllegalStateException {
+
+		// Biding the menu to the button is only possible when the menu is not
+		// yet upgraded. If the menu is already upgraded it is not possible to
+		// re bind it to another button anymore. mdl does not allow such
+		// behavior.
+		if (isAttached()) {
+			StringBuilder sb = new StringBuilder();
+			sb.append("The menu should be associated to an action ");
+			sb.append("button before bieng attached to the DOM.");
+			throw new IllegalStateException(sb.toString());
+		}
+
+		// the menu is opened by a button identified by forId
+		menuId = forId;
+
+		// set the binding between the menu and the action button
+		getElement().setAttribute("for", menuId);
 	}
 
 	/**

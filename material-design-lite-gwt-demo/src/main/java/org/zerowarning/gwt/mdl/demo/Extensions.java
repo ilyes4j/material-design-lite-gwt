@@ -40,7 +40,8 @@ public class Extensions implements EntryPoint {
 		btn.getElement().setId(COMBO_ID);
 		eventPanel.add(btn);
 
-		Menu menu = new Menu(COMBO_ID);
+		Menu menu = new Menu();
+		menu.setActionId(COMBO_ID);
 		menu.addItem(ITEM_VALUE + "1", true);
 		menu.addItem(ITEM_VALUE + "2", false);
 		menu.addItem(ITEM_VALUE + "3", true);
@@ -73,7 +74,8 @@ public class Extensions implements EntryPoint {
 		btn.getElement().setId(COMBO_ID);
 		eventPanel.add(btn);
 
-		Menu menu = new Menu(COMBO_ID);
+		Menu menu = new Menu();
+		menu.setActionId(COMBO_ID);
 		for (int i = 0; i < 20; i++) {
 			menu.addItem(ITEM_VALUE + i, true);
 		}
