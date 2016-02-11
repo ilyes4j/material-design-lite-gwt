@@ -1,12 +1,20 @@
 package org.zerowarning.gwt.mdl.demo;
 
+import static com.google.gwt.user.client.ui.RootPanel.get;
 import static org.zerowarning.gwt.mdl.components.buttons.Button.createRaised;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static org.zerowarning.gwt.mdl.components.menus.MenuAnchor.BOTTOM_LEFT;
+import static org.zerowarning.gwt.mdl.components.menus.MenuAnchor.BOTTOM_RIGHT;
+import static org.zerowarning.gwt.mdl.components.menus.MenuAnchor.TOP_LEFT;
+import static org.zerowarning.gwt.mdl.components.menus.MenuAnchor.TOP_RIGHT;
 import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
+import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
 
 import org.zerowarning.gwt.mdl.components.buttons.Button;
 import org.zerowarning.gwt.mdl.components.menus.ItemClickEvent;
 import org.zerowarning.gwt.mdl.components.menus.Menu;
+import org.zerowarning.gwt.mdl.components.menus.MenuAnchor;
+import org.zerowarning.gwt.mdl.components.menus.MenuCombo;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.Label;
@@ -23,8 +31,25 @@ public class Extensions implements EntryPoint {
 	 */
 	public void onModuleLoad() {
 
+		get("ctnr_01").add(createCombo(BOTTOM_LEFT));
+		get("ctnr_02").add(createCombo(BOTTOM_RIGHT));
+		get("ctnr_03").add(createCombo(TOP_LEFT));
+		get("ctnr_04").add(createCombo(TOP_RIGHT));
 		eventClickDemo();
 		menusScrollDemo();
+	}
+
+	private MenuCombo createCombo(MenuAnchor anchor) {
+
+		Button btn = Button.createIcon(BTN_NO_COLOR, NONE, "more_vert");
+
+		Menu menu = new Menu();
+		menu.setAnchor(anchor);
+		menu.addItem("Some action", true);
+		menu.addItem("Another action", true);
+		menu.addItem("Yet another action", true);
+
+		return new MenuCombo(menu, btn);
 	}
 
 	private void eventClickDemo() {

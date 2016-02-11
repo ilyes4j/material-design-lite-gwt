@@ -79,32 +79,73 @@
 		</header>
 		<div class="demo-main mdl-layout__content">
 			<aside class="nav mdl-shadow--8dp"></aside>
-			<div class="page page-content">
-				<h4 class="demo-title">Menus</h4>
+			<div class="page" align="center">
+				<div class="content" align="left">
+					<h4 class="demo-title">Menus</h4>
 
-				<h5 class="demo-title">Menu click event</h5>
-				<div id="eventContainer"></div>
+					<span class="demo-text">Lists of clickable actions.</span>
 
-				<h5 class="demo-title">Menu scroll</h5>
-				<div id="scrollContainer"></div>
+					<h5 class="demo-title">Menu anchor</h5>
 
-				<h5 class="demo-title">Adding items</h5>
-				<div>
+					<div align="center">
+						<div align="center" style="display: inline-block">
+							<div class="demo-menu-container mdl-shadow--2dp" align="left">
+								<div class="bar" id="ctnr_01"></div>
+								<div class="background"></div>
+							</div>
+							<div class="demo-button-caption demo-text">Lower left</div>
+						</div>
+						<div align="center" style="display: inline-block">
+							<div class="demo-menu-container mdl-shadow--2dp" align="right">
+								<div class="bar" id="ctnr_02"></div>
+								<div class="background"></div>
+							</div>
+							<div class="demo-button-caption demo-text">Lower right</div>
+						</div>
+					</div>
+
+					<div align="center">
+						<div align="center" style="display: inline-block">
+							<div class="demo-menu-container mdl-shadow--2dp" align="left">
+								<div class="background"></div>
+								<div class="bar" id="ctnr_03"></div>
+							</div>
+							<div class="demo-button-caption demo-text">Upper left</div>
+						</div>
+						<div align="center" style="display: inline-block">
+							<div class="demo-menu-container mdl-shadow--2dp" align="right">
+								<div class="background"></div>
+								<div class="bar" id="ctnr_04"></div>
+							</div>
+							<div class="demo-button-caption demo-text">Upper right</div>
+						</div>
+					</div>
+
+					<h5 class="demo-title">Menu click event</h5>
+					<div id="eventContainer" style="position: relative"></div>
+
+					<h5 class="demo-title">Menu scroll</h5>
+					<div id="scrollContainer" style="position: relative"></div>
+
+					<h5 class="demo-title">Adding items</h5>
+
 					<!-- Left aligned menu below button -->
-					<button id="demo-menu-lower-left"
-						class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">Select</button>
+					<div style="position: relative">
+						<button id="demo-menu-lower-left"
+							class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">Select</button>
 
-					<ul id="ul_menu"
-						class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-left"
-						for="demo-menu-lower-left">
-						<li class="mdl-menu__item">Some Action</li>
-					</ul>
+						<ul id="ul_menu"
+							class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--top-right"
+							for="demo-menu-lower-left">
+							<li class="mdl-menu__item">Some Action</li>
+						</ul>
 
-					<button
-						class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
-						onclick="onAddItemClick();">
-						<i class="material-icons">add</i>
-					</button>
+						<button
+							class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
+							onclick="onAddItemClick();">
+							<i class="material-icons">add</i>
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
