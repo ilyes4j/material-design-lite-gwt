@@ -199,6 +199,9 @@ public class Menu extends HTMLPanel {
 	 * 
 	 * @param item
 	 *            the item to be added.
+	 * 
+	 * @param enabled
+	 *            defines whether the option can be chosen or not.
 	 */
 	public void addItem(String item, boolean enabled) {
 		HandlerRegistration reg;
