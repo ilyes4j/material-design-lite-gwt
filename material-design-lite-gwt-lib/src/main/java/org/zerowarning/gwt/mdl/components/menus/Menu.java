@@ -11,12 +11,15 @@ import static org.zerowarning.gwt.mdl.components.menus.MenuAnchor.BOTTOM_LEFT;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.zerowarning.gwt.mdl.components.ComponentHandler;
+import org.zerowarning.gwt.mdl.components.buttons.Button;
 import org.zerowarning.gwt.mdl.components.ripples.Ripple;
 
 import com.google.gwt.dom.client.UListElement;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.HTMLPanel;
 
 /**
@@ -24,40 +27,65 @@ import com.google.gwt.user.client.ui.HTMLPanel;
  * A {@link Menu} is a wrapper for the
  * <a href="https://www.getmdl.io/components/index.html#menus-section">
  * MaterialMenu</a> component. It enables the user to select an option from a
- * list of items presented in a dialog. It is activated when the associated
+ * list of items presented in a dialog. It is activated when its associated
  * button is clicked.<br>
  * <br>
  * 
- * When a {@link MenuItem} in the {@link Menu} is clicked, an
- * {@link ItemClickEvent} is sent to the registered {@link ItemClickListener}s.
- * 
  * @author Mohamed Ilyes DIMASSI
  *
+ * @see Button
  */
 public class Menu extends HTMLPanel {
 
 	/**
-	 * {@link Menu} main style.
+	 * The {@link Menu} material style.
 	 */
 	public static final String CSS_MDL_MENU = "mdl-menu";
 
 	/**
-	 * css flag intended for component upgrade
+	 * css flag intended for component upgrade.
 	 */
 	public static final String CSS__JS_MENU = "mdl-js-menu";
 
 	/**
-	 * Objects can register themselves to the {@link Menu} to be updated when an
-	 * item from the menu is clicked.
+	 * Objects that need to be notified when an {@link MenuItem} is clicked
+	 * should implement this interface and register themselves to the
+	 * {@link Menu} using the
+	 * {@link Menu#addItemClickListener(ItemClickListener)} method. <br>
+	 * <br>
 	 * 
 	 * @author Mohamed Ilyes DIMASSI
+	 * 
+	 * @see {@link ItemClickEvent}
 	 */
 	public static interface ItemClickListener {
+
+		/**
+		 * {@link ItemClickListener#onItemClicked(ItemClickEvent)} is invoked to
+		 * perform the appropriate actions in response to the {@link MenuItem}
+		 * click.
+		 * 
+		 * @param event
+		 *            An event containing the required information on the
+		 *            {@link MenuItem} that was clicked.
+		 * 
+		 */
 		public void onItemClicked(ItemClickEvent event);
 	}
 
 	/**
-	 * Create the menu component.
+	 * Creates the menu component and associates it with an action button. The
+	 * link between the {@link Menu} and the action button is established by the
+	 * id of the button and must be provided in the {@link Menu} constructor.
+	 * <br>
+	 * <br>
+	 * When the menu is created, it will look for the action button using its id
+	 * and will decorate it with the appropriate event handlers.
+	 * 
+	 * @param id
+	 *            the id of the associated action button.
+	 * 
+	 * @see Button
 	 */
 	public Menu(String id) {
 
@@ -107,9 +135,7 @@ public class Menu extends HTMLPanel {
 	 * menu to be anchored correctly.
 	 * 
 	 * @param anchor
-	 *            the requested new anchoring for the {@link Menu}.
-	 * 
-	 * @see MenuAnchor
+	 *            the requested {@link Anchor} position for the {@link Menu} .
 	 */
 	public void setAnchor(MenuAnchor anchor) {
 
@@ -139,24 +165,23 @@ public class Menu extends HTMLPanel {
 	 * <br>
 	 * 
 	 * After being attached to the DOM, the {@link Menu} is upgraded using
-	 * componentHandler.upgradeElement(element) which in turn uses <a href=
+	 * {@link ComponentHandler#upgradeElement(com.google.gwt.dom.client.Element)}
+	 * which in turn uses <a href=
 	 * "https://github.com/google/material-design-lite/blob/master/src/menu/menu.
-	 * js">MaterialMenu</a> to change the DOM tree of the component and add
+	 * js">MaterialMenu</a> to change the DOM tree of the component and add the
 	 * required event handlers.<br>
 	 * <br>
 	 * 
-	 * The upgrade process in MaterialMenu requires that the {@link Menu} to be
-	 * upgraded is already attached to the menu. MaterialMenu references the
-	 * Menu's parent to insert a div between Menu and its parent.<br>
+	 * The upgrade process performed by MaterialMenu requires the {@link Menu}
+	 * to be already attached to the DOM. This is due to the fact that
+	 * MaterialMenu references the Menu's parent element during the upgrade.<br>
 	 * <br>
 	 * 
-	 * When performing the upgrade MaterialMenu will look for the associated
-	 * button in the page DOM to attach the required events to it. That's why,
-	 * it is also mandatory that the related action button is attached to the
-	 * DOM before {@link Menu}.<br>
+	 * When performing the upgrade, MaterialMenu will look for the associated
+	 * button in the page DOM to attach the required events to it. That's why it
+	 * is also mandatory that the related action button is attached to the DOM
+	 * before {@link Menu} is.<br>
 	 * <br>
-	 * 
-	 * 
 	 */
 	@Override
 	public void onLoad() {
@@ -195,13 +220,13 @@ public class Menu extends HTMLPanel {
 	}
 
 	/**
-	 * Adds a new option to the list of options of the menu.
+	 * Adds a new option to the list of options in the menu.
 	 * 
 	 * @param item
-	 *            the item to be added.
+	 *            The item to be added.
 	 * 
 	 * @param enabled
-	 *            defines whether the option can be chosen or not.
+	 *            Defines whether the option can be chosen or not.
 	 */
 	public void addItem(String item, boolean enabled) {
 		HandlerRegistration reg;
@@ -224,15 +249,35 @@ public class Menu extends HTMLPanel {
 		}
 	}
 
+	/**
+	 * When an object needs to be notified upon a {@link MenuItem} click, it
+	 * must be be registered to the {@link Menu} as an {@link ItemClickListener}
+	 * .<br>
+	 * <br>
+	 * In order to receive item click notifications, the object should :
+	 * <ol>
+	 * <li>Implement the {@link ItemClickListener} interface</li>
+	 * <li>Define the actions that should be performed when a {@link MenuItem}
+	 * is clicked inside {@link ItemClickListener#onItemClicked(ItemClickEvent)}
+	 * </li>
+	 * <li>Call {@link Menu#addItemClickListener(ItemClickListener)} to register
+	 * itself to the menu and receive click notifications</li>
+	 * </ol>
+	 * 
+	 * @param listener
+	 *            The object to be notified when a {@link MenuItem} is clicked.
+	 * 
+	 * @see ItemClickListener
+	 */
 	public void addItemClickListener(ItemClickListener listener) {
 		this.listeners.add(listener);
 	}
 
 	/**
-	 * This method should be extended when additional behavior is required when
-	 * {@link MenuItem}s are clicked.
+	 * This method should be extended when additional behavior is required.
 	 * 
 	 * @param event
+	 *            The browser click event.
 	 * 
 	 */
 	protected void itemClicked(ClickEvent event) {
@@ -261,17 +306,23 @@ public class Menu extends HTMLPanel {
 	}
 
 	/**
-	 * this class defines what should happen if the user clicks a menu item
+	 * this class defines the internal processing that should be performed when
+	 * a browser click event related to a {@link MenuItem} is received.
 	 * 
 	 * @author Mohamed Ilyes DIMASSI
 	 *
 	 */
 	private class ItemClickHandler implements ClickHandler {
 
-		// when a click is detected, first, perform internal routines to keep
-		// the component in a consistent state, then broadcast the event its
-		// clients in order for them to provide the appropriate actions in
-		// response of the Item Click
+		/**
+		 * when a click is detected, first, perform internal actions to keep the
+		 * component in a consistent state, then broadcast the event to the
+		 * menu's listeners in order for them to provide the appropriate actions
+		 * in response of the {@link MenuItem} click.
+		 * 
+		 * @param event
+		 *            The click event emitted by the browser.
+		 */
 		@Override
 		public void onClick(ClickEvent event) {
 			itemClicked(event);
@@ -284,6 +335,10 @@ public class Menu extends HTMLPanel {
 	 */
 	private void assertMaxHeight() {
 
+		// the value returned accounts for the padding value, but the enforced
+		// height does not account for any paddings. This results in the This is not an
+		// issue since the intended behavior is to not exceed a maximum
+		// threshold not set an exact height value for the menu.
 		int height = getElement().getClientHeight();
 
 		if (height > MAX_HEIGHT) {
@@ -293,39 +348,40 @@ public class Menu extends HTMLPanel {
 	}
 
 	/**
-	 * all MenuItems are stored here. Useful to find the sequential order of the
-	 * selected item
+	 * All {@link MenuItem}s are stored in this list to be able to find the
+	 * sequential order of the selected item afterwards.
 	 */
 	protected List<MenuItem> items;
 
 	/**
-	 * keep track of handler registration.
-	 * 
+	 * Keeps track of handlers registration to make removing the handlers
+	 * possible later.
 	 */
 	protected List<HandlerRegistration> handlerRegs;
 
 	/**
-	 * item click listeners
+	 * The list of all objects waiting to be notified when a {@link MenuItem} is
+	 * clicked.
 	 */
 	protected List<ItemClickListener> listeners;
 
 	/**
-	 * DOM event listener
+	 * DOM click event listener.
 	 */
 	protected ItemClickHandler clickHandler;
 
 	/**
-	 * an id that enables the button and the menu to communicate
+	 * An id that enables the button and the menu to be linked.
 	 */
 	protected String menuId;
 
 	/**
-	 * store the added anchor to ease its removal later
+	 * Stores the menu anchor option to ease the css selector removal.
 	 */
 	protected MenuAnchor anchor;
 
 	/**
-	 * Maximum value not to be exceeded by the menu's height.
+	 * Default maximum value not to be exceeded by the menu's height.
 	 */
 	private static final int MAX_HEIGHT = 200;
 }
