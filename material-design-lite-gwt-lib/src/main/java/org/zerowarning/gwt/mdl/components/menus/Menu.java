@@ -79,8 +79,8 @@ public class Menu extends HTMLPanel {
 	 * id of the button and must be provided in the {@link Menu} constructor.
 	 * <br>
 	 * <br>
-	 * When the menu is created, it will look for the action button using its id
-	 * and will decorate it with the appropriate event handlers.
+	 * When the menu is attached to the DOM, it will look for the action button
+	 * using its id and will decorate it with the appropriate event handlers.
 	 * 
 	 * @param id
 	 *            the id of the associated action button.
@@ -364,9 +364,11 @@ public class Menu extends HTMLPanel {
 	private void assertMaxHeight() {
 
 		// the value returned accounts for the padding value, but the enforced
-		// height does not account for any paddings. This results in the This is not an
-		// issue since the intended behavior is to not exceed a maximum
-		// threshold not set an exact height value for the menu.
+		// height does not account for any paddings. The resulting height of the
+		// menu is the max height to which is added the top and bottom paddings.
+		// This result is only problematic when absurdly large paddings are used
+		// which is very unlikely to happen. When reasonable padding values are
+		// used, the overall height stays within the range of the threshold.
 		int height = getElement().getClientHeight();
 
 		if (height > MAX_HEIGHT) {
