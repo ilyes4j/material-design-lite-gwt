@@ -1,13 +1,13 @@
 @CHARSET "UTF-8";
 
-/*set the active tab marker according to the the current theme color set*/
-.demo-is-active {
+/*set the active tab marker according to the the current theme color set.
+demo-header-tab-option is added in this selector to insure it has more condition
+than demo-header-tab-option alone. This provide the selector below with a higher
+priority over demo-header-tab-option*/
+.demo-header-tab-option.demo-is-active {
 	border-bottom: 3px solid rgb(255, 171, 64);
 }
 
-/*Because of https://github.com/google/material-design-lite/issues/1676
-we are dropping the mdl-layout__header for a less fancy implementation but
-at least the header renders nicely across browsers*/
 .demo-simplified-header {
 	background-color: rgb(63, 81, 181);
 	color: #FFFFFF;

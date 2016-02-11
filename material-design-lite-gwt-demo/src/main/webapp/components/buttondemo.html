@@ -12,37 +12,29 @@
 <link rel="stylesheet"
 	href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
 	type="text/css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="../styles/main.css">
+<link rel="stylesheet" type="text/css" href="styles/components.css">
 
 <script
 	src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 
 <script
 	src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+<!-- GWT module containing the buttons-->
 <script src="../buttondemo/buttondemo.nocache.js"></script>
 
-<link rel="stylesheet" type="text/css" href="../styles/main.css">
-<link rel="stylesheet" type="text/css" href="styles/components.css">
+<script src="../jquery/jquery-2.2.0.min.js"></script>
+
+<!-- contains the header injection procedure-->
+<script src="../scripts/main.js"></script>
 </head>
 <body class="demo-global">
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-		<header class="demo-simplified-header">
-			<div class="mdl-layout__header-row">
-				<!-- Title -->
-				<span class="mdl-layout-title">Material Design Lite for GWT</span>
-			</div>
-			<div class="mdl-layout__header-row">
-				<a href="../" class="demo-header-tab-option">about</a> <a
-					class="demo-header-tab-option demo-is-active">components</a> <a
-					href="../extensions/menudemo.html" class="demo-header-tab-option">extensions</a>
-				<div class="mdl-layout-spacer"></div>
-				<a href="https://github.com/ilyes4j/material-design-lite-gwt"
-					class="demo-header-link"><span class="icon material-icons">code</span><span
-					class="text">GitHub</span></a>
-			</div>
-		</header>
+		<!--here is injected the header component-->
+		<div id="/header.html" class="inject"></div>
 		<div class="mdl-layout__content">
 			<div class="demo-main">
 				<aside class="nav mdl-shadow--8dp"></aside>
@@ -66,7 +58,7 @@
 							</div>
 						</div>
 
-						<pre class="prettyprint lang-java">
+						<pre class="demo-code prettyprint lang-java">
 //adding the required import at the class header
 import static org.zerowarning.gwt.mdl.components.buttons.Button.createFab;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.COLORED;
@@ -102,7 +94,7 @@ Button rpl = createFab(COLORED, HAS_RIPPLE, "add");
 							</div>
 						</div>
 
-						<pre class="prettyprint lang-java">
+						<pre class="demo-code prettyprint lang-java">
 import static org.zerowarning.gwt.mdl.components.buttons.Button.createFab;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
 import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
@@ -137,7 +129,7 @@ dbl.setEnabled(false);</pre>
 							</div>
 						</div>
 
-						<pre class="prettyprint lang-java">
+						<pre class="demo-code prettyprint lang-java">
 import static org.zerowarning.gwt.mdl.components.buttons.Button.createRaised;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
 import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
@@ -172,7 +164,7 @@ dbl.setEnabled(false);</pre>
 							</div>
 						</div>
 
-						<pre class="prettyprint lang-java">
+						<pre class="demo-code prettyprint lang-java">
 import static org.zerowarning.gwt.mdl.components.buttons.Button.createRaised;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.PRIMARY;
 import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
@@ -206,7 +198,7 @@ Button rpl = createRaised(ACCENT, HAS_RIPPLE, "Button"));</pre>
 							</div>
 						</div>
 
-						<pre class="prettyprint lang-java">
+						<pre class="demo-code prettyprint lang-java">
 import static org.zerowarning.gwt.mdl.components.buttons.Button.createFlat;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
 import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
@@ -242,7 +234,7 @@ dbl.setEnabled(false);</pre>
 							</div>
 						</div>
 
-						<pre class="prettyprint lang-java">
+						<pre class="demo-code prettyprint lang-java">
 import static org.zerowarning.gwt.mdl.components.buttons.Button.createFlat;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.PRIMARY;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.ACCENT;
@@ -281,7 +273,7 @@ Button rpl = createFlat(ACCENT, HAS_RIPPLE, "Button");</pre>
 							</div>
 						</div>
 
-						<pre class="prettyprint lang-java">
+						<pre class="demo-code prettyprint lang-java">
 import static org.zerowarning.gwt.mdl.components.buttons.Button.createIcon;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.PRIMARY;
@@ -316,7 +308,7 @@ Button rpl = createIcon(ACCENT, HAS_RIPPLE, "mood");</pre>
 							</div>
 						</div>
 
-						<pre class="prettyprint lang-java">
+						<pre class="demo-code prettyprint lang-java">
 import static org.zerowarning.gwt.mdl.components.buttons.Button.createIcon;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.COLORED;

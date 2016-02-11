@@ -3,30 +3,6 @@
 	font-family: "roboto", "Helvetica", "Arial", sans-serif;
 }
 
-/*A tab title in the header tab bar*/
-.demo-header-tab-option {
-	color: #FFFFFF;
-	/*box-sizing*/
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	/*align-items*/
-	-moz-align-items: flex-end;
-	-webkit-align-items: flex-end;
-	-ms-align-items: flex-end;
-	align-items: flex-end;
-	/*display: flex;*/
-	display: -ms-flex;
-	display: -moz-flex;
-	display: -webkit-flex;
-	display: flex;
-	height: 100%;
-	padding: 0 10px 10px;
-	text-transform: uppercase;
-	border-bottom: 3px solid rgba(0, 0, 0, 0);
-	text-decoration: none;
-}
-
 /*the main section of the page*/
 .demo-main {
 	display: -ms-flex;
@@ -67,40 +43,13 @@
 	color: hsl(0, 0%, 46%);
 }
 
-/*link on the header containing an icon and a caption*/
-.demo-header-link {
-	text-decoration: none;
-	color: hsl(0, 0%, 100%);
-	display: table;
-	height: 100%;
-	padding-bottom: 10px;
-}
-
-/* the icon inside the header link */
-.demo-header-link .icon {
-	display: table-cell;
-	vertical-align: bottom;
-	padding-right: 2px;
-}
-
-/*the caption following the icon*/
-.demo-header-link .text {
-	display: table-cell;
-	vertical-align: bottom;
-}
-
-/*make the icon stand out when hovered*/
-.demo-header-link:hover {
-	text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5);
-}
-
-/* make backgrounds grey*/
+/*make backgrounds grey*/
 pre.prettyprint, .demo-main .nav {
 	background-color: hsl(0, 0%, 90%);
 }
 
-/* remove the black thin border*/
-pre.prettyprint {
+/*remove the black thin border*/
+pre.prettyprint.demo-code {
 	border: none;
 	font-size: 12px;
 	border-radius: 3px;

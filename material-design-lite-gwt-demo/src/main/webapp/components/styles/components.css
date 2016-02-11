@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 /*set the active tab marker according to the the current theme color set*/
-.demo-is-active {
+.demo-header-tab-option.demo-is-active {
 	border-bottom: 3px solid #FFAB40;
 }
 
@@ -13,11 +13,13 @@ at least the header renders nicely across browsers*/
 	color: #FFFFFF;
 }
 
+/*the button container holds the button and its caption*/
 .demo-button-container {
 	display: inline-block;
 	margin: 0 30px;
 }
 
+/*the caption contains the button variation name*/
 .demo-button-caption {
 	margin-top: 10px;
 }

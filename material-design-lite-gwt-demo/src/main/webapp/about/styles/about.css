@@ -1,10 +1,5 @@
 @CHARSET "UTF-8";
 
-.about-content {
-	margin-left: 80px;
-	color: #8A8885;
-}
-
 /*applying a theme to the header*/
 .demo-simplified-header {
 	background-color: #F44336;
