@@ -98,4 +98,9 @@ pre.prettyprint.demo-code {
 	font-size: 12px;
 	border-radius: 3px;
 	padding: 10px 15px;
+	/*fix the  awful 8 spaces tab size */
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	-webkit-tab-size: 2;
+	tab-size: 2;
 }
