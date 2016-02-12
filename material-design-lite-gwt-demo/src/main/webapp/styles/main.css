@@ -1,9 +1,11 @@
 /*Make roboto the default font for the demo*/
+
 .demo-global {
 	font-family: "roboto", "Helvetica", "Arial", sans-serif;
 }
 
 /*the main section of the page*/
+
 .demo-main {
 	display: -ms-flex;
 	display: -moz-flex;
@@ -12,43 +14,85 @@
 }
 
 /*the navigation panel under the main area*/
+
 .demo-main .nav {
-	width: 150px;
 	padding: 50px 20px;
-	display: none;
+}
+.option {
+	display: inline-flex;
+	flex-direction: row;
+	-webkit-align-items: center;
+	margin-top: 20px;
+}
+.option:first-child {
+	margin-top: 0px;
+}
+.option-icon {
+	margin-right: 15px;
 }
 
-/*the content under the main area*/
-/*make the content area as wide as possible */
+/*when the screen width is less than 960px rearrange the layout */
+
+@media all and (max-width: 960px) {
+	/*stack the nav and the main page*/
+	.demo-main {
+		flex-direction: column;
+	}
+	/*redefine the spacing around the navigation bar*/
+	.demo-main .nav {
+		padding: 20px;
+	}
+	/* replace the vertical spacing between options by a horizontal spacing*/
+	.option {
+		flex-direction: column;
+		margin-top: 0px;
+		margin-left: 20px;
+	}
+	.option:first-child {
+		margin-top: 0px;
+		margin-left: 0px;
+	}
+	/* do the opposite for the option's icon*/
+	.option-icon {
+		margin-right: 0px;
+		margin-bottom: 10px;
+	}
+}
+
+/*make the content area take all the space to be able to center the content*/
+
 .demo-main .page {
-	margin-left: 80px;
-	margin-right: 80px;
 	margin-top: 32px;
 	margin-bottom: 50px;
 	width: 100%;
 }
 
 /*limit the width of the content for better readability*/
+
 .demo-main .page .content {
-	max-width: 840px;
+	max-width: 640px;
 }
 
 /*leave a space before every title*/
+
 .demo-title {
 	padding-top: 30px;
 }
 
 /*default color for paragraphs and titles*/
+
 .demo-title, .demo-text {
 	color: hsl(0, 0%, 46%);
 }
 
 /*make backgrounds grey*/
+
 pre.prettyprint, .demo-main .nav {
 	background-color: hsl(0, 0%, 90%);
 }
 
 /*remove the black thin border*/
+
 pre.prettyprint.demo-code {
 	border: none;
 	font-size: 12px;
