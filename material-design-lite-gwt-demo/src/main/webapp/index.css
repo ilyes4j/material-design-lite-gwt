@@ -13,22 +13,35 @@
 	display: flex;
 }
 
-/*the navigation panel under the main area*/
+/*link on the header containing an icon and a caption*/
 
-.demo-main .nav {
-	padding: 50px 20px;
+.demo-header-link {
+	text-decoration: none;
+	color: hsl(0, 0%, 100%);
+	display: table;
+	height: 100%;
+	padding-bottom: 10px;
 }
-.option {
-	display: inline-flex;
-	flex-direction: row;
-	-webkit-align-items: center;
-	margin-top: 20px;
+
+/* the icon inside the header link */
+
+.demo-header-link .icon {
+	display: table-cell;
+	vertical-align: bottom;
+	padding-right: 2px;
 }
-.option:first-child {
-	margin-top: 0px;
+
+/*the caption following the icon*/
+
+.demo-header-link .text {
+	display: table-cell;
+	vertical-align: bottom;
 }
-.option-icon {
-	margin-right: 15px;
+
+/*make the icon stand out when hovered*/
+
+.demo-header-link:hover {
+	text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5);
 }
 
 /*when the screen width is less than 960px rearrange the layout */
@@ -37,25 +50,6 @@
 	/*stack the nav and the main page*/
 	.demo-main {
 		flex-direction: column;
-	}
-	/*redefine the spacing around the navigation bar*/
-	.demo-main .nav {
-		padding: 20px;
-	}
-	/* replace the vertical spacing between options by a horizontal spacing*/
-	.option {
-		flex-direction: column;
-		margin-top: 0px;
-		margin-left: 20px;
-	}
-	.option:first-child {
-		margin-top: 0px;
-		margin-left: 0px;
-	}
-	/* do the opposite for the option's icon*/
-	.option-icon {
-		margin-right: 0px;
-		margin-bottom: 10px;
 	}
 }
 
@@ -87,7 +81,7 @@
 
 /*make backgrounds grey*/
 
-pre.prettyprint, .demo-main .nav {
+pre.prettyprint, .demo-compsbar {
 	background-color: hsl(0, 0%, 90%);
 }
 

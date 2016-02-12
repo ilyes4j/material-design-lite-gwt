@@ -1,64 +1,55 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Components</title>
+	<meta charset="UTF-8">
+	<title>Buttons</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet"
-	href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.blue_grey-orange.min.css">
+	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.blue_grey-orange.min.css">
 
-<link rel="stylesheet"
-	href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
-	type="text/css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" type="text/css" href="../styles/main.css">
-<link rel="stylesheet" type="text/css" href="styles/components.css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" type="text/css" href="../../index.css">
+	<link rel="stylesheet" type="text/css" href="../components.css">
+	<link rel="stylesheet" type="text/css" href="buttons.css">
 
-<script
-	src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 
-<script
-	src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
 
-<!-- GWT module containing the buttons-->
-<script src="../buttondemo/buttondemo.nocache.js"></script>
+	<!-- GWT module containing the buttons-->
+	<script src="../../buttondemo/buttondemo.nocache.js"></script>
 
-<script src="../jquery/jquery-2.2.0.min.js"></script>
-
-<!-- contains the header injection procedure-->
-<script src="../scripts/main.js"></script>
+	<script src="../../jquery/jquery-2.2.0.min.js"></script>
 </head>
+
 <body class="demo-global">
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 		<!--here is injected the header component-->
-		<div id="../header.html" class="inject"></div>
-		<div class="mdl-layout__content">
-			<div class="demo-main">
-				<aside class="nav mdl-shadow--8dp">
-					<div class="option">
-						<div class="option-icon">
-							<button
-								class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect">
-								<i class="material-icons">keyboard_arrow_right</i>
-							</button>
-						</div>
-						<div class="demo-text">Buttons</div>
-					</div>
-					<div class="option">
-						<div class="option-icon">
-							<button
-								class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect"
-								disabled>
-								<i class="material-icons">menu</i>
-							</button>
-						</div>
-						<div class="demo-text">Menu</div>
-					</div>
-				</aside>
+		<!-- Use a simplified version of the header css -->
+		<header class="demo-simplified-header">
 
+			<!-- On the first row, put the demo title  -->
+			<div class="mdl-layout__header-row">
+
+				<!-- Title -->
+				<span class="mdl-layout-title">Material Design Lite for GWT</span>
+			</div>
+
+			<!-- On the second row put the tabs and external links -->
+			<div id="header-link-row" class="mdl-layout__header-row">
+				<!-- Put a spacer to push the external links to the right -->
+				<div class="mdl-layout-spacer"></div>
+
+				<!-- A link to the source code -->
+				<a href="https://github.com/ilyes4j/material-design-lite-gwt" class="demo-header-link"><span class="icon material-icons">code</span><span
+					class="text">GitHub</span></a>
+			</div>
+		</header>
+		<div class="mdl-layout__content">
+			<div id="demo-main" class="demo-main">
 				<div id="buttonsContainer" class="page" align="center">
 					<div class="content" align="left">
 						<h4 class="demo-title">Buttons</h4>
@@ -242,8 +233,8 @@ dbl.setEnabled(false);</pre>
 						<div align="center">
 							<div class="demo-button-container">
 								<div id="ctnr_15"></div>
-								<div class="demo-button-caption demo-text">Primary colored
-									flat</div>
+								<div class="demo-button-caption demo-text">Primary colored flat
+								</div>
 							</div>
 							<div class="demo-button-container">
 								<div id="ctnr_16"></div>
@@ -349,4 +340,5 @@ Button clr = createMiniFab(COLORED, NONE, "add");</pre>
 		</div>
 	</div>
 </body>
+
 </html>

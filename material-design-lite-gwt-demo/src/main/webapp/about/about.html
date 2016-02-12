@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <title>Components</title>
@@ -13,27 +14,49 @@
 	href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
 	type="text/css">
 
-<script
-	src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-<link rel="stylesheet" type="text/css" href="../styles/main.css">
-<link rel="stylesheet" type="text/css" href="styles/about.css">
+<link rel="stylesheet" type="text/css" href="../index.css">
+<link rel="stylesheet" type="text/css" href="about.css">
+
+<script
+	src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+
+<!-- GWT module containing parts of the about page content-->
+<script src="../aboutdemo/aboutdemo.nocache.js"></script>
 
 <script src="../jquery/jquery-2.2.0.min.js"></script>
-<script src="../scripts/main.js"></script>
 </head>
+
 <body class="demo-global">
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-		<div id="../header.html" class="inject"></div>
+		<header class="demo-simplified-header">
+
+			<!-- On the first row, put the demo title  -->
+			<div class="mdl-layout__header-row">
+
+				<!-- Title -->
+				<span class="mdl-layout-title">Material Design Lite for GWT</span>
+			</div>
+
+			<!-- On the second row put the tabs and external links -->
+			<div id="header-link-row" class="mdl-layout__header-row">
+				<!-- Put a spacer to push the external links to the right -->
+				<div class="mdl-layout-spacer"></div>
+
+				<!-- A link to the source code -->
+				<a href="https://github.com/ilyes4j/material-design-lite-gwt"
+					class="demo-header-link"><span class="icon material-icons">code</span><span
+					class="text">GitHub</span></a>
+			</div>
+		</header>
 		<div class="demo-main mdl-layout__content">
-			<div class="page" align="center">
-				<div align="left">
-					<h4 class="demo-title">About</h4>
-				</div>
+			<div class="page">
+				<h4 class="demo-title">About</h4>
 			</div>
 		</div>
 	</div>
 </body>
+
 </html>

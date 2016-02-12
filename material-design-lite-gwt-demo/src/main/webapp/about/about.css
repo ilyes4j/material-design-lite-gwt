@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+.demo-main .page {
+	margin-left: 80px;
+}
+
+/*applying a theme to the tab active state*/
+.demo-mainbar-item.demo-mainbar-item-active {
+	border-bottom: 3px solid #FFFFFF;
+}
+
+/*applying a theme to the header*/
+.demo-simplified-header {
+	background-color: #F44336; color: #FFFFFF;
+}

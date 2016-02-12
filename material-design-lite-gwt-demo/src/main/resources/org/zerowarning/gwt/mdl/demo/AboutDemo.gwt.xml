@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.7.0//EN" "http://gwtproject.org/doctype/2.7.0/gwt-module.dtd">
 
-<module rename-to="menudemo">
+<module rename-to="aboutdemo">
 	<inherits name="com.google.gwt.user.User" />
 	<inherits name="org.zerowarning.gwt.mdl.Mdl" />
 
@@ -13,5 +13,5 @@
 
 	<add-linker name="xsiframe" />
 
-	<entry-point class="org.zerowarning.gwt.mdl.demo.MenuDemo" />
+	<entry-point class="org.zerowarning.gwt.mdl.demo.AboutDemo" />
 </module>

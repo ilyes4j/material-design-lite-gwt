@@ -16,6 +16,8 @@ import org.zerowarning.gwt.mdl.components.menus.ItemClickEvent;
 import org.zerowarning.gwt.mdl.components.menus.Menu;
 import org.zerowarning.gwt.mdl.components.menus.MenuAnchor;
 import org.zerowarning.gwt.mdl.components.menus.MenuCombo;
+import org.zerowarning.gwt.mdl.demo.navigation.components.ComponentsBar;
+import org.zerowarning.gwt.mdl.demo.navigation.main.MainBar;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.Label;
@@ -36,6 +38,10 @@ public class MenuDemo implements EntryPoint {
 
 		eventClickDemo();
 		menusScrollDemo();
+
+		get("header-link-row").insert(new MainBar(), 0);
+
+		get("demo-main").insert(new ComponentsBar(), 0);
 	}
 
 	/**
@@ -139,6 +145,7 @@ public class MenuDemo implements EntryPoint {
 		eventPanel.add(btn);
 
 		Menu menu = new Menu();
+		menu.setAnchor(TOP_LEFT);
 		menu.setActionId(COMBO_ID);
 		for (int i = 0; i < 20; i++) {
 			menu.addItem(ITEM_VALUE + i, true);

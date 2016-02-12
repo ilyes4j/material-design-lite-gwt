@@ -1,0 +1,77 @@
+@CHARSET "ISO-8859-1";
+.demo-mainbar {
+	display: flex;
+	height: 100%;
+}
+
+/*A tab title in the header tab bar*/
+
+.demo-mainbar-item {
+	color: #FFFFFF;
+	/*box-sizing*/
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	/*align-items*/
+	-moz-align-items: flex-end;
+	-webkit-align-items: flex-end;
+	-ms-align-items: flex-end;
+	align-items: flex-end;
+	/*display: flex;*/
+	display: -ms-flex;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: flex;
+	height: 100%;
+	padding: 0 10px 10px;
+	text-transform: uppercase;
+	border-bottom: 3px solid rgba(0, 0, 0, 0);
+	text-decoration: none;
+}
+
+/*the navigation panel under the main area*/
+
+.demo-compsbar {
+	padding: 50px 20px;
+	display: flex;
+	flex-direction: column;
+}
+.demo-compsbar-item {
+	display: flex;
+	flex-direction: row;
+	-webkit-align-items: center;
+	align-items: center;
+	margin-top: 20px;
+	cursor: pointer;
+}
+.demo-compsbar-item.demo-compsbar-item-active {
+	cursor: auto;
+}
+.demo-compsbar-item:first-child {
+	margin-top: 0px;
+}
+.demo-compsbar-item-icon {
+	margin-right: 15px;
+}
+@media all and (max-width: 960px) {
+	/*redefine the spacing around the navigation bar*/
+	.demo-compsbar {
+		padding: 20px;
+		flex-direction: row;
+	}
+	/* replace the vertical spacing between options by a horizontal spacing*/
+	.demo-compsbar-item {
+		flex-direction: column;
+		margin-top: 0px;
+		margin-left: 20px;
+	}
+	.demo-compsbar-item:first-child {
+		margin-top: 0px;
+		margin-left: 0px;
+	}
+	/* do the opposite for the option's icon*/
+	.demo-compsbar-item-icon {
+		margin-right: 0px;
+		margin-bottom: 10px;
+	}
+}

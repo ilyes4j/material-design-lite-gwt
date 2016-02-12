@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Extensions</title>
+<title>Menus</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,8 +14,9 @@
 	type="text/css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" type="text/css" href="../styles/main.css">
-<link rel="stylesheet" type="text/css" href="styles/extensions.css">
+<link rel="stylesheet" type="text/css" href="../../index.css">
+<link rel="stylesheet" type="text/css" href="../components.css">
+<link rel="stylesheet" type="text/css" href="menus.css">
 
 <script
 	src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
@@ -23,10 +24,9 @@
 <script
 	src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
 
-<script src="../menudemo/menudemo.nocache.js"></script>
+<script src="../../menudemo/menudemo.nocache.js"></script>
 
-<script src="../jquery/jquery-2.2.0.min.js"></script>
-<script src="../scripts/main.js"></script>
+<script src="../../jquery/jquery-2.2.0.min.js"></script>
 
 <script type="text/javascript">
 	var itemsCount = 0;
@@ -65,52 +65,71 @@
 </head>
 <body class="demo-global">
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-		<div id="../header.html" class="inject"></div>
-		<div class="demo-main mdl-layout__content">
-			<aside class="nav mdl-shadow--8dp" style="display: none;"></aside>
-			<div class="page" align="center">
-				<div class="content" align="left">
-					<h4 class="demo-title">Menus</h4>
+		<header class="demo-simplified-header">
 
-					<span class="demo-text">Lists of clickable actions.</span>
+			<!-- On the first row, put the demo title  -->
+			<div class="mdl-layout__header-row">
 
-					<h5 class="demo-title">Menu anchor</h5>
+				<!-- Title -->
+				<span class="mdl-layout-title">Material Design Lite for GWT</span>
+			</div>
 
-					<div align="center">
-						<div align="center" style="display: inline-block">
-							<div class="demo-menu-container mdl-shadow--2dp" align="left">
-								<div class="bar" id="ctnr_01"></div>
-								<div class="background"></div>
+			<!-- On the second row put the tabs and external links -->
+			<div id="header-link-row" class="mdl-layout__header-row">
+				<!-- Put a spacer to push the external links to the right -->
+				<div class="mdl-layout-spacer"></div>
+
+				<!-- A link to the source code -->
+				<a href="https://github.com/ilyes4j/material-design-lite-gwt"
+					class="demo-header-link"><span class="icon material-icons">code</span><span
+					class="text">GitHub</span></a>
+			</div>
+		</header>
+		<div class="mdl-layout__content">
+			<div id="demo-main" class="demo-main">
+				<div class="page" align="center">
+					<div class="content" align="left">
+						<h4 class="demo-title">Menus</h4>
+
+						<span class="demo-text">Lists of clickable actions.</span>
+
+						<h5 class="demo-title">Menu anchor</h5>
+
+						<div align="center">
+							<div align="center" style="display: inline-block">
+								<div class="demo-menu-container mdl-shadow--2dp" align="left">
+									<div class="bar" id="ctnr_01"></div>
+									<div class="background"></div>
+								</div>
+								<div class="demo-button-caption demo-text">Lower left</div>
 							</div>
-							<div class="demo-button-caption demo-text">Lower left</div>
-						</div>
-						<div align="center" style="display: inline-block">
-							<div class="demo-menu-container mdl-shadow--2dp" align="right">
-								<div class="bar" id="ctnr_02"></div>
-								<div class="background"></div>
+							<div align="center" style="display: inline-block">
+								<div class="demo-menu-container mdl-shadow--2dp" align="right">
+									<div class="bar" id="ctnr_02"></div>
+									<div class="background"></div>
+								</div>
+								<div class="demo-button-caption demo-text">Lower right</div>
 							</div>
-							<div class="demo-button-caption demo-text">Lower right</div>
 						</div>
-					</div>
 
-					<div align="center">
-						<div align="center" style="display: inline-block">
-							<div class="demo-menu-container mdl-shadow--2dp" align="left">
-								<div class="background"></div>
-								<div class="bar" id="ctnr_03"></div>
+						<div align="center">
+							<div align="center" style="display: inline-block">
+								<div class="demo-menu-container mdl-shadow--2dp" align="left">
+									<div class="background"></div>
+									<div class="bar" id="ctnr_03"></div>
+								</div>
+								<div class="demo-button-caption demo-text">Upper left</div>
 							</div>
-							<div class="demo-button-caption demo-text">Upper left</div>
-						</div>
-						<div align="center" style="display: inline-block">
-							<div class="demo-menu-container mdl-shadow--2dp" align="right">
-								<div class="background"></div>
-								<div class="bar" id="ctnr_04"></div>
+							<div align="center" style="display: inline-block">
+								<div class="demo-menu-container mdl-shadow--2dp" align="right">
+									<div class="background"></div>
+									<div class="bar" id="ctnr_04"></div>
+								</div>
+								<div class="demo-button-caption demo-text">Upper right</div>
 							</div>
-							<div class="demo-button-caption demo-text">Upper right</div>
 						</div>
-					</div>
 
-					<pre class="demo-code prettyprint lang-java">
+						<pre class="demo-code prettyprint lang-java">
 package org.zerowarning.gwt.mdl.demo;
 
 import static com.google.gwt.user.client.ui.RootPanel.get;
@@ -195,30 +214,31 @@ public class Extensions implements EntryPoint {
 	}
 }</pre>
 
-					<h5 class="demo-title">Menu click event</h5>
-					<div id="eventContainer" style="position: relative"></div>
+						<h5 class="demo-title">Menu click event</h5>
+						<div id="eventContainer" style="position: relative"></div>
 
-					<h5 class="demo-title">Menu scroll</h5>
-					<div id="scrollContainer" style="position: relative"></div>
+						<h5 class="demo-title">Menu scroll</h5>
+						<div id="scrollContainer" style="position: relative"></div>
 
-					<h5 class="demo-title">Adding items</h5>
+						<h5 class="demo-title">Adding items</h5>
 
-					<!-- Left aligned menu below button -->
-					<div style="position: relative">
-						<button id="demo-menu-lower-left"
-							class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">Select</button>
+						<!-- Left aligned menu below button -->
+						<div style="position: relative">
+							<button id="demo-menu-lower-left"
+								class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">Select</button>
 
-						<ul id="ul_menu"
-							class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--top-right"
-							for="demo-menu-lower-left">
-							<li class="mdl-menu__item">Some Action</li>
-						</ul>
+							<ul id="ul_menu"
+								class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--top-right"
+								for="demo-menu-lower-left">
+								<li class="mdl-menu__item">Some Action</li>
+							</ul>
 
-						<button
-							class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
-							onclick="onAddItemClick();">
-							<i class="material-icons">add</i>
-						</button>
+							<button
+								class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
+								onclick="onAddItemClick();">
+								<i class="material-icons">add</i>
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>

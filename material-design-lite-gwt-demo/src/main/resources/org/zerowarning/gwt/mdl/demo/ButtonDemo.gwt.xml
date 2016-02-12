@@ -9,6 +9,8 @@
 
 	<public path="" />
 
+	<stylesheet src="main-gwt.css" />
+
 	<add-linker name="xsiframe" />
 
 	<entry-point class="org.zerowarning.gwt.mdl.demo.ButtonDemo" />
