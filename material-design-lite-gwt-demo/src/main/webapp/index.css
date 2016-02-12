@@ -21,6 +21,8 @@
 	display: table;
 	height: 100%;
 	padding-bottom: 10px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 /* the icon inside the header link */
