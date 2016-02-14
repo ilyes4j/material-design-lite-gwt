@@ -30,6 +30,7 @@ public enum ButtonColor {
 	 * Setup the option and its corresponding css class name
 	 * 
 	 * @param css
+	 *            the css class name associated with this option
 	 */
 	private ButtonColor(final String css) {
 		this.css = css;
