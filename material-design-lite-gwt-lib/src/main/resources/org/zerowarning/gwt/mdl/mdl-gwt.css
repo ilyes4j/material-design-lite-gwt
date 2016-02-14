@@ -3,13 +3,3 @@
 .mdl-button.mdl-img-button {
 	font-size: initial;
 }
-
-.gwt-mdl-selectbox-container {
-	display: inline-block;
-}
-
-.selectbox-menu_content {
-	position: absolute;
-	z-index: 999;
-	padding: 10px 20px;
-}
