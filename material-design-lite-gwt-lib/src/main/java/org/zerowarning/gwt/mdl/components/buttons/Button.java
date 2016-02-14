@@ -10,18 +10,45 @@ import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.MINIFAB;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.RAISED;
 import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
 
+import org.zerowarning.gwt.mdl.components.MdlGwtUtils;
 import org.zerowarning.gwt.mdl.components.ripples.Ripple;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.user.client.ui.UIObject;
 
 /**
- * Material Button
+ * A Material {@link Button}, can take many shapes. The appearance of the button
+ * is controlled by a handful of properties but not all are available at the
+ * same time. For example a Fab button can't have all the colors available for a
+ * Raised button. Thereby, a button should not be setup using its constructor.
+ * Instead a builder was implemented to assist in setting up the appropriate
+ * options for the button.
  * 
  * @author Mohamed Ilyes DIMASSI
  */
 public class Button extends com.google.gwt.user.client.ui.Button {
 
+	/**
+	 * Setup a raised material button.<br>
+	 * <br>
+	 * A raised button is a rectangular and elevated button that has a text for
+	 * content. It can have a ripple and one of the three available background
+	 * colors (translucent, primary or accented theme color).
+	 * 
+	 * @param color
+	 *            the background color, should be one of the options provided by
+	 *            {@link ButtonColor}
+	 * 
+	 * @param ripple
+	 *            determines whether the button has a ripple, should be one of
+	 *            the options provided by {@link Ripple}
+	 * 
+	 * @param text
+	 *            a text for the button
+	 * 
+	 * @return a raised button.
+	 */
 	public static Button createRaised(ButtonColor color, Ripple ripple, String text) {
 		Button button = new Button();
 		button.setType(RAISED);
@@ -32,6 +59,24 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 		return button;
 	}
 
+	/**
+	 * A flat button is very similar to a raised button. It uses the same
+	 * options as the raised button but renders differently. The provided color
+	 * act on the text rather than the background.
+	 * 
+	 * @param color
+	 *            The text color should be one of the options provided by
+	 *            {@link ButtonColor}
+	 * 
+	 * @param ripple
+	 *            determines whether the button has a ripple, should be one of
+	 *            the options provided by {@link Ripple}
+	 * 
+	 * @param text
+	 *            a text for the button
+	 * 
+	 * @return a flat button.
+	 */
 	public static Button createFlat(ButtonColor color, Ripple ripple, String text) {
 		Button button = new Button();
 		button.setType(FLAT);
@@ -42,6 +87,26 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 		return button;
 	}
 
+	/**
+	 * Setup a fab material button. <br>
+	 * <br>
+	 * A fab button is a round and elevated Button with a material icon. It can
+	 * have a ripple and one from only two possible background colors
+	 * (translucent or mdl accent theme color)
+	 * 
+	 * @param color
+	 *            the background color, should be one of the options provided by
+	 *            {@link ButtonFabColor}
+	 * 
+	 * @param ripple
+	 *            determines whether the button has a ripple, one of the options
+	 *            provided by {@link Ripple}
+	 * 
+	 * @param icon
+	 *            a material icon font code
+	 * 
+	 * @return a fab button
+	 */
 	public static Button createFab(ButtonFabColor color, Ripple ripple, String icon) {
 		Button button = new Button();
 		button.setType(FAB);
@@ -52,6 +117,24 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 		return button;
 	}
 
+	/**
+	 * Setup an icon material button. <br>
+	 * <br>
+	 * A material icon button is at the cross road of flat and mini fab buttons.
+	 * 
+	 * @param color
+	 *            the icon color. Should be one of the options provided by
+	 *            {@link ButtonColor}
+	 * 
+	 * @param ripple
+	 *            determines whether the button has a ripple, one of the options
+	 *            provided by {@link Ripple}
+	 * 
+	 * @param icon
+	 *            a material icon font code
+	 * 
+	 * @return A raised button.
+	 */
 	public static Button createIcon(ButtonColor color, Ripple ripple, String icon) {
 		Button button = new Button();
 		button.setType(ICON);
@@ -62,6 +145,24 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 		return button;
 	}
 
+	/**
+	 * Setup a mini fab material button. <br>
+	 * <br>
+	 * A mini fab is identical to a fab button except that it is tinier.
+	 * 
+	 * @param color
+	 *            the background color, should be one of the options provided by
+	 *            {@link ButtonFabColor}
+	 * 
+	 * @param ripple
+	 *            determines whether the button has a ripple, one of the options
+	 *            provided by {@link Ripple}
+	 * 
+	 * @param icon
+	 *            a material icon font code
+	 * 
+	 * @return A raised button.
+	 */
 	public static Button createMiniFab(ButtonFabColor color, Ripple ripple, String icon) {
 		Button button = new Button();
 		button.setType(MINIFAB);
@@ -72,20 +173,33 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 		return button;
 	}
 
+	/**
+	 * Setup an instance by applying the basic properties shared by all material
+	 * buttons.
+	 */
 	public Button() {
 		setStylePrimaryName(MDL_BTN);
 		addStyleName(MDL_JS_BTN);
 	}
 
-	public void setIcon(String iconName) {
+	/**
+	 * Add an icon to the button.
+	 * 
+	 * @param icon
+	 *            a material icon font code
+	 */
+	public void setIcon(String icon) {
 		if (iTag == null) {
 			iTag = Document.get().createElement(I_TAG);
 			iTag.setClassName(MATERIAL_ICONS);
 			getElement().appendChild(iTag);
 		}
-		iTag.setInnerHTML(iconName);
+		iTag.setInnerHTML(icon);
 	}
 
+	/**
+	 * apply javascript behaviors and effects to the button.
+	 */
 	public void upgrade() {
 		if (upgraded) {
 			return;
@@ -94,50 +208,99 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 		upgradeElement(getElement());
 	}
 
+	/**
+	 * Return the material button type provided by one of the options in
+	 * {@link ButtonType}
+	 * 
+	 * @return one of the options provided by {@link ButtonType}
+	 */
 	public ButtonType getType() {
 		return type;
 	}
 
+	/**
+	 * The material button type indicates how it renders and what options can be
+	 * applied to tweak its appearance. The type is determined by one of the
+	 * options provided by {@link ButtonType}.
+	 * 
+	 * @param type
+	 *            one of the options provided by {@link ButtonType}
+	 */
 	public void setType(ButtonType type) {
 		this.type = type;
 		addStyleName(type.toString());
 	}
 
+	/**
+	 * Returns the coloring option of the button. The returned result is
+	 * unpredictable if the button type is not Flat, Raised or Icon.
+	 * 
+	 * @return one of the options provided by {@link ButtonColor}
+	 */
 	public ButtonColor getColor() {
 		return color;
 	}
 
+	/**
+	 * Setup the coloring option of the button. The result is unpredictable if
+	 * the button type is not Flat, Raised or Icon.
+	 * 
+	 * @param color
+	 *            one of the options provided by {@link ButtonColor}
+	 */
 	public void setColor(ButtonColor color) {
 		this.color = color;
 		addStyleName(color.toString());
 	}
 
+	/**
+	 * Returns the coloring option of the button. The returned result is
+	 * unpredictable if the button type is not Fab or a Mini Fab.
+	 * 
+	 * @return one of the options provided by {@link ButtonFabColor}
+	 */
 	public ButtonFabColor getFabColor() {
 		return fabColor;
 	}
 
+	/**
+	 * Setup the coloring option of the button. The result is unpredictable if
+	 * the button type is Fab or Mini Fab.
+	 * 
+	 * @param color
+	 *            one of the options provided by {@link ButtonFabColor}
+	 */
 	public void setFabColor(ButtonFabColor fabColor) {
 		this.fabColor = fabColor;
 		addStyleName(fabColor.toString());
 	}
 
+	/**
+	 * Returns the ripple option of the button.
+	 * 
+	 * @return one of the options provided by {@link Ripple}
+	 */
 	public Ripple getRipple() {
 		return ripple;
 	}
 
+	/**
+	 * Setup the ripple option of the button.
+	 * 
+	 * @param ripple
+	 *            one of the options provided by {@link Ripple}
+	 */
 	public void setRipple(Ripple ripple) {
 		this.ripple = ripple;
 		addStyleName(ripple.toString());
 	}
 
-	public boolean isUpgraded() {
-		return upgraded;
-	}
-
-	public void setUpgraded(boolean upgraded) {
-		this.upgraded = upgraded;
-	}
-
+	/**
+	 * Safely adds a new css selector to the button.
+	 * 
+	 * Should be removed and {@link MdlGwtUtils#addStyle(UIObject, Object)}
+	 * should be used instead.
+	 */
 	public void addStyleName(String styleName) {
 		if (styleName == null || styleName.isEmpty()) {
 			return;
