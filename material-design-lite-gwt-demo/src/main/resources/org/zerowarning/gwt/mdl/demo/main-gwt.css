@@ -75,3 +75,7 @@
 		margin-bottom: 10px;
 	}
 }
+.demo-menu-event-label {
+	display: inline;
+	margin-left: 15px;
+}

@@ -119,8 +119,8 @@ public class MenuDemo implements EntryPoint {
 
 		final Label lbl = new Label();
 		lbl.setText("Choose option");
-		lbl.addStyleName("mdl-typography--title");
-		lbl.addStyleName("mdl-gwt-select-status");
+		lbl.addStyleName("demo-text");
+		lbl.addStyleName("demo-menu-event-label");
 		eventPanel.add(lbl);
 
 		menu.addItemClickListener(new Menu.ItemClickListener() {
