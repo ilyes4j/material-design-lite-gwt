@@ -15,6 +15,8 @@ import org.zerowarning.gwt.mdl.components.ripples.Ripple;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.dom.client.SpanElement;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.UIObject;
 
 /**
@@ -308,6 +310,59 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 		super.addStyleName(styleName);
 	}
 
+	/**
+	 * Set the text to be displayed on the button.<br>
+	 * <br>
+	 * If the button is not flat nor raised, the behavior of this method is
+	 * unpredictable.<br>
+	 * <br>
+	 * The supertype implementation of this method simply overrides anything
+	 * inside the button and replaces it with the text provided as input.<br>
+	 * <br>
+	 * Considering that the button element can have ripples in addition to text,
+	 * setting a text for the button cannot be achieved by writing over the
+	 * button's content. By embedding the text inside a container, it is
+	 * possible to target the text without damaging other context inside the
+	 * button.
+	 * 
+	 * @param text
+	 *            the text to be set for the button
+	 * 
+	 * @see {@link com.google.gwt.user.client.ui.Button#setText(String)}
+	 */
+	public void setText(String text) {
+
+		// if the text is set for the first time
+		if (textContainer == null) {
+
+			// create a span that holds the text
+			textContainer = new HTMLPanel(SpanElement.TAG, "");
+
+			// attach the container to the button
+			getElement().insertFirst(textContainer.getElement());
+		}
+
+		// set the text as the containers inner content
+		textContainer.getElement().setInnerHTML(text);
+	}
+
+	/**
+	 * Returns the text of the button, if the button is not flat nor raised, the
+	 * returned value is unpredictable.
+	 * 
+	 * @return the button's text
+	 */
+	public String getText() {
+
+		// if the container is not yet defined then return an undefined string
+		if (textContainer == null) {
+			return null;
+		}
+
+		// otherwise return the content of the texte container
+		return textContainer.getElement().getInnerHTML();
+	}
+
 	private ButtonType type = FAB;
 
 	private ButtonColor color = BTN_NO_COLOR;
@@ -327,4 +382,9 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 	private static final String I_TAG = "i";
 
 	private static final String MATERIAL_ICONS = "material-icons";
+
+	/**
+	 * A container for the text inside a flat or raised button.
+	 */
+	private HTMLPanel textContainer;
 }
