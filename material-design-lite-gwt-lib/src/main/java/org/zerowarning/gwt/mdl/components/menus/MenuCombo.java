@@ -7,24 +7,24 @@ import org.zerowarning.gwt.mdl.components.buttons.Button;
 import com.google.gwt.user.client.ui.FlowPanel;
 
 /**
- * Simplifies the creation of {@link Menu}s and makes them safer. It absorbs the
- * complexity of creating a {@link Menu} and its related action {@link Button}.
- * In fact creating a menu with mdl has some assumptions about the required
- * conditions to be satisfied in order for the {@link Menu} to work properly.
- * These requirement are left to the responsibility of the developer to satisfy.
- * This component goal is to encapsulate these requirements and to hide them
- * from the developer as it enforces them itself, leaving the developer's full
- * attention on the application logic. These requirements are as follows<br>
+ * {@link MenuCombo} makes it simpler and safer to build {@link Menu}s. It
+ * absorbs the complexity of creating a {@link Menu} and its related action
+ * {@link Button}. In fact, for the {@link Menu} to work properly some
+ * requirements must be satisfied. With mdl, these requirement are the
+ * responsibility of the developer. This component's goal is to encapsulate
+ * these requirements and to hide them from the developer. By enforcing these
+ * rules inside the menu, the developer's full attention goes to the application
+ * logic. These requirements are as follows :<br>
  * <br>
  * <ol>
- * <li>The Button should be created first and added to the DOM before the
+ * <li>The Button should be created first and then added to the DOM before the
  * {@link Menu} is. Otherwise, the {@link Menu} won't be able to attach its
  * event handlers to it.</li>
  * <li>The menu should live inside the same element as the its action
  * {@link Button}.</li>
  * <li>The {@link Menu} should reference the id of its related {@link Button} in
  * order for mdl to bind them together. The developer should provide an id for
- * the {@link Button} that should be then fed to the {@link Menu}.
+ * the {@link Button} which should then be fed to the {@link Menu}.
  * {@link Button}.</li>
  * </ol>
  * 

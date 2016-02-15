@@ -3,7 +3,6 @@ package org.zerowarning.gwt.mdl.components.menus;
 /**
  * {@link MenuAnchor} defines how the {@link Menu} should be positioned
  * relatively to its associated button. There are four possible options :<br>
- * <br>
  * 
  * <li>{@link MenuAnchor#BOTTOM_LEFT}</li>
  * <li>{@link MenuAnchor#BOTTOM_RIGHT}</li>
