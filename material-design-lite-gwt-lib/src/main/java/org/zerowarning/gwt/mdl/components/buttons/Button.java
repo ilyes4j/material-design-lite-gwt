@@ -198,7 +198,7 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 	}
 
 	/**
-	 * apply javascript behaviors and effects to the button.
+	 * apply javascript behaviors and effects on the button.
 	 */
 	public void upgrade() {
 		if (upgraded) {
