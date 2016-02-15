@@ -18,12 +18,12 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.UIObject;
 
 /**
- * A Material {@link Button}, can take many shapes. The appearance of the button
- * is controlled by a handful of properties but not all are available at the
- * same time. For example a Fab button can't have all the colors available for a
- * Raised button. Thereby, a button should not be setup using its constructor.
- * Instead a builder was implemented to assist in setting up the appropriate
- * options for the button.
+ * A Material {@link Button}, can take many shapes. Its appearance is controlled
+ * by a handful of properties but not all are available at the same time. For
+ * example a Fab button can't have all the colors available for a Raised button.
+ * Thereby, a button should not be setup using its constructor. Instead a
+ * builder was implemented to assist in setting up the appropriate options for
+ * the button.
  * 
  * @author Mohamed Ilyes DIMASSI
  */
