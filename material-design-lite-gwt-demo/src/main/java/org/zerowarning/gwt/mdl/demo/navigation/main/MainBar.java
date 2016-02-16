@@ -19,17 +19,5 @@ public class MainBar extends NavigationBar<MainbarItem> {
 
 		// setup the bar look
 		container.setStyleName("demo-mainbar");
-
-		// setup the link to the about section
-		MainbarItem aboutItem = new MainbarItem();
-		aboutItem.setUrl("about/about.html");
-		aboutItem.setText("about");
-		addLink(aboutItem);
-
-		// setup the link to the components section
-		MainbarItem compsItem = new MainbarItem();
-		compsItem.setUrl("components/components.html");
-		compsItem.setText("components");
-		addLink(compsItem);
 	}
 }

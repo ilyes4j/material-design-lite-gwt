@@ -15,7 +15,7 @@ import com.google.gwt.user.client.ui.FlowPanel;
 
 /**
  * A {@link ComponentsItem} is a link the demo page of a gwt-mdl component. It
- * is intended to be placed inside a {@link ComponentsBar}.
+ * is intended to be placed inside a {@link SideNavigationBar}.
  * 
  * @author Mohamed Ilyes DIMASSI
  *
@@ -23,8 +23,7 @@ import com.google.gwt.user.client.ui.FlowPanel;
 public class ComponentsItem extends Composite implements INavigationItem {
 
 	/**
-	 * Setup a navigation item that will be placed inside the components
-	 * navigation bar.
+	 * Setup the DOM structure and css selectors for the navigation item.
 	 */
 	public ComponentsItem(String icon) {
 
@@ -53,6 +52,18 @@ public class ComponentsItem extends Composite implements INavigationItem {
 		initWidget(container);
 	}
 
+	/**
+	 * Define the operations to be performed when the item corresponds to the
+	 * current displayed demo page.<br>
+	 * <br>
+	 * When the item links to the current page, change its visual appearance to
+	 * make it different from the links that links to other demo pages. Also, do
+	 * not put a click listener on the link.<br>
+	 * <br>
+	 * When the item link to another page, put a click listener on it to make it
+	 * navigable and make it look like all the links that does not link to the
+	 * current page.
+	 */
 	@Override
 	public void setActive(boolean active) {
 		btn.setEnabled(active);
@@ -71,16 +82,26 @@ public class ComponentsItem extends Composite implements INavigationItem {
 	 * Sets the text that should be displayed besides the icon
 	 * 
 	 * @param caption
+	 *            the text to be displayed for the item
 	 */
 	public void setCaption(String caption) {
 		captionContainer.getElement().setInnerText(caption);
 	}
 
+	/**
+	 * The url to go to when the link is clicked.
+	 * 
+	 * @param inputurl
+	 *            the url related to this item.
+	 */
 	@Override
 	public void setUrl(String inputurl) {
 		this.url = inputurl;
 	}
 
+	/**
+	 * @return the url related to the item.
+	 */
 	@Override
 	public String getUrl() {
 		return this.url;

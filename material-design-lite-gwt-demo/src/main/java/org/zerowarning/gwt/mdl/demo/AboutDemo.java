@@ -1,21 +1,20 @@
 package org.zerowarning.gwt.mdl.demo;
 
-import static com.google.gwt.user.client.ui.RootPanel.get;
-
-import org.zerowarning.gwt.mdl.demo.navigation.main.MainBar;
+import org.zerowarning.gwt.mdl.demo.utils.DemoUtils;
 
 import com.google.gwt.core.client.EntryPoint;
 
 /**
+ * GWT module for the about demo page.
+ * 
  * @author Mohamed Ilyes DIMASSI
  */
 public class AboutDemo implements EntryPoint {
 
-	/**
-	 * This is the entry point method.
-	 */
+	@Override
 	public void onModuleLoad() {
 
-		get("header-link-row").insert(new MainBar(), 0);
+		// put the main navigation bar in the header for the demo page.
+		DemoUtils.insertMainbar();
 	}
 }
