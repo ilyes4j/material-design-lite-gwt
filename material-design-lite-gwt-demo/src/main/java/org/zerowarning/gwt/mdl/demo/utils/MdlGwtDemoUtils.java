@@ -12,7 +12,7 @@ import org.zerowarning.gwt.mdl.demo.navigation.main.MainbarItem;
  * 
  * @author Mohamed Ilyes DIMASSI
  */
-public class DemoUtils {
+public class MdlGwtDemoUtils {
 
 	/**
 	 * Stores the id of the main section of the demo page. This is the id of the
@@ -27,6 +27,26 @@ public class DemoUtils {
 	public static final String HEADER = "header-link-row";
 
 	/**
+	 * relative location of the about page
+	 */
+	public static final String ABOUT = "about/about.html";
+
+	/**
+	 * relative location of the components page
+	 */
+	public static final String COMPONENTS = "components/components.html";
+
+	/**
+	 * relative location of the buttons demo page
+	 */
+	public static final String BUTTONS = "components/buttons/buttons.html";
+
+	/**
+	 * relative location of the menus demo page
+	 */
+	public static final String MENUS = "components/menus/menus.html";
+
+	/**
 	 * Setup the components side bar and inject it inside the main section of a
 	 * demo page.
 	 */
@@ -39,14 +59,14 @@ public class DemoUtils {
 		// the text of the link
 		button.setCaption("Buttons");
 		// the url of the link relative to "components" node
-		button.setUrl("components/buttons/buttons.html");
+		button.setUrl(BUTTONS);
 		// add the link to the navigation bar
 		bar.addLink(button);
 
 		// setup the menu link
 		ComponentsItem menu = new ComponentsItem("menu");
 		menu.setCaption("Menus");
-		menu.setUrl("components/menus/menus.html");
+		menu.setUrl(MENUS);
 		bar.addLink(menu);
 
 		// insert the side bar under the main section of the demo page
@@ -54,7 +74,7 @@ public class DemoUtils {
 	}
 
 	/**
-	 * Setup the main bar of the demo and inject it inside the header
+	 * Setup the main bar of the demo and inject it inside the header.
 	 */
 	public static void insertMainbar() {
 
@@ -63,13 +83,13 @@ public class DemoUtils {
 
 		// setup the link to the about section
 		MainbarItem aboutItem = new MainbarItem();
-		aboutItem.setUrl("about/about.html");
+		aboutItem.setUrl(ABOUT);
 		aboutItem.setText("about");
 		mainbar.addLink(aboutItem);
 
 		// setup the link to the components section
 		MainbarItem compsItem = new MainbarItem();
-		compsItem.setUrl("components/components.html");
+		compsItem.setUrl(COMPONENTS);
 		compsItem.setText("components");
 		mainbar.addLink(compsItem);
 

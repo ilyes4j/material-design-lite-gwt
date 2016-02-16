@@ -1,4 +1,4 @@
-package org.zerowarning.gwt.mdl.demo;
+package org.zerowarning.gwt.mdl.demo.modules;
 
 import static com.google.gwt.user.client.ui.RootPanel.get;
 import static org.zerowarning.gwt.mdl.components.buttons.Button.createIcon;
@@ -16,14 +16,14 @@ import org.zerowarning.gwt.mdl.components.menus.ItemClickEvent;
 import org.zerowarning.gwt.mdl.components.menus.Menu;
 import org.zerowarning.gwt.mdl.components.menus.MenuAnchor;
 import org.zerowarning.gwt.mdl.components.menus.MenuCombo;
-import org.zerowarning.gwt.mdl.demo.utils.DemoUtils;
+import org.zerowarning.gwt.mdl.demo.utils.MdlGwtDemoUtils;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 
 /**
- * GWT module for the menus demo page.
+ * {@link EntryPoint} containing the GWT part of the menus demo.
  * 
  * @author Mohamed Ilyes DIMASSI
  */
@@ -40,8 +40,8 @@ public class MenuDemo implements EntryPoint {
 		eventClickDemo();
 		menusScrollDemo();
 
-		DemoUtils.insertMainbar();
-		DemoUtils.insertComponentsNavbar();
+		MdlGwtDemoUtils.insertMainbar();
+		MdlGwtDemoUtils.insertComponentsNavbar();
 	}
 
 	/**

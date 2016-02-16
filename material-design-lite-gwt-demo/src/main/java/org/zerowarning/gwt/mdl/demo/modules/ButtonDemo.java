@@ -1,4 +1,4 @@
-package org.zerowarning.gwt.mdl.demo;
+package org.zerowarning.gwt.mdl.demo.modules;
 
 import static com.google.gwt.user.client.ui.RootPanel.get;
 import static org.zerowarning.gwt.mdl.components.buttons.Button.createFab;
@@ -15,12 +15,12 @@ import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
 
 import org.zerowarning.gwt.mdl.components.buttons.Button;
-import org.zerowarning.gwt.mdl.demo.utils.DemoUtils;
+import org.zerowarning.gwt.mdl.demo.utils.MdlGwtDemoUtils;
 
 import com.google.gwt.core.client.EntryPoint;
 
 /**
- * GWT module for the buttons demo page.
+ * {@link EntryPoint} containing the GWT part of the buttons demo.
  * 
  * @author Mohamed Ilyes DIMASSI
  */
@@ -134,7 +134,7 @@ public class ButtonDemo implements EntryPoint {
 		// create a colored mini fab
 		get(CTNR_23).add(createMiniFab(COLORED, NONE, ICO_1));
 
-		DemoUtils.insertMainbar();
-		DemoUtils.insertComponentsNavbar();
+		MdlGwtDemoUtils.insertMainbar();
+		MdlGwtDemoUtils.insertComponentsNavbar();
 	}
 }
