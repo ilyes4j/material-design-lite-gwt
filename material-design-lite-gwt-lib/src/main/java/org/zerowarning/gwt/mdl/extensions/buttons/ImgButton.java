@@ -1,4 +1,4 @@
-package org.zerowarning.gwt.mdl.extensions;
+package org.zerowarning.gwt.mdl.extensions.buttons;
 
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.FAB;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.ICON;
