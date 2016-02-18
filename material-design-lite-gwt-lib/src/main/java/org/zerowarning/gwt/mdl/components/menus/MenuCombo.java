@@ -34,6 +34,20 @@ import com.google.gwt.user.client.ui.FlowPanel;
  */
 public class MenuCombo extends FlowPanel {
 
+	/**
+	 * Setup a {@link MenuCombo}.<br>
+	 * <br>
+	 * A menu combo is made of a {@link Button} and a {@link Menu} that works
+	 * together to display the menu to the user when the button is clicked.
+	 * Using this constructor, the user provides the instance of the button and
+	 * the menu. The combo is responsible for wiring them together.
+	 * 
+	 * @param mn
+	 *            the menu to be setup
+	 *            
+	 * @param btn
+	 *            the action button for the menu
+	 */
 	public MenuCombo(Menu mn, Button btn) {
 
 		if (btn == null) {
