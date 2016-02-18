@@ -6,3 +6,7 @@ env:
   global:
     - GH_REF=github.com/ilyes4j/material-design-lite-gwt.git
     - secure: "eCcyB71DpYpuXJwivwoKrZzYbfRvdkpn/WpGVjdmN1YPhHGqPmhrDjEcgYgzx8XPLtVQBWk+nFoSBM6VLAUHs9Cu+o3WVIwXGyP525T9a8Mgp2jei4kerDuL4p23frQKtoKwJCwhttGWdFG3E6Un8tZ4ZbHJDCXAeHyIYkTiUs+4MKE7n41WhbzFzSDIgLA+u+Cm5vZigzpmk9iaY0sgaF9GkCJk205qKKpJ/5t8LQbr+FEOzhQMcI3QRxjM78QM7x5sIyGDyULPOEax1ZPPCyE9hbmmZOTxK6YLzP5FEEiS6+/IpyS3tAwrdDaWDL/VUq8gTl7tbLMqYi2xooIKrYsKPZKDgRdPFXNBEeZPOXTyY0UoiDksw418xMz0mwQnztWz5xGunJbr7k/vN0BEg3ICZ8gHgQsj2VVnGJ8BS0DtYt1vH33u4NfJp1zrurbYdktfbjsLvIoIpg11xrP4op8Yuuta+IzmbqgyDz+FXP2E6dQgXaubsDl/K4bdJiO6xrNgtKlc8WDrjRm9XQyC/n1e8GAYeOcmwIq0KXQieq1SRdh6/1Bwbr+SX26G2FLepIxI1/JOckVLeqiGyKvYvOwkt53c2NjEc29lX0w5yor+JAwby8+iRgck5NzGW6lYNYLw8wSu4VszbmkY/DuIDIJzeICgoOv7ZMpQ2uCSZhw="
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
