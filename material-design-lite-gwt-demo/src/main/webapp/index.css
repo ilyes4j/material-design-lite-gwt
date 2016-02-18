@@ -4,6 +4,19 @@
 	font-family: "roboto", "Helvetica", "Arial", sans-serif;
 }
 
+/*Because of https://github.com/google/material-design-lite/issues/1676
+we are dropping the mdl-layout__header for a less fancy implementation but
+at least the header renders nicely across browsers. This selector contains
+the base setup for the header. On older version of firefox 26 this setup
+ensures the header is not squashed when the page has a scrollbar*/
+
+.demo-simplified-header {
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+}
+
 /*the main section of the page*/
 
 .demo-main {
