@@ -13,6 +13,22 @@ import com.google.gwt.user.client.ui.UIObject;
 public class MdlGwtUtils {
 
 	/**
+	 * Make sure the index provided as input is inside the range of possible
+	 * elements of a list.
+	 * 
+	 * @param size
+	 *            the size of the list
+	 * 
+	 * @param index
+	 *            the index to be checked
+	 */
+	public static void assertIndex(int size, int index) {
+		if (index < 0 || index >= size) {
+			throw new ArrayIndexOutOfBoundsException();
+		}
+	}
+
+	/**
 	 * When {@link UIObject#addStyleName(String)} is invoked with an empty style
 	 * name, it raises an exception. In mdl, the absence of a selector is
 	 * interpreted as the default option for the behavior. For this reason, we
