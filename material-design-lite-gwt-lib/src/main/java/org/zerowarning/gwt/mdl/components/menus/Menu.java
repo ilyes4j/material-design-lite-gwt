@@ -5,11 +5,14 @@ import static com.google.gwt.dom.client.Style.Unit.PX;
 import static com.google.gwt.event.dom.client.ClickEvent.getType;
 import static org.zerowarning.gwt.mdl.components.ComponentHandler.upgradeElement;
 import static org.zerowarning.gwt.mdl.components.MdlGwtUtils.addStyle;
+import static org.zerowarning.gwt.mdl.components.MdlGwtUtils.assertIndex;
 import static org.zerowarning.gwt.mdl.components.MdlGwtUtils.removeStyle;
 import static org.zerowarning.gwt.mdl.components.menus.MenuAnchor.BOTTOM_LEFT;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.zerowarning.gwt.mdl.components.ComponentHandler;
 import org.zerowarning.gwt.mdl.components.buttons.Button;
@@ -19,7 +22,6 @@ import com.google.gwt.dom.client.UListElement;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.HTMLPanel;
 
 /**
@@ -35,7 +37,7 @@ import com.google.gwt.user.client.ui.HTMLPanel;
  *
  * @see Button
  */
-public class Menu extends HTMLPanel {
+public class Menu extends HTMLPanel implements IMenu {
 
 	/**
 	 * The {@link Menu} material style.
@@ -111,7 +113,7 @@ public class Menu extends HTMLPanel {
 		items = new ArrayList<>();
 
 		// create the handlers references for future listeners removal.
-		handlerRegs = new ArrayList<>();
+		handlerRegs = new HashMap<>();
 
 		// create the array that will hold item click listeners
 		listeners = new ArrayList<>();
@@ -140,7 +142,7 @@ public class Menu extends HTMLPanel {
 		if (isAttached()) {
 			StringBuilder sb = new StringBuilder();
 			sb.append("The menu should be associated to an action ");
-			sb.append("button before bieng attached to the DOM.");
+			sb.append("button before being attached to the DOM.");
 			throw new IllegalStateException(sb.toString());
 		}
 
@@ -151,20 +153,7 @@ public class Menu extends HTMLPanel {
 		getElement().setAttribute("for", menuId);
 	}
 
-	/**
-	 * Sets the position of the {@link Menu} on the screen related to its
-	 * associated action button using one of the available anchoring options
-	 * provided by {@link MenuAnchor}.<br>
-	 * <br>
-	 * 
-	 * An extra care should be taken when anchoring the menu. According to this
-	 * <a href="https://github.com/google/material-design-lite/issues/952">
-	 * thread</a>, the menu's parent need a position:relative in order for the
-	 * menu to be anchored correctly.
-	 * 
-	 * @param anchor
-	 *            the requested {@link Anchor} position for the {@link Menu} .
-	 */
+	@Override
 	public void setAnchor(MenuAnchor anchor) {
 
 		// don't do anything if the requested anchor is not defined
@@ -214,6 +203,21 @@ public class Menu extends HTMLPanel {
 	@Override
 	public void onLoad() {
 
+		// the menu cannot be upgraded without having a menuId
+		if (menuId == null || menuId.isEmpty()) {
+
+			StringBuilder sb = new StringBuilder();
+			
+			sb.append("Attempting to upgrade a menu ");
+			sb.append("with an undefined action button\n");
+			
+			sb.append("Please bind the menu to its action button,");
+			sb.append("Before attaching it to the DOM.");
+			
+			throw new IllegalStateException(sb.toString());
+		}
+
+		// transform the menu and apply the needed behaviors
 		upgradeElement(getElement());
 
 		// make sure the menu height does not exceed the threshold.
@@ -229,78 +233,86 @@ public class Menu extends HTMLPanel {
 		}
 	}
 
-	/**
-	 * Remove all items from the menu.
-	 */
+	@Override
 	public void clearMenu() {
 
 		// remove click handlers
-		for (HandlerRegistration reg : handlerRegs) {
-			reg.removeHandler();
+		for (Map.Entry<MenuItem, HandlerRegistration> entry : handlerRegs.entrySet()) {
+			entry.getValue().removeHandler();
 		}
-		handlerRegs.clear(); // reset the handlers registrations list
+
+		// reset the handlers registrations list
+		handlerRegs.clear();
 
 		// remove items from the DOM
 		for (MenuItem item : items) {
 			remove(item);
 		}
-		items.clear(); // reset the item list.
+
+		// reset the item list.
+		items.clear();
 	}
 
-	/**
-	 * Adds a new option to the list of options in the menu.
-	 * 
-	 * @param item
-	 *            The item to be added.
-	 * 
-	 * @param enabled
-	 *            Defines whether the option can be chosen or not.
-	 */
+	@Override
 	public void addItem(String item, boolean enabled) {
-		HandlerRegistration reg;
 
 		// create the item holder
 		MenuItem menuItem = new MenuItem(item);
 
-		menuItem.setEnabled(enabled);
-
-		// ... add it the items list
+		// ... add it to the items list
 		items.add(menuItem);
+
 		// ... add the MenuItem to the DOM.
 		add(menuItem);
 
-		// register a click handler for the item only if the item is enabled.
-		// keep the handler reference
+		// set the enabled state for the first time.
 		if (enabled) {
-			reg = menuItem.addDomHandler(clickHandler, getType());
-			handlerRegs.add(reg);
+			forceEnable(menuItem);
 		}
 	}
 
 	/**
-	 * When an object needs to be notified upon a {@link MenuItem} click, it
-	 * must be be registered to the {@link Menu} as an {@link ItemClickListener}
-	 * .<br>
-	 * <br>
-	 * In order to receive item click notifications, the object should :
-	 * <ol>
-	 * <li>Implement the {@link ItemClickListener} interface</li>
-	 * <li>Define the actions that should be performed when a {@link MenuItem}
-	 * is clicked inside {@link ItemClickListener#onItemClicked(ItemClickEvent)}
-	 * </li>
-	 * <li>Call {@link Menu#addItemClickListener(ItemClickListener)} to register
-	 * itself to the menu and receive click notifications</li>
-	 * </ol>
+	 * Shortcut for {@link Menu#addItem(String, boolean)} that adds an enabled
+	 * item to the menu.
 	 * 
-	 * @param listener
-	 *            The object to be notified when a {@link MenuItem} is clicked.
-	 * 
-	 * @see ItemClickListener
+	 * @param item
+	 *            the item to be added.
 	 */
+	public void addItem(String item) {
+		addItem(item, true);
+	}
+
+	@Override
 	public void addItemClickListener(ItemClickListener listener) {
 		this.listeners.add(listener);
 	}
 
+	@Override
+	public int size() {
+		return items.size();
+	}
+
+	@Override
+	public String getItem(int index) {
+
+		return getMenuItem(index).getText();
+	}
+
+	@Override
+	public boolean setEnabled(int index, boolean enabled) {
+
+		// retrieve the item from index
+		MenuItem item = getMenuItem(index);
+
+		// set the enabled state of the item
+		return setEnabled(item, enabled);
+	}
+
+	@Override
+	public boolean isEnabled(int index) {
+		return getMenuItem(index).isEnabled();
+	}
+	
 	/**
 	 * This method should be extended when additional behavior is required.
 	 * 
@@ -331,6 +343,92 @@ public class Menu extends HTMLPanel {
 				listener.onItemClicked(evt);
 			}
 		}
+	}
+
+	private boolean setEnabled(MenuItem item, boolean enabled) {
+
+		// if the state of the element did not change then do nothing and return
+		// false
+		if (!item.setEnabled(enabled)) {
+			return false;
+		}
+
+		// after making sure the item state was toggled, the registration of the
+		// click event can be handled safely.
+
+		// if the item is gone from disabled to enabled then add a click
+		// listener
+		if (enabled) {
+
+			forceEnable(item);
+		}
+
+		// otherwise the item must have gone from enabled to disabled then,
+		// remove the previously positioned click listener
+		else {
+			forceDisable(item);
+		}
+
+		// return true, meaning that the item state was toggled
+		return true;
+	}
+
+	/**
+	 * Sets the state of the item regardless of its previous state. This is
+	 * normally done when the item is initialized and added to the menu.
+	 * 
+	 * @param item
+	 *            the item to be enabled/disabled
+	 * 
+	 * @param enabled
+	 *            the state to be forced
+	 */
+	private void forceEnable(MenuItem item) {
+
+		// the click handler registration object
+		HandlerRegistration reg;
+
+		// register the click handler to the item
+		reg = item.addDomHandler(clickHandler, getType());
+
+		// store the association between the item and its listener
+		handlerRegs.put(item, reg);
+
+	}
+
+	private void forceDisable(MenuItem item) {
+
+		// the click handler registration object
+		HandlerRegistration reg;
+
+		// get the click handler from the item
+		reg = handlerRegs.get(item);
+
+		// do not listen to click events coming from this item
+		reg.removeHandler();
+
+		// remove the broken association from the map
+		handlerRegs.remove(item);
+	}
+
+	/**
+	 * Returns a {@link MenuItem} provided its sequential position in the
+	 * {@link Menu}. Makes sure the item is within the boundaries of the list
+	 * otherwise throws an {@link ArrayIndexOutOfBoundsException}.
+	 * 
+	 * @param index
+	 *            the position of the item in the Menu.
+	 * 
+	 * @return the item.
+	 * 
+	 * @throws ArrayIndexOutOfBoundsException
+	 *             if the index is ouside the boundaries of the items list.
+	 */
+	private MenuItem getMenuItem(int index) {
+
+		assertIndex(size(), index);
+
+		return items.get(index);
 	}
 
 	/**
@@ -387,7 +485,7 @@ public class Menu extends HTMLPanel {
 	 * Keeps track of handlers registration to make removing the handlers
 	 * possible later.
 	 */
-	protected List<HandlerRegistration> handlerRegs;
+	protected Map<MenuItem, HandlerRegistration> handlerRegs;
 
 	/**
 	 * The list of all objects waiting to be notified when a {@link MenuItem} is
