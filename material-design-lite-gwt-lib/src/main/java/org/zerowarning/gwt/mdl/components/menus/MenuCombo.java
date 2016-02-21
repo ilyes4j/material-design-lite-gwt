@@ -80,7 +80,7 @@ public class MenuCombo extends FlowPanel {
 		this.button.getElement().setId(menuId);
 
 		// set the binding between the menu and the action button
-		menu.getElement().setAttribute("for", menuId);
+		menu.setActionId(menuId);
 
 		// add the button to the parent element
 		add(button);
