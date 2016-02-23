@@ -40,6 +40,9 @@
 
 		<!-- Using Surfire plugin version 2.6 -->
 		<surfireplugin.version>2.6</surfireplugin.version>
+
+		<!-- Using Javadoc plugin version 2.10.3 -->
+		<javadocplugin.version>2.10.3</javadocplugin.version>
 	</properties>
 
 	<prerequisites>
@@ -65,6 +68,15 @@
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${surfireplugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>${javadocplugin.version}</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>${antrunplugin.version}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
