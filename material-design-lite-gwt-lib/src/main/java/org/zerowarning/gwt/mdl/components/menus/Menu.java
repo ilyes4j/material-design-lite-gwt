@@ -58,7 +58,7 @@ public class Menu extends HTMLPanel implements IMenu {
 	 * 
 	 * @author Mohamed Ilyes DIMASSI
 	 * 
-	 * @see {@link ItemClickEvent}
+	 * @see ItemClickEvent
 	 */
 	public static interface ItemClickListener {
 
@@ -78,14 +78,11 @@ public class Menu extends HTMLPanel implements IMenu {
 	/**
 	 * Creates the menu component and associates it with an action button. The
 	 * link between the {@link Menu} and the action button is established by the
-	 * id of the button and must be provided in the {@link Menu} constructor.
-	 * <br>
+	 * id of the button and must be provided using
+	 * {@link Menu#setActionId(String)}. <br>
 	 * <br>
 	 * When the menu is attached to the DOM, it will look for the action button
 	 * using its id and will decorate it with the appropriate event handlers.
-	 * 
-	 * @param id
-	 *            the id of the associated action button.
 	 * 
 	 * @see Button
 	 */
@@ -184,8 +181,8 @@ public class Menu extends HTMLPanel implements IMenu {
 	 * After being attached to the DOM, the {@link Menu} is upgraded using
 	 * {@link ComponentHandler#upgradeElement(com.google.gwt.dom.client.Element)}
 	 * which in turn uses <a href=
-	 * "https://github.com/google/material-design-lite/blob/master/src/menu/menu.
-	 * js">MaterialMenu</a> to change the DOM tree of the component and add the
+	 * "https://github.com/google/material-design-lite/blob/master/src/menu/menu.js">
+	 * MaterialMenu</a> to change the DOM tree of the component and add the
 	 * required event handlers.<br>
 	 * <br>
 	 * 
@@ -207,13 +204,13 @@ public class Menu extends HTMLPanel implements IMenu {
 		if (menuId == null || menuId.isEmpty()) {
 
 			StringBuilder sb = new StringBuilder();
-			
+
 			sb.append("Attempting to upgrade a menu ");
 			sb.append("with an undefined action button\n");
-			
+
 			sb.append("Please bind the menu to its action button,");
 			sb.append("Before attaching it to the DOM.");
-			
+
 			throw new IllegalStateException(sb.toString());
 		}
 
@@ -312,7 +309,7 @@ public class Menu extends HTMLPanel implements IMenu {
 	public boolean isEnabled(int index) {
 		return getMenuItem(index).isEnabled();
 	}
-	
+
 	/**
 	 * This method should be extended when additional behavior is required.
 	 * 

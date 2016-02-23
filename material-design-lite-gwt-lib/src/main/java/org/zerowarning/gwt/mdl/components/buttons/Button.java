@@ -269,7 +269,7 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 	 * Setup the coloring option of the button. The result is unpredictable if
 	 * the button type is Fab or Mini Fab.
 	 * 
-	 * @param color
+	 * @param fabColor
 	 *            one of the options provided by {@link ButtonFabColor}
 	 */
 	public void setFabColor(ButtonFabColor fabColor) {
@@ -327,8 +327,6 @@ public class Button extends com.google.gwt.user.client.ui.Button {
 	 * 
 	 * @param text
 	 *            the text to be set for the button
-	 * 
-	 * @see {@link com.google.gwt.user.client.ui.Button#setText(String)}
 	 */
 	public void setText(String text) {
 

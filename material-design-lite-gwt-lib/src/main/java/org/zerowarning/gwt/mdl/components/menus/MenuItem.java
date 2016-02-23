@@ -42,6 +42,10 @@ public class MenuItem extends HTMLPanel {
 	 *            if true responds to click events, otherwise it is grayed and
 	 *            will not respond to click events.
 	 * 
+	 * @return <code>true</code> to indicate that the input state was applied,
+	 *         <code>false</code> meaning that the input state is the same as
+	 *         the current state, therefore nothing was changed.
+	 * 
 	 * @see MenuItem#isEnabled()
 	 */
 	public boolean setEnabled(boolean enabled) {
@@ -60,13 +64,13 @@ public class MenuItem extends HTMLPanel {
 		if (enabled && isDisabled) {
 			getElement().removeAttribute(ATTR_DISABLED);
 		}
-		
+
 		// if the item is enabled and a request is made to disable it then
 		// add a disabled attribute
 		else if (!enabled && !isDisabled) {
 			getElement().setAttribute(ATTR_DISABLED, "true");
 		}
-		
+
 		return true;
 	}
 

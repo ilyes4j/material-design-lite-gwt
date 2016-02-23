@@ -84,6 +84,9 @@ public interface IMenu {
 	 * @param index
 	 *            the position of the item in the item list of the menu
 	 * 
+	 * @param enabled
+	 *            the state to be set for the item
+	 * 
 	 * @return <code>true</code> if the state was modified, <code>false</code>
 	 *         otherwise.
 	 */
