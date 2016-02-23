@@ -88,6 +88,22 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
+			<!-- generate javadoc for the library module -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<!-- generate the javadoc for the library-->
+				<!-- The phase is set arbitrarily -->
+				<executions>
+					<execution>
+						<goals>
+							<goal>javadoc</goal>
+						</goals>
+						<phase>prepare-package</phase>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
