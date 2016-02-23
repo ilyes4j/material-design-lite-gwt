@@ -21,6 +21,14 @@
 			<version>${gwt.version}</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- JUnit for unit testing -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -29,6 +37,7 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
 				<executions>
+
 					<!-- package sources with compiled classes -->
 					<execution>
 						<id>gwt-resources</id>
@@ -37,7 +46,47 @@
 							<goal>resources</goal>
 						</goals>
 					</execution>
+
+					<!-- https://gwt-maven-plugin.github.io/gwt-maven-plugin/user-guide/testing.html -->
+
+					<!-- Run gwt Unit Tests using the goal provided by the plugin -->
+					<!-- Do not use surfire to run gwt unit tests -->
+
+					<!-- Plain java unit tests are still run using surfire -->
+					<!-- Gwt test are run by gwt plugin but never never by surfire -->
+					<!-- Non-gwt Test are run by by surfire but never never by gwt plugin -->
+
+					<!-- To acheive this setup a naming convention is imposed on unit Tests -->
+
+					<!-- Gwt Tests are named *GwtTest.java to be ignored by surfire -->
+					<!-- Gwt Tests are named *GwtTest.java to be picked by gwt test -->
+
+					<!-- Non-gwt Tests are named *Test.java to be picked by surfire -->
+					<!-- Non-gwt Tests are named *Test.java to be ignored by gwt test -->
+					<execution>
+						<id>gwt-test</id>
+						<phase>integration-test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+						<configuration>
+							<!-- Only run the gwt test suite -->
+							<includes>**/MdlGwtTestSuite.java</includes>
+						</configuration>
+					</execution>
 				</executions>
+			</plugin>
+
+			<!-- Run non-gwt tests using surfire -->
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<!-- Do not run gwt tests -->
+						<exclude>**/MdlGwt*Test.java</exclude>
+						<exclude>**/MdlGwtTestSuite.java</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

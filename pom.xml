@@ -34,6 +34,12 @@
 
 		<!-- Using Ant Run plugin version -->
 		<antrunplugin.version>1.7</antrunplugin.version>
+
+		<!-- Using JUnit version 4.11 -->
+		<junit.version>4.11</junit.version>
+
+		<!-- Using Surfire plugin version 2.6 -->
+		<surfireplugin.version>2.6</surfireplugin.version>
 	</properties>
 
 	<prerequisites>
@@ -55,6 +61,10 @@
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>gwt-maven-plugin</artifactId>
 					<version>${gwt.version}</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${surfireplugin.version}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
