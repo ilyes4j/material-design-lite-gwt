@@ -70,7 +70,35 @@
 					</execution>
 				</executions>
 			</plugin>
-
+			
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<!-- Copy the generated javadoc into the demo -->
+				<!-- Make sure the copy is done before packaging -->
+				<!-- Otherwise it won't be packaged with the demo -->
+				<executions>
+					<execution>
+						<id>copy-javadoc-to-demo</id>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<!-- Document the copy of the javadoc in the build log -->
+								<echo
+									message="Copy mdl-gwt-lib javadoc to demo" />
+									
+								<!-- Make a copy of the javadoc and place it inside the demo -->
+								<copy todir="${project.build.directory}/${project.build.finalName}/apidocs">
+									<fileset dir="../material-design-lite-gwt-lib/target/site/apidocs" />
+								</copy>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>${warplugin.version}</version>
