@@ -5,3 +5,7 @@ target/
 .settings/
 .classpath
 .project
+
+#Frontend tools
+material-design-lite-gwt-demo/node
+material-design-lite-gwt-demo/node_modules

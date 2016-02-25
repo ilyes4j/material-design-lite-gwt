@@ -43,6 +43,15 @@
 
 		<!-- Using Javadoc plugin version 2.10.3 -->
 		<javadocplugin.version>2.10.3</javadocplugin.version>
+		
+		<!-- Using frontend plugin version 0.0.27 -->
+		<frontendplugin.version>0.0.27</frontendplugin.version>
+		
+		<!-- Using node js version 4.3.2 -->
+		<nodejs.version>4.3.2</nodejs.version>
+		
+		<!-- Using npm version 3.5.2 -->
+		<npm.version>3.5.2</npm.version>
 	</properties>
 
 	<prerequisites>

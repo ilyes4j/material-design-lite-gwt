@@ -40,6 +40,50 @@
 		<plugins>
 
 			<plugin>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>${frontendplugin.version}</version>
+				<executions>
+
+					<execution>
+						<id>install-nod-and-npm</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>install-node-and-npm</goal>
+						</goals>
+						<configuration>
+							<nodeVersion>v${nodejs.version}</nodeVersion>
+							<npmVersion>${npm.version}</npmVersion>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>npm-install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<phase>process-resources</phase>
+						<configuration>
+							<arguments>install</arguments>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>gulp-default</id>
+						<goals>
+							<goal>gulp</goal>
+						</goals>
+						<phase>process-resources</phase>
+						<configuration>
+							<arguments>default
+								--dest=${project.build.directory}/${project.build.finalName}</arguments>
+						</configuration>
+					</execution>
+
+				</executions>
+			</plugin>
+
+			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
 				<configuration>
@@ -98,13 +142,14 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>${warplugin.version}</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 					<packagingExcludes>WEB-INF/classes/org/zerowarning/gwt/mdl/demo/*.class</packagingExcludes>
+					<excludes>**</excludes>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -205,11 +250,11 @@
 						<version>${tomcat7plugin.version}</version>
 						<executions>
 							<execution>
-								<id>tomcat-run</id>
+								<id>default-cli</id>
 								<goals>
 									<goal>run</goal>
 								</goals>
-								<phase>process-classes</phase>
+								<phase>integration-test</phase>
 							</execution>
 						</executions>
 						<configuration>
@@ -219,6 +264,7 @@
 							<skip>false</skip>
 							<port>${tomcat.run.port}</port>
 							<additionalConfigFilesDir>src/main/tomcatconf</additionalConfigFilesDir>
+							<warSourceDirectory>${project.build.directory}/${project.build.finalName}</warSourceDirectory>
 						</configuration>
 					</plugin>
 					<!-- You. Never. Know. -->
