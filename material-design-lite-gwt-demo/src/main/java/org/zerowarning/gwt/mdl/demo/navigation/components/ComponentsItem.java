@@ -24,6 +24,9 @@ public class ComponentsItem extends Composite implements INavigationItem {
 
 	/**
 	 * Setup the DOM structure and css selectors for the navigation item.
+	 * 
+	 * @param icon
+	 *            the material icon code to be set for the fab {@link Button}
 	 */
 	public ComponentsItem(String icon) {
 

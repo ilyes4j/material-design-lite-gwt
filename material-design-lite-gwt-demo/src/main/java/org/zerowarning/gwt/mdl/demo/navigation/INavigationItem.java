@@ -13,6 +13,8 @@ public interface INavigationItem extends IsWidget {
 
 	/**
 	 * Retrieve the url of the link.
+	 * 
+	 * @return the url associated to this item
 	 */
 	public String getUrl();
 

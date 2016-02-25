@@ -75,9 +75,9 @@ import com.google.gwt.user.client.ui.FlowPanel;
  * links it was setup with.</li>
  * <li>When the page loads, the navigation bar rewrites each link to express it
  * relative to the current page as would have done the developer himself
- * manually.</li> *
+ * manually.</li>
  * <li>It also decorates the link relative to the current page to visually
- * indicate it is the open link.</li> *
+ * indicate it is the open link.</li>
  * <li>The navigation bar can also be embedded inside a page that does not
  * belong to the links collection but rather in the folder tree of one of the
  * links. The navigation bar still is able to find and highlight the appropriate
