@@ -11,41 +11,41 @@ package org.zerowarning.gwt.mdl.components.buttons;
  */
 public enum ButtonColor {
 
-	/**
-	 * Setup a button with no extra coloring
-	 */
-	BTN_NO_COLOR(""),
+  /**
+   * Setup a button with no extra coloring.
+   */
+  BTN_NO_COLOR(""),
 
-	/**
-	 * Apply the main theme color to the button
-	 */
-	PRIMARY("mdl-button--primary"),
+  /**
+   * Apply the main theme color to the button.
+   */
+  PRIMARY("mdl-button--primary"),
 
-	/**
-	 * Apply the accented theme color to the button
-	 */
-	ACCENT("mdl-button--accent");
+  /**
+   * Apply the accented theme color to the button.
+   */
+  ACCENT("mdl-button--accent");
 
-	/**
-	 * Setup the option and its corresponding css class name
-	 * 
-	 * @param css
-	 *            the css class name associated with this option
-	 */
-	private ButtonColor(final String css) {
-		this.css = css;
-	}
+  /**
+   * Setup the option and its corresponding css class name.
+   * 
+   * @param inputCss
+   *          the css class name associated with this option
+   */
+  ButtonColor(final String inputCss) {
+    this.css = inputCss;
+  }
 
-	/**
-	 * Returns the css class name related to this option
-	 */
-	@Override
-	public String toString() {
-		return css;
-	}
+  /**
+   * Returns the css class name related to this option.
+   */
+  @Override
+  public String toString() {
+    return css;
+  }
 
-	/**
-	 * Stores the css class name
-	 */
-	private final String css;
+  /**
+   * Stores the css class name.
+   */
+  private final String css;
 }

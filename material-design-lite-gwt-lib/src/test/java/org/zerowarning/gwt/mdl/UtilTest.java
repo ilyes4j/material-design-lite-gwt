@@ -15,13 +15,13 @@ import org.junit.Test;
  */
 public class UtilTest {
 
-	/**
-	 * Tautology made to prove non -gwt unit testing is working side by side
-	 * with gwt testing.
-	 */
-	@Test
-	public void testSomething() {
+  /**
+   * Tautology made to prove non -gwt unit testing is working side by side with
+   * gwt testing.
+   */
+  @Test
+  public final void testSomething() {
 
-		Assert.assertTrue(true);
-	}
+    Assert.assertTrue(true);
+  }
 }

@@ -8,22 +8,36 @@ package org.zerowarning.gwt.mdl.components.ripples;
  */
 public enum Ripple {
 
-	NONE(""), HAS_RIPPLE("mdl-js-ripple-effect");
+  /**
+   * No ripple for the target component.
+   */
+  NONE(""),
 
-	/**
-	 * Create a {@link Ripple} enum and provide its css style name.
-	 * 
-	 * @param css
-	 *            the css style name of the ripple effect.
-	 */
-	private Ripple(final String css) {
-		this.css = css;
-	}
+  /**
+   * Apply a ripple for the target component.
+   */
+  HAS_RIPPLE("mdl-js-ripple-effect");
 
-	@Override
-	public String toString() {
-		return css;
-	}
+  /**
+   * Create a {@link Ripple} enum and provide its css style name.
+   * 
+   * @param inputCss
+   *          the css style name of the ripple effect.
+   */
+  Ripple(final String inputCss) {
+    this.css = inputCss;
+  }
 
-	private final String css;
+  /**
+   * Returns the css selector responsible for the anchoring behavior.
+   */
+  @Override
+  public String toString() {
+    return css;
+  }
+
+  /**
+   * Stores the css class name.
+   */
+  private final String css;
 }

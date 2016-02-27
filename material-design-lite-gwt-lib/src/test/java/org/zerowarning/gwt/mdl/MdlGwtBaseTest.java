@@ -12,16 +12,16 @@ import com.google.gwt.junit.client.GWTTestCase;
  */
 public class MdlGwtBaseTest extends GWTTestCase {
 
-	/**
-	 * Get the module name for which and under which the tests will be executed.
-	 */
-	@Override
-	public String getModuleName() {
-		return MDL_MODULE;
-	}
-	
-	/**
-	 * Which module is this Test attached to.
-	 */
-	private static final String MDL_MODULE = "org.zerowarning.gwt.mdl.Mdl";
+  /**
+   * Get the module name for which and under which the tests will be executed.
+   */
+  @Override
+  public final String getModuleName() {
+    return MDL_MODULE;
+  }
+
+  /**
+   * Which module is this Test attached to.
+   */
+  private static final String MDL_MODULE = "org.zerowarning.gwt.mdl.Mdl";
 }

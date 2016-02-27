@@ -3,9 +3,8 @@ package org.zerowarning.gwt.mdl.components;
 import com.google.gwt.dom.client.Element;
 
 /**
- * Exposes the functions provided by <a href=
- * "https://github.com/google/material-design-lite/blob/master/src/mdlComponentHandler.js">
- * componentHandler</a>.<br>
+ * Exposes the functions provided by
+ * <a href= "http://tinyurl.com/go7mm5d"> componentHandler</a>.<br>
  * 
  * <h1>On mdl components</h1> <br>
  * 
@@ -14,11 +13,11 @@ import com.google.gwt.dom.client.Element;
  * to events and display effect and animations, it has to be "upgraded".<br>
  * 
  * Behaviors that should be acquired by the component are defined in the
- * component's js class. For example, <a href=
- * "https://github.com/google/material-design-lite/blob/master/src/menu/menu.js">
- * MaterialMenu</a> is the js class that contains the behaviors to be applied on
- * menu and <code>MaterialButton</code> is the js class that operates on
- * buttons. In general, a component class definess : <br>
+ * component's js class. For example,
+ * <a href= "http://tinyurl.com/zbnhayt"> MaterialMenu</a> is the js class that
+ * contains the behaviors to be applied on menu and <code>MaterialButton</code>
+ * is the js class that operates on buttons. In general, a component class
+ * definess : <br>
  * <br>
  * 
  * <ul>
@@ -88,22 +87,28 @@ import com.google.gwt.dom.client.Element;
  * 
  * @author Mohamed Ilyes DIMASSI
  */
-public class ComponentHandler {
+public final class ComponentHandler {
 
-	/**
-	 * Upgrade a specific component rather than all components of the DOM. To
-	 * upgrade a component, its DOM {@link Element} must be provided as input.
-	 * The {@link Element} node to be provided is the node decorated with the
-	 * <code>mdl-js-xxx</code> css selector.The DOM tree of the component must
-	 * follow the guidelines enforced on declarative components regarding the
-	 * expected html and css styling.<br>
-	 * 
-	 * @param element
-	 *            the target html node of the component to be upgraded.
-	 * 
-	 */
-	public static native void upgradeElement(Element element)
-	/*-{
-		$wnd.componentHandler.upgradeElement(element);
-	}-*/;
+  /**
+   * A private constructor for the utility method.
+   */
+  private ComponentHandler() {
+  }
+
+  /**
+   * Upgrade a specific component rather than all components of the DOM. To
+   * upgrade a component, its DOM {@link Element} must be provided as input. The
+   * {@link Element} node to be provided is the node decorated with the
+   * <code>mdl-js-xxx</code> css selector.The DOM tree of the component must
+   * follow the guidelines enforced on declarative components regarding the
+   * expected html and css styling.<br>
+   * 
+   * @param element
+   *          the target html node of the component to be upgraded.
+   * 
+   */
+  public static native void upgradeElement(final Element element)
+  /*-{
+    $wnd.componentHandler.upgradeElement(element);
+  }-*/;
 }

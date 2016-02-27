@@ -34,83 +34,83 @@ import com.google.gwt.user.client.ui.FlowPanel;
  */
 public class MenuCombo extends FlowPanel {
 
-	/**
-	 * Setup a {@link MenuCombo}.<br>
-	 * <br>
-	 * A menu combo is made of a {@link Button} and a {@link Menu} that works
-	 * together to display the menu to the user when the button is clicked.
-	 * Using this constructor, the user provides the instance of the button and
-	 * the menu. The combo is responsible for wiring them together.
-	 * 
-	 * @param mn
-	 *            the menu to be setup
-	 *            
-	 * @param btn
-	 *            the action button for the menu
-	 */
-	public MenuCombo(Menu mn, Button btn) {
+  /**
+   * Setup a {@link MenuCombo}.<br>
+   * <br>
+   * A menu combo is made of a {@link Button} and a {@link Menu} that works
+   * together to display the menu to the user when the button is clicked. Using
+   * this constructor, the user provides the instance of the button and the
+   * menu. The combo is responsible for wiring them together.
+   * 
+   * @param mn
+   *          the menu to be setup
+   * 
+   * @param btn
+   *          the action button for the menu
+   */
+  public MenuCombo(final Menu mn, final Button btn) {
 
-		if (btn == null) {
-			throw new IllegalArgumentException("Undefined button");
-		}
+    if (btn == null) {
+      throw new IllegalArgumentException("Undefined button");
+    }
 
-		if (mn == null) {
-			throw new IllegalArgumentException("Undefined menu");
-		}
+    if (mn == null) {
+      throw new IllegalArgumentException("Undefined menu");
+    }
 
-		// set the button part
-		button = btn;
+    // set the button part
+    button = btn;
 
-		// set the menu part
-		menu = mn;
+    // set the menu part
+    menu = mn;
 
-		// build an ID for the menu. mdl requires that the button controlling
-		// the menu should have an id. That id is then referenced in the menu
-		// component enabling it to communicate with the button.
-		menuId = ATTR_ID + counter;
+    // build an ID for the menu. mdl requires that the button controlling
+    // the menu should have an id. That id is then referenced in the menu
+    // component enabling it to communicate with the button.
+    menuId = ATTR_ID + counter;
 
-		// increment the counter to provide a unique id for the next created
-		// menu
-		counter++;
+    // increment the counter to provide a unique id for the next created
+    // menu
+    counter++;
 
-		// ensure the parent element has a relative positioning.
-		getElement().getStyle().setPosition(RELATIVE);
+    // ensure the parent element has a relative positioning.
+    getElement().getStyle().setPosition(RELATIVE);
 
-		// set an id to the button
-		this.button.getElement().setId(menuId);
+    // set an id to the button
+    this.button.getElement().setId(menuId);
 
-		// set the binding between the menu and the action button
-		menu.setActionId(menuId);
+    // set the binding between the menu and the action button
+    menu.setActionId(menuId);
 
-		// add the button to the parent element
-		add(button);
+    // add the button to the parent element
+    add(button);
 
-		// add the menu to the parent element
-		add(menu);
-	}
+    // add the menu to the parent element
+    add(menu);
+  }
 
-	/**
-	 * the {@link Menu} part of the {@link MenuCombo}
-	 */
-	private Menu menu;
+  /**
+   * the {@link Menu} part of the {@link MenuCombo}.
+   */
+  private Menu menu;
 
-	/**
-	 * the {@link Button} part of the {@link MenuCombo}
-	 */
-	private Button button;
+  /**
+   * the {@link Button} part of the {@link MenuCombo}.
+   */
+  private Button button;
 
-	/**
-	 * an id that enables the button and the menu to communicate
-	 */
-	private String menuId;
+  /**
+   * an id that enables the button and the menu to communicate.
+   */
+  private String menuId;
 
-	/**
-	 * a suffix for the generated id
-	 */
-	private static final String ATTR_ID = "btn_menu_";
+  /**
+   * a suffix for the generated id.
+   */
+  private static final String ATTR_ID = "btn_menu_";
 
-	/**
-	 * A counter to generate unique {@link MenuCombo} ids.
-	 */
-	private static int counter = 0;
+  /**
+   * A counter to generate unique {@link MenuCombo} ids.
+   */
+  private static int counter = 0;
 }

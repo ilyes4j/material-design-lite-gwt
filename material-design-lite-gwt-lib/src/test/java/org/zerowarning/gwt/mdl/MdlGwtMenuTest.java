@@ -12,27 +12,27 @@ import com.google.gwt.user.client.ui.RootPanel;
  */
 public class MdlGwtMenuTest extends MdlGwtBaseTest {
 
-	/**
-	 * The menu should not allow being upgraded without insuring it is bound to
-	 * an action button.
-	 */
-	public void testNoActionId() {
+  /**
+   * The menu should not allow being upgraded without insuring it is bound to an
+   * action button.
+   */
+  public final void testNoActionId() {
 
-		try {
+    try {
 
-			// setup a menu
-			Menu menu = new Menu();
+      // setup a menu
+      Menu menu = new Menu();
 
-			// attach the menu before associating it to a button.
-			RootPanel.get().add(menu);
+      // attach the menu before associating it to a button.
+      RootPanel.get().add(menu);
 
-			// fail the test if the menu does not rise an exception
-			assertTrue(false);
+      // fail the test if the menu does not rise an exception
+      assertTrue(false);
 
-		} catch (IllegalStateException ise) {
+    } catch (IllegalStateException ise) {
 
-			// pass the test when the menu raises the appropriate exception
-			assertTrue(true);
-		}
-	}
+      // pass the test when the menu raises the appropriate exception
+      assertTrue(true);
+    }
+  }
 }
