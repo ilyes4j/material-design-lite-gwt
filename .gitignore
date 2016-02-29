@@ -5,6 +5,9 @@ target/
 .settings/
 .classpath
 .project
+.checkstyle
+material-design-lite-gwt-demo/.checkstyle
+material-design-lite-gwt-lib/.checkstyle
 
 #Frontend tools
 material-design-lite-gwt-demo/node
