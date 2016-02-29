@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.zerowarning.gwt.mdl.demo.modules.AboutDemo;
-import org.zerowarning.gwt.mdl.demo.modules.MenuDemo;
 import org.zerowarning.gwt.mdl.demo.modules.buttons.ButtonDemo;
+import org.zerowarning.gwt.mdl.demo.modules.menus.MenuDemo;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.Window;
