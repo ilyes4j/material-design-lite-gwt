@@ -261,6 +261,9 @@ public class Menu extends HTMLPanel implements IMenu {
     // ... add the MenuItem to the DOM.
     add(menuItem);
 
+    // ...set the css style of the item
+    menuItem.setEnabled(enabled);
+    
     // set the enabled state for the first time.
     if (enabled) {
       forceEnable(menuItem);
