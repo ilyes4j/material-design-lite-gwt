@@ -41,10 +41,7 @@ public class MenuCombo extends FlowPanel implements IMenu {
    * A menu combo is made of a {@link Button} and a {@link Menu} that works
    * together to display the menu to the user when the button is clicked. Using
    * this constructor, the user provides the instance of the button. The menu
-   * properties are set directly on the combo.
-   * 
-   * @param mn
-   *          the menu to be setup
+   * property is managed behind the scene at the combo.
    * 
    * @param btn
    *          the action button for the menu
@@ -87,42 +84,42 @@ public class MenuCombo extends FlowPanel implements IMenu {
   }
 
   @Override
-  public void setAnchor(MenuAnchor anchor) {
+  public final void setAnchor(final MenuAnchor anchor) {
     menu.setAnchor(anchor);
   }
 
   @Override
-  public void clearMenu() {
+  public final void clearMenu() {
     menu.clear();
   }
 
   @Override
-  public void addItem(String item, boolean enabled) {
+  public final void addItem(final String item, final boolean enabled) {
     menu.addItem(item, enabled);
   }
 
   @Override
-  public void addItemClickListener(ItemClickListener listener) {
+  public final void addItemClickListener(final ItemClickListener listener) {
     menu.addItemClickListener(listener);
   }
 
   @Override
-  public int size() {
+  public final int size() {
     return menu.size();
   }
 
   @Override
-  public String getItem(int index) {
+  public final String getItem(final int index) {
     return menu.getItem(index);
   }
 
   @Override
-  public boolean setEnabled(int index, boolean enabled) {
+  public final boolean setEnabled(final int index, final boolean enabled) {
     return menu.setEnabled(index, enabled);
   }
 
   @Override
-  public boolean isEnabled(int index) {
+  public final boolean isEnabled(final int index) {
     return menu.isEnabled(index);
   }
 
