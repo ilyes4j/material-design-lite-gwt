@@ -3,6 +3,7 @@ package org.zerowarning.gwt.mdl.components.menus;
 import static com.google.gwt.dom.client.Style.Position.RELATIVE;
 
 import org.zerowarning.gwt.mdl.components.buttons.Button;
+import org.zerowarning.gwt.mdl.components.menus.Menu.ItemClickListener;
 
 import com.google.gwt.user.client.ui.FlowPanel;
 
@@ -32,15 +33,15 @@ import com.google.gwt.user.client.ui.FlowPanel;
  * @author Mohamed Ilyes DIMASSI
  *
  */
-public class MenuCombo extends FlowPanel {
+public class MenuCombo extends FlowPanel implements IMenu {
 
   /**
    * Setup a {@link MenuCombo}.<br>
    * <br>
    * A menu combo is made of a {@link Button} and a {@link Menu} that works
    * together to display the menu to the user when the button is clicked. Using
-   * this constructor, the user provides the instance of the button and the
-   * menu. The combo is responsible for wiring them together.
+   * this constructor, the user provides the instance of the button. The menu
+   * properties are set directly on the combo.
    * 
    * @param mn
    *          the menu to be setup
@@ -48,21 +49,17 @@ public class MenuCombo extends FlowPanel {
    * @param btn
    *          the action button for the menu
    */
-  public MenuCombo(final Menu mn, final Button btn) {
+  public MenuCombo(final Button btn) {
 
     if (btn == null) {
       throw new IllegalArgumentException("Undefined button");
     }
 
-    if (mn == null) {
-      throw new IllegalArgumentException("Undefined menu");
-    }
-
     // set the button part
     button = btn;
 
-    // set the menu part
-    menu = mn;
+    // setup the menu part
+    menu = new Menu();
 
     // build an ID for the menu. mdl requires that the button controlling
     // the menu should have an id. That id is then referenced in the menu
@@ -87,6 +84,46 @@ public class MenuCombo extends FlowPanel {
 
     // add the menu to the parent element
     add(menu);
+  }
+
+  @Override
+  public void setAnchor(MenuAnchor anchor) {
+    menu.setAnchor(anchor);
+  }
+
+  @Override
+  public void clearMenu() {
+    menu.clear();
+  }
+
+  @Override
+  public void addItem(String item, boolean enabled) {
+    menu.addItem(item, enabled);
+  }
+
+  @Override
+  public void addItemClickListener(ItemClickListener listener) {
+    menu.addItemClickListener(listener);
+  }
+
+  @Override
+  public int size() {
+    return menu.size();
+  }
+
+  @Override
+  public String getItem(int index) {
+    return menu.getItem(index);
+  }
+
+  @Override
+  public boolean setEnabled(int index, boolean enabled) {
+    return menu.setEnabled(index, enabled);
+  }
+
+  @Override
+  public boolean isEnabled(int index) {
+    return menu.isEnabled(index);
   }
 
   /**

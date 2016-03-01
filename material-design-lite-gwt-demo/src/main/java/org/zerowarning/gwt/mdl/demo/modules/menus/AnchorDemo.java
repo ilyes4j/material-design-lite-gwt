@@ -65,8 +65,9 @@ public class AnchorDemo implements EntryPoint {
     Button btn = createIcon(BTN_NO_COLOR, NONE, "more_vert");
 
     // setup the menu and its items
-    Menu menu = new Menu();
+    MenuCombo menu = new MenuCombo(btn);
 
+    //position the menu related to the action button
     menu.setAnchor(anchor);
 
     // add some options to the menu
@@ -74,7 +75,6 @@ public class AnchorDemo implements EntryPoint {
     menu.addItem("Another action", true);
     menu.addItem("Yet another action", true);
 
-    // wrap the menu and the action button inside a combo
-    return new MenuCombo(menu, btn);
+    return menu;
   }
 }
