@@ -1,5 +1,6 @@
 package org.zerowarning.gwt.mdl.demo.modules.menus;
 
+import static com.google.gwt.dom.client.Style.Display.INLINE_BLOCK;
 import static com.google.gwt.user.client.ui.RootPanel.get;
 import static org.zerowarning.gwt.mdl.components.buttons.Button.createRaised;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
@@ -8,6 +9,7 @@ import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 import org.zerowarning.gwt.mdl.components.buttons.Button;
 import org.zerowarning.gwt.mdl.components.menus.ItemClickEvent;
 import org.zerowarning.gwt.mdl.components.menus.Menu;
+import org.zerowarning.gwt.mdl.components.menus.MenuCombo;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.Label;
@@ -28,30 +30,10 @@ public class ClickEventDemo implements EntryPoint {
   @Override
   public void onModuleLoad() {
 
-    final String COMBO_ID = "menu_event_sample";
     final String BTN_TEXT = "Choose option";
     final String ITEM_VALUE = "I choose Option #";
 
     RootPanel eventPanel = get("eventContainer");
-
-    // setup the action button.
-    Button btn = createRaised(BTN_NO_COLOR, HAS_RIPPLE, BTN_TEXT);
-    // give the button an id that the menu can bind itself to
-    btn.getElement().setId(COMBO_ID);
-    // attach the button to the DOM
-    eventPanel.add(btn);
-
-    // setup a menu
-    Menu menu = new Menu();
-    // bind the menu to the action button
-    menu.setActionId(COMBO_ID);
-    // add items to the menu
-    menu.addItem(ITEM_VALUE + "1", true);
-    // it is possible to add disabled menu that won't respond to click events
-    menu.addItem(ITEM_VALUE + "2", false);
-    menu.addItem(ITEM_VALUE + "3", true);
-    // attach the menu to the DOM
-    eventPanel.add(menu);
 
     // setup a label next to the menu to react to click events from the menu
     final Label lbl = new Label();
@@ -61,7 +43,24 @@ public class ClickEventDemo implements EntryPoint {
     lbl.addStyleName("demo-text");
     lbl.addStyleName("demo-menu-event-label");
     // attach the label to the DOM
-    eventPanel.add(lbl);
+
+    
+    // setup the action button.
+    Button btn = createRaised(BTN_NO_COLOR, HAS_RIPPLE, BTN_TEXT);
+
+    // setup a menu
+    MenuCombo menu = new MenuCombo(btn);
+
+    // set the inline-block
+    menu.getElement().getStyle().setDisplay(INLINE_BLOCK);
+
+    // add items to the menu
+    menu.addItem(ITEM_VALUE + "1", true);
+    // it is possible to add disabled menu that won't respond to click events
+    menu.addItem(ITEM_VALUE + "2", false);
+    menu.addItem(ITEM_VALUE + "3", true);
+    // attach the menu to the DOM
+    eventPanel.add(menu);
 
     // setup a listener for the menu
     menu.addItemClickListener(new Menu.ItemClickListener() {
@@ -72,5 +71,7 @@ public class ClickEventDemo implements EntryPoint {
         lbl.setText(event.getValue());
       }
     });
+    
+    eventPanel.add(lbl);
   }
 }
