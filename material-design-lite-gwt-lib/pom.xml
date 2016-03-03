@@ -83,7 +83,7 @@
           <!-- Non-gwt Tests are named *Test.java to be ignored by gwt test -->
           <execution>
             <id>gwt-test</id>
-            <phase>integration-test</phase>
+            <phase>test</phase>
             <goals>
               <goal>test</goal>
             </goals>
