@@ -137,9 +137,13 @@ public class Menu extends HTMLPanel implements IMenu {
     // behavior.
     if (upgraded) {
       StringBuilder sb = new StringBuilder();
-      sb.append("The menu should be associated to an action ");
-      sb.append("button before being attached to the DOM.");
-      throw new IllegalStateException(sb.toString());
+      sb.append("The menu is already upgraded !\n");
+      sb.append("The menu should be bound to an action ");
+      sb.append("button before being upgraded.");
+
+      String msg = sb.toString();
+
+      throw new IllegalStateException(msg);
     }
 
     // the menu is opened by a button identified by forId
@@ -151,6 +155,19 @@ public class Menu extends HTMLPanel implements IMenu {
 
   @Override
   public final void setAnchor(final MenuAnchor inputAnchor) {
+
+    if (upgraded) {
+
+      StringBuilder sb = new StringBuilder();
+
+      sb.append("Attempting to change the anchoring ");
+      sb.append("but the menu is already upgraded !\n");
+      sb.append("Please set the anchoring for the menu before the upgrade.");
+
+      String msg = sb.toString();
+
+      throw new IllegalStateException(msg);
+    }
 
     // don't do anything if the requested anchor is not defined
     if (inputAnchor == null) {
@@ -205,11 +222,13 @@ public class Menu extends HTMLPanel implements IMenu {
 
       sb.append("Attempting to upgrade a menu ");
       sb.append("with an undefined action button\n");
+      sb.append("Please bind the menu to its action button ");
+      sb.append("before attaching it to the DOM.");
 
-      sb.append("Please bind the menu to its action button,");
-      sb.append("Before attaching it to the DOM.");
+      String msg = sb.toString();
 
-      throw new IllegalStateException(sb.toString());
+
+      throw new IllegalStateException(msg);
     }
 
     // transform the menu and apply the needed behaviors
@@ -254,6 +273,19 @@ public class Menu extends HTMLPanel implements IMenu {
 
   @Override
   public final void addItem(final String item, final boolean enabled) {
+
+    // don't let the item be added considering the menu is already upgraded
+    if (upgraded) {
+      StringBuilder sb = new StringBuilder();
+
+      sb.append("Attempting to add an item to the menu ");
+      sb.append("but the menu is already upgraded.\n");
+      sb.append("Please add items before the menu is upgraded.");
+
+      String msg = sb.toString();
+
+      throw new IllegalStateException(msg);
+    }
 
     // create the item holder
     MenuItem menuItem = new MenuItem(item);
