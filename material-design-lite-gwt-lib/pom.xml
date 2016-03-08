@@ -90,6 +90,12 @@
             <configuration>
               <!-- Only run the gwt test suite -->
               <includes>**/MdlGwtTestSuite.java</includes>
+              
+              <!-- Run Tests using super dev mode -->
+              <productionMode>true</productionMode>
+              
+              <!-- Run using a real browser -->
+              <!-- <mode>manual</mode> -->
             </configuration>
           </execution>
         </executions>
