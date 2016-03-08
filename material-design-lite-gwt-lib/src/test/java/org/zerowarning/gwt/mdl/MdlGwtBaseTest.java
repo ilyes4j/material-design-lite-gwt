@@ -23,5 +23,5 @@ public class MdlGwtBaseTest extends GWTTestCase {
   /**
    * Which module is this Test attached to.
    */
-  private static final String MDL_MODULE = "org.zerowarning.gwt.mdl.Mdl";
+  private static final String MDL_MODULE = "org.zerowarning.gwt.mdl.MdlUnit";
 }

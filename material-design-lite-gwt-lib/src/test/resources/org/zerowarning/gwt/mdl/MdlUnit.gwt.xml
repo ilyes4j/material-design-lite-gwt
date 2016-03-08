@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.7.0//EN" "http://gwtproject.org/doctype/2.7.0/gwt-module.dtd">
+
+<module>
+  <!-- inherit the library module to be tested -->
+  <inherits name="org.zerowarning.gwt.mdl.Mdl" />
+
+  <!-- Using a deprecated linker to inject javascript to the host page -->
+  <!-- None of the supported linkers is able to do the job -->
+  <add-linker name="xs" />
+
+  <!-- Import material js to be injected in the host page -->
+  <!-- JUnit host page is generated and controlled by the runner -->
+  <!-- This is the only working option to inject script when running tests -->
+  <!-- This is the reason xs linker is used -->
+  <script src="material.js"></script>
+
+  <!-- add mdl css to the test page -->
+  <stylesheet src="material.css" />
+
+  <!-- Only support Chrome compatible browsers for improved performance -->
+  <!-- at compilation time -->
+  <set-property name="user.agent" value="safari" />
+</module>
