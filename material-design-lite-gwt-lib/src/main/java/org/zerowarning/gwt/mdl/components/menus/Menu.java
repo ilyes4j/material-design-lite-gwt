@@ -135,7 +135,7 @@ public class Menu extends HTMLPanel implements IMenu {
     // yet upgraded. If the menu is already upgraded it is not possible to
     // re bind it to another button anymore. mdl does not allow such
     // behavior.
-    if (isAttached()) {
+    if (upgraded) {
       StringBuilder sb = new StringBuilder();
       sb.append("The menu should be associated to an action ");
       sb.append("button before being attached to the DOM.");
@@ -214,6 +214,9 @@ public class Menu extends HTMLPanel implements IMenu {
 
     // transform the menu and apply the needed behaviors
     upgradeElement(getElement());
+
+    // mark the component as already upgraded
+    upgraded = true;
 
     // make sure the menu height does not exceed the threshold.
     assertMaxHeight();
@@ -550,6 +553,12 @@ public class Menu extends HTMLPanel implements IMenu {
    * Stores the menu anchor option to ease the css selector removal.
    */
   private MenuAnchor anchor;
+
+  /**
+   * store the status of the component to indicate whether the component is
+   * already upgraded.
+   */
+  private boolean upgraded = false;
 
   /**
    * Default maximum value not to be exceeded by the menu's height.
