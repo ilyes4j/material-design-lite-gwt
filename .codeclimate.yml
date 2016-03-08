@@ -1,5 +1,0 @@
-## exclude vendors
-exclude_paths:
-- material-design-lite-gwt-demo/src/main/webapp/mdl/**
-- material-design-lite-gwt-lib/src/test/resources/org/zerowarning/gwt/mdl/material.css
-- material-design-lite-gwt-lib/src/test/resources/org/zerowarning/gwt/mdl/material.js
