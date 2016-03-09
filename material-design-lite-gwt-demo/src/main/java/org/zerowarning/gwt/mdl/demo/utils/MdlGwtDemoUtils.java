@@ -89,6 +89,23 @@ public final class MdlGwtDemoUtils {
   }
 
   /**
+   * Setup the extensions side bar and inject it inside the main section of a
+   * demo page.
+   */
+  public static void insertExtensionsNavbar() {
+
+    SideNavigationBar bar = new SideNavigationBar();
+
+    ComponentsItem dropdown = new ComponentsItem("keyboard_arrow_right");
+    dropdown.setCaption("Dropdowns");
+    dropdown.setUrl(DROPS);
+    bar.addLink(dropdown);
+
+    // insert the side bar under the main section of the demo page
+    get(MAIN).insert(bar, 0);
+  }
+
+  /**
    * Setup the main bar of the demo and inject it inside the header.
    */
   public static void insertMainbar() {
@@ -107,6 +124,12 @@ public final class MdlGwtDemoUtils {
     compsItem.setUrl(COMPONENTS);
     compsItem.setText("components");
     mainbar.addLink(compsItem);
+
+    // setup the link to the extensions section
+    MainbarItem extsItem = new MainbarItem();
+    extsItem.setUrl(EXTENSIONS);
+    extsItem.setText("extensions");
+    mainbar.addLink(extsItem);
 
     // insert the main bar under the header section of the demo page
     get(HEADER).insert(mainbar, 0);

@@ -2,6 +2,7 @@ package org.zerowarning.gwt.mdl.demo;
 
 import static org.zerowarning.gwt.mdl.demo.utils.MdlGwtDemoUtils.ABOUT;
 import static org.zerowarning.gwt.mdl.demo.utils.MdlGwtDemoUtils.BUTTONS;
+import static org.zerowarning.gwt.mdl.demo.utils.MdlGwtDemoUtils.DROPS;
 import static org.zerowarning.gwt.mdl.demo.utils.MdlGwtDemoUtils.MENUS;
 
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.List;
 
 import org.zerowarning.gwt.mdl.demo.modules.AboutDemo;
 import org.zerowarning.gwt.mdl.demo.modules.buttons.ButtonDemo;
+import org.zerowarning.gwt.mdl.demo.modules.dropdowns.DropdownDemo;
 import org.zerowarning.gwt.mdl.demo.modules.menus.MenuDemo;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -53,10 +55,11 @@ public class MdlGwtDemo implements EntryPoint {
     entries.add(new ModuleDemo(ABOUT, new AboutDemo()));
     entries.add(new ModuleDemo(BUTTONS, new ButtonDemo()));
     entries.add(new ModuleDemo(MENUS, new MenuDemo()));
+    entries.add(new ModuleDemo(DROPS, new DropdownDemo()));
   }
 
   /**
-   * Depending on the current url, invoques the appropriate {@link ModuleDemo}
+   * Depending on the current url, invokes the appropriate {@link ModuleDemo}
    * to handle the demo GWT part.
    */
   @Override
