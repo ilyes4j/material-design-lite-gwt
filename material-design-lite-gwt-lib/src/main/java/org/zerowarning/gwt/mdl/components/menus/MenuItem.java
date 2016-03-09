@@ -82,7 +82,7 @@ public class MenuItem extends HTMLPanel {
    *         otherwise.
    */
   public final boolean isEnabled() {
-    return getElement().hasAttribute(ATTR_DISABLED);
+    return !getElement().hasAttribute(ATTR_DISABLED);
   }
 
   /**
