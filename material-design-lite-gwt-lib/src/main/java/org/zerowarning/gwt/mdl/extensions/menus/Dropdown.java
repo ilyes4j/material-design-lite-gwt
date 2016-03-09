@@ -51,8 +51,8 @@ public class Dropdown extends Composite implements IMenu {
   }
 
   @Override
-  public final int size() {
-    return combo.size();
+  public final int getItemCount() {
+    return combo.getItemCount();
   }
 
   @Override
@@ -91,7 +91,7 @@ public class Dropdown extends Composite implements IMenu {
       return;
     }
 
-    selectedIndex = size() - 1;
+    selectedIndex = getItemCount() - 1;
     button.setText(text);
   }
 
@@ -169,7 +169,7 @@ public class Dropdown extends Composite implements IMenu {
    *          the index of the item to be selected
    */
   public final void setSelected(final int index) {
-    assertIndex(size(), index);
+    assertIndex(getItemCount(), index);
 
     if (selectedIndex == index) {
       return;

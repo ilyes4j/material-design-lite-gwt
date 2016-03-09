@@ -41,7 +41,7 @@ public class SelectItemDemo implements EntryPoint {
 
       @Override
       public void onClick(final ClickEvent event) {
-        int next = (dropdown.getSelected() + 1) % dropdown.size();
+        int next = (dropdown.getSelected() + 1) % dropdown.getItemCount();
         dropdown.setSelected(next);
       }
     });

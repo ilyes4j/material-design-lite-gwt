@@ -73,7 +73,7 @@ public interface IMenu {
    * 
    * @return the items count in a menu
    */
-  int size();
+  int getItemCount();
 
   /**
    * return the text of the item located at the position provided as input.

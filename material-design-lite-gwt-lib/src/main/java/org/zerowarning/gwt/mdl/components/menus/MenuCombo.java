@@ -118,8 +118,8 @@ public class MenuCombo extends FlowPanel implements IMenu {
   }
 
   @Override
-  public final int size() {
-    return menu.size();
+  public final int getItemCount() {
+    return menu.getItemCount();
   }
 
   @Override

@@ -362,7 +362,7 @@ public class Menu extends HTMLPanel implements IMenu {
   }
 
   @Override
-  public final int size() {
+  public final int getItemCount() {
     return items.size();
   }
 
@@ -531,7 +531,7 @@ public class Menu extends HTMLPanel implements IMenu {
    */
   private MenuItem getMenuItem(final int index) {
 
-    assertIndex(size(), index);
+    assertIndex(getItemCount(), index);
 
     return items.get(index);
   }
