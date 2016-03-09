@@ -23,6 +23,7 @@ public class MenuDemo implements EntryPoint {
     demos.add(new AnchorDemo());
     demos.add(new ClickEventDemo());
     demos.add(new ScrollDemo());
+    demos.add(new ToggleEnabledDemo());
 
     for (EntryPoint entry : demos) {
       entry.onModuleLoad();

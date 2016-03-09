@@ -76,6 +76,6 @@
 	}
 }
 .demo-menu-event-label {
-	display: inline;
+	display: inline-block;
 	margin-left: 15px;
 }
