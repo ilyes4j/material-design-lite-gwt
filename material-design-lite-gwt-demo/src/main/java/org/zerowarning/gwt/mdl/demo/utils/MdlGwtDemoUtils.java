@@ -12,88 +12,103 @@ import org.zerowarning.gwt.mdl.demo.navigation.main.MainbarItem;
  * 
  * @author Mohamed Ilyes DIMASSI
  */
-public class MdlGwtDemoUtils {
+public final class MdlGwtDemoUtils {
 
-	/**
-	 * Stores the id of the main section of the demo page. This is the id of the
-	 * DOM element under which the side bar is sitting.
-	 */
-	public static final String MAIN = "demo-main";
+  /**
+   * Private constructor for utiliy class.
+   */
+  private MdlGwtDemoUtils() {
+  }
 
-	/**
-	 * Stores the id of the header under which the main navigation bar is
-	 * sitting.
-	 */
-	public static final String HEADER = "header-link-row";
+  /**
+   * Stores the id of the main section of the demo page. This is the id of the
+   * DOM element under which the side bar is sitting.
+   */
+  public static final String MAIN = "demo-main";
 
-	/**
-	 * relative location of the about page
-	 */
-	public static final String ABOUT = "about/about.html";
+  /**
+   * Stores the id of the header under which the main navigation bar is sitting.
+   */
+  public static final String HEADER = "header-link-row";
 
-	/**
-	 * relative location of the components page
-	 */
-	public static final String COMPONENTS = "components/components.html";
+  /**
+   * relative location of the about page.
+   */
+  public static final String ABOUT = "about/about.html";
 
-	/**
-	 * relative location of the buttons demo page
-	 */
-	public static final String BUTTONS = "components/buttons/buttons.html";
+  /**
+   * relative location of the components page.
+   */
+  public static final String COMPONENTS = "components/components.html";
 
-	/**
-	 * relative location of the menus demo page
-	 */
-	public static final String MENUS = "components/menus/menus.html";
+  /**
+   * relative location of the extensions page.
+   */
+  public static final String EXTENSIONS = "extensions/extensions.html";
 
-	/**
-	 * Setup the components side bar and inject it inside the main section of a
-	 * demo page.
-	 */
-	public static void insertComponentsNavbar() {
+  /**
+   * relative location of the buttons demo page.
+   */
+  public static final String BUTTONS = "components/buttons/buttons.html";
 
-		SideNavigationBar bar = new SideNavigationBar();
+  /**
+   * relative location of the menus demo page.
+   */
+  public static final String MENUS = "components/menus/menus.html";
 
-		// setup the button link.
-		ComponentsItem button = new ComponentsItem("keyboard_arrow_right");
-		// the text of the link
-		button.setCaption("Buttons");
-		// the url of the link relative to "components" node
-		button.setUrl(BUTTONS);
-		// add the link to the navigation bar
-		bar.addLink(button);
+  /**
+   * relative location of the dropdown demo page.
+   */
+  public static final String DROPS = "extensions/dropdowns/dropdowns.html";
 
-		// setup the menu link
-		ComponentsItem menu = new ComponentsItem("menu");
-		menu.setCaption("Menus");
-		menu.setUrl(MENUS);
-		bar.addLink(menu);
+  /**
+   * Setup the components side bar and inject it inside the main section of a
+   * demo page.
+   */
+  public static void insertComponentsNavbar() {
 
-		// insert the side bar under the main section of the demo page
-		get(MAIN).insert(bar, 0);
-	}
+    SideNavigationBar bar = new SideNavigationBar();
 
-	/**
-	 * Setup the main bar of the demo and inject it inside the header.
-	 */
-	public static void insertMainbar() {
+    // setup the button link.
+    ComponentsItem button = new ComponentsItem("keyboard_arrow_right");
+    // the text of the link
+    button.setCaption("Buttons");
+    // the url of the link relative to "components" node
+    button.setUrl(BUTTONS);
+    // add the link to the navigation bar
+    bar.addLink(button);
 
-		// setup the main bar
-		MainBar mainbar = new MainBar();
+    // setup the menu link
+    ComponentsItem menu = new ComponentsItem("menu");
+    menu.setCaption("Menus");
+    menu.setUrl(MENUS);
+    bar.addLink(menu);
 
-		// setup the link to the about section
-		MainbarItem aboutItem = new MainbarItem();
-		aboutItem.setUrl(ABOUT);
-		aboutItem.setText("about");
-		mainbar.addLink(aboutItem);
+    // insert the side bar under the main section of the demo page
+    get(MAIN).insert(bar, 0);
+  }
 
-		// setup the link to the components section
-		MainbarItem compsItem = new MainbarItem();
-		compsItem.setUrl(COMPONENTS);
-		compsItem.setText("components");
-		mainbar.addLink(compsItem);
+  /**
+   * Setup the main bar of the demo and inject it inside the header.
+   */
+  public static void insertMainbar() {
 
-		// insert the main bar under the header section of the demo page
-		get(HEADER).insert(mainbar, 0);
-	}
+    // setup the main bar
+    MainBar mainbar = new MainBar();
+
+    // setup the link to the about section
+    MainbarItem aboutItem = new MainbarItem();
+    aboutItem.setUrl(ABOUT);
+    aboutItem.setText("about");
+    mainbar.addLink(aboutItem);
+
+    // setup the link to the components section
+    MainbarItem compsItem = new MainbarItem();
+    compsItem.setUrl(COMPONENTS);
+    compsItem.setText("components");
+    mainbar.addLink(compsItem);
+
+    // insert the main bar under the header section of the demo page
+    get(HEADER).insert(mainbar, 0);
+  }
 }

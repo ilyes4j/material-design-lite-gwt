@@ -12,17 +12,19 @@ import com.google.gwt.core.client.EntryPoint;
 /** Raised colored buttons demo. */
 public class RaisedColoredDemo implements EntryPoint {
 
-  public void onModuleLoad() {
+  /** When the page loads add the buttons. */
+  public final void onModuleLoad() {
 
-    final String TXT = "Button";
+    // the text inside the buttons
+    final String txt = "Button";
 
     // create a colored button with a ripple
-    get("ctnr_09").add(createRaised(PRIMARY, NONE, TXT));
+    get("ctnr_09").add(createRaised(PRIMARY, NONE, txt));
 
     // create an accent colored button
-    get("ctnr_10").add(createRaised(ACCENT, NONE, TXT));
+    get("ctnr_10").add(createRaised(ACCENT, NONE, txt));
 
     // create an accent colored button with a ripple
-    get("ctnr_11").add(createRaised(ACCENT, HAS_RIPPLE, TXT));
+    get("ctnr_11").add(createRaised(ACCENT, HAS_RIPPLE, txt));
   }
 }

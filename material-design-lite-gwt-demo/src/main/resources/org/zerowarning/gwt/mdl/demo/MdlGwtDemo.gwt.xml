@@ -2,16 +2,16 @@
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.7.0//EN" "http://gwtproject.org/doctype/2.7.0/gwt-module.dtd">
 
 <module rename-to="mdlgwtdemo">
-	<inherits name="com.google.gwt.user.User" />
-	<inherits name="org.zerowarning.gwt.mdl.Mdl" />
+  <inherits name="com.google.gwt.user.User" />
+  <inherits name="org.zerowarning.gwt.mdl.Mdl" />
 
-	<source path="" />
+  <source path="" />
 
-	<public path="" />
+  <public path="" />
 
-	<stylesheet src="main-gwt.css" />
+  <stylesheet src="main-gwt.css" />
 
-	<add-linker name="xsiframe" />
+  <add-linker name="xsiframe" />
 
-	<entry-point class="org.zerowarning.gwt.mdl.demo.MdlGwtDemo" />
+  <entry-point class="org.zerowarning.gwt.mdl.demo.MdlGwtDemo" />
 </module>

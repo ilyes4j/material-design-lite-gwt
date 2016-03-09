@@ -16,18 +16,14 @@ import com.google.gwt.user.client.ui.RootPanel;
 public class ScrollDemo implements EntryPoint {
 
   /** Setup a large number of items to activate the scroll behavior. */
-  @Override
-  public void onModuleLoad() {
+  public final void onModuleLoad() {
 
-    final String SCROLL_CONTAINER = "scrollContainer";
-    final String BTN_TEXT = "I need a scroll";
-    final String ITEM_VALUE = "Menu Option #";
-    final int ITEM_COUNT = 20;
+    final int itemCount = 20;
 
-    RootPanel scrollPanel = get(SCROLL_CONTAINER);
+    RootPanel scrollPanel = get("scrollContainer");
 
     // setup the action button.
-    Button btn = createRaised(BTN_NO_COLOR, HAS_RIPPLE, BTN_TEXT);
+    Button btn = createRaised(BTN_NO_COLOR, HAS_RIPPLE, "I need a scroll");
 
     MenuCombo menu = new MenuCombo(btn);
     // prevent the menu from overflowing at the end of the page
@@ -35,8 +31,8 @@ public class ScrollDemo implements EntryPoint {
     menu.setAnchor(TOP_LEFT);
 
     // put many items to force the scroll bar to show up
-    for (int i = 0; i < ITEM_COUNT; i++) {
-      menu.addItem(ITEM_VALUE + i, true);
+    for (int i = 0; i < itemCount; i++) {
+      menu.addItem("Menu Option #" + i, true);
     }
     scrollPanel.add(menu);
   }

@@ -11,14 +11,16 @@ import com.google.gwt.core.client.EntryPoint;
 /** Mini Fab buttons demo. */
 public class MiniFabDemo implements EntryPoint {
 
-  public void onModuleLoad() {
+  /** When the page loads add the buttons. */
+  public final void onModuleLoad() {
 
-    final String ICO = "add";
+    // the icon inside the buttons
+    final String ico = "add";
 
     // create a mini fab
-    get("ctnr_22").add(createMiniFab(FAB_NO_COLOR, NONE, ICO));
+    get("ctnr_22").add(createMiniFab(FAB_NO_COLOR, NONE, ico));
 
     // create a colored mini fab
-    get("ctnr_23").add(createMiniFab(COLORED, NONE, ICO));
+    get("ctnr_23").add(createMiniFab(COLORED, NONE, ico));
   }
 }

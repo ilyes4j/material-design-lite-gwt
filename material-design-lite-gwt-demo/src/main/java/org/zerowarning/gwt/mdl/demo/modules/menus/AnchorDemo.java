@@ -23,8 +23,7 @@ public class AnchorDemo implements EntryPoint {
    * Setup the four possible anchoring variations for the {@link Menu} and add
    * them to the page.
    */
-  @Override
-  public void onModuleLoad() {
+  public final void onModuleLoad() {
 
     // create a MenuCombo anchored to the left bottom corner of its action
     // button then add it to its container
@@ -54,7 +53,7 @@ public class AnchorDemo implements EntryPoint {
    * @return an instance of {@link MenuCombo} that is anchored according to the
    *         input {@link MenuAnchor}.
    */
-  private MenuCombo createCombo(MenuAnchor anchor) {
+  private MenuCombo createCombo(final MenuAnchor anchor) {
 
     // setup the action button
     Button btn = createIcon(BTN_NO_COLOR, NONE, "more_vert");

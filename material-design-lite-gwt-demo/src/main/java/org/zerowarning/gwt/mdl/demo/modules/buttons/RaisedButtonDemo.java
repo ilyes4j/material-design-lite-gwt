@@ -13,18 +13,19 @@ import com.google.gwt.core.client.EntryPoint;
 /** Raised buttons demo. */
 public class RaisedButtonDemo implements EntryPoint {
 
-  public void onModuleLoad() {
+  /** When the page loads add the buttons. */
+  public final void onModuleLoad() {
 
-    final String TXT = "Button";
+    final String txt = "Button";
 
     // create a plain raised button
-    get("ctnr_06").add(createRaised(BTN_NO_COLOR, NONE, TXT));
+    get("ctnr_06").add(createRaised(BTN_NO_COLOR, NONE, txt));
 
     // create a plain raised button with ripple
-    get("ctnr_07").add(createRaised(BTN_NO_COLOR, HAS_RIPPLE, TXT));
+    get("ctnr_07").add(createRaised(BTN_NO_COLOR, HAS_RIPPLE, txt));
 
     // create a plain raised disabled button
-    Button btnRaised = createRaised(BTN_NO_COLOR, NONE, TXT);
+    Button btnRaised = createRaised(BTN_NO_COLOR, NONE, txt);
     btnRaised.setEnabled(false);
     get("ctnr_08").add(btnRaised);
   }

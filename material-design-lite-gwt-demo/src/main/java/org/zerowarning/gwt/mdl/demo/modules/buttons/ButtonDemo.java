@@ -14,26 +14,26 @@ import com.google.gwt.core.client.EntryPoint;
  */
 public class ButtonDemo implements EntryPoint {
 
-	/**
-	 * This is the entry point method.
-	 */
-	public void onModuleLoad() {
+  /**
+   * This is the entry point method.
+   */
+  public final void onModuleLoad() {
 
-		Collection<EntryPoint> demos = new ArrayList<>();
-		demos.add(new ColoredFabDemo());
-		demos.add(new PlainFabDemo());
-		demos.add(new RaisedColoredDemo());
-		demos.add(new RaisedButtonDemo());
-		demos.add(new FlatButtonDemo());
-		demos.add(new FlatColoredDemo());
-		demos.add(new IconButtonDemo());
-		demos.add(new MiniFabDemo());
+    Collection<EntryPoint> demos = new ArrayList<>();
+    demos.add(new ColoredFabDemo());
+    demos.add(new PlainFabDemo());
+    demos.add(new RaisedColoredDemo());
+    demos.add(new RaisedButtonDemo());
+    demos.add(new FlatButtonDemo());
+    demos.add(new FlatColoredDemo());
+    demos.add(new IconButtonDemo());
+    demos.add(new MiniFabDemo());
 
-		for (EntryPoint entry : demos) {
-			entry.onModuleLoad();
-		}
+    for (EntryPoint entry : demos) {
+      entry.onModuleLoad();
+    }
 
-		MdlGwtDemoUtils.insertMainbar();
-		MdlGwtDemoUtils.insertComponentsNavbar();
-	}
+    MdlGwtDemoUtils.insertMainbar();
+    MdlGwtDemoUtils.insertComponentsNavbar();
+  }
 }

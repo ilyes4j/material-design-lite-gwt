@@ -11,13 +11,13 @@ import org.zerowarning.gwt.mdl.demo.navigation.NavigationBar;
  */
 public class MainBar extends NavigationBar<MainbarItem> {
 
-	/**
-	 * Setup the bar and the links it holds.
-	 */
-	public MainBar() {
-		super();
+  /**
+   * Setup the bar and the links it holds.
+   */
+  public MainBar() {
+    super();
 
-		// setup the bar look
-		container.setStyleName("demo-mainbar");
-	}
+    // setup the bar look
+    getContainer().setStyleName("demo-mainbar");
+  }
 }

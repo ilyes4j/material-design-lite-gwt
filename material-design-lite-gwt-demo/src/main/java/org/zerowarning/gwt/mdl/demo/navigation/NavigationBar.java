@@ -92,96 +92,143 @@ import com.google.gwt.user.client.ui.FlowPanel;
  * @author Moahmed Ilyes DIMASSI.
  *
  * @param <T>
- *            A subtype of {@link INavigationItem}.
+ *          A subtype of {@link INavigationItem}.
  */
 public class NavigationBar<T extends INavigationItem> extends Composite {
 
-	/**
-	 * Setup the navigation bar.
-	 */
-	public NavigationBar() {
-		initWidget(container);
-	}
+  /**
+   * Setup the navigation bar.
+   */
+  public NavigationBar() {
+    initWidget(container);
+  }
 
-	/**
-	 * Add another link to the bar
-	 * 
-	 * @param link
-	 *            The link tobe added.
-	 */
-	public void addLink(T link) {
-		links.add(link);
-		container.add(link);
-	}
+  /**
+   * Add another link to the bar.
+   * 
+   * @param link
+   *          The link tobe added.
+   */
+  public final void addLink(final T link) {
 
-	/**
-	 * When the navigation bar is attached to the DOM, it rewrites the links it
-	 * manages. All items should be added before the navigation bar is added to
-	 * the DOM, after this point, the bar can no longer be tweaked.
-	 */
-	@Override
-	protected void onLoad() {
-		super.onLoad();
+    // keep link inside a list to ease rewriting URLs later
+    links.add(link);
 
-		// rewrite the links when the bar is attached to the DOM.
-		rewriteLinks();
-	}
+    // add the element to the navigation bar
+    container.add(link);
+  }
 
-	/**
-	 * Rewrite the links managed by the bar.
-	 */
-	private void rewriteLinks() {
+  /**
+   * When the navigation bar is attached to the DOM, it rewrites the links it
+   * manages. All items should be added before the navigation bar is added to
+   * the DOM, after this point, the bar can no longer be tweaked.
+   */
+  @Override
+  protected final void onLoad() {
+    super.onLoad();
 
-		String ref = Window.Location.getHref();
+    // rewrite the links when the bar is attached to the DOM.
+    rewriteLinks();
+  }
 
-		String[] refsplits = urlMgr.splitUrl(ref, false);
+  /**
+   * @return the container into which links are injected.
+   */
+  protected final FlowPanel getContainer() {
+    return container;
+  }
 
-		String itemurl;
-		String[] itemsplits;
-		int upCount;
-		INavigationItem item;
-		int activeItemIdx = -1;
-		int currStartIdx;
-		int activeStartIdx = -1;
+  /**
+   * Rewrite the links managed by the bar.
+   */
+  private void rewriteLinks() {
 
-		for (int i = 0; i < links.size(); i++) {
-			item = links.get(i);
-			itemurl = item.getUrl();
-			itemsplits = urlMgr.splitUrl(itemurl, false);
-			currStartIdx = urlMgr.urlInclusion(refsplits, itemsplits);
+    // retrieve the url of the loaded page
+    String ref = Window.Location.getHref();
 
-			if (currStartIdx != -1) {
-				activeStartIdx = currStartIdx;
-				activeItemIdx = i;
-				item.setActive(false);
-				break;
-			}
+    // split the loaded page into an array of parts
+    String[] refsplits = urlMgr.splitUrl(ref, false);
 
-		}
+    String itemurl;
+    String[] itemsplits;
+    int upCount;
+    INavigationItem item;
+    int activeItemIdx = -1;
+    int currStartIdx;
+    int activeStartIdx = -1;
 
-		if (activeItemIdx == -1) {
-			return;
-		}
+    for (int i = 0; i < links.size(); i++) {
+      item = links.get(i);
+      itemurl = item.getUrl();
 
-		String itemResult;
+      // split the url of a link item in the navigation bar
+      itemsplits = urlMgr.splitUrl(itemurl, false);
 
-		for (int i = 0; i < links.size(); i++) {
-			if (i == activeItemIdx) {
-				continue;
-			}
+      // check whether the loaded page url contains the item's url
+      // if the item's url is infact contained inside the page's url then the
+      // current item corresponds to the loaded page.
 
-			item = links.get(i);
+      // the returned value is the index of the first part in the url of the
+      // loaded page. This index will be used next to rewrite the other items
+      // urls.
+      currStartIdx = urlMgr.urlInclusion(refsplits, itemsplits);
 
-			upCount = refsplits.length - activeStartIdx;
-			itemResult = urlMgr.stepBack(upCount, item.getUrl());
-			item.setUrl(itemResult);
-			item.setActive(true);
-		}
-	}
+      // if a match is found then the start index must be defined > -1
+      if (currStartIdx != -1) {
 
-	protected FlowPanel container = new FlowPanel();
+        // store the index of the first part in the match
+        activeStartIdx = currStartIdx;
 
-	private List<T> links = new ArrayList<>();
+        // store the index of the link that caused the match
+        activeItemIdx = i;
 
-	private UrlManager urlMgr = new UrlManager();
+        // make the match link inactive
+        item.setActive(false);
+        break;
+      }
+
+    }
+
+    // if none of the links matched the current url then do nothing
+    if (activeItemIdx == -1) {
+      return;
+    }
+
+    String itemResult;
+
+    // rewrite all the the links except the matching link
+    for (int i = 0; i < links.size(); i++) {
+      if (i == activeItemIdx) {
+        continue;
+      }
+
+      item = links.get(i);
+
+      // 1. it is assumed that all links are expressed against the same folder
+      // 2. the matching between the current url and the item's url is known
+      // => in order to rewrite the siblings against the current url it is
+      // needed to determine how much to go back up the folder tree
+      upCount = refsplits.length - activeStartIdx;
+      itemResult = urlMgr.stepBack(upCount, item.getUrl());
+      item.setUrl(itemResult);
+
+      // set the siblings to active
+      item.setActive(true);
+    }
+  }
+
+  /**
+   * The container into which links are injected.
+   */
+  private FlowPanel container = new FlowPanel();
+
+  /**
+   * Storing the list of links to ease urls rewriting later.
+   */
+  private List<T> links = new ArrayList<>();
+
+  /**
+   * helper for operations on urls.
+   */
+  private UrlManager urlMgr = new UrlManager();
 }

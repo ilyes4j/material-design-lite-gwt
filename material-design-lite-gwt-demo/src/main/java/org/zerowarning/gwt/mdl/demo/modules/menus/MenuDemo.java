@@ -17,7 +17,7 @@ public class MenuDemo implements EntryPoint {
   /**
    * This is the entry point method.
    */
-  public void onModuleLoad() {
+  public final void onModuleLoad() {
 
     Collection<EntryPoint> demos = new ArrayList<>();
     demos.add(new AnchorDemo());

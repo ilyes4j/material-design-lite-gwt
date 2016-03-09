@@ -13,18 +13,20 @@ import com.google.gwt.core.client.EntryPoint;
 /** Plain Fab buttons demo. */
 public class PlainFabDemo implements EntryPoint {
 
-  public void onModuleLoad() {
+  /** When the page loads add the buttons. */
+  public final void onModuleLoad() {
 
-    final String ICO = "add";
+    // the icon inside the buttons
+    final String ico = "add";
 
     // Plain fab button with an add icon
-    get("ctnr_03").add(createFab(FAB_NO_COLOR, NONE, ICO));
+    get("ctnr_03").add(createFab(FAB_NO_COLOR, NONE, ico));
 
     // Plain fab button with an add icon and ripple
-    get("ctnr_04").add(createFab(FAB_NO_COLOR, HAS_RIPPLE, ICO));
+    get("ctnr_04").add(createFab(FAB_NO_COLOR, HAS_RIPPLE, ico));
 
     // Disabled fab button with an add icon
-    Button btnFab = createFab(FAB_NO_COLOR, NONE, ICO);
+    Button btnFab = createFab(FAB_NO_COLOR, NONE, ico);
     btnFab.setEnabled(false);
     get("ctnr_05").add(btnFab);
   }

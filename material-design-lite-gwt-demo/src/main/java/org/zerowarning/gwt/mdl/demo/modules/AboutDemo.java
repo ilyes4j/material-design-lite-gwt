@@ -11,10 +11,13 @@ import com.google.gwt.core.client.EntryPoint;
  */
 public class AboutDemo implements EntryPoint {
 
-	@Override
-	public void onModuleLoad() {
+  /**
+   * This is the entry point method.
+   */
+  @Override
+  public final void onModuleLoad() {
 
-		// put the main navigation bar in the header for the demo page.
-		MdlGwtDemoUtils.insertMainbar();
-	}
+    // put the main navigation bar in the header for the demo page.
+    MdlGwtDemoUtils.insertMainbar();
+  }
 }

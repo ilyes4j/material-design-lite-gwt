@@ -12,17 +12,19 @@ import com.google.gwt.core.client.EntryPoint;
 /** Flat colored buttons demo. */
 public class FlatColoredDemo implements EntryPoint {
 
-  public void onModuleLoad() {
+  /** When the page loads add the buttons. */
+  public final void onModuleLoad() {
 
-    final String TXT = "Button";
+    // the text inside the buttons
+    final String txt = "Button";
 
     // create a primary colored flat button
-    get("ctnr_15").add(createFlat(PRIMARY, NONE, TXT));
+    get("ctnr_15").add(createFlat(PRIMARY, NONE, txt));
 
     // create an accent colored flat button
-    get("ctnr_16").add(createFlat(ACCENT, NONE, TXT));
+    get("ctnr_16").add(createFlat(ACCENT, NONE, txt));
 
     // create an accent colored flat button with a ripple
-    get("ctnr_17").add(createFlat(ACCENT, HAS_RIPPLE, TXT));
+    get("ctnr_17").add(createFlat(ACCENT, HAS_RIPPLE, txt));
   }
 }

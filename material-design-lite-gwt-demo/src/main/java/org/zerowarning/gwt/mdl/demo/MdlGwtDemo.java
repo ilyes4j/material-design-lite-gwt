@@ -45,43 +45,47 @@ import com.google.gwt.user.client.Window;
  */
 public class MdlGwtDemo implements EntryPoint {
 
-	/**
-	 * Setup the {@link ModuleDemo}s collection and map each one with the
-	 * appropriate url and {@link EntryPoint}.
-	 */
-	public MdlGwtDemo() {
-		ModuleDemo about = new ModuleDemo();
-		about.setUrl(ABOUT);
-		about.setModule(new AboutDemo());
-		entries.add(about);
+  /**
+   * Setup the {@link ModuleDemo}s collection and map each one with the
+   * appropriate url and {@link EntryPoint}.
+   */
+  public MdlGwtDemo() {
+    ModuleDemo about = new ModuleDemo();
+    about.setUrl(ABOUT);
+    about.setModule(new AboutDemo());
+    entries.add(about);
 
-		ModuleDemo buttons = new ModuleDemo();
-		buttons.setUrl(BUTTONS);
-		buttons.setModule(new ButtonDemo());
-		entries.add(buttons);
+    ModuleDemo buttons = new ModuleDemo();
+    buttons.setUrl(BUTTONS);
+    buttons.setModule(new ButtonDemo());
+    entries.add(buttons);
 
-		ModuleDemo menus = new ModuleDemo();
-		menus.setUrl(MENUS);
-		menus.setModule(new MenuDemo());
-		entries.add(menus);
-	}
+    ModuleDemo menus = new ModuleDemo();
+    menus.setUrl(MENUS);
+    menus.setModule(new MenuDemo());
+    entries.add(menus);
 
-	/**
-	 * Depending on the current url, invoques the appropriate {@link ModuleDemo}
-	 * to handle the demo GWT part.
-	 */
-	@Override
-	public void onModuleLoad() {
+  }
 
-		String ref = Window.Location.getHref();
+  /**
+   * Depending on the current url, invoques the appropriate {@link ModuleDemo}
+   * to handle the demo GWT part.
+   */
+  @Override
+  public final void onModuleLoad() {
 
-		for (ModuleDemo module : entries) {
-			if (module.isIncludedIn(ref)) {
-				module.onModuleLoad();
-				break;
-			}
-		}
-	}
+    String ref = Window.Location.getHref();
 
-	private List<ModuleDemo> entries = new ArrayList<ModuleDemo>();
+    for (ModuleDemo module : entries) {
+      if (module.isIncludedIn(ref)) {
+        module.onModuleLoad();
+        break;
+      }
+    }
+  }
+
+  /**
+   * List of GWT modules to choose from when a demo page is loaded.
+   */
+  private List<ModuleDemo> entries = new ArrayList<ModuleDemo>();
 }

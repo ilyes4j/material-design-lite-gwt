@@ -13,20 +13,22 @@ import com.google.gwt.core.client.EntryPoint;
 /** Icon buttons demo. */
 public class IconButtonDemo implements EntryPoint {
 
-  public void onModuleLoad() {
+  /** When the page loads add the buttons. */
+  public final void onModuleLoad() {
 
-    final String ICO = "mood";
+    // the icon inside the buttons
+    final String ico = "mood";
 
     // create an icon button
-    get("ctnr_18").add(createIcon(BTN_NO_COLOR, NONE, ICO));
+    get("ctnr_18").add(createIcon(BTN_NO_COLOR, NONE, ico));
 
     // create a colored icon button
-    get("ctnr_19").add(createIcon(PRIMARY, NONE, ICO));
+    get("ctnr_19").add(createIcon(PRIMARY, NONE, ico));
 
     // create an accent colored icon button
-    get("ctnr_20").add(createIcon(ACCENT, NONE, ICO));
+    get("ctnr_20").add(createIcon(ACCENT, NONE, ico));
 
     // create an accent colored icon button with ripple
-    get("ctnr_21").add(createIcon(ACCENT, HAS_RIPPLE, ICO));
+    get("ctnr_21").add(createIcon(ACCENT, HAS_RIPPLE, ico));
   }
 }

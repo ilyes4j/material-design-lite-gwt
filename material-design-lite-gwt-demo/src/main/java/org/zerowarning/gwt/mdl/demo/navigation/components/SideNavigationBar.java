@@ -16,14 +16,14 @@ import org.zerowarning.gwt.mdl.demo.navigation.NavigationBar;
  */
 public class SideNavigationBar extends NavigationBar<ComponentsItem> {
 
-	/**
-	 * Setup the components navigation bar and apply styling.
-	 */
-	public SideNavigationBar() {
-		super();
+  /**
+   * Setup the components navigation bar and apply styling.
+   */
+  public SideNavigationBar() {
+    super();
 
-		// setup the bar looks
-		container.setStyleName("demo-compsbar");
-		container.addStyleName("mdl-shadow--8dp");
-	}
+    // setup the bar looks
+    getContainer().setStyleName("demo-compsbar");
+    getContainer().addStyleName("mdl-shadow--8dp");
+  }
 }

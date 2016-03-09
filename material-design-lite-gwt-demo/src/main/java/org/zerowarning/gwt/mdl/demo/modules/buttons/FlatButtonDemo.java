@@ -13,18 +13,20 @@ import com.google.gwt.core.client.EntryPoint;
 /** Flat buttons demo. */
 public class FlatButtonDemo implements EntryPoint {
 
-  public void onModuleLoad() {
+  /** When the page loads add the buttons. */
+  public final void onModuleLoad() {
 
-    final String TXT = "Button";
+    // the text inside the buttons
+    final String txt = "Button";
 
     // create a flat button
-    get("ctnr_12").add(createFlat(BTN_NO_COLOR, NONE, TXT));
+    get("ctnr_12").add(createFlat(BTN_NO_COLOR, NONE, txt));
 
     // create a flat button with a ripple
-    get("ctnr_13").add(createFlat(BTN_NO_COLOR, HAS_RIPPLE, TXT));
+    get("ctnr_13").add(createFlat(BTN_NO_COLOR, HAS_RIPPLE, txt));
 
     // create disabled flat button
-    Button btnFlat = createFlat(BTN_NO_COLOR, NONE, TXT);
+    Button btnFlat = createFlat(BTN_NO_COLOR, NONE, txt);
     btnFlat.setEnabled(false);
     get("ctnr_14").add(btnFlat);
   }

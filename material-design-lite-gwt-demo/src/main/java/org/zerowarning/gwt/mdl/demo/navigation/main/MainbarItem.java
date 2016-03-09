@@ -12,33 +12,36 @@ import com.google.gwt.user.client.ui.Anchor;
  */
 public class MainbarItem extends Anchor implements INavigationItem {
 
-	/**
-	 * Setup the link and its look
-	 */
-	public MainbarItem() {
-		setStylePrimaryName("demo-mainbar-item");
-	}
+  /**
+   * Setup the link and its look.
+   */
+  public MainbarItem() {
+    setStylePrimaryName("demo-mainbar-item");
+  }
 
-	@Override
-	public String getUrl() {
-		return url;
-	}
+  @Override
+  public final String getUrl() {
+    return url;
+  }
 
-	@Override
-	public void setUrl(String url) {
-		this.url = url;
-		setHref(url);
-	}
+  @Override
+  public final void setUrl(final String inputUrl) {
+    this.url = inputUrl;
+    setHref(inputUrl);
+  }
 
-	@Override
-	public void setActive(boolean active) {
+  @Override
+  public final void setActive(final boolean active) {
 
-		setStyleDependentName("active", !active);
+    setStyleDependentName("active", !active);
 
-		if (!active) {
-			setHref("javascript:;");
-		}
-	}
+    if (!active) {
+      setHref("javascript:;");
+    }
+  }
 
-	private String url;
+  /**
+   * The url of the tab item inside the tab bar.
+   */
+  private String url;
 }
