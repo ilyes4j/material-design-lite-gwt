@@ -282,7 +282,8 @@ public class Menu extends HTMLPanel implements IMenu {
   }
 
   @Override
-  public final void addItem(final String item, final boolean enabled) {
+  public final void addItem(final String value, final String text,
+      final boolean enabled) {
 
     // don't let the item be added considering the menu is already upgraded
     if (upgraded) {
@@ -300,7 +301,7 @@ public class Menu extends HTMLPanel implements IMenu {
     }
 
     // create the item holder
-    MenuItem menuItem = new MenuItem(item);
+    MenuItem menuItem = new MenuItem(value, text);
 
     // ... add it to the items list
     items.add(menuItem);
@@ -318,14 +319,41 @@ public class Menu extends HTMLPanel implements IMenu {
   }
 
   /**
-   * Shortcut for {@link Menu#addItem(String, boolean)} that adds an enabled
-   * item to the menu.
+   * Adds a new item to the menu. The value and the text are set to the same
+   * String. Has the same effect as Menu.addItem(item, item , enabled).
    * 
    * @param item
-   *          the item to be added.
+   *          The value and the text of the item to be added
+   * 
+   * @param enabled
+   *          Defines whether the option can be chosen or not.
+   */
+  public final void addItem(final String item, final boolean enabled) {
+    addItem(item, item, enabled);
+  }
+
+  /**
+   * Has the same effect as Menu.addItem(item , true).
+   * 
+   * @param item
+   *          The value and the text of the item to be added
    */
   public final void addItem(final String item) {
     addItem(item, true);
+  }
+
+  /**
+   * Shortcut for {@link Menu#addItem(String, boolean)} that adds an enabled
+   * item to the menu.
+   * 
+   * @param value
+   *          the value of the item to be added.
+   * 
+   * @param text
+   *          the text of the item to be added.
+   */
+  public final void addItem(final String value, final String text) {
+    addItem(value, text, true);
   }
 
   @Override
@@ -339,9 +367,14 @@ public class Menu extends HTMLPanel implements IMenu {
   }
 
   @Override
-  public final String getItem(final int index) {
+  public final String getItemText(final int index) {
 
     return getMenuItem(index).getText();
+  }
+
+  @Override
+  public final String getValue(final int index) {
+    return getMenuItem(index).getValue();
   }
 
   @Override

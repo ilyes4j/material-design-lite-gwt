@@ -56,8 +56,13 @@ public class Dropdown extends Composite implements IMenu {
   }
 
   @Override
-  public final String getItem(final int index) {
-    return combo.getItem(index);
+  public final String getItemText(final int index) {
+    return combo.getItemText(index);
+  }
+
+  @Override
+  public final String getValue(final int index) {
+    return combo.getValue(index);
   }
 
   @Override
@@ -69,10 +74,11 @@ public class Dropdown extends Composite implements IMenu {
   public final boolean isEnabled(final int index) {
     return combo.isEnabled(index);
   }
-  
+
   @Override
-  public final void addItem(final String item, final boolean enabled) {
-    combo.addItem(item, enabled);
+  public final void addItem(final String value, final String text,
+      final boolean enabled) {
+    combo.addItem(value, text, enabled);
 
     // if no item is selected, then by default select the first enabled item in
     // the menu, otherwise don't do anything.
@@ -86,20 +92,46 @@ public class Dropdown extends Composite implements IMenu {
     }
 
     selectedIndex = size() - 1;
-    button.setText(item);
+    button.setText(text);
+  }
+
+  /**
+   * Has the same effect as Dropdown.addItem(item , item, enabled).
+   * 
+   * @param item
+   *          the value and text of the item to be added
+   * 
+   * @param enabled
+   *          the state of the item to be added
+   */
+  public final void addItem(final String item, final boolean enabled) {
+    addItem(item, enabled);
+  }
+
+  /**
+   * Has the same effect as Dropdown.addItem(item , true).
+   * 
+   * @param item
+   *          the value and text of the item to be added
+   */
+  public final void addItem(final String item) {
+    addItem(item, true);
   }
 
   /**
    * Shortcut for {@link Dropdown#addItem(String, boolean)} that adds an enabled
    * item to the menu.
    * 
-   * @param item
-   *          the item to be added.
+   * @param value
+   *          the value of the item to be added.
+   * 
+   * @param text
+   *          the text of the item to be added.
    */
-  public final void addItem(final String item) {
-    addItem(item, true);
+  public final void addItem(final String value, final String text) {
+    addItem(value, text, true);
   }
-  
+
   /**
    * @return the index of the currently selected item
    */
@@ -148,7 +180,7 @@ public class Dropdown extends Composite implements IMenu {
     }
 
     selectedIndex = index;
-    button.setText(getItem(index));
+    button.setText(getItemText(index));
   }
 
   /**

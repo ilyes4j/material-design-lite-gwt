@@ -94,6 +94,20 @@ public class MenuCombo extends FlowPanel implements IMenu {
   }
 
   @Override
+  public final void addItem(final String value, final String text,
+      final boolean enabled) {
+    menu.addItem(value, text, enabled);
+  }
+
+  /**
+   * Has the same effect as MenuCombo.addItem(item , item, enabled).
+   * 
+   * @param item
+   *          the value and text of the item to be added
+   * 
+   * @param enabled
+   *          the state of the item to be added
+   */
   public final void addItem(final String item, final boolean enabled) {
     menu.addItem(item, enabled);
   }
@@ -109,8 +123,13 @@ public class MenuCombo extends FlowPanel implements IMenu {
   }
 
   @Override
-  public final String getItem(final int index) {
-    return menu.getItem(index);
+  public final String getItemText(final int index) {
+    return menu.getItemText(index);
+  }
+
+  @Override
+  public final String getValue(final int index) {
+    return menu.getValue(index);
   }
 
   @Override

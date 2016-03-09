@@ -37,13 +37,16 @@ public interface IMenu {
   /**
    * Adds a new option to the list of options in the menu.
    * 
-   * @param item
-   *          The item to be added.
+   * @param value
+   *          The value to be added
+   * 
+   * @param text
+   *          The text to be displayed
    * 
    * @param enabled
    *          Defines whether the option can be chosen or not.
    */
-  void addItem(String item, boolean enabled);
+  void addItem(String value, String text, boolean enabled);
 
   /**
    * When an object needs to be notified upon a {@link MenuItem} click, it must
@@ -73,14 +76,24 @@ public interface IMenu {
   int size();
 
   /**
-   * return the item located at the position provided as input.
+   * return the text of the item located at the position provided as input.
    * 
    * @param index
    *          the position of the item
    * 
-   * @return the item at input position
+   * @return the text of the item at input position
    */
-  String getItem(int index);
+  String getItemText(int index);
+
+  /**
+   * return the value of the item located at the position provided as input.
+   * 
+   * @param index
+   *          the position of the item
+   * 
+   * @return the value of the item at input position
+   */
+  String getValue(int index);
 
   /**
    * Modify the enabled state of an item. The position of the item is provided

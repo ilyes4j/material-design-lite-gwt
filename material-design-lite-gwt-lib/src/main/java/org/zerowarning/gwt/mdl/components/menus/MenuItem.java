@@ -5,7 +5,7 @@ import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.user.client.ui.HTMLPanel;
 
 /**
- * {@link MenuItem} is an item in the list of items in a {@link Menu}.
+ * {@link MenuItem} is an item in the list of items in an {@link IMenu}.
  * 
  * @author Mohamed Ilyes DIMASSI
  *
@@ -15,10 +15,13 @@ public class MenuItem extends HTMLPanel {
   /**
    * Create an item and set its label.
    * 
+   * @param inputValue
+   *          The value of the item.
+   * 
    * @param text
-   *          The displayed label.
+   *          The displayed label for the item.
    */
-  public MenuItem(final String text) {
+  public MenuItem(final String inputValue, final String text) {
     // the container is a list item tag
     super(LIElement.TAG, "");
 
@@ -33,6 +36,9 @@ public class MenuItem extends HTMLPanel {
 
     // set the label to the provided text
     content.getElement().setInnerText(text);
+
+    // the value of the item
+    this.value = inputValue;
   }
 
   /**
@@ -86,6 +92,15 @@ public class MenuItem extends HTMLPanel {
   }
 
   /**
+   * Returns the value of the item.
+   * 
+   * @return the value of the item.
+   */
+  public final String getValue() {
+    return value;
+  }
+
+  /**
    * Returns the displayed text of the item.
    * 
    * @return the label of the item.
@@ -98,6 +113,11 @@ public class MenuItem extends HTMLPanel {
    * span tag to hold the displayed label of the item.
    */
   private HTMLPanel content;
+
+  /**
+   * The value of the item.
+   */
+  private String value;
 
   /**
    * menu item mdl css style.
