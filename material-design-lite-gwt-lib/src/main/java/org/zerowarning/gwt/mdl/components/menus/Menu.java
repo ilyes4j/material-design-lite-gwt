@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import org.zerowarning.gwt.mdl.components.ComponentHandler;
 import org.zerowarning.gwt.mdl.components.buttons.Button;
@@ -90,6 +91,8 @@ public class Menu extends HTMLPanel implements IMenu {
     // creating the menu that is a unordered list
     super(UListElement.TAG, "");
 
+    LOG.finest("Setting up menu");
+
     // ... which is placed below the related button
     setAnchor(BOTTOM_LEFT);
 
@@ -143,6 +146,8 @@ public class Menu extends HTMLPanel implements IMenu {
 
       String msg = sb.toString();
 
+      LOG.warning(msg);
+
       throw new IllegalStateException(msg);
     }
 
@@ -165,6 +170,8 @@ public class Menu extends HTMLPanel implements IMenu {
       sb.append("Please set the anchoring for the menu before the upgrade.");
 
       String msg = sb.toString();
+
+      LOG.warning(msg);
 
       throw new IllegalStateException(msg);
     }
@@ -227,12 +234,15 @@ public class Menu extends HTMLPanel implements IMenu {
 
       String msg = sb.toString();
 
+      LOG.warning(msg);
 
       throw new IllegalStateException(msg);
     }
 
     // transform the menu and apply the needed behaviors
     upgradeElement(getElement());
+
+    LOG.finest("Menu upgraded");
 
     // mark the component as already upgraded
     upgraded = true;
@@ -284,6 +294,8 @@ public class Menu extends HTMLPanel implements IMenu {
 
       String msg = sb.toString();
 
+      LOG.warning(msg);
+
       throw new IllegalStateException(msg);
     }
 
@@ -298,7 +310,7 @@ public class Menu extends HTMLPanel implements IMenu {
 
     // ...set the css style of the item
     menuItem.setEnabled(enabled);
-    
+
     // set the enabled state for the first time.
     if (enabled) {
       forceEnable(menuItem);
@@ -596,4 +608,9 @@ public class Menu extends HTMLPanel implements IMenu {
    * Default maximum value not to be exceeded by the menu's height.
    */
   private static final int MAX_HEIGHT = 200;
+
+  /**
+   * Menu logger.
+   */
+  private static final Logger LOG = Logger.getLogger(Menu.class.getName());
 }

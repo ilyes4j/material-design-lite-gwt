@@ -1,7 +1,11 @@
 package org.zerowarning.gwt.mdl;
 
+import static java.util.logging.Logger.getLogger;
 import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
 import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.zerowarning.gwt.mdl.components.buttons.Button;
 import org.zerowarning.gwt.mdl.components.menus.Menu;
@@ -133,6 +137,8 @@ public class MdlGwtMenuTest extends MdlGwtBaseTest {
       // attach the menu to DOM
       RootPanel.get().add(menu);
 
+      LOG.log(Level.FINE, "Setting anchor to the menu");
+
       // set the anchoring of the menu
       menu.setAnchor(MenuAnchor.TOP_LEFT);
 
@@ -145,4 +151,9 @@ public class MdlGwtMenuTest extends MdlGwtBaseTest {
       assertTrue(true);
     }
   }
+
+  /**
+   * Menu tests logger.
+   */
+  private static final Logger LOG = getLogger(MdlGwtMenuTest.class.getName());
 }

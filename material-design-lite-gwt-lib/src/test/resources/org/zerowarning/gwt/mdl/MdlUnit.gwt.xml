@@ -21,4 +21,13 @@
   <!-- Only support Chrome compatible browsers for improved performance -->
   <!-- at compilation time -->
   <set-property name="user.agent" value="safari" />
+
+  <!-- module should be enherited to make logging available in prod mode -->
+  <inherits name="com.google.gwt.logging.Logging" />
+
+  <!-- Only SEVERE messages will be logged if logging isn't enabled -->
+  <set-property name="gwt.logging.enabled" value="TRUE" />
+
+  <!-- Other possible options are listed here http://tinyurl.com/juaysqr -->
+  <set-property name="gwt.logging.logLevel" value="WARNING" />
 </module>
