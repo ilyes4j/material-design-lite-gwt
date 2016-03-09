@@ -15,12 +15,7 @@ import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 
-/**
- * Demonstrates the click event of the menu component.
- * 
- * @author Mohamed Ilyes DIMASSI
- *
- */
+/** Demonstrates the click event of the menu component. */
 public class ClickEventDemo implements EntryPoint {
 
   /**

@@ -9,24 +9,20 @@ import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
 
 import com.google.gwt.core.client.EntryPoint;
 
-/**
- * Flat colored buttons demo.
- * 
- * @author Mohamed Ilyes DIMASSI
- */
+/** Flat colored buttons demo. */
 public class FlatColoredDemo implements EntryPoint {
 
-	public void onModuleLoad() {
+  public void onModuleLoad() {
 
-		final String TXT = "Button";
+    final String TXT = "Button";
 
-		// create a primary colored flat button
-		get("ctnr_15").add(createFlat(PRIMARY, NONE, TXT));
+    // create a primary colored flat button
+    get("ctnr_15").add(createFlat(PRIMARY, NONE, TXT));
 
-		// create an accent colored flat button
-		get("ctnr_16").add(createFlat(ACCENT, NONE, TXT));
+    // create an accent colored flat button
+    get("ctnr_16").add(createFlat(ACCENT, NONE, TXT));
 
-		// create an accent colored flat button with a ripple
-		get("ctnr_17").add(createFlat(ACCENT, HAS_RIPPLE, TXT));
-	}
+    // create an accent colored flat button with a ripple
+    get("ctnr_17").add(createFlat(ACCENT, HAS_RIPPLE, TXT));
+  }
 }

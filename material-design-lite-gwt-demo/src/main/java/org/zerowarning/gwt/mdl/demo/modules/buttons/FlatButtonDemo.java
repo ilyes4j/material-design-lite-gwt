@@ -10,26 +10,22 @@ import org.zerowarning.gwt.mdl.components.buttons.Button;
 
 import com.google.gwt.core.client.EntryPoint;
 
-/**
- * Flat buttons demo.
- * 
- * @author Mohamed Ilyes DIMASSI
- */
+/** Flat buttons demo. */
 public class FlatButtonDemo implements EntryPoint {
 
-	public void onModuleLoad() {
+  public void onModuleLoad() {
 
-		final String TXT = "Button";
+    final String TXT = "Button";
 
-		// create a flat button
-		get("ctnr_12").add(createFlat(BTN_NO_COLOR, NONE, TXT));
+    // create a flat button
+    get("ctnr_12").add(createFlat(BTN_NO_COLOR, NONE, TXT));
 
-		// create a flat button with a ripple
-		get("ctnr_13").add(createFlat(BTN_NO_COLOR, HAS_RIPPLE, TXT));
+    // create a flat button with a ripple
+    get("ctnr_13").add(createFlat(BTN_NO_COLOR, HAS_RIPPLE, TXT));
 
-		// create disabled flat button
-		Button btnFlat = createFlat(BTN_NO_COLOR, NONE, TXT);
-		btnFlat.setEnabled(false);
-		get("ctnr_14").add(btnFlat);
-	}
+    // create disabled flat button
+    Button btnFlat = createFlat(BTN_NO_COLOR, NONE, TXT);
+    btnFlat.setEnabled(false);
+    get("ctnr_14").add(btnFlat);
+  }
 }

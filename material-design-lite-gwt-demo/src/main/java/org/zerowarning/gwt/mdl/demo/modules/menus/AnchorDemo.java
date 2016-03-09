@@ -16,12 +16,7 @@ import org.zerowarning.gwt.mdl.components.menus.MenuCombo;
 
 import com.google.gwt.core.client.EntryPoint;
 
-/**
- * Demonstrates the anchoring alternatives made possible for the menu component.
- * 
- * @author Mohamed Ilyes DIMASSI
- *
- */
+/** Demonstrates the anchoring alternatives for the menu component. */
 public class AnchorDemo implements EntryPoint {
 
   /**
@@ -67,7 +62,7 @@ public class AnchorDemo implements EntryPoint {
     // setup the menu and its items
     MenuCombo menu = new MenuCombo(btn);
 
-    //position the menu related to the action button
+    // position the menu related to the action button
     menu.setAnchor(anchor);
 
     // add some options to the menu

@@ -9,24 +9,20 @@ import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
 
 import com.google.gwt.core.client.EntryPoint;
 
-/**
- * Raised colored buttons demo.
- * 
- * @author Mohamed Ilyes DIMASSI
- */
+/** Raised colored buttons demo. */
 public class RaisedColoredDemo implements EntryPoint {
 
-	public void onModuleLoad() {
+  public void onModuleLoad() {
 
-		final String TXT = "Button";
+    final String TXT = "Button";
 
-		// create a colored button with a ripple
-		get("ctnr_09").add(createRaised(PRIMARY, NONE, TXT));
+    // create a colored button with a ripple
+    get("ctnr_09").add(createRaised(PRIMARY, NONE, TXT));
 
-		// create an accent colored button
-		get("ctnr_10").add(createRaised(ACCENT, NONE, TXT));
+    // create an accent colored button
+    get("ctnr_10").add(createRaised(ACCENT, NONE, TXT));
 
-		// create an accent colored button with a ripple
-		get("ctnr_11").add(createRaised(ACCENT, HAS_RIPPLE, TXT));
-	}
+    // create an accent colored button with a ripple
+    get("ctnr_11").add(createRaised(ACCENT, HAS_RIPPLE, TXT));
+  }
 }

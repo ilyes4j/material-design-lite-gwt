@@ -12,17 +12,10 @@ import org.zerowarning.gwt.mdl.components.menus.MenuCombo;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
 
-/**
- * Demonstrates the scroll behavior for the menu component.
- * 
- * @author Mohamed Ilyes DIMASSI
- *
- */
+/** Demonstrates the scroll behavior for the menu component. */
 public class ScrollDemo implements EntryPoint {
 
-  /**
-   * Setup a large number of items to activate the scroll behavior.
-   */
+  /** Setup a large number of items to activate the scroll behavior. */
   @Override
   public void onModuleLoad() {
 

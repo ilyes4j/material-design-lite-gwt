@@ -8,21 +8,17 @@ import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
 
 import com.google.gwt.core.client.EntryPoint;
 
-/**
- * Colored Fab buttons demo.
- * 
- * @author Mohamed Ilyes DIMASSI
- */
+/** Colored Fab buttons demo. */
 public class ColoredFabDemo implements EntryPoint {
 
-	public void onModuleLoad() {
+  public void onModuleLoad() {
 
-		final String ICO = "add";
+    final String ICO = "add";
 
-		// colored fab button with an add icon
-		get("ctnr_01").add(createFab(COLORED, NONE, ICO));
+    // colored fab button with an add icon
+    get("ctnr_01").add(createFab(COLORED, NONE, ICO));
 
-		// colored fab button with an add icon and ripple
-		get("ctnr_02").add(createFab(COLORED, HAS_RIPPLE, ICO));
-	}
+    // colored fab button with an add icon and ripple
+    get("ctnr_02").add(createFab(COLORED, HAS_RIPPLE, ICO));
+  }
 }

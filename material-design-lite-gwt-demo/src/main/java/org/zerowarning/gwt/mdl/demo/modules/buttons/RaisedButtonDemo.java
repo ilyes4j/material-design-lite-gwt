@@ -10,26 +10,22 @@ import org.zerowarning.gwt.mdl.components.buttons.Button;
 
 import com.google.gwt.core.client.EntryPoint;
 
-/**
- * Raised buttons demo.
- * 
- * @author Mohamed Ilyes DIMASSI
- */
+/** Raised buttons demo. */
 public class RaisedButtonDemo implements EntryPoint {
 
-	public void onModuleLoad() {
+  public void onModuleLoad() {
 
-		final String TXT = "Button";
+    final String TXT = "Button";
 
-		// create a plain raised button
-		get("ctnr_06").add(createRaised(BTN_NO_COLOR, NONE, TXT));
+    // create a plain raised button
+    get("ctnr_06").add(createRaised(BTN_NO_COLOR, NONE, TXT));
 
-		// create a plain raised button with ripple
-		get("ctnr_07").add(createRaised(BTN_NO_COLOR, HAS_RIPPLE, TXT));
+    // create a plain raised button with ripple
+    get("ctnr_07").add(createRaised(BTN_NO_COLOR, HAS_RIPPLE, TXT));
 
-		// create a plain raised disabled button
-		Button btnRaised = createRaised(BTN_NO_COLOR, NONE, TXT);
-		btnRaised.setEnabled(false);
-		get("ctnr_08").add(btnRaised);
-	}
+    // create a plain raised disabled button
+    Button btnRaised = createRaised(BTN_NO_COLOR, NONE, TXT);
+    btnRaised.setEnabled(false);
+    get("ctnr_08").add(btnRaised);
+  }
 }
