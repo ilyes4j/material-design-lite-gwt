@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>material-design-lite-gwt-demo</artifactId>
-  
+
   <packaging>war</packaging>
 
   <name>Material Design Lite for Gwt Demo</name>
@@ -155,7 +155,7 @@
                 <copy
                   todir="${project.build.directory}/${project.build.finalName}/apidocs">
                   <fileset
-                    dir="../material-design-lite-gwt-lib/target/site/apidocs" />
+                    dir="../material-design-lite-gwt-lib/target/apidocs" />
                 </copy>
               </target>
             </configuration>
