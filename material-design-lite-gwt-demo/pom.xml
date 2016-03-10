@@ -10,9 +10,14 @@
   </parent>
 
   <artifactId>material-design-lite-gwt-demo</artifactId>
+  
   <packaging>war</packaging>
 
-  <name>Material Design Lite Gwt Demo</name>
+  <name>Material Design Lite for Gwt Demo</name>
+
+  <description>A demo project for the GWT MDL library</description>
+
+  <url>http://ilyes4j.github.io/material-design-lite-gwt</url>
 
   <prerequisites>
     <maven>${mavenVersion}</maven>
