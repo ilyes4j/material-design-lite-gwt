@@ -11,7 +11,13 @@
 
   <artifactId>material-design-lite-gwt-lib</artifactId>
 
-  <name>Material Design Lite Gwt Lib</name>
+  <packaging>jar</packaging>
+
+  <name>Material Design Lite for Gwt Lib</name>
+
+  <description>An MDL look and feel GWT library</description>
+
+  <url>http://ilyes4j.github.io/material-design-lite-gwt</url>
 
   <dependencies>
     <!-- GWT User library -->
@@ -90,10 +96,10 @@
             <configuration>
               <!-- Only run the gwt test suite -->
               <includes>**/MdlGwtTestSuite.java</includes>
-              
+
               <!-- Run Tests using super dev mode -->
               <productionMode>true</productionMode>
-              
+
               <!-- Run using a real browser -->
               <!-- <mode>manual</mode> -->
             </configuration>
