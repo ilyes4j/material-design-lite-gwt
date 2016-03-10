@@ -105,7 +105,7 @@ public class Dropdown extends Composite implements IMenu {
    *          the state of the item to be added
    */
   public final void addItem(final String item, final boolean enabled) {
-    addItem(item, enabled);
+    addItem(item, item, enabled);
   }
 
   /**
