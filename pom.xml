@@ -8,6 +8,65 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+  <name>Material Design Lite for Gwt</name>
+
+  <description>A Java wrapper enabling MDL look and feel in GWT</description>
+
+  <url>http://ilyes4j.github.io/material-design-lite-gwt</url>
+
+  <inceptionYear>2016</inceptionYear>
+
+  <developers>
+    <developer>
+      <id>ilyes4j</id>
+      <name>Mohamed Ilyes DIMASSI</name>
+      <email>ilyes.dimassi@gmail.com</email>
+      <organization>Geomap-Imagis</organization>
+      <organizationUrl>http://www.geomap-imagis.com</organizationUrl>
+      <url>https://github.com/ilyes4j</url>
+      <timezone>UTC+1</timezone>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <properties>
+        <picUrl>https://avatars3.githubusercontent.com/u/862308</picUrl>
+      </properties>
+    </developer>
+  </developers>
+
+  <contributors />
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+      <comments>A business-friendly OSS license</comments>
+    </license>
+  </licenses>
+
+  <ciManagement>
+    <system>Travis CI</system>
+    <url>https://travis-ci.org/ilyes4j/material-design-lite-gwt</url>
+  </ciManagement>
+
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/ilyes4j/material-design-lite-gwt/issues</url>
+  </issueManagement>
+
+  <scm>
+    <url>https://github.com/ilyes4j/material-design-lite-gwt</url>
+    <connection>scm:git:git@github.com:git://github.com/ilyes4j/material-design-lite-gwt.git</connection>
+    <developerConnection>scm:git:git@github.com:git@github.com:ilyes4j/material-design-lite-gwt.git</developerConnection>
+  </scm>
+
+  <organization>
+    <name>org.zerowarning</name>
+    <url>https://github.com/ilyes4j</url>
+  </organization>
+
   <properties>
     <!-- Ensure encoding is UTF-8 -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
