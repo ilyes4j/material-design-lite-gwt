@@ -114,6 +114,9 @@
 
     <!-- Using checkstyle plugin version 2.7 -->
     <checkstyleplugin.version>2.17</checkstyleplugin.version>
+    
+    <!-- Using source plugin version 3.0.0 -->
+    <sourceplugin.version>3.0.0</sourceplugin.version>
   </properties>
 
   <prerequisites>
@@ -123,6 +126,11 @@
   <build>
     <pluginManagement>
       <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${sourceplugin.version}</version>
+        </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${compilerplugin.version}</version>
