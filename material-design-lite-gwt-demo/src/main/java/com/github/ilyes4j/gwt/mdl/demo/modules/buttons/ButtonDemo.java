@@ -1,10 +1,9 @@
-package org.zerowarning.gwt.mdl.demo.modules.buttons;
+package com.github.ilyes4j.gwt.mdl.demo.modules.buttons;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.zerowarning.gwt.mdl.demo.utils.MdlGwtDemoUtils;
-
+import com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils;
 import com.google.gwt.core.client.EntryPoint;
 
 /**

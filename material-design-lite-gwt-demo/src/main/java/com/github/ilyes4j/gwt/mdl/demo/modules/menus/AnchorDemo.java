@@ -1,19 +1,18 @@
-package org.zerowarning.gwt.mdl.demo.modules.menus;
+package com.github.ilyes4j.gwt.mdl.demo.modules.menus;
 
+import static com.github.ilyes4j.gwt.mdl.components.buttons.Button.createIcon;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor.BOTTOM_LEFT;
+import static com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor.BOTTOM_RIGHT;
+import static com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor.TOP_LEFT;
+import static com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor.TOP_RIGHT;
+import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.NONE;
 import static com.google.gwt.user.client.ui.RootPanel.get;
-import static org.zerowarning.gwt.mdl.components.buttons.Button.createIcon;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
-import static org.zerowarning.gwt.mdl.components.menus.MenuAnchor.BOTTOM_LEFT;
-import static org.zerowarning.gwt.mdl.components.menus.MenuAnchor.BOTTOM_RIGHT;
-import static org.zerowarning.gwt.mdl.components.menus.MenuAnchor.TOP_LEFT;
-import static org.zerowarning.gwt.mdl.components.menus.MenuAnchor.TOP_RIGHT;
-import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
 
-import org.zerowarning.gwt.mdl.components.buttons.Button;
-import org.zerowarning.gwt.mdl.components.menus.Menu;
-import org.zerowarning.gwt.mdl.components.menus.MenuAnchor;
-import org.zerowarning.gwt.mdl.components.menus.MenuCombo;
-
+import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
+import com.github.ilyes4j.gwt.mdl.components.menus.Menu;
+import com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor;
+import com.github.ilyes4j.gwt.mdl.components.menus.MenuCombo;
 import com.google.gwt.core.client.EntryPoint;
 
 /** Demonstrates the anchoring alternatives for the menu component. */

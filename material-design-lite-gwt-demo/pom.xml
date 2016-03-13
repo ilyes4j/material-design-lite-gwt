@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.zerowarning</groupId>
+    <groupId>com.github.ilyes4j</groupId>
     <artifactId>material-design-lite-gwt</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
@@ -34,7 +34,7 @@
 
     <!-- Using Material Design Lite for GWT -->
     <dependency>
-      <groupId>org.zerowarning</groupId>
+      <groupId>com.github.ilyes4j</groupId>
       <artifactId>material-design-lite-gwt-lib</artifactId>
       <version>0.0.1-SNAPSHOT</version>
       <scope>provided</scope>
@@ -126,9 +126,8 @@
                 mode and set the optimizations to the maximum level. The compiler will produce 
                 the fastest and most optimized version for production environment. -->
               <modules>
-                <module>org.zerowarning.gwt.mdl.demo.MdlGwtDemo</module>
+                <module>com.github.ilyes4j.gwt.mdl.demo.MdlGwtDemo</module>
               </modules>
-              <!-- <module>org.zerowarning.gwt.mdl.demo.App</module> -->
               <style>OBF</style>
               <optimizationLevel>9</optimizationLevel>
               <genParam>FALSE</genParam>
@@ -171,7 +170,7 @@
         <version>${warplugin.version}</version>
         <configuration>
           <failOnMissingWebXml>false</failOnMissingWebXml>
-          <packagingExcludes>WEB-INF/classes/org/zerowarning/gwt/mdl/demo/*.class</packagingExcludes>
+          <packagingExcludes>WEB-INF/classes/com/github/ilyes4j/gwt/mdl/demo/*.class</packagingExcludes>
           <excludes>**</excludes>
         </configuration>
       </plugin>
@@ -232,7 +231,7 @@
                   <!-- Run a single permutation module definition to speed 
                     up code generation. -->
                   <modules>
-                    <module>org.zerowarning.gwt.mdl.demo.MdlGwtDemo-dev</module>
+                    <module>com.github.ilyes4j.gwt.mdl.demo.MdlGwtDemo-dev</module>
                   </modules>
 
                   <!-- Do not manage server side code. -->

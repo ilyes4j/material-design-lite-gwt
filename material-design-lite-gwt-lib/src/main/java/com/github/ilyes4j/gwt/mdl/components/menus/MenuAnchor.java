@@ -1,4 +1,4 @@
-package org.zerowarning.gwt.mdl.components.menus;
+package com.github.ilyes4j.gwt.mdl.components.menus;
 
 /**
  * {@link MenuAnchor} defines how the {@link Menu} should be positioned

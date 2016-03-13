@@ -3,7 +3,7 @@
 
 <module rename-to="mdlgwtdemo">
   <inherits name="com.google.gwt.user.User" />
-  <inherits name="org.zerowarning.gwt.mdl.Mdl" />
+  <inherits name="com.github.ilyes4j.gwt.mdl.Mdl" />
 
   <source path="" />
 
@@ -13,5 +13,5 @@
 
   <add-linker name="xsiframe" />
 
-  <entry-point class="org.zerowarning.gwt.mdl.demo.MdlGwtDemo" />
+  <entry-point class="com.github.ilyes4j.gwt.mdl.demo.MdlGwtDemo" />
 </module>

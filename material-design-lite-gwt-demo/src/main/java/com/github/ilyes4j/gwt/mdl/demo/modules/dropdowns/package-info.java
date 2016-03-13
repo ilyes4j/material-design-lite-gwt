@@ -4,4 +4,4 @@
  * @author Mohamed Ilyes DIMASSI
  *
  */
-package org.zerowarning.gwt.mdl.demo.modules.dropdowns;
+package com.github.ilyes4j.gwt.mdl.demo.modules.dropdowns;

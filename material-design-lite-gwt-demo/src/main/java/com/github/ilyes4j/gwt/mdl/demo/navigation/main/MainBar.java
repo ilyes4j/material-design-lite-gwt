@@ -1,6 +1,6 @@
-package org.zerowarning.gwt.mdl.demo.navigation.main;
+package com.github.ilyes4j.gwt.mdl.demo.navigation.main;
 
-import org.zerowarning.gwt.mdl.demo.navigation.NavigationBar;
+import com.github.ilyes4j.gwt.mdl.demo.navigation.NavigationBar;
 
 /**
  * {@link MainBar} is a tab bar that switches between the main sections of the

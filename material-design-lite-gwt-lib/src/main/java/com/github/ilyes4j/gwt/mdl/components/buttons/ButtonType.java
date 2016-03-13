@@ -1,4 +1,4 @@
-package org.zerowarning.gwt.mdl.components.buttons;
+package com.github.ilyes4j.gwt.mdl.components.buttons;
 
 /**
  * {@link ButtonType} controls the shape taken by a material button.

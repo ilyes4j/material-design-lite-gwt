@@ -1,6 +1,6 @@
-package org.zerowarning.gwt.mdl.demo.navigation.components;
+package com.github.ilyes4j.gwt.mdl.demo.navigation.components;
 
-import org.zerowarning.gwt.mdl.demo.navigation.NavigationBar;
+import com.github.ilyes4j.gwt.mdl.demo.navigation.NavigationBar;
 
 /**
  * {@link SideNavigationBar} is a navigation bar that enables the user to switch

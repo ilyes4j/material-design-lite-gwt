@@ -1,18 +1,17 @@
-package org.zerowarning.gwt.mdl.components.buttons;
+package com.github.ilyes4j.gwt.mdl.components.buttons;
 
-import static org.zerowarning.gwt.mdl.components.ComponentHandler.upgradeElement;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.FAB;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.FLAT;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.ICON;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.MINIFAB;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.RAISED;
-import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
+import static com.github.ilyes4j.gwt.mdl.components.ComponentHandler.upgradeElement;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.FAB;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.FLAT;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.ICON;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.MINIFAB;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.RAISED;
+import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.NONE;
 
-import org.zerowarning.gwt.mdl.components.MdlGwtUtils;
-import org.zerowarning.gwt.mdl.components.ripples.Ripple;
-
+import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.SpanElement;

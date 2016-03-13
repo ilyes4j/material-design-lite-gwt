@@ -3,7 +3,7 @@
 
 <module>
   <!-- inherit the library module to be tested -->
-  <inherits name="org.zerowarning.gwt.mdl.Mdl" />
+  <inherits name="com.github.ilyes4j.gwt.mdl.Mdl" />
 
   <!-- Using a deprecated linker to inject javascript to the host page -->
   <!-- None of the supported linkers is able to do the job -->

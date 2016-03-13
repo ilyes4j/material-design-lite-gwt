@@ -1,7 +1,6 @@
-package org.zerowarning.gwt.mdl.demo.navigation.main;
+package com.github.ilyes4j.gwt.mdl.demo.navigation.main;
 
-import org.zerowarning.gwt.mdl.demo.navigation.INavigationItem;
-
+import com.github.ilyes4j.gwt.mdl.demo.navigation.INavigationItem;
 import com.google.gwt.user.client.ui.Anchor;
 
 /**

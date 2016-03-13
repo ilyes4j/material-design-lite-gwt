@@ -1,4 +1,4 @@
-package org.zerowarning.gwt.mdl.components.buttons;
+package com.github.ilyes4j.gwt.mdl.components.buttons;
 
 /**
  * Controls the coloring option of a raised, flat or icon {@link Button}.

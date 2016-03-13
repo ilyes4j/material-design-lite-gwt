@@ -1,4 +1,4 @@
-package org.zerowarning.gwt.mdl.demo.navigation;
+package com.github.ilyes4j.gwt.mdl.demo.navigation;
 
 import com.google.gwt.user.client.ui.IsWidget;
 

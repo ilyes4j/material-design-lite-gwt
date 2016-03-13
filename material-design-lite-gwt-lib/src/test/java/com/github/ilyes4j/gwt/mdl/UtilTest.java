@@ -1,4 +1,4 @@
-package org.zerowarning.gwt.mdl;
+package com.github.ilyes4j.gwt.mdl;
 
 import org.junit.Assert;
 import org.junit.Test;

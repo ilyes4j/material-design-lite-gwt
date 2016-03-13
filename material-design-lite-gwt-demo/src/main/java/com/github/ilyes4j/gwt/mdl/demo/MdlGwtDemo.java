@@ -1,18 +1,17 @@
-package org.zerowarning.gwt.mdl.demo;
+package com.github.ilyes4j.gwt.mdl.demo;
 
-import static org.zerowarning.gwt.mdl.demo.utils.MdlGwtDemoUtils.ABOUT;
-import static org.zerowarning.gwt.mdl.demo.utils.MdlGwtDemoUtils.BUTTONS;
-import static org.zerowarning.gwt.mdl.demo.utils.MdlGwtDemoUtils.DROPS;
-import static org.zerowarning.gwt.mdl.demo.utils.MdlGwtDemoUtils.MENUS;
+import static com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils.ABOUT;
+import static com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils.BUTTONS;
+import static com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils.DROPS;
+import static com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils.MENUS;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.zerowarning.gwt.mdl.demo.modules.AboutDemo;
-import org.zerowarning.gwt.mdl.demo.modules.buttons.ButtonDemo;
-import org.zerowarning.gwt.mdl.demo.modules.dropdowns.DropdownDemo;
-import org.zerowarning.gwt.mdl.demo.modules.menus.MenuDemo;
-
+import com.github.ilyes4j.gwt.mdl.demo.modules.AboutDemo;
+import com.github.ilyes4j.gwt.mdl.demo.modules.buttons.ButtonDemo;
+import com.github.ilyes4j.gwt.mdl.demo.modules.dropdowns.DropdownDemo;
+import com.github.ilyes4j.gwt.mdl.demo.modules.menus.MenuDemo;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.Window;
 
@@ -21,7 +20,7 @@ import com.google.gwt.user.client.Window;
  * map the appropriate {@link EntryPoint} to its target html page and therefore
  * avoid having to write a separate GWT module for each demo page.<br>
  * <br>
- * <code>org.zerowarning.gwt.mdl.demo.MdlGwtDemo</code> represents the GWT part
+ * <code>com.github.ilyes4j.gwt.mdl.demo.MdlGwtDemo</code> represents the GWT part
  * of the demo. Using the GWT compiler, this module is compiled to a set of
  * javascript and css files placed under <code>mdlgwtdemo/</code>.<br>
  * <br>
@@ -30,7 +29,7 @@ import com.google.gwt.user.client.Window;
  * section of the page.<br>
  * <br>
  * MdlGwtDemo is the entry point of
- * <code>org.zerowarning.gwt.mdl.demo.MdlGwtDemo</code>. This means that when
+ * <code>com.github.ilyes4j.gwt.mdl.demo.MdlGwtDemo</code>. This means that when
  * the page containing <code>mdlgwtdemo/mdlgwtdemo.nocache.js</code> is loaded,
  * the entry point method {@link MdlGwtDemo#onModuleLoad()} is executed.<br>
  * <br>

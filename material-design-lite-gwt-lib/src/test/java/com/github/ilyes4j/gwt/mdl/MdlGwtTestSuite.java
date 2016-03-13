@@ -1,4 +1,4 @@
-package org.zerowarning.gwt.mdl;
+package com.github.ilyes4j.gwt.mdl;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

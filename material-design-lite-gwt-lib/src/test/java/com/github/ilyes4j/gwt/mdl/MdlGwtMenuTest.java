@@ -1,17 +1,16 @@
-package org.zerowarning.gwt.mdl;
+package com.github.ilyes4j.gwt.mdl;
 
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 import static java.util.logging.Logger.getLogger;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
-import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.zerowarning.gwt.mdl.components.buttons.Button;
-import org.zerowarning.gwt.mdl.components.menus.Menu;
-import org.zerowarning.gwt.mdl.components.menus.MenuAnchor;
-import org.zerowarning.gwt.mdl.components.menus.MenuCombo;
-
+import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
+import com.github.ilyes4j.gwt.mdl.components.menus.Menu;
+import com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor;
+import com.github.ilyes4j.gwt.mdl.components.menus.MenuCombo;
 import com.google.gwt.user.client.ui.RootPanel;
 
 /**

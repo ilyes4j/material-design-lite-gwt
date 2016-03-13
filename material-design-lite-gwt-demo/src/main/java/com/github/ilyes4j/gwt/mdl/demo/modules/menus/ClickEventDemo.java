@@ -1,16 +1,15 @@
-package org.zerowarning.gwt.mdl.demo.modules.menus;
+package com.github.ilyes4j.gwt.mdl.demo.modules.menus;
 
+import static com.github.ilyes4j.gwt.mdl.components.buttons.Button.createRaised;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 import static com.google.gwt.dom.client.Style.Display.INLINE_BLOCK;
 import static com.google.gwt.user.client.ui.RootPanel.get;
-import static org.zerowarning.gwt.mdl.components.buttons.Button.createRaised;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
-import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 
-import org.zerowarning.gwt.mdl.components.buttons.Button;
-import org.zerowarning.gwt.mdl.components.menus.ItemClickEvent;
-import org.zerowarning.gwt.mdl.components.menus.Menu;
-import org.zerowarning.gwt.mdl.components.menus.MenuCombo;
-
+import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
+import com.github.ilyes4j.gwt.mdl.components.menus.ItemClickEvent;
+import com.github.ilyes4j.gwt.mdl.components.menus.Menu;
+import com.github.ilyes4j.gwt.mdl.components.menus.MenuCombo;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;

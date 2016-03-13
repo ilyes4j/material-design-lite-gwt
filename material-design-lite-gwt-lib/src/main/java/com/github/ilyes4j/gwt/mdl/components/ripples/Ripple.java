@@ -1,4 +1,4 @@
-package org.zerowarning.gwt.mdl.components.ripples;
+package com.github.ilyes4j.gwt.mdl.components.ripples;
 
 /**
  * Indicates whether ripples are enabled for the Material component or not.

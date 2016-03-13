@@ -3,4 +3,4 @@
  * 
  * @author Mohamed Ilyes DIMASSI
  */
-package org.zerowarning.gwt.mdl.extensions.menus;
+package com.github.ilyes4j.gwt.mdl.extensions.menus;

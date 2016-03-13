@@ -1,7 +1,6 @@
-package org.zerowarning.gwt.mdl.components.menus;
+package com.github.ilyes4j.gwt.mdl.components.menus;
 
-import org.zerowarning.gwt.mdl.components.menus.Menu.ItemClickListener;
-
+import com.github.ilyes4j.gwt.mdl.components.menus.Menu.ItemClickListener;
 import com.google.gwt.user.client.ui.Anchor;
 
 /**

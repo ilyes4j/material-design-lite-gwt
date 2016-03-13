@@ -3,4 +3,4 @@
  * 
  * @author Mohamed Ilyes Dimasssi
  */
-package org.zerowarning.gwt.mdl.components.buttons;
+package com.github.ilyes4j.gwt.mdl.components.buttons;

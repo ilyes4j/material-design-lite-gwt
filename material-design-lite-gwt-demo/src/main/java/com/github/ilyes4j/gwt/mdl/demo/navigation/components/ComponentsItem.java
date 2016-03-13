@@ -1,13 +1,12 @@
-package org.zerowarning.gwt.mdl.demo.navigation.components;
+package com.github.ilyes4j.gwt.mdl.demo.navigation.components;
 
+import static com.github.ilyes4j.gwt.mdl.components.buttons.Button.createMiniFab;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonFabColor.COLORED;
+import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 import static com.google.gwt.user.client.Window.Location.assign;
-import static org.zerowarning.gwt.mdl.components.buttons.Button.createMiniFab;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.COLORED;
-import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 
-import org.zerowarning.gwt.mdl.components.buttons.Button;
-import org.zerowarning.gwt.mdl.demo.navigation.INavigationItem;
-
+import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
+import com.github.ilyes4j.gwt.mdl.demo.navigation.INavigationItem;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Composite;

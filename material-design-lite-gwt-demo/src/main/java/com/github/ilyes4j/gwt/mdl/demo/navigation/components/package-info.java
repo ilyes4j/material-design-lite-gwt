@@ -4,4 +4,4 @@
  * @author Mohamed Ilyes DIMASSI
  *
  */
-package org.zerowarning.gwt.mdl.demo.navigation.components;
+package com.github.ilyes4j.gwt.mdl.demo.navigation.components;

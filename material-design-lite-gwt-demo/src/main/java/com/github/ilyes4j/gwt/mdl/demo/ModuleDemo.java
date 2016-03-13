@@ -1,7 +1,6 @@
-package org.zerowarning.gwt.mdl.demo;
+package com.github.ilyes4j.gwt.mdl.demo;
 
-import org.zerowarning.gwt.mdl.demo.navigation.UrlManager;
-
+import com.github.ilyes4j.gwt.mdl.demo.navigation.UrlManager;
 import com.google.gwt.core.client.EntryPoint;
 
 /**

@@ -1,11 +1,11 @@
-package org.zerowarning.gwt.mdl.demo.utils;
+package com.github.ilyes4j.gwt.mdl.demo.utils;
 
 import static com.google.gwt.user.client.ui.RootPanel.get;
 
-import org.zerowarning.gwt.mdl.demo.navigation.components.ComponentsItem;
-import org.zerowarning.gwt.mdl.demo.navigation.components.SideNavigationBar;
-import org.zerowarning.gwt.mdl.demo.navigation.main.MainBar;
-import org.zerowarning.gwt.mdl.demo.navigation.main.MainbarItem;
+import com.github.ilyes4j.gwt.mdl.demo.navigation.components.ComponentsItem;
+import com.github.ilyes4j.gwt.mdl.demo.navigation.components.SideNavigationBar;
+import com.github.ilyes4j.gwt.mdl.demo.navigation.main.MainBar;
+import com.github.ilyes4j.gwt.mdl.demo.navigation.main.MainbarItem;
 
 /**
  * Reusable code for the demos.

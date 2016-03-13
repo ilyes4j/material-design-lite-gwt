@@ -1,14 +1,13 @@
-package org.zerowarning.gwt.mdl.extensions.buttons;
+package com.github.ilyes4j.gwt.mdl.extensions.buttons;
 
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.FAB;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.ICON;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonType.MINIFAB;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.FAB;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.ICON;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.MINIFAB;
 
-import org.zerowarning.gwt.mdl.components.buttons.Button;
-import org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor;
-import org.zerowarning.gwt.mdl.components.ripples.Ripple;
-
+import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
+import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonFabColor;
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
 import com.google.gwt.user.client.ui.Image;
 
 /**

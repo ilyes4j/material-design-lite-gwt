@@ -1,4 +1,4 @@
-package org.zerowarning.gwt.mdl.components;
+package com.github.ilyes4j.gwt.mdl.components;
 
 import com.google.gwt.dom.client.Element;
 

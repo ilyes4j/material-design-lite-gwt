@@ -1,13 +1,12 @@
-package org.zerowarning.gwt.mdl.demo.modules.buttons;
+package com.github.ilyes4j.gwt.mdl.demo.modules.buttons;
 
+import static com.github.ilyes4j.gwt.mdl.components.buttons.Button.createFab;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
+import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
+import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.NONE;
 import static com.google.gwt.user.client.ui.RootPanel.get;
-import static org.zerowarning.gwt.mdl.components.buttons.Button.createFab;
-import static org.zerowarning.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
-import static org.zerowarning.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
-import static org.zerowarning.gwt.mdl.components.ripples.Ripple.NONE;
 
-import org.zerowarning.gwt.mdl.components.buttons.Button;
-
+import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
 import com.google.gwt.core.client.EntryPoint;
 
 /** Plain Fab buttons demo. */

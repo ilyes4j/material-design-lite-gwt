@@ -1,4 +1,4 @@
-package org.zerowarning.gwt.mdl;
+package com.github.ilyes4j.gwt.mdl;
 
 import com.google.gwt.junit.client.GWTTestCase;
 
@@ -23,5 +23,5 @@ public class MdlGwtBaseTest extends GWTTestCase {
   /**
    * Which module is this Test attached to.
    */
-  private static final String MDL_MODULE = "org.zerowarning.gwt.mdl.MdlUnit";
+  private static final String MDL_MODULE = "com.github.ilyes4j.gwt.mdl.MdlUnit";
 }

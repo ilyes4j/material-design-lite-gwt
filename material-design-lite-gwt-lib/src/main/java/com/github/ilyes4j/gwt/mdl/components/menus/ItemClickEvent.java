@@ -1,6 +1,6 @@
-package org.zerowarning.gwt.mdl.components.menus;
+package com.github.ilyes4j.gwt.mdl.components.menus;
 
-import org.zerowarning.gwt.mdl.components.menus.Menu.ItemClickListener;
+import com.github.ilyes4j.gwt.mdl.components.menus.Menu.ItemClickListener;
 
 /**
  * Event dispatched from a {@link Menu} to all its {@link ItemClickListener}s to

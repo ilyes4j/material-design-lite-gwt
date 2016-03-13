@@ -1,4 +1,4 @@
-package org.zerowarning.gwt.mdl.components.menus;
+package com.github.ilyes4j.gwt.mdl.components.menus;
 
 import com.google.gwt.dom.client.LIElement;
 import com.google.gwt.dom.client.SpanElement;

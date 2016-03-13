@@ -1,9 +1,8 @@
-package org.zerowarning.gwt.mdl.demo.modules.dropdowns;
+package com.github.ilyes4j.gwt.mdl.demo.modules.dropdowns;
 
 import static com.google.gwt.user.client.ui.RootPanel.get;
 
-import org.zerowarning.gwt.mdl.extensions.menus.Dropdown;
-
+import com.github.ilyes4j.gwt.mdl.extensions.menus.Dropdown;
 import com.google.gwt.core.client.EntryPoint;
 
 /** Setup a basic dropdown menu. */

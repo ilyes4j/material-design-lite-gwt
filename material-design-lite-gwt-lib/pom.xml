@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.zerowarning</groupId>
+    <groupId>com.github.ilyes4j</groupId>
     <artifactId>material-design-lite-gwt</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
