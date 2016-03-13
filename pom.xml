@@ -114,9 +114,12 @@
 
     <!-- Using checkstyle plugin version 2.7 -->
     <checkstyleplugin.version>2.17</checkstyleplugin.version>
-    
+
     <!-- Using source plugin version 3.0.0 -->
     <sourceplugin.version>3.0.0</sourceplugin.version>
+
+    <!-- Using gpg plugin version 1.6 -->
+    <gpgplugin.version>1.6</gpgplugin.version>
   </properties>
 
   <prerequisites>
@@ -162,9 +165,42 @@
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>${checkstyleplugin.version}</version>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>${gpgplugin.version}</version>
+          <executions>
+            <execution>
+              <id>sign-artifacts</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>sign</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
+
+  <profiles>
+    <profile>
+      <id>sign-artifacts</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
   <modules>
     <module>material-design-lite-gwt-lib</module>
