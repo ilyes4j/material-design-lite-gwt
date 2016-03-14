@@ -75,9 +75,9 @@ public class Dropdown extends Composite implements IMenu {
   }
 
   @Override
-  public final void addItem(final String value, final String text,
+  public final void addItem(final String text, final String value,
       final boolean enabled) {
-    combo.addItem(value, text, enabled);
+    combo.addItem(text, value, enabled);
 
     // if no item is selected, then by default select the first enabled item in
     // the menu, otherwise don't do anything.

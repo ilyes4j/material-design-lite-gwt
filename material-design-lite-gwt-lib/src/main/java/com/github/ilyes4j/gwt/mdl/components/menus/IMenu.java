@@ -36,16 +36,16 @@ public interface IMenu {
   /**
    * Adds a new option to the list of options in the menu.
    * 
-   * @param value
-   *          The value to be added
-   * 
    * @param text
    *          The text to be displayed
+   * 
+   * @param value
+   *          The value to be added
    * 
    * @param enabled
    *          Defines whether the option can be chosen or not.
    */
-  void addItem(String value, String text, boolean enabled);
+  void addItem(String text, String value, boolean enabled);
 
   /**
    * When an object needs to be notified upon a {@link MenuItem} click, it must

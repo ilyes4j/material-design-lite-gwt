@@ -281,7 +281,7 @@ public class Menu extends HTMLPanel implements IMenu {
   }
 
   @Override
-  public final void addItem(final String value, final String text,
+  public final void addItem(final String text, final String value,
       final boolean enabled) {
 
     // don't let the item be added considering the menu is already upgraded

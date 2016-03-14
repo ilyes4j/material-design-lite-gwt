@@ -93,9 +93,9 @@ public class MenuCombo extends FlowPanel implements IMenu {
   }
 
   @Override
-  public final void addItem(final String value, final String text,
+  public final void addItem(final String text, final String value,
       final boolean enabled) {
-    menu.addItem(value, text, enabled);
+    menu.addItem(text, value, enabled);
   }
 
   /**
