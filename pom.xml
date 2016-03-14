@@ -5,7 +5,7 @@
 
   <groupId>com.github.ilyes4j</groupId>
   <artifactId>material-design-lite-gwt</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Material Design Lite for Gwt</name>
@@ -67,12 +67,19 @@
     <url>https://github.com/ilyes4j</url>
   </organization>
 
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+
   <properties>
     <!-- Ensure encoding is UTF-8 -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- Using Maven version -->
-    <mavenVersion>3.0</mavenVersion>
+    <mavenVersion>3.1.0</mavenVersion>
 
     <!-- Using Maven Compiler Plugin version -->
     <compilerplugin.version>3.3</compilerplugin.version>
@@ -120,6 +127,9 @@
 
     <!-- Using gpg plugin version 1.6 -->
     <gpgplugin.version>1.6</gpgplugin.version>
+
+    <!-- Using nexus plugin version 1.6.7 -->
+    <nexusplugin.version>1.6.7</nexusplugin.version>
 
     <!-- The javadoc resources directory -->
     <javadoc.basedir>${basedir}/../src/main/javadoc</javadoc.basedir>
@@ -212,6 +222,21 @@
         </plugin>
       </plugins>
     </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>${nexusplugin.version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>ossrh</serverId>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
+    </plugins>
+
   </build>
 
   <profiles>
