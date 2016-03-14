@@ -120,6 +120,9 @@
 
     <!-- Using gpg plugin version 1.6 -->
     <gpgplugin.version>1.6</gpgplugin.version>
+
+    <!-- The javadoc resources directory -->
+    <javadoc.basedir>${basedir}/../src/main/javadoc</javadoc.basedir>
   </properties>
 
   <prerequisites>
@@ -164,6 +167,25 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${javadocplugin.version}</version>
+          <executions>
+            <execution>
+              <id>javadoc-jar</id>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+              <phase>prepare-package</phase>
+            </execution>
+          </executions>
+          <configuration>
+            <!-- this is where resides the javadoc 8 resources -->
+            <javadocDirectory>${javadoc.basedir}</javadocDirectory>
+            <!-- Use the javadoc 8 better looking stylesheet.css -->
+            <stylesheetfile>${javadoc.basedir}/stylesheet.css</stylesheetfile>
+            <!-- Copy javadoc resources directory -->
+            <docfilessubdirs>true</docfilessubdirs>
+            <!-- remove the HELP link since the help-doc.html is not provided -->
+            <nohelp>true</nohelp>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-antrun-plugin</artifactId>

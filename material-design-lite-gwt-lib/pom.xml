@@ -123,26 +123,11 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <!-- generate the javadoc for the library -->
         <executions>
           <execution>
             <id>javadoc-jar</id>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-            <phase>prepare-package</phase>
           </execution>
         </executions>
-        <configuration>
-          <!-- this is where resides the javadoc 8 resources -->
-          <javadocDirectory>${basedir}/src/main/javadoc</javadocDirectory>
-          <!-- Use the javadoc 8 better looking stylesheet.css -->
-          <stylesheetfile>${basedir}/src/main/javadoc/stylesheet.css</stylesheetfile>
-          <!-- Copy javadoc directory to output -->
-          <docfilessubdirs>true</docfilessubdirs>
-          <!-- remove the HELP link since the help-doc.html is not provided -->
-          <nohelp>true</nohelp>
-        </configuration>
       </plugin>
 
       <plugin>

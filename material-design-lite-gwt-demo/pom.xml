@@ -175,6 +175,17 @@
         </configuration>
       </plugin>
 
+      <!-- generate javadoc for the demo module -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>javadoc-jar</id>
+          </execution>
+        </executions>
+      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
@@ -184,7 +195,6 @@
           </execution>
         </executions>
       </plugin>
-
     </plugins>
   </build>
 
