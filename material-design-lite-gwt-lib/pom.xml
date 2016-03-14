@@ -151,10 +151,6 @@
         <executions>
           <execution>
             <id>source-jar</id>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-            <phase>package</phase>
           </execution>
         </executions>
       </plugin>
