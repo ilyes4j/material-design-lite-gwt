@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.github.ilyes4j</groupId>
     <artifactId>material-design-lite-gwt</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
   </parent>
 
   <artifactId>material-design-lite-gwt-demo</artifactId>
@@ -36,7 +36,7 @@
     <dependency>
       <groupId>com.github.ilyes4j</groupId>
       <artifactId>material-design-lite-gwt-lib</artifactId>
-      <version>0.1.0-SNAPSHOT</version>
+      <version>0.1.0</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>

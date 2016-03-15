@@ -2,7 +2,7 @@
 set -e # exit with nonzero exit code if anything fails
 
 # go to the out directory and create a *new* Git repo
-cd material-design-lite-gwt-demo/target/material-design-lite-gwt-demo-0.1.0-SNAPSHOT
+cd material-design-lite-gwt-demo/target/material-design-lite-gwt-demo-0.1.0
 # remove servlet container extra directories. These directories are not supported by github and cause the deployed app to be ignored. The previous deploy is displayed instead.
 rm -rf META-INF
 rm -rf WEB-INF

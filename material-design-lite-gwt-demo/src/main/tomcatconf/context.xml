@@ -2,5 +2,5 @@
 <!DOCTYPE xml>
 <Context reloadable="true">
 	<Resources className="org.apache.naming.resources.VirtualDirContext"
-		extraResourcePaths="/=target/material-design-lite-gwt-demo-0.1.0-SNAPSHOT/" />
+		extraResourcePaths="/=target/material-design-lite-gwt-demo-0.1.0/" />
 </Context>
