@@ -174,27 +174,6 @@
           <excludes>**</excludes>
         </configuration>
       </plugin>
-
-      <!-- generate javadoc for the demo module -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>javadoc-jar</id>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>source-jar</id>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
   </build>
 
@@ -352,9 +331,29 @@
       </build>
     </profile>
     <profile>
-      <id>sign-artifacts</id>
+      <id>release</id>
       <build>
         <plugins>
+          <!-- generate javadoc for the demo module -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>javadoc-jar</id>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>source-jar</id>
+              </execution>
+            </executions>
+          </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>

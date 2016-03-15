@@ -129,23 +129,22 @@
           </execution>
         </executions>
       </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>source-jar</id>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
   </build>
   <profiles>
     <profile>
-      <id>sign-artifacts</id>
+      <id>release</id>
       <build>
         <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>source-jar</id>
+              </execution>
+            </executions>
+          </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
