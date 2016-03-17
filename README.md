@@ -1,5 +1,6 @@
 # material-design-lite-gwt
-[![Build Status](https://travis-ci.org/ilyes4j/material-design-lite-gwt.svg?branch=dev)](https://travis-ci.org/ilyes4j/material-design-lite-gwt) [![GitHub version](https://badge.fury.io/gh/ilyes4j%2Fmaterial-design-lite-gwt.svg)](https://badge.fury.io/gh/ilyes4j%2Fmaterial-design-lite-gwt)
+[![Build Status](https://travis-ci.org/ilyes4j/material-design-lite-gwt.svg?branch=dev)](https://travis-ci.org/ilyes4j/material-design-lite-gwt)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.ilyes4j/material-design-lite-gwt.svg)]()
 
 > [mdl-gwt](http://ilyes4j.github.io/material-design-lite-gwt/components/components.html) is a Java wrapper enabling [material design lite](http://getmdl.io) look and feel in GWT projects.
 
