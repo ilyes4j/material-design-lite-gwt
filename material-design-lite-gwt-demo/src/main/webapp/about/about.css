@@ -1,12 +1,3 @@
-/*
-add a left padding to align the page's content to the header's content
-since the about page doesn't have a side bar.
-*/
-
-.demo-main .page {
-	margin-left: 80px;
-}
-
 /*applying a theme to the tab active state*/
 
 .demo-mainbar-item.demo-mainbar-item-active {
