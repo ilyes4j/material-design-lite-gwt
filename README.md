@@ -5,7 +5,7 @@
 [![Issues](https://img.shields.io/github/issues/ilyes4j/material-design-lite-gwt.svg)](https://github.com/ilyes4j/material-design-lite-gwt/issues)
 
 
-> [mdl-gwt](http://ilyes4j.github.io/material-design-lite-gwt/components/components.html) is a Java wrapper enabling [material design lite](http://getmdl.io) look and feel in GWT projects.
+> [mdl-gwt](http://ilyes4j.github.io/material-design-lite-gwt/) is a Java wrapper enabling [material design lite](http://getmdl.io) look and feel in GWT projects.
 
 # Showcase
 You can explore the available set of components  [here](http://ilyes4j.github.io/material-design-lite-gwt/components/components.html).
@@ -49,7 +49,7 @@ Finally, make sure to inherit the library GWT module in the GWT module of the pr
 ```
 
 # Documentation
-* In the  [showcase](http://ilyes4j.github.io/material-design-lite-gwt/components/components.html) there is a series of code snippets demonstrating on how the component can be used.
+* In the  [showcase](http://ilyes4j.github.io/material-design-lite-gwt/components/components.html) there is a series of code snippets demonstrating on how the components might be used.
 * The [Javadoc](http://ilyes4j.github.io/material-design-lite-gwt/apidocs/) for the library is also available.
 
 ## License
