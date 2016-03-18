@@ -43,6 +43,7 @@
 	align-items: center;
 	margin-top: 20px;
 	cursor: pointer;
+	min-width: 175px;
 }
 .demo-compsbar-item.demo-compsbar-item-active {
 	cursor: auto;
@@ -64,6 +65,7 @@
 		flex-direction: column;
 		margin-top: 0px;
 		margin-left: 20px;
+		min-width: initial;
 	}
 	.demo-compsbar-item:first-child {
 		margin-top: 0px;
