@@ -8,10 +8,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
+import com.github.ilyes4j.gwt.mdl.components.menus.IMenu;
 import com.github.ilyes4j.gwt.mdl.components.menus.Menu;
 import com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor;
 import com.github.ilyes4j.gwt.mdl.components.menus.MenuCombo;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.user.client.ui.RootPanel;
+
+import junit.framework.TestCase;
 
 /**
  * Tests for the {@link Menu} component.
@@ -149,6 +153,32 @@ public class MdlGwtMenuTest extends MdlGwtBaseTest {
       // pass the test when the menu raises the appropriate exception
       assertTrue(true);
     }
+  }
+
+  /**
+   * Invoke all available methods in {@link Menu} in order to track interface
+   * evolutions. There is no need to check {@link IMenu} methods as they are
+   * checked in a dedicated {@link TestCase}.
+   */
+  public final void testBreakingChange() {
+
+    // setup an instance of type Menu
+    Menu menu = new Menu() {
+
+      // Make sure the protected methods are still available
+      @Override
+      protected void afterItemClicked(final ClickEvent event) {
+        super.afterItemClicked(event);
+      }
+    };
+
+    // make sure all public methods are stable
+    menu.addItem("Some Item");
+    menu.addItem("Another Item", false);
+    menu.addItem("Yet Another Item", "Value");
+    menu.setActionId("Action3");
+
+    assertTrue(true);
   }
 
   /**
