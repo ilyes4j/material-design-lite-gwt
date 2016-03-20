@@ -16,7 +16,7 @@
   <script src="material.js"></script>
 
   <!-- add mdl css to the test page -->
-  <stylesheet src="material.css" />
+  <!-- <stylesheet src="material.css" />-->
 
   <!-- Only support Chrome compatible browsers for improved performance -->
   <!-- at compilation time -->
@@ -26,7 +26,7 @@
   <inherits name="com.google.gwt.logging.Logging" />
 
   <!-- Only SEVERE messages will be logged if logging isn't enabled -->
-  <set-property name="gwt.logging.enabled" value="TRUE" />
+  <set-property name="gwt.logging.enabled" value="FALSE" />
 
   <!-- Other possible options are listed here http://tinyurl.com/juaysqr -->
   <set-property name="gwt.logging.logLevel" value="WARNING" />
