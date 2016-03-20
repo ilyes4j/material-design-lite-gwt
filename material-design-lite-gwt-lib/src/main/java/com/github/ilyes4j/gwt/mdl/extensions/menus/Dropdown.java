@@ -127,8 +127,8 @@ public class Dropdown extends Composite implements IMenu {
    * @param text
    *          the text of the item to be added.
    */
-  public final void addItem(final String value, final String text) {
-    addItem(value, text, true);
+  public final void addItem(final String text, final String value) {
+    addItem(text, value, true);
   }
 
   /**
