@@ -22,6 +22,7 @@ public class MdlGwtTestSuite extends TestCase {
     suite.addTestSuite(MdlGwtIMenuTest.class);
     suite.addTestSuite(MdlGwtMenuTest.class);
     suite.addTestSuite(MdlGwtMenuComboTest.class);
+    suite.addTestSuite(MdlGwtButtonTest.class);
     return suite;
   }
 
