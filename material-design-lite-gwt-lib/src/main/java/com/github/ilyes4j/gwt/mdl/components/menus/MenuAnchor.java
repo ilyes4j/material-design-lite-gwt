@@ -20,46 +20,23 @@ public enum MenuAnchor {
    * {@link MenuAnchor#BOTTOM_LEFT} sets the position the top left corner of the
    * {@link Menu} next to the bottom left corner of the action button.
    */
-  BOTTOM_LEFT(""),
+  BOTTOM_LEFT,
 
   /**
    * {@link MenuAnchor#BOTTOM_RIGHT} sets the position the top right corner of
    * the {@link Menu} next to the bottom right corner of the action button.
    */
-  BOTTOM_RIGHT("mdl-menu--bottom-right"),
+  BOTTOM_RIGHT,
 
   /**
    * {@link MenuAnchor#TOP_LEFT} sets the position the bottom left corner of the
    * {@link Menu} next to the top left corner of the action button.
    */
-  TOP_LEFT("mdl-menu--top-left"),
+  TOP_LEFT,
 
   /**
    * {@link MenuAnchor#TOP_RIGHT} sets the position the bottom right corner of
    * the {@link Menu} next to the top right corner of the action button.
    */
-  TOP_RIGHT("mdl-menu--top-right");
-
-  /**
-   * Setup the option and its corresponding css class name.
-   * 
-   * @param inputCss
-   *          the css class name associated with this option
-   */
-  MenuAnchor(final String inputCss) {
-    this.css = inputCss;
-  }
-
-  /**
-   * Returns the css selector responsible for the anchoring behavior.
-   */
-  @Override
-  public String toString() {
-    return css;
-  }
-
-  /**
-   * Stores the css class name.
-   */
-  private final String css;
+  TOP_RIGHT;
 }

@@ -1,9 +1,7 @@
 package com.github.ilyes4j.gwt.mdl.components.menus;
 
 import static com.github.ilyes4j.gwt.mdl.components.ComponentHandler.upgradeElement;
-import static com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils.addStyle;
 import static com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils.assertIndex;
-import static com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils.removeStyle;
 import static com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor.BOTTOM_LEFT;
 import static com.google.gwt.dom.client.Style.Overflow.SCROLL;
 import static com.google.gwt.dom.client.Style.Unit.PX;
@@ -80,6 +78,10 @@ public class Menu extends HTMLPanel implements IMenu {
     // creating the menu that is a unordered list
     super(UListElement.TAG, "");
 
+    //setup the anchor css switcher
+    anchor = new MenuAnchorSwitcher();
+    anchor.setTarget(getElement());
+    
     LOG.finest("Setting up menu");
 
     // ... which is placed below the related button
@@ -165,25 +167,7 @@ public class Menu extends HTMLPanel implements IMenu {
       throw new IllegalStateException(msg);
     }
 
-    // don't do anything if the requested anchor is not defined
-    if (inputAnchor == null) {
-      return;
-    }
-
-    // don't do anything if the requested anchoring is the same anchoring
-    // already applied
-    if (this.anchor == inputAnchor) {
-      return;
-    }
-
-    // remove the previously set anchoring
-    removeStyle(this, this.anchor);
-
-    // save the requested anchoring
-    this.anchor = inputAnchor;
-
-    // use the safe method to set the css selector
-    addStyle(this, this.anchor);
+    anchor.setValue(inputAnchor);
   }
 
   /**
@@ -618,7 +602,7 @@ public class Menu extends HTMLPanel implements IMenu {
   /**
    * Stores the menu anchor option to ease the css selector removal.
    */
-  private MenuAnchor anchor;
+  private MenuAnchorSwitcher anchor;
 
   /**
    * store the status of the component to indicate whether the component is

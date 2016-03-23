@@ -1,5 +1,6 @@
 package com.github.ilyes4j.gwt.mdl.components;
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.UIObject;
 
 /**
@@ -75,6 +76,40 @@ public final class MdlGwtUtils {
   }
 
   /**
+   * @param element
+   *          the {@link Element} to which the css class will be applied
+   * 
+   * @param style
+   *          any {@link Object} with a {@link Object#toString()} method
+   *          returning the css class to be applied.
+   * 
+   * @see MdlGwtUtils#assertStyle(Object, Object)
+   */
+  public static void addClass(final Element element, final Object style) {
+
+    if (assertStyle(element, style)) {
+      element.addClassName(style.toString());
+    }
+  }
+
+  /**
+   * Same behavior as {@link MdlGwtUtils#removeStyle(UIObject, Object)} applied
+   * to {@link Element}.
+   * 
+   * @param element
+   *          the {@link Element} to which the css selector will be applied
+   * 
+   * @param style
+   *          any {@link Object} with a {@link Object#toString()} method
+   *          returning the css selector to be applied.
+   */
+  public static void removeClass(final Element element, final Object style) {
+    if (assertStyle(element, style)) {
+      element.removeClassName(style.toString());
+    }
+  }
+
+  /**
    * 
    * Checks whether the css selector can be applied to the element safely.
    * 
@@ -87,13 +122,7 @@ public final class MdlGwtUtils {
    * 
    * @return true if the all the required conditions are satisfied.
    */
-  private static boolean assertStyle(final UIObject object,
-      final Object style) {
-
-    // don't do anything if the target element is not defined
-    if (object == null) {
-      return false;
-    }
+  private static boolean assertStyle(final Object object, final Object style) {
 
     // don't do anything if the class selector is not defined or empty
     if (style == null) {
