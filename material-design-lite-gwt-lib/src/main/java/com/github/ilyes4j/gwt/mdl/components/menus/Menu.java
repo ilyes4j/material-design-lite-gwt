@@ -40,16 +40,6 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 public class Menu extends HTMLPanel implements IMenu {
 
   /**
-   * The {@link Menu} material style.
-   */
-  public static final String CSS_MDL_MENU = "mdl-menu";
-
-  /**
-   * css flag intended for component upgrade.
-   */
-  public static final String CSS_JS_MENU = "mdl-js-menu";
-
-  /**
    * Objects that need to be notified when an {@link MenuItem} is clicked should
    * implement this interface and register themselves to the {@link Menu} using
    * the {@link Menu#addItemClickListener(ItemClickListener)} method. <br>
@@ -640,6 +630,16 @@ public class Menu extends HTMLPanel implements IMenu {
    * Default maximum value not to be exceeded by the menu's height.
    */
   private static final int MAX_HEIGHT = 200;
+
+  /**
+   * The {@link Menu} material style.
+   */
+  private static final String CSS_MDL_MENU = "mdl-menu";
+
+  /**
+   * css flag intended for component upgrade.
+   */
+  private static final String CSS_JS_MENU = "mdl-js-menu";
 
   /**
    * Menu logger.
