@@ -8,21 +8,22 @@ import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.NONE;
 
 import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
 import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
-import com.github.ilyes4j.gwt.mdl.components.textfields.ExpandingTextField;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.user.client.ui.HTMLPanel;
 
 /***
+ * <p>
  * All behaviors expected from a material button are here. An instance of this
  * type is not a component of its own. Instead, it acts on a target component to
  * attach the required behaviors to it. This ensures an extra flexibility when
- * creating material buttons.<br>
- * <br>
- * For example, {@link ExpandingTextField} have "kind of" a button in a label
- * tag. It wouldn't be possible to reuse the material button logic if that logic
- * was tied to the {@link Button} component.
+ * creating material buttons.
+ * </p>
+ * <p>
+ * It wouldn't be possible to reuse the material button logic in button-like
+ * components if that logic is tied to the {@link Button} component.
+ * </p>
  * 
  * @author Mohamed Ilyes DIMASSI
  */
