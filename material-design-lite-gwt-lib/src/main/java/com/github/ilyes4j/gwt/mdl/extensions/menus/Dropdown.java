@@ -139,28 +139,6 @@ public class Dropdown extends Composite implements IMenu {
   }
 
   /**
-   * @param btn
-   *          the button part of the dropdown
-   */
-  private void init(final Button btn) {
-    button = btn;
-
-    combo = new MenuCombo(button);
-    initWidget(combo);
-
-    ItemClickListener clickListener;
-    clickListener = new ItemClickListener() {
-
-      @Override
-      public void onItemClicked(final ItemClickEvent event) {
-
-        setSelected(event.getIndex());
-      }
-    };
-    addItemClickListener(clickListener);
-  }
-
-  /**
    * Set a selected item of the dropdown programmatically. If the chosen item is
    * disabled, the element is not selected
    * 
@@ -181,13 +159,35 @@ public class Dropdown extends Composite implements IMenu {
     selectedIndex = index;
     button.setText(getItemText(index));
   }
-
+  
   /**
    * 
    * @return returns the currently selected item
    */
   public final int getSelected() {
     return selectedIndex;
+  }
+  
+  /**
+   * @param btn
+   *          the button part of the dropdown
+   */
+  private void init(final Button btn) {
+    button = btn;
+
+    combo = new MenuCombo(button);
+    initWidget(combo);
+
+    ItemClickListener clickListener;
+    clickListener = new ItemClickListener() {
+
+      @Override
+      public void onItemClicked(final ItemClickEvent event) {
+
+        setSelected(event.getIndex());
+      }
+    };
+    addItemClickListener(clickListener);
   }
 
   /**
