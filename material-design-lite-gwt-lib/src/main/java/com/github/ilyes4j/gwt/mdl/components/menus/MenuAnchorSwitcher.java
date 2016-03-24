@@ -28,7 +28,7 @@ public class MenuAnchorSwitcher extends CssSwitcher<MenuAnchor> {
   }
 
   /**
-   * Mapping.
+   * Stores the link between an enumeration constant and its CSS class name.
    */
   private static Map<MenuAnchor, String> map;
 }
