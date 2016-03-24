@@ -78,10 +78,11 @@ public class Menu extends HTMLPanel implements IMenu {
     // creating the menu that is a unordered list
     super(UListElement.TAG, "");
 
-    //setup the anchor css switcher
+    // setup the anchor css switcher
     anchor = new MenuAnchorSwitcher();
     anchor.setTarget(getElement());
-    
+    anchor.setValue(MenuAnchor.BOTTOM_LEFT);
+
     LOG.finest("Setting up menu");
 
     // ... which is placed below the related button
