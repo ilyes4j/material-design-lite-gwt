@@ -6,6 +6,7 @@ import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.ICON;
 import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.MINIFAB;
 import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.RAISED;
 
+import com.github.ilyes4j.gwt.mdl.components.ripples.HasRipple;
 import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
 
 /**
@@ -18,7 +19,8 @@ import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
  * 
  * @author Mohamed Ilyes DIMASSI
  */
-public class Button extends com.google.gwt.user.client.ui.Button {
+public class Button extends com.google.gwt.user.client.ui.Button
+    implements HasRipple {
 
   /**
    * Setup a raised material button.<br>

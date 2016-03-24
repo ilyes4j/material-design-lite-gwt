@@ -4,9 +4,9 @@ import static com.github.ilyes4j.gwt.mdl.components.ComponentHandler.upgradeElem
 import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
 import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
 import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.FAB;
-import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.NONE;
 
 import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
+import com.github.ilyes4j.gwt.mdl.components.ripples.HasRipple;
 import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
@@ -27,7 +27,7 @@ import com.google.gwt.user.client.ui.HTMLPanel;
  * 
  * @author Mohamed Ilyes DIMASSI
  */
-public class ButtonBase {
+public class ButtonBase implements HasRipple {
 
   /**
    * Setup an instance of a material button and provide the target
