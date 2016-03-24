@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 import com.github.ilyes4j.gwt.mdl.components.ComponentHandler;
+import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
 import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
 import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
 import com.google.gwt.dom.client.UListElement;
@@ -147,7 +148,7 @@ public class Menu extends HTMLPanel implements IMenu {
     menuId = forId;
 
     // set the binding between the menu and the action button
-    getElement().setAttribute("for", menuId);
+    MdlGwtUtils.setFor(getElement(), menuId);
   }
 
   @Override
