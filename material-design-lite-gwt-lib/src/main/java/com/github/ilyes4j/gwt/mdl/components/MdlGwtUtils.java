@@ -20,6 +20,35 @@ public final class MdlGwtUtils {
   }
 
   /**
+   * Helper method that sets the value to the "for" attribute in a DOM element.
+   * This attribute helps wiring parts together inside an mdl component and also
+   * binds mdl components together. The "for" indicates that the the embedding
+   * element is referencing another element in the component. The value of the
+   * "for" attribute is the id of the referenced element.
+   * 
+   * @param element
+   *          the target element to be processed
+   * 
+   * @param value
+   *          the value tobe set to the "for" attribute
+   */
+  public static void setFor(final Element element, final String value) {
+
+    // if the target is undefined, don't do anything
+    if (element == null) {
+      return;
+    }
+
+    // if the value provided is undefined don't do anything
+    if (value == null || value.isEmpty()) {
+      return;
+    }
+
+    // add an attribute named 'for' and set its content
+    element.setAttribute(FOR_ATTR, value);
+  }
+
+  /**
    * Make sure the index provided as input is inside the range of possible
    * elements of a list.
    * 
@@ -139,4 +168,9 @@ public final class MdlGwtUtils {
     // otherwise all conditions are verified
     return true;
   }
+
+  /**
+   * Keeps the name of the 'for' attribute.
+   */
+  private static final String FOR_ATTR = "for";
 }
