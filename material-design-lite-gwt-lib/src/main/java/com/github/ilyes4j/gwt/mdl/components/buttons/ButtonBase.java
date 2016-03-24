@@ -8,6 +8,7 @@ import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.FAB;
 import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
 import com.github.ilyes4j.gwt.mdl.components.ripples.HasRipple;
 import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.components.ripples.RippleSwitcher;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.SpanElement;
@@ -41,6 +42,10 @@ public class ButtonBase implements HasRipple {
 
     target.addClassName(MDL_BTN);
     MdlGwtUtils.addClass(target, MDL_JS_BTN);
+
+    ripple = new RippleSwitcher();
+    ripple.setTarget(target);
+    ripple.setValue(Ripple.NONE);
   }
 
   /**
@@ -142,7 +147,7 @@ public class ButtonBase implements HasRipple {
    * @return one of the options provided by {@link Ripple}
    */
   public final Ripple getRipple() {
-    return ripple;
+    return ripple.getValue();
   }
 
   /**
@@ -152,8 +157,7 @@ public class ButtonBase implements HasRipple {
    *          one of the options provided by {@link Ripple}
    */
   public final void setRipple(final Ripple inputRipple) {
-    ripple = inputRipple;
-    MdlGwtUtils.addClass(target, ripple);
+    ripple.setValue(inputRipple);
   }
 
   /**
@@ -228,7 +232,7 @@ public class ButtonBase implements HasRipple {
   /**
    * Indicate whether the button has a ripple.
    */
-  private Ripple ripple = NONE;
+  private RippleSwitcher ripple;
 
   /**
    * Indicate whether the button is already been upgraded.

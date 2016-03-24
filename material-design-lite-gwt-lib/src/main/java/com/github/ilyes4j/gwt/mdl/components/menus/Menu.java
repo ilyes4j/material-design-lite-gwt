@@ -17,6 +17,7 @@ import com.github.ilyes4j.gwt.mdl.components.ComponentHandler;
 import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
 import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
 import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.components.ripples.RippleSwitcher;
 import com.google.gwt.dom.client.UListElement;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -96,7 +97,9 @@ public class Menu extends HTMLPanel implements IMenu {
     addStyleName(CSS_JS_MENU);
 
     // ...whose items has ripples (for now)
-    addStyleName(Ripple.HAS_RIPPLE.toString());
+    ripple = new RippleSwitcher();
+    ripple.setTarget(getElement());
+    ripple.setValue(Ripple.HAS_RIPPLE);
 
     // create the listener that will handle items selection
     clickHandler = new ItemClickHandler();
@@ -572,6 +575,11 @@ public class Menu extends HTMLPanel implements IMenu {
   protected final List<MenuItem> getItems() {
     return this.items;
   }
+
+  /**
+   * Help switch between ripple states.
+   */
+  private RippleSwitcher ripple;
 
   /**
    * All {@link MenuItem}s are stored in this list to be able to find the
