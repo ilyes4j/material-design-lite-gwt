@@ -6,7 +6,9 @@ import java.util.Map;
 import com.github.ilyes4j.gwt.mdl.components.CssSwitcher;
 
 /**
- * CSS class switcher for {@link MenuAnchor}.
+ * CSS class switcher for the {@link MenuAnchor} enumeration.
+ * 
+ * @see CssSwitcher
  * 
  * @author Mohamed Ilyes DIMASSI
  *
