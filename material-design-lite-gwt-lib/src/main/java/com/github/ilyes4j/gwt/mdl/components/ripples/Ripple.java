@@ -1,7 +1,7 @@
 package com.github.ilyes4j.gwt.mdl.components.ripples;
 
 /**
- * Indicates whether ripples are enabled for the Material component or not.
+ * Indicates whether ripples are enabled for the material component or not.
  * 
  * @author Mohamed Ilyes DIMASSI
  *
