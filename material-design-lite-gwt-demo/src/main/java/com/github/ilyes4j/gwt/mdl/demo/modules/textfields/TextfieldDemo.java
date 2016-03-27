@@ -19,6 +19,7 @@ public class TextfieldDemo implements EntryPoint {
   public final void onModuleLoad() {
 
     Collection<EntryPoint> demos = new ArrayList<>();
+    demos.add(new DefaultTextfieldDemo());
 
     for (EntryPoint entry : demos) {
       entry.onModuleLoad();
