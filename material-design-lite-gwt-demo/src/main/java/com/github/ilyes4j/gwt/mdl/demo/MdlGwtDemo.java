@@ -20,8 +20,8 @@ import com.google.gwt.user.client.Window;
  * map the appropriate {@link EntryPoint} to its target html page and therefore
  * avoid having to write a separate GWT module for each demo page.<br>
  * <br>
- * <code>com.github.ilyes4j.gwt.mdl.demo.MdlGwtDemo</code> represents the GWT part
- * of the demo. Using the GWT compiler, this module is compiled to a set of
+ * <code>com.github.ilyes4j.gwt.mdl.demo.MdlGwtDemo</code> represents the GWT
+ * part of the demo. Using the GWT compiler, this module is compiled to a set of
  * javascript and css files placed under <code>mdlgwtdemo/</code>.<br>
  * <br>
  * To use this module in a demo page,
@@ -58,8 +58,8 @@ public class MdlGwtDemo implements EntryPoint {
   }
 
   /**
-   * Depending on the current url, invokes the appropriate {@link ModuleDemo}
-   * to handle the demo GWT part.
+   * Depending on the current url, invokes the appropriate {@link ModuleDemo} to
+   * handle the demo GWT part.
    */
   @Override
   public final void onModuleLoad() {
