@@ -4,6 +4,7 @@ import static com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils.ABOUT;
 import static com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils.BUTTONS;
 import static com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils.DROPS;
 import static com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils.MENUS;
+import static com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils.TXTFLDS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ import com.github.ilyes4j.gwt.mdl.demo.modules.AboutDemo;
 import com.github.ilyes4j.gwt.mdl.demo.modules.buttons.ButtonDemo;
 import com.github.ilyes4j.gwt.mdl.demo.modules.dropdowns.DropdownDemo;
 import com.github.ilyes4j.gwt.mdl.demo.modules.menus.MenuDemo;
+import com.github.ilyes4j.gwt.mdl.demo.modules.textfields.TextfieldDemo;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.Window;
 
@@ -54,6 +56,7 @@ public class MdlGwtDemo implements EntryPoint {
     entries.add(new ModuleDemo(ABOUT, new AboutDemo()));
     entries.add(new ModuleDemo(BUTTONS, new ButtonDemo()));
     entries.add(new ModuleDemo(MENUS, new MenuDemo()));
+    entries.add(new ModuleDemo(TXTFLDS, new TextfieldDemo()));
     entries.add(new ModuleDemo(DROPS, new DropdownDemo()));
   }
 

@@ -57,6 +57,11 @@ public final class MdlGwtDemoUtils {
   public static final String MENUS = "components/menus/menus.html";
 
   /**
+   * relative location of the textfields demo page.
+   */
+  public static final String TXTFLDS = "components/textfields/textfields.html";
+  
+  /**
    * relative location of the dropdown demo page.
    */
   public static final String DROPS = "extensions/dropdowns/dropdowns.html";
@@ -83,6 +88,12 @@ public final class MdlGwtDemoUtils {
     menu.setCaption("Menus");
     menu.setUrl(MENUS);
     bar.addLink(menu);
+    
+    // setup the textfield link
+    ComponentsItem textfield = new ComponentsItem("text_format");
+    textfield.setCaption("Textfields");
+    textfield.setUrl(TXTFLDS);
+    bar.addLink(textfield);
 
     // insert the side bar under the main section of the demo page
     get(MAIN).insert(bar, 0);
