@@ -21,6 +21,7 @@ public class TextfieldDemo implements EntryPoint {
     Collection<EntryPoint> demos = new ArrayList<>();
     demos.add(new DefaultTextfieldDemo());
     demos.add(new FloatTextfieldDemo());
+    demos.add(new ValidateTextfieldDemo());
 
     for (EntryPoint entry : demos) {
       entry.onModuleLoad();
