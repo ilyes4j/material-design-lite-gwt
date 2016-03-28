@@ -8,7 +8,7 @@ import com.google.gwt.user.client.ui.TextBox;
  * @author Mohamed Ilyes DIMASSI
  *
  */
-public class TextField extends TextfieldBase<TextBox> {
+public class TextField extends SingleLineTextField<TextBox> {
 
   /**
    * Setting up an instance of {@link TextfieldBase} wrapped around a

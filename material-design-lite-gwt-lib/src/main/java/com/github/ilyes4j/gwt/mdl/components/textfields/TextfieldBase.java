@@ -4,7 +4,6 @@ import com.github.ilyes4j.gwt.mdl.components.ComponentHandler;
 import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.TextArea;
@@ -83,13 +82,6 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel {
     label.setStyleName(MDL_TXTFLD_LBL);
     // attaching the label to the container
     add(label);
-
-    // setting up an error label for the component
-    errorLbl = new InlineLabel();
-    // setting up the mdl error CSS class
-    errorLbl.setStyleName(MDL_TXTFLD_ERR);
-    // attaching the error label to the container
-    add(errorLbl);
   }
 
   /**
@@ -101,36 +93,11 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel {
    * @param inputBox
    *          the input Widget to be used
    */
-  protected TextfieldBase(final String inputLabel, final T inputBox) {
+  public TextfieldBase(final String inputLabel, final T inputBox) {
     // create the DOM structure of the input component
     this(inputBox);
     // set the label text
     setLabel(inputLabel);
-  }
-
-  /**
-   * 
-   * @param inputValidator
-   *          the validation setup to be applied on the input text
-   */
-  public final void setValidator(final TextValidator inputValidator) {
-    // Retrieve the error message
-    String error = inputValidator.getErrorMessage();
-    // assign thr error message to the error label
-    errorLbl.setText(error);
-
-    // Retrieve the validation regular expression
-    String pattern = inputValidator.getPattern();
-    // assign the regexp to the pattern
-    box.getElement().setAttribute(PATTERN, pattern);
-  }
-
-  /**
-   * Stop validating the text field.
-   */
-  public final void removeValidator() {
-    errorLbl.setText("");
-    box.getElement().removeAttribute(PATTERN);
   }
 
   /**
@@ -168,16 +135,6 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel {
   }
 
   /**
-   * The {@link TextfieldBase} contains an {@link InlineLabel} under the hood to
-   * display the hint inside the text box when it is empty.
-   * 
-   * @return the error container
-   */
-  protected final InlineLabel getErrorLabel() {
-    return errorLbl;
-  }
-
-  /**
    * Set the label of the text field. The label is a text positioned inside the
    * text box instead of traditionally being besides the text box.
    * 
@@ -203,20 +160,14 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel {
   private Label label;
 
   /**
-   * A {@link TextBoxBase} sub-type used to acquire user input.
-   */
-  private T box;
-
-  /**
    * The CSS class switcher responsible for managing the float state.
    */
   private FloatSwitcher cssFloat;
 
   /**
-   * An {@link InlineLabel} showing an error message when the input text is
-   * invalid.
+   * A {@link TextBoxBase} sub-type used to acquire user input.
    */
-  private InlineLabel errorLbl;
+  private T box;
 
   /**
    * CSS class for the label.
@@ -229,11 +180,6 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel {
   private static final String MDL_TXTFLD_INPUT = "mdl-textfield__input";
 
   /**
-   * CSS class for the error label.
-   */
-  private static final String MDL_TXTFLD_ERR = "mdl-textfield__error";
-
-  /**
    * CSS class the container element.
    */
   private static final String MDL_TXTFLD = "mdl-textfield";
@@ -242,9 +188,4 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel {
    * CSS flag intended for upgrading text field component.
    */
   private static final String MDL_JS_TXTFLD = "mdl-js-textfield";
-
-  /**
-   * The attribute name for validating the input element.
-   */
-  private static final String PATTERN = "pattern";
 }
