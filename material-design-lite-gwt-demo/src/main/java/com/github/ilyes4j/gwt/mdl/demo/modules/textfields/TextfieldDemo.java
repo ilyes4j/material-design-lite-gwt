@@ -23,6 +23,7 @@ public class TextfieldDemo implements EntryPoint {
     demos.add(new FloatTextfieldDemo());
     demos.add(new ValidateTextfieldDemo());
     demos.add(new NumberTextfieldDemo());
+    demos.add(new AreaTextfieldDemo());
 
     for (EntryPoint entry : demos) {
       entry.onModuleLoad();
