@@ -22,12 +22,7 @@ public class SingleLineTextField<T extends TextBox> extends TextfieldBase<T> {
   public SingleLineTextField(final T inputBox) {
     super(inputBox);
 
-    // setting up an error label for the component
-    errorLbl = new InlineLabel();
-    // setting up the mdl error CSS class
-    errorLbl.setStyleName(MDL_TXTFLD_ERR);
-    // attaching the error label to the container
-    add(errorLbl);
+    setupErrorContainer();
   }
 
   /**
@@ -41,6 +36,8 @@ public class SingleLineTextField<T extends TextBox> extends TextfieldBase<T> {
    */
   public SingleLineTextField(final String inputLabel, final T inputBox) {
     super(inputLabel, inputBox);
+
+    setupErrorContainer();
   }
 
   /**
@@ -76,6 +73,19 @@ public class SingleLineTextField<T extends TextBox> extends TextfieldBase<T> {
    */
   protected final InlineLabel getErrorLabel() {
     return errorLbl;
+  }
+
+  /**
+   * setup the error container that will be used to display an error message
+   * when the input text is invalid.
+   */
+  private void setupErrorContainer() {
+    // setting up an error label for the component
+    errorLbl = new InlineLabel();
+    // setting up the mdl error CSS class
+    errorLbl.setStyleName(MDL_TXTFLD_ERR);
+    // attaching the error label to the container
+    add(errorLbl);
   }
 
   /**
