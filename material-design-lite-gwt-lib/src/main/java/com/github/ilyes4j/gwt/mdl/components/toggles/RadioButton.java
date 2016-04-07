@@ -250,10 +250,9 @@ public class RadioButton extends CheckboxBase<RadioStyle> {
     // make sure onBrowserEvent is able to record value changes
     // initiated by label events
     if (isOrWasAttached()) {
-      Event.sinkEvents(getInput(),
-          eventBitsToAdd | Event.getEventsSunk(getInput()));
-      Event.sinkEvents(getLabel(),
-          eventBitsToAdd | Event.getEventsSunk(getLabel()));
+      Event.sinkEvents(getContainer(),
+          eventBitsToAdd | Event.getEventsSunk(getContainer()));
+
     } else {
       super.sinkEvents(eventBitsToAdd);
     }
