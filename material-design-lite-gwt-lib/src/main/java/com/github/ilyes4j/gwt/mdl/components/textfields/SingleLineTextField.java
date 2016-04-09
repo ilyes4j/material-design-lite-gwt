@@ -54,7 +54,7 @@ public class SingleLineTextField<T extends TextBox> extends TextfieldBase<T> {
     // Retrieve the validation regular expression
     String pattern = inputValidator.getPattern();
     // assign the regexp to the pattern
-    getErrorLabel().getElement().setAttribute(PATTERN, pattern);
+    getTextbox().getElement().setAttribute(PATTERN, pattern);
   }
 
   /**
@@ -62,7 +62,7 @@ public class SingleLineTextField<T extends TextBox> extends TextfieldBase<T> {
    */
   public final void removeValidator() {
     errorLbl.setText("");
-    getErrorLabel().getElement().removeAttribute(PATTERN);
+    getTextbox().getElement().removeAttribute(PATTERN);
   }
 
   /**
