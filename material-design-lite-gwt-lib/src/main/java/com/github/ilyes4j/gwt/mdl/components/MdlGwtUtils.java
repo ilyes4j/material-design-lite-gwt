@@ -1,5 +1,6 @@
 package com.github.ilyes4j.gwt.mdl.components;
 
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.UIObject;
 
@@ -17,6 +18,33 @@ public final class MdlGwtUtils {
    * Private constructor for the util class.
    */
   private MdlGwtUtils() {
+  }
+
+  /**
+   * Makes sure the element parameter have an id. If the element contains an id,
+   * then nothing happens, otherwise, the element is provided with a generated
+   * unique id.
+   * 
+   * @param element
+   *          the element for which an id should be insured
+   */
+  public static void insureId(final Element element) {
+
+    // the provided element is undefined => don't do anything
+    if (element == null) {
+      return;
+    }
+
+    // retrieve the id of the element
+    String id = element.getId();
+
+    // if the id attribute is defined => don't do anything
+    if (id != null && !id.isEmpty()) {
+      return;
+    }
+
+    // provide the element with a uniquely generated id
+    element.setId(Document.get().createUniqueId());
   }
 
   /**
