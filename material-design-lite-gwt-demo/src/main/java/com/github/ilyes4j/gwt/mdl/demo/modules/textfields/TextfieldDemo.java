@@ -25,6 +25,7 @@ public class TextfieldDemo implements EntryPoint {
     demos.add(new NumberTextfieldDemo());
     demos.add(new AreaTextfieldDemo());
     demos.add(new ExpandingTextfieldDemo());
+    demos.add(new PasswordFieldDemo());
 
     for (EntryPoint entry : demos) {
       entry.onModuleLoad();
