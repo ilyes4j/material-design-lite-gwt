@@ -110,8 +110,7 @@ public class CheckboxBase<T extends Enum<T>> extends ButtonBase implements
    * 
    * @param directionEstimator
    *          A DirectionEstimator object used for automatic direction
-   *          adjustment. For convenience, {@link #DEFAULT_DIRECTION_ESTIMATOR}
-   *          can be used.
+   *          adjustment.
    * 
    * @param paramToggle
    *          the design flavor selector
@@ -166,8 +165,7 @@ public class CheckboxBase<T extends Enum<T>> extends ButtonBase implements
    * 
    * @param directionEstimator
    *          A DirectionEstimator object used for automatic direction
-   *          adjustment. For convenience, {@link #DEFAULT_DIRECTION_ESTIMATOR}
-   *          can be used.
+   *          adjustment.
    * 
    * @param paramToggle
    *          the material design selector

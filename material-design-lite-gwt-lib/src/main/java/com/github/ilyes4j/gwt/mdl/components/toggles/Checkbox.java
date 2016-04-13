@@ -63,8 +63,7 @@ public class Checkbox extends CheckboxBase<CheckBoxStyle>
    * 
    * @param directionEstimator
    *          A DirectionEstimator object used for automatic direction
-   *          adjustment. For convenience, {@link #DEFAULT_DIRECTION_ESTIMATOR}
-   *          can be used.
+   *          adjustment.
    */
   public Checkbox(final SafeHtml label,
       final DirectionEstimator directionEstimator) {
@@ -103,8 +102,7 @@ public class Checkbox extends CheckboxBase<CheckBoxStyle>
    * 
    * @param directionEstimator
    *          A DirectionEstimator object used for automatic direction
-   *          adjustment. For convenience, {@link #DEFAULT_DIRECTION_ESTIMATOR}
-   *          can be used.
+   *          adjustment.
    */
   public Checkbox(final String label,
       final DirectionEstimator directionEstimator) {

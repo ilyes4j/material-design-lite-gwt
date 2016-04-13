@@ -95,8 +95,7 @@ public class RadioButton extends CheckboxBase<RadioStyle> {
    *          this radio button's html label
    * @param directionEstimator
    *          A DirectionEstimator object used for automatic direction
-   *          adjustment. For convenience, {@link #DEFAULT_DIRECTION_ESTIMATOR}
-   *          can be used.
+   *          adjustment.
    */
   public RadioButton(final String name, final SafeHtml label,
       final DirectionEstimator directionEstimator) {
@@ -149,8 +148,7 @@ public class RadioButton extends CheckboxBase<RadioStyle> {
    *          this radio button's label
    * @param directionEstimator
    *          A DirectionEstimator object used for automatic direction
-   *          adjustment. For convenience, {@link #DEFAULT_DIRECTION_ESTIMATOR}
-   *          can be used.
+   *          adjustment.
    */
   public RadioButton(final String name, final String label,
       final DirectionEstimator directionEstimator) {
