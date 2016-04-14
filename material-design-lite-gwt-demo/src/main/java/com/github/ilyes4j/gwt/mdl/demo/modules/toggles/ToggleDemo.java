@@ -21,6 +21,7 @@ public class ToggleDemo implements EntryPoint {
     Collection<EntryPoint> demos = new ArrayList<>();
     demos.add(new CheckboxDemo());
     demos.add(new RadioDemo());
+    demos.add(new SwitchDemo());
 
     for (EntryPoint entry : demos) {
       entry.onModuleLoad();
