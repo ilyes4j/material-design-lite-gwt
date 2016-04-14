@@ -1,6 +1,6 @@
 {
   "name": "Material-Design-Lite-for-GWT",
-  "version": "0.1.0",
+  "version": "0.2.0-SNAPSHOT",
   "description": "Java wrapper enabling Material Design Lite look and feel in GWT projects",
   "license": "Apache-2.0",
   "repository": "https://github.com/ilyes4j/material-design-lite-gwt",

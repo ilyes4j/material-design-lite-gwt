@@ -19,7 +19,7 @@ git checkout gh-pages
 
 # the gh-pages branch contains demos for the library
 # each release should have its own demo located in a dedicated sub directory
-# for example, the directory 0.1.0/ contains the demo for the 0.1.0 release
+# for example, the directory X.X.X/ contains the demo for the X.X.X release
 
 # in addition to releases, not yet released features are showcased under
 # the sub directory named "snapshot"
@@ -28,7 +28,7 @@ git checkout gh-pages
 rm -rf 'snapshot'
 
 # copy the compilation result of the demo module into the latest sub directory
-cp -r '../../material-design-lite-gwt-demo/target/material-design-lite-gwt-demo-0.1.0' 'snapshot'
+cp -r '../../material-design-lite-gwt-demo/target/material-design-lite-gwt-demo-0.2.0-SNAPSHOT' 'snapshot'
 
 # add all the changes to the index
 git add --all
