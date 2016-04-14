@@ -1,5 +1,6 @@
 #Maven build output
-target/
+material-design-lite-gwt-demo/target/
+material-design-lite-gwt-lib/target/
 
 #Eclipse IDE project and settings
 .settings/
