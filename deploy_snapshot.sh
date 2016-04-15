@@ -8,8 +8,10 @@ set -e # exit with nonzero exit code if anything fails
 git clone https://github.com/ilyes4j/material-design-lite-gwt target/gh-pages
 
 # inside this git repo we'll indicate it is Travis that will perform the deployment
-git config user.name "Travis CI"
-git config user.email "ilyes.dimassi@gmail.com"
+# set the config globally so the inner repository could also benefit from the identity
+# this is mandatory, otherwise the push would fail
+git --global config user.name "Travis CI"
+git --global config user.email "ilyes.dimassi@gmail.com"
 
 # go to the cloned repository
 cd target/gh-pages
