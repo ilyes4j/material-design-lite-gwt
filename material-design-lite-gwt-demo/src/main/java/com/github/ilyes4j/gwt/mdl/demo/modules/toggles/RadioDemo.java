@@ -24,7 +24,7 @@ public class RadioDemo implements EntryPoint {
    * 
    * @return a radio button with a text a value and a ripple
    */
-  private RadioButton getRadio(final String value) {
+  public static RadioButton getRadio(final String value) {
     String group = "group";
     RadioButton radio = new RadioButton(group);
     radio.setRipple(Ripple.HAS_RIPPLE);
