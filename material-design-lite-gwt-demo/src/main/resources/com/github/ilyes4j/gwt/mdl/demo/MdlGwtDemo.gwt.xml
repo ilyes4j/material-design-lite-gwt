@@ -9,7 +9,8 @@
 
   <public path="" />
 
-  <stylesheet src="main-gwt.css" />
+  <set-configuration-property name="CssResource.enableGss"
+    value="true" />
 
   <add-linker name="xsiframe" />
 

@@ -1,5 +1,6 @@
 package com.github.ilyes4j.gwt.mdl.demo.navigation.main;
 
+import com.github.ilyes4j.gwt.mdl.demo.Demo;
 import com.github.ilyes4j.gwt.mdl.demo.navigation.NavigationBar;
 
 /**
@@ -18,6 +19,6 @@ public class MainBar extends NavigationBar<MainbarItem> {
     super();
 
     // setup the bar look
-    getContainer().setStyleName("demo-mainbar");
+    getContainer().setStyleName(Demo.DEMO.css().mainBar());
   }
 }

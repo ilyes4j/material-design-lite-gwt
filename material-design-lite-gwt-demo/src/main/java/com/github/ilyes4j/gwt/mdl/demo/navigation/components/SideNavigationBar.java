@@ -1,5 +1,6 @@
 package com.github.ilyes4j.gwt.mdl.demo.navigation.components;
 
+import com.github.ilyes4j.gwt.mdl.demo.Demo;
 import com.github.ilyes4j.gwt.mdl.demo.navigation.NavigationBar;
 
 /**
@@ -23,7 +24,7 @@ public class SideNavigationBar extends NavigationBar<ComponentsItem> {
     super();
 
     // setup the bar looks
-    getContainer().setStyleName("demo-compsbar");
+    getContainer().setStyleName(Demo.DEMO.css().compsBar());
     getContainer().addStyleName("mdl-shadow--8dp");
   }
 }

@@ -6,6 +6,7 @@ import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 import static com.google.gwt.user.client.Window.Location.assign;
 
 import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
+import com.github.ilyes4j.gwt.mdl.demo.Demo;
 import com.github.ilyes4j.gwt.mdl.demo.navigation.INavigationItem;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -34,7 +35,7 @@ public class ComponentsItem extends Composite implements INavigationItem {
 
     // setup a container for the icon
     btnContainer = new FlowPanel();
-    btnContainer.setStyleName("demo-compsbar-item-icon");
+    btnContainer.setStyleName(Demo.DEMO.css().compsBarItemIcon());
     // put the icon inside its container
     btnContainer.add(btn);
 
@@ -43,7 +44,7 @@ public class ComponentsItem extends Composite implements INavigationItem {
     captionContainer.setStyleName("demo-text");
 
     container = new FlowPanel();
-    container.setStyleName("demo-compsbar-item");
+    container.setStyleName(Demo.DEMO.css().compsBarItem());
 
     // put the icon container inside the link container
     container.add(btnContainer);

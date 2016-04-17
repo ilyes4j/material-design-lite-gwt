@@ -5,6 +5,7 @@ import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 
 import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
 import com.github.ilyes4j.gwt.mdl.components.menus.MenuCombo;
+import com.github.ilyes4j.gwt.mdl.demo.Demo;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -27,7 +28,7 @@ public class ToggleEnabledDemo implements EntryPoint {
 
     // Instantiate a menu
     final MenuCombo menu = new MenuCombo(btn);
-    menu.addStyleName("demo-menu-event-label");
+    menu.addStyleName(Demo.DEMO.css().inline());
 
     // add the items to the menu
     menu.addItem("Some action", true);
@@ -43,7 +44,7 @@ public class ToggleEnabledDemo implements EntryPoint {
     lbl.setText(FIRST_ITEM_ENABLED);
     // add some css styling to the label
     lbl.addStyleName("demo-text");
-    lbl.addStyleName("demo-menu-event-label");
+    lbl.addStyleName(Demo.DEMO.css().inline());
     cont.add(lbl);
 
     toggle.addClickHandler(new ClickHandler() {

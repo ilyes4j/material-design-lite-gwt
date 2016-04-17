@@ -1,4 +1,7 @@
-@CHARSET "ISO-8859-1";
+/*comma separated list of css classes that should not be obfuscated.*/
+/*demo-mainbar-item should not be obfuscated because it is used outside GWT*/
+@external demo-mainbar-item;
+
 .demo-mainbar {
 	display: flex;
 	height: 100%;
@@ -35,7 +38,9 @@
 	padding: 50px 20px;
 	display: flex;
 	flex-direction: column;
+	background-color: hsl(0, 0%, 90%);
 }
+
 .demo-compsbar-item {
 	display: flex;
 	flex-direction: row;
@@ -45,15 +50,15 @@
 	cursor: pointer;
 	min-width: 175px;
 }
-.demo-compsbar-item.demo-compsbar-item-active {
-	cursor: auto;
-}
+
 .demo-compsbar-item:first-child {
 	margin-top: 0px;
 }
+
 .demo-compsbar-item-icon {
 	margin-right: 15px;
 }
+
 @media all and (max-width: 960px) {
 	/*redefine the spacing around the navigation bar*/
 	.demo-compsbar {
@@ -80,4 +85,10 @@
 .demo-menu-event-label {
 	display: inline-block;
 	margin-left: 15px;
+}
+
+/*margin applied to components placed on the same line*/
+.component-margin {
+	margin: 0 20px;
+	display: inline-block;
 }

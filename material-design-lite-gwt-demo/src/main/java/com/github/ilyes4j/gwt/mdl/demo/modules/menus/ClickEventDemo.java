@@ -10,6 +10,7 @@ import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
 import com.github.ilyes4j.gwt.mdl.components.menus.ItemClickEvent;
 import com.github.ilyes4j.gwt.mdl.components.menus.Menu;
 import com.github.ilyes4j.gwt.mdl.components.menus.MenuCombo;
+import com.github.ilyes4j.gwt.mdl.demo.Demo;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -34,7 +35,7 @@ public class ClickEventDemo implements EntryPoint {
     lbl.setText(txt);
     // add some css styling to the label
     lbl.addStyleName("demo-text");
-    lbl.addStyleName("demo-menu-event-label");
+    lbl.addStyleName(Demo.DEMO.css().inline());
 
     // setup the action button.
     Button btn = createRaised(BTN_NO_COLOR, HAS_RIPPLE, txt);

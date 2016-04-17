@@ -5,6 +5,7 @@ import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 import static com.google.gwt.user.client.ui.RootPanel.get;
 
 import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
+import com.github.ilyes4j.gwt.mdl.demo.Demo;
 import com.github.ilyes4j.gwt.mdl.extensions.menus.Dropdown;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -26,7 +27,7 @@ public class SelectItemDemo implements EntryPoint {
 
     // instanciate a dropdown
     final Dropdown dropdown = new Dropdown();
-    dropdown.addStyleName("demo-menu-event-label");
+    dropdown.addStyleName(Demo.DEMO.css().inline());
 
     // add the items to the dropdown
     dropdown.addItem("Some action");

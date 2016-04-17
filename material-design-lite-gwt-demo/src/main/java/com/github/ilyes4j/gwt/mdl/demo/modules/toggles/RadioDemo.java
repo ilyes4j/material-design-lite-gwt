@@ -2,6 +2,7 @@ package com.github.ilyes4j.gwt.mdl.demo.modules.toggles;
 
 import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
 import com.github.ilyes4j.gwt.mdl.components.toggles.RadioButton;
+import com.github.ilyes4j.gwt.mdl.demo.Demo;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
 
@@ -29,6 +30,7 @@ public class RadioDemo implements EntryPoint {
     RadioButton radio = new RadioButton(group);
     radio.setRipple(Ripple.HAS_RIPPLE);
     radio.setText(value);
+    radio.addStyleName(Demo.DEMO.css().margin());
     return radio;
   }
 }

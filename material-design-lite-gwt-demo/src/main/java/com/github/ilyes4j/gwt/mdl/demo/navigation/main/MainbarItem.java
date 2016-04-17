@@ -1,5 +1,6 @@
 package com.github.ilyes4j.gwt.mdl.demo.navigation.main;
 
+import com.github.ilyes4j.gwt.mdl.demo.Demo;
 import com.github.ilyes4j.gwt.mdl.demo.navigation.INavigationItem;
 import com.google.gwt.user.client.ui.Anchor;
 
@@ -15,7 +16,7 @@ public class MainbarItem extends Anchor implements INavigationItem {
    * Setup the link and its look.
    */
   public MainbarItem() {
-    setStylePrimaryName("demo-mainbar-item");
+    setStylePrimaryName(Demo.DEMO.css().barItem());
   }
 
   @Override
