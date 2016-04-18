@@ -519,18 +519,6 @@ public class CheckboxBase<T extends Enum<T>> extends ButtonBase implements
         .setWhiteSpace(wrap ? WhiteSpace.NORMAL : WhiteSpace.NOWRAP);
   }
 
-  // Unlike other widgets the CheckBox sinks on its inputElement, not
-  // its wrapper
-  @Override
-  public void sinkEvents(final int eventBitsToAdd) {
-    if (isOrWasAttached()) {
-      Event.sinkEvents(inputElem,
-          eventBitsToAdd | Event.getEventsSunk(inputElem));
-    } else {
-      super.sinkEvents(eventBitsToAdd);
-    }
-  }
-
   /**
    * 
    */
