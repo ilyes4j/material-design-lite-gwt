@@ -241,21 +241,6 @@ public class RadioButton extends CheckboxBase<RadioStyle> {
     replaceInputElement(Document.get().createRadioInputElement(name));
   }
 
-  @Override
-  public void sinkEvents(final int eventBitsToAdd) {
-    // Like CheckBox, we want to hear about inputElem. We
-    // also want to know what's going on with the label, to
-    // make sure onBrowserEvent is able to record value changes
-    // initiated by label events
-    if (isOrWasAttached()) {
-      Event.sinkEvents(getContainer(),
-          eventBitsToAdd | Event.getEventsSunk(getContainer()));
-
-    } else {
-      super.sinkEvents(eventBitsToAdd);
-    }
-  }
-
   /**
    * No-op. CheckBox's click handler is no good for radio button, so don't use
    * it. Our event handling is all done in {@link #onBrowserEvent}
