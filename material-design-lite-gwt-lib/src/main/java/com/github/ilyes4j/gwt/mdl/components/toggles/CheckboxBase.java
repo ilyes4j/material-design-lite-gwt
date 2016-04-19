@@ -406,6 +406,7 @@ public class CheckboxBase<T extends Enum<T>> extends ButtonBase implements
     } else {
       addStyleDependentName("disabled");
     }
+    toggle.setEnabled(enabled);
   }
 
   @Override

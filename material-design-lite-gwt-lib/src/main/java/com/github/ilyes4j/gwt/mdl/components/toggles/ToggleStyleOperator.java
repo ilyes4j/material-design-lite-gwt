@@ -189,4 +189,9 @@ public abstract class ToggleStyleOperator<T extends Enum<T>>
    * a CSS switch for the label part.
    */
   private CssSwitcher<T> labelSwitcher;
+
+  /**
+   * CSS class applied on the root level to set whether the toggle is enabled.
+   */
+  private static final String IS_DISABLED = "is-disabled";
 }
