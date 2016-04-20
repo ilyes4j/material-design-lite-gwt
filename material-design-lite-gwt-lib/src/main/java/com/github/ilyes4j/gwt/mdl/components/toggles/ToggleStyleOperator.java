@@ -107,6 +107,40 @@ public abstract class ToggleStyleOperator<T extends Enum<T>>
   }
 
   /**
+   * Sets whether the toggle is enabled.
+   * 
+   * @param enable
+   *          the new state of the toggle
+   */
+  public void setEnabled(final boolean enable) {
+
+    Element container = mainSwitcher.getTarget();
+
+    if (enable) {
+      container.removeClassName(IS_DISABLED);
+    } else {
+      container.addClassName(IS_DISABLED);
+    }
+  }
+
+  /**
+   * Sets whether the toggle is checked.
+   * 
+   * @param check
+   *          the new state of the toggle check
+   */
+  public void setValue(final boolean check) {
+
+    Element container = mainSwitcher.getTarget();
+
+    if (check) {
+      container.removeClassName(IS_CHECKED);
+    } else {
+      container.addClassName(IS_CHECKED);
+    }
+  }
+
+  /**
    * The sub-type must indicate the default class pack (= face) to enable the
    * component to be initialized correctly by applying at least the default face
    * for the first time.
@@ -194,4 +228,9 @@ public abstract class ToggleStyleOperator<T extends Enum<T>>
    * CSS class applied on the root level to set whether the toggle is enabled.
    */
   private static final String IS_DISABLED = "is-disabled";
+  
+  /**
+   * CSS class applied on the root level to set whether the toggle is checked.
+   */
+  private static final String IS_CHECKED = "is-checked";
 }

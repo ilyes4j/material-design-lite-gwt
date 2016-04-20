@@ -503,9 +503,12 @@ public class CheckboxBase<T extends Enum<T>> extends ButtonBase implements
 
     Boolean newValue = value == null ? Boolean.FALSE : value;
 
+    toggle.setValue(newValue);
+    
     Boolean oldValue = getValue();
     inputElem.setChecked(newValue);
     inputElem.setDefaultChecked(newValue);
+
     if (newValue.equals(oldValue)) {
       return;
     }
