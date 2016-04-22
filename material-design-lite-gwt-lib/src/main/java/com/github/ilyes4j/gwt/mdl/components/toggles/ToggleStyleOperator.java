@@ -134,9 +134,9 @@ public abstract class ToggleStyleOperator<T extends Enum<T>>
     Element container = mainSwitcher.getTarget();
 
     if (check) {
-      container.removeClassName(IS_CHECKED);
-    } else {
       container.addClassName(IS_CHECKED);
+    } else {
+      container.removeClassName(IS_CHECKED);
     }
   }
 
