@@ -3,12 +3,14 @@ package com.github.ilyes4j.gwt.mdl.components.textfields;
 import com.github.ilyes4j.gwt.mdl.components.ComponentHandler;
 import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
 import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.TextBoxBase;
+import com.google.gwt.user.client.ui.ValueBoxBase;
 
 /**
  * A base class for Material Text Fields.
@@ -146,6 +148,19 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel {
     label.setText(inputLabel);
   }
 
+  /**
+   * programmatically provides the input field with a text. This method
+   * transfers the provided text to {@link ValueBoxBase#setText(String)} and
+   * makes sure the label is correctly positioned.
+   * 
+   * @param text
+   *          the text to be fed to the input field
+   */
+  public void setText(final String text) {
+    box.setText(text);
+    checkDirty(getElement());
+  }
+
   @Override
   protected final void onLoad() {
     super.onLoad();
@@ -153,6 +168,23 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel {
     // upgrade the component
     ComponentHandler.upgradeElement(getElement());
   }
+
+  /**
+   * Checks whether the text field is empty and relocates the label accordingly.
+   * <ul>
+   * <li>If the text field is empty the label is replaced inside the text box.
+   * </li>
+   * <li>If the text field is not empty then the label is relocated above the
+   * text box</li>
+   * </ul>
+   * 
+   * @param element
+   *          the root element of the text field
+   */
+  private native void checkDirty(final Element element)
+  /*-{
+    element.MaterialTextfield.checkDirty();
+  }-*/;
 
   /**
    * {@link Label} widget for the text field.
