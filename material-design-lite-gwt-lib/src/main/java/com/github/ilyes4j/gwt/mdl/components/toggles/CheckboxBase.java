@@ -504,7 +504,7 @@ public class CheckboxBase<T extends Enum<T>> extends ButtonBase implements
     Boolean newValue = value == null ? Boolean.FALSE : value;
 
     toggle.setValue(newValue);
-    
+
     Boolean oldValue = getValue();
     inputElem.setChecked(newValue);
     inputElem.setDefaultChecked(newValue);
@@ -530,10 +530,26 @@ public class CheckboxBase<T extends Enum<T>> extends ButtonBase implements
     addClickHandler(new ClickHandler() {
       @Override
       public void onClick(final ClickEvent event) {
-        // Checkboxes always toggle their value, no need to compare
+        // Check boxes always toggle their value, no need to compare
         // with old value. Radio buttons are not so lucky, see
         // overrides in RadioButton
-        ValueChangeEvent.fire(CheckboxBase.this, getValue());
+
+        // Emergency fix [start]
+        // Unlike GWT standard check boxes that capture click events on the
+        // input elements, MDL check boxes capture click events on the
+        // container (because of reasons).
+        // As a side effect, click events are captured twice one coming from the
+        // input or the label (bubbling) and one from the container itself. To
+        // properly fix this issue the change event should be captured instead
+        // of the click event. As a temporary quick fix the value change event
+        // is broadcast once for each double reception of the click event to
+        // prevent the double broadcast of the value change event.
+        if (fire) {
+          ValueChangeEvent.fire(CheckboxBase.this, getValue());
+        }
+
+        fire = !fire;
+        // Emergency fix [end]
       }
     });
   }
@@ -701,4 +717,10 @@ public class CheckboxBase<T extends Enum<T>> extends ButtonBase implements
    * Responsible for the material layer on top of the check box.
    */
   private ToggleStyleOperator<T> toggle;
+
+  /**
+   * Flips whenever a click event is captured in order to track click
+   * redundancy.
+   */
+  private boolean fire = false;
 }
