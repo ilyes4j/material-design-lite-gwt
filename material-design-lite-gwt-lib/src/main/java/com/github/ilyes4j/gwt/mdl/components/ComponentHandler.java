@@ -111,4 +111,23 @@ public final class ComponentHandler {
   /*-{
     $wnd.componentHandler.upgradeElement(element);
   }-*/;
+
+  /**
+   * Intuitively, one could think that the downgrade function symetrically does
+   * the exact opposite of what the upgrade function does but in fact it does
+   * not. Downgrading an MDL component just means remove the javascript object
+   * of the related MDL component from the MDL dictionary of referenced
+   * components. It simply doesn't do more than that.
+   * 
+   * @param element
+   *          the DOM node to downgrade
+   */
+  public static native void downgradeElement(final Element element)
+  /*-{
+    // look here to a=understand why $wnd.Array and not simply Array
+    // http://tinyurl.com/ye7oujz
+    var arr = new $wnd.Array();
+    arr.push(element);
+    $wnd.componentHandler.downgradeElements(arr);
+  }-*/;
 }
