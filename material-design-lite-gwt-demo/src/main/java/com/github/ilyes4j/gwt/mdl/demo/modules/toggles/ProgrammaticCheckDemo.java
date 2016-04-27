@@ -21,13 +21,13 @@ public class ProgrammaticCheckDemo implements EntryPoint {
 
     RootPanel root = RootPanel.get("programmaticCheckContainer");
 
-    //setup the button controlling the switch of the checked state for a toggle
+    // setup the button controlling the switch of the checked state for a toggle
     String text = "Toggle checked";
     Button enable = Button.createRaised(BTN_NO_COLOR, HAS_RIPPLE, text);
     enable.setRipple(Ripple.HAS_RIPPLE);
     root.add(enable);
 
-    //setup the target toggle to be controlled
+    // setup the target toggle to be controlled
     final Checkbox box = new Checkbox("");
     box.addStyleName(Demo.DEMO.css().inline());
     box.setValue(true);
@@ -36,7 +36,7 @@ public class ProgrammaticCheckDemo implements EntryPoint {
     box.setWidth("auto");
     root.add(box);
 
-    //flip the checked state when the button is clicked
+    // flip the checked state when the button is clicked
     enable.addClickHandler(new ClickHandler() {
       @Override
       public void onClick(final ClickEvent event) {
