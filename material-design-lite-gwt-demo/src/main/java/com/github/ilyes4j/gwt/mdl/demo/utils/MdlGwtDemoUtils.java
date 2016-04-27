@@ -60,12 +60,17 @@ public final class MdlGwtDemoUtils {
    * relative location of the textfields demo page.
    */
   public static final String TXTFLDS = "components/textfields/textfields.html";
-  
+
   /**
    * relative location of the toggles demo page.
    */
   public static final String TOGGLES = "components/toggles/toggles.html";
-  
+
+  /**
+   * relative location of the tooltip demo page.
+   */
+  public static final String TOOLTIPS = "components/tooltips/tooltips.html";
+
   /**
    * relative location of the dropdown demo page.
    */
@@ -93,18 +98,24 @@ public final class MdlGwtDemoUtils {
     menu.setCaption("Menus");
     menu.setUrl(MENUS);
     bar.addLink(menu);
-    
+
     // setup the textfield link
     ComponentsItem textfield = new ComponentsItem("text_format");
     textfield.setCaption("Textfields");
     textfield.setUrl(TXTFLDS);
     bar.addLink(textfield);
-    
+
     // setup the textfield link
     ComponentsItem toggle = new ComponentsItem("check_circle");
     toggle.setCaption("Toggles");
     toggle.setUrl(TOGGLES);
     bar.addLink(toggle);
+
+    // setup the tooltip link
+    ComponentsItem tooltip = new ComponentsItem("textsms");
+    tooltip.setCaption("Tooltips");
+    tooltip.setUrl(TOOLTIPS);
+    bar.addLink(tooltip);
 
     // insert the side bar under the main section of the demo page
     get(MAIN).insert(bar, 0);
