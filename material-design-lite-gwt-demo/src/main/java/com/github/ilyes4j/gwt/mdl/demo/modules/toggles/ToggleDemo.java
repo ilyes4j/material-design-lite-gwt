@@ -27,6 +27,7 @@ public class ToggleDemo implements EntryPoint {
     demos.add(new RadioEventDemo());
     demos.add(new ProgrammaticEnableDemo());
     demos.add(new ProgrammaticCheckDemo());
+    demos.add(new EventOnDisabledDemo());
 
     for (EntryPoint entry : demos) {
       entry.onModuleLoad();
