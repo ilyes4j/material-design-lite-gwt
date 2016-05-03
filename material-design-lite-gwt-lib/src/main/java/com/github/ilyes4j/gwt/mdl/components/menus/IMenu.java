@@ -2,15 +2,15 @@ package com.github.ilyes4j.gwt.mdl.components.menus;
 
 import com.github.ilyes4j.gwt.mdl.components.menus.Menu.ItemClickListener;
 import com.google.gwt.user.client.ui.Anchor;
+import com.google.gwt.user.client.ui.IsWidget;
 
 /**
  * Every component that has menu related features should implement this
  * interface.
  * 
  * @author Mohamed Ilyes DIMASSI
- *
  */
-public interface IMenu {
+public interface IMenu extends IsWidget {
 
   /**
    * Sets the position of the {@link Menu} on the screen related to its
@@ -24,7 +24,7 @@ public interface IMenu {
    * be anchored correctly.
    * 
    * @param anchor
-   *          the requested {@link Anchor} position for the {@link Menu} .
+   *          the requested {@link Anchor} position for the {@link Menu}
    */
   void setAnchor(MenuAnchor anchor);
 
