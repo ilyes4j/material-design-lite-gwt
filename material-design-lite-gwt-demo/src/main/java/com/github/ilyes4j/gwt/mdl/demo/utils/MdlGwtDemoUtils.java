@@ -72,10 +72,15 @@ public final class MdlGwtDemoUtils {
   public static final String TOOLTIPS = "components/tooltips/tooltips.html";
 
   /**
+   * relative location of the slider demo page.
+   */
+  public static final String SLIDERS = "components/sliders/sliders.html";
+  
+  /**
    * relative location of the dropdown demo page.
    */
   public static final String DROPS = "extensions/dropdowns/dropdowns.html";
-
+  
   /**
    * Setup the components side bar and inject it inside the main section of a
    * demo page.
@@ -117,6 +122,12 @@ public final class MdlGwtDemoUtils {
     tooltip.setUrl(TOOLTIPS);
     bar.addLink(tooltip);
 
+    // setup the slider link
+    ComponentsItem slider = new ComponentsItem("tune");
+    slider.setCaption("Sliders");
+    slider.setUrl(SLIDERS);
+    bar.addLink(slider);
+    
     // insert the side bar under the main section of the demo page
     get(MAIN).insert(bar, 0);
   }
