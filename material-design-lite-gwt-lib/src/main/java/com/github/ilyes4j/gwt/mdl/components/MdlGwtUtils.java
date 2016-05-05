@@ -77,6 +77,53 @@ public final class MdlGwtUtils {
   }
 
   /**
+   * <p>
+   * Set the property for a DOM element object, not to be confused with element
+   * attributes.
+   * </p>
+   * <p>
+   * To distinguish between properties and attributes lets consider the
+   * following input element :<br>
+   * &lt;input id=&quot;inrang&quot; type=&quot;range&quot; min=&quot;0&quot;
+   * max=&quot;100&quot;&gt;
+   * </p>
+   * The current value is set through the value <code>PROPERTY</code> =>
+   * inrang["value"] = 50; <br>
+   * The initial value is set using the value <code>ATTRIBUTE</code> =>
+   * inrang.setAttribute("value", 0);
+   * 
+   * @param elt
+   *          the target element
+   * 
+   * @param prop
+   *          the target property
+   *
+   * @param val
+   *          the target value
+   */
+  public static native void setProperty(final Element elt, final String prop,
+      final double val)
+      /*-{
+        elt[prop] = val;
+      }-*/;
+
+  /**
+   * Retrieve the property value for an element.
+   * 
+   * @param elt
+   *          the target element of the value set
+   * 
+   * @param prop
+   *          the target property to set
+   * 
+   * @return the value of the property being set
+   */
+  public static native double getProperty(final Element elt, final String prop)
+  /*-{
+    return elt[prop];
+  }-*/;
+
+  /**
    * Make sure the index provided as input is inside the range of possible
    * elements of a list.
    * 
