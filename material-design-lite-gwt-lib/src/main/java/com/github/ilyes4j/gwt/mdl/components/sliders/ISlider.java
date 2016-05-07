@@ -12,6 +12,16 @@ import com.google.gwt.event.shared.HandlerRegistration;
 public interface ISlider {
 
   /**
+   * Adds a {@link InputHandler} handler.
+   * 
+   * @param handler
+   *          the input handler
+   * 
+   * @return {@link HandlerRegistration} used to remove this handler
+   */
+  HandlerRegistration addInputHandler(final InputHandler handler);
+
+  /**
    * Adds a {@link ChangeHandler} handler.
    * 
    * @param handler

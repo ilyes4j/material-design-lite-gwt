@@ -50,6 +50,11 @@ public class SliderInput extends FocusWidget implements ISlider {
   }
 
   @Override
+  public HandlerRegistration addInputHandler(final InputHandler handler) {
+    return addDomHandler(handler, InputEvent.getType());
+  }
+
+  @Override
   public HandlerRegistration addChangeHandler(final ChangeHandler handler) {
     return addDomHandler(handler, ChangeEvent.getType());
   }
