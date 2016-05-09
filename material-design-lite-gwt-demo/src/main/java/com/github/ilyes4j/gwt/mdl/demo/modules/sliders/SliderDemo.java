@@ -20,6 +20,7 @@ public class SliderDemo implements EntryPoint {
 
     Collection<EntryPoint> demos = new ArrayList<>();
     demos.add(new DefaultSliderDemo());
+    demos.add(new SliderWidthDemo());
 
     for (EntryPoint entry : demos) {
       entry.onModuleLoad();
