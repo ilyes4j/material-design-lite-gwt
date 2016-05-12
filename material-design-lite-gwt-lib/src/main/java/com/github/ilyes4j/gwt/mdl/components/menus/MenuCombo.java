@@ -32,7 +32,7 @@ import com.google.gwt.user.client.ui.FlowPanel;
  * @author Mohamed Ilyes DIMASSI
  *
  */
-public class MenuCombo extends FlowPanel implements IMenu {
+public class MenuCombo extends FlowPanel implements IMenu, IHasEventSource {
 
   /**
    * Setup a {@link MenuCombo}.<br>
@@ -57,6 +57,9 @@ public class MenuCombo extends FlowPanel implements IMenu {
     // setup the menu part
     menu = new Menu();
 
+    // make the combo the default event source
+    menu.setEventSource(this);
+
     // build an ID for the menu. mdl requires that the button controlling
     // the menu should have an id. That id is then referenced in the menu
     // component enabling it to communicate with the button.
@@ -80,6 +83,15 @@ public class MenuCombo extends FlowPanel implements IMenu {
 
     // add the menu to the parent element
     add(menu);
+  }
+
+  /**
+   * @param inputSource
+   *          the object that designated as the source of events published by
+   *          the menu
+   */
+  public void setEventSource(final Object inputSource) {
+    menu.setEventSource(inputSource);
   }
 
   @Override

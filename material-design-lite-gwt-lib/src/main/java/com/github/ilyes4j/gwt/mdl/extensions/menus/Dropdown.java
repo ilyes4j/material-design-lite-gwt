@@ -6,6 +6,7 @@ import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_C
 import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 
 import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
+import com.github.ilyes4j.gwt.mdl.components.menus.IHasEventSource;
 import com.github.ilyes4j.gwt.mdl.components.menus.IMenu;
 import com.github.ilyes4j.gwt.mdl.components.menus.ItemClickEvent;
 import com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor;
@@ -21,7 +22,7 @@ import com.google.gwt.user.client.ui.Composite;
  * @author Mohamed Ilyes DIMASSI
  *
  */
-public class Dropdown extends Composite implements IMenu {
+public class Dropdown extends Composite implements IMenu, IHasEventSource {
 
   /**
    * Setup a default dropdown with a raised action {@link Button} and a menu
@@ -34,6 +35,11 @@ public class Dropdown extends Composite implements IMenu {
     init(button);
   }
 
+  @Override
+  public void setEventSource(final Object inputSource) {
+    combo.setEventSource(inputSource);
+  }
+  
   @Override
   public final void setAnchor(final MenuAnchor anchor) {
     combo.setAnchor(anchor);
@@ -168,6 +174,7 @@ public class Dropdown extends Composite implements IMenu {
     button = btn;
 
     combo = new MenuCombo(button);
+    combo.setEventSource(this);
     initWidget(combo);
 
     ItemClickListener clickListener;

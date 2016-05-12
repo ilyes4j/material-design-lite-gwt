@@ -37,7 +37,7 @@ import com.google.gwt.user.client.ui.HTMLPanel;
  *
  * @see Button
  */
-public class Menu extends HTMLPanel implements IMenu {
+public class Menu extends HTMLPanel implements IMenu, IHasEventSource {
 
   /**
    * Objects that need to be notified when an {@link MenuItem} is clicked should
@@ -112,6 +112,14 @@ public class Menu extends HTMLPanel implements IMenu {
 
     // create the array that will hold item click listeners
     listeners = new ArrayList<>();
+
+    // set the event sender as the the menu by default
+    source = this;
+  }
+
+  @Override
+  public void setEventSource(final Object inputSource) {
+    this.source = inputSource;
   }
 
   /**
@@ -378,13 +386,13 @@ public class Menu extends HTMLPanel implements IMenu {
    */
   private void itemClicked(final ClickEvent event) {
     // get the sender of the click event
-    Object source = event.getSource();
+    Object clickSource = event.getSource();
 
     // is the sender one of the items of the menu
-    if (source instanceof MenuItem) {
+    if (clickSource instanceof MenuItem) {
 
       // cast the sender into a MenuItem
-      MenuItem itemSrc = (MenuItem) source;
+      MenuItem itemSrc = (MenuItem) clickSource;
 
       // the sequential order of the item in the list of items
       int itemIndex = items.indexOf(itemSrc);
@@ -392,7 +400,7 @@ public class Menu extends HTMLPanel implements IMenu {
 
       // create the event containing the required informations about
       // the selected item
-      ItemClickEvent evt = new ItemClickEvent(itemIndex, itemValue);
+      ItemClickEvent evt = new ItemClickEvent(itemIndex, itemValue, source);
 
       // dispatch the selected item to all listeners
       for (ItemClickListener listener : listeners) {
@@ -625,6 +633,11 @@ public class Menu extends HTMLPanel implements IMenu {
    * css flag intended for component upgrade.
    */
   private static final String CSS_JS_MENU = "mdl-js-menu";
+
+  /**
+   * Stores the source of published events.
+   */
+  private Object source;
 
   /**
    * Menu logger.
