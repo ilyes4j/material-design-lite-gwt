@@ -94,15 +94,7 @@ public class Dropdown extends Composite implements IMenu {
     button.setText(text);
   }
 
-  /**
-   * Has the same effect as Dropdown.addItem(item , item, enabled).
-   * 
-   * @param item
-   *          the value and text of the item to be added
-   * 
-   * @param enabled
-   *          the state of the item to be added
-   */
+  @Override
   public final void addItem(final String item, final boolean enabled) {
     addItem(item, item, enabled);
   }

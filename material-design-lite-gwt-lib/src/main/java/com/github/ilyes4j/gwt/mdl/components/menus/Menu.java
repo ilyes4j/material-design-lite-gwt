@@ -296,16 +296,7 @@ public class Menu extends HTMLPanel implements IMenu {
     }
   }
 
-  /**
-   * Adds a new item to the menu. The value and the text are set to the same
-   * String. Has the same effect as Menu.addItem(item, item , enabled).
-   * 
-   * @param item
-   *          The value and the text of the item to be added
-   * 
-   * @param enabled
-   *          Defines whether the option can be chosen or not.
-   */
+  @Override
   public final void addItem(final String item, final boolean enabled) {
     addItem(item, item, enabled);
   }

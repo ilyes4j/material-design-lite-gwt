@@ -98,17 +98,9 @@ public class MenuCombo extends FlowPanel implements IMenu {
     menu.addItem(text, value, enabled);
   }
 
-  /**
-   * Has the same effect as MenuCombo.addItem(item , item, enabled).
-   * 
-   * @param item
-   *          the value and text of the item to be added
-   * 
-   * @param enabled
-   *          the state of the item to be added
-   */
+  @Override
   public final void addItem(final String item, final boolean enabled) {
-    menu.addItem(item, enabled);
+    addItem(item, item, enabled);
   }
 
   @Override

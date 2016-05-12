@@ -48,6 +48,18 @@ public interface IMenu extends IsWidget {
   void addItem(String text, String value, boolean enabled);
 
   /**
+   * Syntactic sugar for {@link IMenu#addItem(String, String, boolean)} where
+   * the text and value are the same.
+   * 
+   * @param item
+   *          The text to be displayed
+   * 
+   * @param enabled
+   *          Defines whether the option can be chosen or not.
+   */
+  void addItem(String item, boolean enabled);
+
+  /**
    * When an object needs to be notified upon a {@link MenuItem} click, it must
    * be be registered to the {@link Menu} as an {@link ItemClickListener} .<br>
    * <br>
