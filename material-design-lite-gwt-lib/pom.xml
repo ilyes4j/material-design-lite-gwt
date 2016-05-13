@@ -50,6 +50,7 @@
             </goals>
             <phase>test</phase>
             <configuration>
+              <includeTestSourceDirectory>true</includeTestSourceDirectory>
               <configLocation>../sun_checks_eclipse.xml</configLocation>
             </configuration>
           </execution>
