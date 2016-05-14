@@ -64,7 +64,7 @@
           <!-- package sources with compiled classes -->
           <execution>
             <id>gwt-resources</id>
-            <phase>prepare-package</phase>
+            <phase>test</phase>
             <goals>
               <goal>resources</goal>
             </goals>
@@ -102,7 +102,7 @@
               <productionMode>true</productionMode>
 
               <!-- Run using a real browser -->
-              <!-- <mode>manual</mode> -->
+              <!-- <mode>manual</mode> -->            
             </configuration>
           </execution>
         </executions>
