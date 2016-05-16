@@ -20,6 +20,7 @@ public class TooltipDemo implements EntryPoint {
 
     Collection<EntryPoint> demos = new ArrayList<>();
     demos.add(new FontSizeDemo());
+    demos.add(new EnableDemo());
 
     for (EntryPoint entry : demos) {
       entry.onModuleLoad();
