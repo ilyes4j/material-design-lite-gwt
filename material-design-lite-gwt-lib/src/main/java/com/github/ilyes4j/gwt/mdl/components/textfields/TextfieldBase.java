@@ -158,7 +158,12 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel {
    */
   public void setText(final String text) {
     box.setText(text);
-    checkDirty(getElement());
+
+    // make sure the label is correctly positioned only when the text field is
+    // already upgraded (which occurs when the component is attached)
+    if (isAttached()) {
+      checkDirty(getElement());
+    }
   }
 
   @Override
