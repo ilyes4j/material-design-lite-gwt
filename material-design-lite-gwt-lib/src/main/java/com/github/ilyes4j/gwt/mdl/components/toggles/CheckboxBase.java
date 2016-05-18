@@ -11,8 +11,8 @@ import com.google.gwt.dom.client.Style.WhiteSpace;
 import com.google.gwt.editor.client.IsEditor;
 import com.google.gwt.editor.client.LeafValueEditor;
 import com.google.gwt.editor.client.adapters.TakesValueEditor;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
@@ -527,31 +527,14 @@ public class CheckboxBase<T extends Enum<T>> extends ButtonBase implements
    * 
    */
   protected void ensureDomEventHandlers() {
-    addClickHandler(new ClickHandler() {
+
+    addDomHandler(new ChangeHandler() {
+
       @Override
-      public void onClick(final ClickEvent event) {
-        // Check boxes always toggle their value, no need to compare
-        // with old value. Radio buttons are not so lucky, see
-        // overrides in RadioButton
-
-        // Emergency fix [start]
-        // Unlike GWT standard check boxes that capture click events on the
-        // input elements, MDL check boxes capture click events on the
-        // container (because of reasons).
-        // As a side effect, click events are captured twice one coming from the
-        // input or the label (bubbling) and one from the container itself. To
-        // properly fix this issue the change event should be captured instead
-        // of the click event. As a temporary quick fix the value change event
-        // is broadcast once for each double reception of the click event to
-        // prevent the double broadcast of the value change event.
-        if (fire) {
-          ValueChangeEvent.fire(CheckboxBase.this, getValue());
-        }
-
-        fire = !fire;
-        // Emergency fix [end]
+      public void onChange(final ChangeEvent event) {
+        ValueChangeEvent.fire(CheckboxBase.this, getValue());
       }
-    });
+    }, ChangeEvent.getType());
   }
 
   /**
@@ -717,10 +700,4 @@ public class CheckboxBase<T extends Enum<T>> extends ButtonBase implements
    * Responsible for the material layer on top of the check box.
    */
   private ToggleStyleOperator<T> toggle;
-
-  /**
-   * Flips whenever a click event is captured in order to track click
-   * redundancy.
-   */
-  private boolean fire = false;
 }
