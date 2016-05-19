@@ -19,6 +19,7 @@ public class ItemClickEvent {
    * 
    * @param inputIndex
    *          the position of the clicked {@link MenuItem} in the list.
+   * 
    * @param inputValue
    *          the displayed label of the clicked {@link MenuItem}.
    * 
@@ -33,18 +34,12 @@ public class ItemClickEvent {
     this.source = inputSource;
   }
 
-  /**
-   * 
-   * @return the position of the clicked {@link MenuItem}
-   */
+  /** @return the position of the clicked {@link MenuItem} */
   public final int getIndex() {
     return index;
   }
 
-  /**
-   * 
-   * @return the displayed label of the clicked {@link MenuItem}
-   */
+  /** @return the displayed label of the clicked {@link MenuItem} */
   public final String getValue() {
     return value;
   }
@@ -54,14 +49,10 @@ public class ItemClickEvent {
     return source;
   }
 
-  /**
-   * Sequential position of the item in the list of items.
-   */
+  /** Sequential position of the item in the list of items. */
   private int index;
 
-  /**
-   * The Text of the item.
-   */
+  /** The Text of the item. */
   private String value;
 
   /** The sender of the event. */
