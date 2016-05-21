@@ -18,6 +18,7 @@ import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
 import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
 import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
 import com.github.ilyes4j.gwt.mdl.components.ripples.RippleSwitcher;
+import com.google.gwt.dom.client.Style.Overflow;
 import com.google.gwt.dom.client.UListElement;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -234,7 +235,7 @@ public class Menu extends HTMLPanel implements IMenu, IHasEventSource {
     upgraded = true;
 
     // make sure the menu height does not exceed the threshold.
-    assertMaxHeight();
+    assertHeight();
 
     // componentHandler.upgradeElement(element) only operates on the very
     // element it is applied on. It does not operate on inner elements
@@ -538,21 +539,37 @@ public class Menu extends HTMLPanel implements IMenu, IHasEventSource {
   }
 
   /**
-   * If the menu approximate height exceeds the max threshold, add a scroll bar.
+   * If the menu contains more than {@link Menu#MAX_ITEMS} number of items than
+   * add a scroll bar to the menu.
    */
-  private void assertMaxHeight() {
+  private void assertHeight() {
 
-    // the value returned accounts for the padding value, but the enforced
-    // height does not account for any paddings. The resulting height of the
-    // menu is the max height to which is added the top and bottom paddings.
-    // This result is only problematic when absurdly large paddings are used
-    // which is very unlikely to happen. When reasonable padding values are
-    // used, the overall height stays within the range of the threshold.
-    int height = getElement().getClientHeight();
-
-    if (height > MAX_HEIGHT) {
+    // The previously implemented solution to determine when a scroll bar is
+    // required was to measure the height of the menu. If the height exceeds
+    // the threshold then a scroll bar is added.
+    //
+    // The problem with this solution is that when the scroll bar is added, the
+    // height cannot anymore be used to determine if the scroll bar is still
+    // needed. In fact even if the number of items decreases below the threshold
+    // the fixed height and scroll will prevent the menu from shrinking.
+    //
+    // In order to be able to determine if the scroll needs to be removed it has
+    // to be set to a neutral situation without a scroll bar before challenging
+    // the height of the menu.
+    //
+    // Another problem faced with the height solution is that the height is not
+    // calculated when the container is invisible. In this scenario it becomes
+    // more difficult to determine when the height value has a meaningful
+    // value in addition to also knowing when the value will become meaningful.
+    //
+    // with the present solution, the number of items added to the menu is used
+    // to determine whether the menu requires a scroll bar.
+    if (getItemCount() > MAX_ITEMS) {
       getElement().getStyle().setOverflowY(SCROLL);
       getElement().getStyle().setHeight(MAX_HEIGHT, PX);
+    } else {
+      getElement().getStyle().setOverflowY(Overflow.AUTO);
+      getElement().getStyle().setProperty("height", "auto");
     }
   }
 
@@ -622,7 +639,12 @@ public class Menu extends HTMLPanel implements IMenu, IHasEventSource {
   /**
    * Default maximum value not to be exceeded by the menu's height.
    */
-  private static final int MAX_HEIGHT = 200;
+  private static final int MAX_HEIGHT = 208;
+
+  /**
+   * The maximum amount of items to show before adding a scroll bar.
+   */
+  private static final int MAX_ITEMS = 4;
 
   /**
    * The {@link Menu} material style.
