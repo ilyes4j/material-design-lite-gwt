@@ -83,6 +83,10 @@ public class MenuCombo extends FlowPanel implements IMenu, IHasEventSource {
 
     // add the menu to the parent element
     add(menu);
+    
+    // make the button disabled in the absence of items in the menu
+    // as soon as the menu acquires some items make it enabled back
+    enableAction();    
   }
 
   /**
@@ -143,6 +147,14 @@ public class MenuCombo extends FlowPanel implements IMenu, IHasEventSource {
   @Override
   public final boolean isEnabled(final int index) {
     return menu.isEnabled(index);
+  }
+
+  /**
+   * Make sure the action button is enabled if the menu contains at least an
+   * item. Make it disabled if it does not contain any item.
+   */
+  private void enableAction() {
+    button.setEnabled(getItemCount() > 0);
   }
 
   /**

@@ -30,7 +30,7 @@ public class Dropdown extends Composite implements IMenu, IHasEventSource {
    */
   public Dropdown() {
 
-    button = createRaised(BTN_NO_COLOR, HAS_RIPPLE, null);
+    button = createRaised(BTN_NO_COLOR, HAS_RIPPLE, N_A);
 
     init(button);
   }
@@ -48,6 +48,7 @@ public class Dropdown extends Composite implements IMenu, IHasEventSource {
   @Override
   public final void clearMenu() {
     combo.clearMenu();
+    setSelected(-1);
   }
 
   @Override
@@ -138,12 +139,21 @@ public class Dropdown extends Composite implements IMenu, IHasEventSource {
 
   /**
    * Set a selected item of the dropdown programmatically. If the chosen item is
-   * disabled, the element is not selected
+   * disabled, the element is not selected.
    * 
    * @param index
-   *          the index of the item to be selected
+   *          the index of the item to be selected or -1 to select none of the
+   *          items.
    */
   public final void setSelected(final int index) {
+
+    // handle the special case of setting the selected item to none.
+    if (index == -1) {
+      selectedIndex = index;
+      button.setText(N_A);
+      return;
+    }
+
     assertIndex(getItemCount(), index);
 
     if (selectedIndex == index) {
@@ -157,7 +167,7 @@ public class Dropdown extends Composite implements IMenu, IHasEventSource {
     selectedIndex = index;
     button.setText(getItemText(index));
   }
-  
+
   /**
    * 
    * @return returns the currently selected item
@@ -203,4 +213,7 @@ public class Dropdown extends Composite implements IMenu, IHasEventSource {
    * holds the index of the selected item of the dropdown.
    */
   private int selectedIndex = -1;
+
+  /** The string to display when there is no items to select. */
+  private static final String N_A = "[N/A]";
 }
