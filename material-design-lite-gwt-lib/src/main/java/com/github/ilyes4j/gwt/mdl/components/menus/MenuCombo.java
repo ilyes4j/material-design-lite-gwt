@@ -98,6 +98,23 @@ public class MenuCombo extends FlowPanel implements IMenu, IHasEventSource {
     menu.setEventSource(inputSource);
   }
 
+  /**
+   * @param enable
+   *          if <code>true</code> then the action button of the menu is set to
+   *          be enabled, <code>false</code> then the action button is disabled
+   */
+  public void setEnabled(final boolean enable) {
+    button.setEnabled(enable);
+  }
+
+  /**
+   * @return <code>true</code> if the menu's action button is enabled,
+   *         <code>false</code> if it is disabled.
+   */
+  public boolean isEnabled() {
+    return button.isEnabled();
+  }
+
   @Override
   public final void setAnchor(final MenuAnchor anchor) {
     menu.setAnchor(anchor);

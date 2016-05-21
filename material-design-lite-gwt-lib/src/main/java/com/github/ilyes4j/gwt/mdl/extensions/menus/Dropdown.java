@@ -35,11 +35,26 @@ public class Dropdown extends Composite implements IMenu, IHasEventSource {
     init(button);
   }
 
+  /**
+   * @param enable
+   *          see {@link MenuCombo#setEnabled(boolean)}
+   */
+  public void setEnabled(final boolean enable) {
+    combo.setEnabled(enable);
+  }
+
+  /**
+   * @return see {@link MenuCombo#isEnabled()}
+   */
+  public boolean isEnabled() {
+    return combo.isEnabled();
+  }
+
   @Override
   public void setEventSource(final Object inputSource) {
     combo.setEventSource(inputSource);
   }
-  
+
   @Override
   public final void setAnchor(final MenuAnchor anchor) {
     combo.setAnchor(anchor);
