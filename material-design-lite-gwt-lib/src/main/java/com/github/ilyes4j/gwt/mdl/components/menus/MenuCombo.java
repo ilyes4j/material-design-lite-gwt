@@ -122,7 +122,8 @@ public class MenuCombo extends FlowPanel implements IMenu, IHasEventSource {
 
   @Override
   public final void clearMenu() {
-    menu.clear();
+    menu.clearMenu();
+    enableAction();
   }
 
   @Override

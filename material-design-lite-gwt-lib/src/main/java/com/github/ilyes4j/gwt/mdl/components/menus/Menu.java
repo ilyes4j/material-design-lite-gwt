@@ -18,6 +18,7 @@ import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
 import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
 import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
 import com.github.ilyes4j.gwt.mdl.components.ripples.RippleSwitcher;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style.Overflow;
 import com.google.gwt.dom.client.UListElement;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -251,21 +252,27 @@ public class Menu extends HTMLPanel implements IMenu, IHasEventSource {
   public final void clearMenu() {
 
     // remove click handlers
-    for (Map.Entry<MenuItem, HandlerRegistration> entry : handlerRegs
-        .entrySet()) {
-      entry.getValue().removeHandler();
+    for (HandlerRegistration handler : handlerRegs.values()) {
+      handler.removeHandler();
     }
 
     // reset the handlers registrations list
     handlerRegs.clear();
 
-    // remove items from the DOM
+    // unplug listeners and remove the items from the DOM
     for (MenuItem item : items) {
+
+      downgradeItem(item);
+
+      // detach the item from its parent
       remove(item);
     }
 
     // reset the item list.
     items.clear();
+
+    // remove the scroll bar considering that the menu is now empty
+    assertHeight();
   }
 
   @Override
@@ -369,6 +376,43 @@ public class Menu extends HTMLPanel implements IMenu, IHasEventSource {
   public final boolean isEnabled(final int index) {
     return getMenuItem(index).isEnabled();
   }
+
+  /**
+   * unplug event handlers and downgrade only if the menu is upgraded.
+   * 
+   * @param item
+   *          the menu item to be downgraded
+   */
+  private void downgradeItem(final MenuItem item) {
+    if (upgraded) {
+      // clean up the item from event handlers
+      destroyItem(getElement(), item.getElement());
+
+      // remove the component controller from the registry of mdl components
+      ComponentHandler.downgradeElement(item.getElement());
+    }
+  }
+
+  /**
+   * Prepare the menu item for removal by unregistering event listeners.
+   * 
+   * @param menu
+   *          the menu from which the item will be removed
+   * 
+   * @param item
+   *          the item to be removed
+   * 
+   */
+  private native void destroyItem(final Element menu, final Element item)
+  /*-{
+    //retrieve the menu element
+    var matMenu = menu.MaterialMenu;
+  
+    // remove the listener from the item.
+    item.removeEventListener('click', matMenu.boundItemClick_);
+    // Add a keyboard listener to each menu item.
+    item.removeEventListener('keydown', matMenu.boundItemKeydown_);
+  }-*/;
 
   /**
    * This method should be extended when additional behavior is required.
