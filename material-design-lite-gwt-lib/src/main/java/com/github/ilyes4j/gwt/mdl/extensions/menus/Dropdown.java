@@ -99,21 +99,7 @@ public class Dropdown extends Composite implements IMenu, IHasEventSource {
   @Override
   public final void addItem(final String text, final String value,
       final boolean enabled) {
-    combo.addItem(text, value, enabled);
-
-    // if no item is selected, then by default select the first enabled item in
-    // the menu, otherwise don't do anything.
-    if (selectedIndex != -1) {
-      return;
-    }
-
-    // if the item is disabled
-    if (!enabled) {
-      return;
-    }
-
-    selectedIndex = getItemCount() - 1;
-    button.setText(text);
+    addItem(text, value, getItemCount(), enabled);
   }
 
   @Override
@@ -143,6 +129,13 @@ public class Dropdown extends Composite implements IMenu, IHasEventSource {
    */
   public final void addItem(final String text, final String value) {
     addItem(text, value, true);
+  }
+
+  @Override
+  public void addItem(final String text, final String value, final int index,
+      final boolean enabled) {
+    combo.addItem(text, value, index, enabled);
+    selectDefault(index);
   }
 
   /**
@@ -231,6 +224,29 @@ public class Dropdown extends Composite implements IMenu, IHasEventSource {
       }
     };
     addItemClickListener(clickListener);
+  }
+
+  /**
+   * if no item is selected, then by default select the first enabled item in
+   * the menu, otherwise don't do anything.
+   * 
+   * @param index
+   *          the item to select
+   */
+  private void selectDefault(final int index) {
+    // if no item is selected, then by default select the first enabled item in
+    // the menu, otherwise don't do anything.
+    if (selectedIndex != -1) {
+      return;
+    }
+
+    // if the item is disabled it cannot be of selected
+    if (!isEnabled(index)) {
+      return;
+    }
+
+    selectedIndex = index;
+    button.setText(getItemText(selectedIndex));
   }
 
   /**

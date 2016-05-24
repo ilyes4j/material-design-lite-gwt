@@ -129,12 +129,19 @@ public class MenuCombo extends FlowPanel implements IMenu, IHasEventSource {
   @Override
   public final void addItem(final String text, final String value,
       final boolean enabled) {
-    menu.addItem(text, value, enabled);
+    addItem(text, value, getItemCount(), enabled);
   }
 
   @Override
   public final void addItem(final String item, final boolean enabled) {
     addItem(item, item, enabled);
+  }
+
+  @Override
+  public void addItem(final String text, final String value, final int index,
+      final boolean enabled) {
+    menu.addItem(text, value, index, enabled);
+    enableAction();
   }
 
   @Override

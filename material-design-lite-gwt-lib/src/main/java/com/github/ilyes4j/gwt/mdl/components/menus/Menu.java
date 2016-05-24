@@ -279,29 +279,20 @@ public class Menu extends HTMLPanel implements IMenu, IHasEventSource {
   public final void addItem(final String text, final String value,
       final boolean enabled) {
 
-    // don't let the item be added considering the menu is already upgraded
-    if (upgraded) {
-      StringBuilder sb = new StringBuilder();
+    addItem(text, value, getItemCount(), enabled);
+  }
 
-      sb.append("Attempting to add an item to the menu ");
-      sb.append("but the menu is already upgraded.\n");
-      sb.append("Please add items before the menu is upgraded.");
-
-      String msg = sb.toString();
-
-      LOG.warning(msg);
-
-      throw new IllegalStateException(msg);
-    }
-
+  @Override
+  public void addItem(final String text, final String value, final int position,
+      final boolean enabled) {
     // create the item holder
     MenuItem menuItem = new MenuItem(value, text);
 
     // ... add it to the items list
-    items.add(menuItem);
+    items.add(position, menuItem);
 
     // ... add the MenuItem to the DOM.
-    add(menuItem);
+    insert(menuItem, (Element) getElement(), position, true);
 
     // ...set the css style of the item
     menuItem.setEnabled(enabled);
@@ -309,6 +300,12 @@ public class Menu extends HTMLPanel implements IMenu, IHasEventSource {
     // set the enabled state for the first time.
     if (enabled) {
       forceEnable(menuItem);
+    }
+
+    if (upgraded) {
+      prepareAddItem(getElement(), menuItem.getElement());
+      assertHeight();
+      ComponentHandler.upgradeElement(menuItem.getElement());
     }
   }
 
@@ -440,6 +437,50 @@ public class Menu extends HTMLPanel implements IMenu, IHasEventSource {
     item.removeEventListener('click', matMenu.boundItemClick_);
     // Add a keyboard listener to each menu item.
     item.removeEventListener('keydown', matMenu.boundItemKeydown_);
+  }-*/;
+
+  /**
+   * On upgrade, the menu applies some transformations on the items like adding
+   * a ripple container. In order for the item added after upgrade to benefit
+   * from the same feature and be treated consistently, these operations are
+   * DUPLICATED in this method. Obviously, there is a maintenance issue with
+   * this solution, but there is no other option for the moment. In this
+   * situation, the native implementation should be monitored for changes and
+   * these changes should be applied to enforce consistency over time.
+   * 
+   * @param menu
+   *          the menu DOM node
+   * 
+   * @param item
+   *          the item DOM node
+   */
+  private native void prepareAddItem(final Element menu, final Element item)
+  /*-{
+  
+    var matMenu = menu.MaterialMenu;
+  
+    // Add a listener to each menu item.
+    item.addEventListener('click', matMenu.boundItemClick_);
+    // Add a tab index to each menu item.
+    item.tabIndex = '-1';
+    // Add a keyboard listener to each menu item.
+    item.addEventListener('keydown', matMenu.boundItemKeydown_);
+  
+    // Add ripple classes to each item, if the user has enabled ripples.
+    if (menu.classList.contains(matMenu.CssClasses_.RIPPLE_EFFECT)) {
+  
+      var rippleContainer = document.createElement('span');
+      rippleContainer.classList
+          .add(matMenu.CssClasses_.ITEM_RIPPLE_CONTAINER);
+  
+      var ripple = document.createElement('span');
+      ripple.classList.add(matMenu.CssClasses_.RIPPLE);
+      rippleContainer.appendChild(ripple);
+      item.appendChild(rippleContainer);
+  
+      item.classList.add(matMenu.CssClasses_.RIPPLE_EFFECT);
+    }
+    
   }-*/;
 
   /**

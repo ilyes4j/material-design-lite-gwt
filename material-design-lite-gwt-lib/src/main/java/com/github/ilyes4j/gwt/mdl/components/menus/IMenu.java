@@ -60,6 +60,24 @@ public interface IMenu extends IsWidget {
   void addItem(String item, boolean enabled);
 
   /**
+   * Adds a an option into the set of options of the menu at a specified
+   * position.
+   * 
+   * @param text
+   *          The text to be displayed
+   * 
+   * @param value
+   *          The value to be added
+   * 
+   * @param enabled
+   *          Defines whether the option is available for selection.
+   * 
+   * @param index
+   *          the insertion position of the item
+   */
+  void addItem(String text, String value, int index, boolean enabled);
+
+  /**
    * When an object needs to be notified upon a {@link MenuItem} click, it must
    * be be registered to the {@link Menu} as an {@link ItemClickListener} .<br>
    * <br>

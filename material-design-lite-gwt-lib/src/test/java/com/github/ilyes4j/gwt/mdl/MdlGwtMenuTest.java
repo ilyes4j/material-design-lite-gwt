@@ -89,40 +89,31 @@ public class MdlGwtMenuTest extends MdlGwtBaseTest {
   }
 
   /**
-   * The menu doesn't (yet) support adding items after the menu is upgraded. If
-   * an item is added to the menu after the upgrade, an exception should be
-   * raised.
+   * The menu now supports adding items after the menu is upgraded. If an item
+   * is added to the menu after the upgrade, no exception should be raised.
    */
   public final void testAddItem() {
 
-    try {
+    RootPanel root = RootPanel.get();
 
-      RootPanel root = RootPanel.get();
+    // setup a button and add attach it to the DOM
+    final String mnId = "btn";
+    Button btn = Button.createRaised(BTN_NO_COLOR, HAS_RIPPLE, "Menu");
+    btn.getElement().setAttribute("id", mnId);
+    root.add(btn);
 
-      // setup a button and add attach it to the DOM
-      final String mnId = "btn";
-      Button btn = Button.createRaised(BTN_NO_COLOR, HAS_RIPPLE, "Menu");
-      btn.getElement().setAttribute("id", mnId);
-      root.add(btn);
+    // setup a menu
+    Menu menu = new Menu();
+    menu.setActionId(mnId);
 
-      // setup a menu
-      Menu menu = new Menu();
-      menu.setActionId(mnId);
+    // attach the menu
+    RootPanel.get().add(menu);
 
-      // attach the menu
-      RootPanel.get().add(menu);
+    // do not raise an exception when adding the item
+    menu.addItem("Some Item");
 
-      // raise an exception while attempting to add an item
-      menu.addItem("Some Item");
-
-      // fail the test if the menu does not raise the appropriate exception
-      assertTrue(false);
-
-    } catch (IllegalStateException ise) {
-
-      // pass the test when the menu raises the appropriate exception
-      assertTrue(true);
-    }
+    // do not fail the test
+    assertTrue(true);
   }
 
   /**
