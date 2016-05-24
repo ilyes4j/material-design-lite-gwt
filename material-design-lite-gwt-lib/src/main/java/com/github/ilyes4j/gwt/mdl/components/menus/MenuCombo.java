@@ -167,6 +167,12 @@ public class MenuCombo extends FlowPanel implements IMenu, IHasEventSource {
     return menu.isEnabled(index);
   }
 
+  @Override
+  public void removeItem(final int index) {
+    menu.removeItem(index);
+    enableAction();
+  }
+
   /**
    * Make sure the action button is enabled if the menu contains at least an
    * item. Make it disabled if it does not contain any item.

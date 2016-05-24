@@ -190,7 +190,26 @@ public class Dropdown extends Composite implements IMenu, IHasEventSource {
   public final int getSelected() {
     return selectedIndex;
   }
-  
+
+  @Override
+  public void removeItem(final int index) {
+
+    // make sure the operation is legal
+    if (index < 0 || index >= getItemCount()) {
+      return;
+    }
+
+    setSelected(-1);
+    combo.removeItem(index);
+
+    for (int i = 0; i < getItemCount(); i++) {
+      if (isEnabled(i)) {
+        setSelected(i);
+        break;
+      }
+    }
+  }
+
   /**
    * @param btn
    *          the button part of the dropdown

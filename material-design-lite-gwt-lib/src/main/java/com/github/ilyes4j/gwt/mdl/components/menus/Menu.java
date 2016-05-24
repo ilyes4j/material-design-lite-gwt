@@ -377,6 +377,34 @@ public class Menu extends HTMLPanel implements IMenu, IHasEventSource {
     return getMenuItem(index).isEnabled();
   }
 
+  @Override
+  public void removeItem(final int index) {
+
+    // don't do anything if the item is out of range
+    if (index < 0 || index >= items.size()) {
+      return;
+    }
+
+    // retrieve the item
+    MenuItem item = items.get(index);
+
+    downgradeItem(item);
+
+    // remove click handler if registered
+    if (item.isEnabled()) {
+      forceDisable(item);
+    }
+
+    // remove from the list of items
+    items.remove(index);
+
+    // remove from the DOM
+    remove(item);
+
+    // decide whether a scroll is needed now that an item is removed
+    assertHeight();
+  }
+
   /**
    * unplug event handlers and downgrade only if the menu is upgraded.
    * 

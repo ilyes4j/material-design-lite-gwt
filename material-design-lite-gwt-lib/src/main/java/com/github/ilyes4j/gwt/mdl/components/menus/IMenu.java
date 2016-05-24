@@ -132,4 +132,12 @@ public interface IMenu extends IsWidget {
    *         otherwise.
    */
   boolean isEnabled(int index);
+
+  /**
+   * Removes an item from the menu.
+   * 
+   * @param index
+   *          the position of the item to be removed
+   */
+  void removeItem(int index);
 }
