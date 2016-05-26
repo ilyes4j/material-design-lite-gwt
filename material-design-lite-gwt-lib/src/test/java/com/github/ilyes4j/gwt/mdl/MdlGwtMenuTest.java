@@ -147,6 +147,47 @@ public class MdlGwtMenuTest extends MdlGwtBaseTest {
   }
 
   /**
+   * Makes sure it is safe to call {@link IMenu#removeItem(int)} before upgrade
+   * knowing that clearing items after upgrade requires unplugging some
+   * listeners that are not defined before upgrade.
+   */
+  public void testRemoveBeforeUpgrade() {
+
+    Menu menu = new Menu();
+    menu.addItem("Some Item", true);
+
+    try {
+
+      menu.clearMenu();
+
+      assertTrue(true);
+
+    } catch (Exception e) {
+      assertFalse(true);
+    }
+  }
+
+  /**
+   * Same as {@link MdlGwtMenuTest#testRemoveBeforeUpgrade()} for
+   * {@link IMenu#removeItem(int)}.
+   */
+  public void testClearBeforeUpgrade() {
+
+    Menu menu = new Menu();
+    menu.addItem("Some Item", true);
+
+    try {
+
+      menu.removeItem(0);
+
+      assertTrue(true);
+
+    } catch (Exception e) {
+      assertFalse(true);
+    }
+  }
+
+  /**
    * Invoke all available methods in {@link Menu} in order to track interface
    * evolutions. There is no need to check {@link IMenu} methods as they are
    * checked in a dedicated {@link TestCase}.

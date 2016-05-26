@@ -14,8 +14,8 @@ import com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor;
 public class MdlGwtIMenuTest extends MdlGwtBaseTest {
 
   /**
-   * Call all available methods in the {@link IMenu} interface in order to
-   * track interface evolutions.
+   * Call all available methods in the {@link IMenu} interface in order to track
+   * interface evolutions.
    */
   public final void testBreakingChange() {
 
@@ -28,7 +28,7 @@ public class MdlGwtIMenuTest extends MdlGwtBaseTest {
 
       @Override
       public void onItemClicked(final ItemClickEvent event) {
-        //also call ItemClickEvent methods
+        // also call ItemClickEvent methods
         event.getIndex();
         event.getValue();
       }
