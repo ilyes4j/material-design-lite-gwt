@@ -20,7 +20,7 @@ public class MenuDemo implements EntryPoint {
 
     Collection<EntryPoint> demos = new ArrayList<>();
     demos.add(new AnchorDemo());
-    demos.add(new ClickEventDemo());
+    demos.add(new ClickEventMenuDemo());
     demos.add(new ScrollDemo());
     demos.add(new ToggleEnabledDemo());
 
