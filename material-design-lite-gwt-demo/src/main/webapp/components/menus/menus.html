@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.blue_grey-red.min.css" />
+<link rel="stylesheet"
+	href="https://code.getmdl.io/1.1.1/material.blue_grey-red.min.css" />
 
 <link rel="stylesheet"
 	href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
@@ -26,37 +27,91 @@
 <script src="../../mdlgwtdemo/mdlgwtdemo.nocache.js"></script>
 
 <script type="text/javascript">
+	var createItem = function(text) {
+		var anLi = document.createElement('li');
+		anLi.innerHTML = text;
+		anLi.classList.add("mdl-menu__item");
+		return anLi;
+	}
+
+	var expand = function(menu, item) {
+
+		var matMenu = menu.MaterialMenu;
+
+		// Add a listener to each menu item.
+		item.addEventListener('click', matMenu.boundItemClick_);
+		// Add a tab index to each menu item.
+		item.tabIndex = '-1';
+		// Add a keyboard listener to each menu item.
+		item.addEventListener('keydown', matMenu.boundItemKeydown_);
+
+		// Add ripple classes to each item, if the user has enabled ripples.
+		if (menu.classList.contains(matMenu.CssClasses_.RIPPLE_EFFECT)) {
+
+			var rippleContainer = document.createElement('span');
+			rippleContainer.classList
+					.add(matMenu.CssClasses_.ITEM_RIPPLE_CONTAINER);
+
+			var ripple = document.createElement('span');
+			ripple.classList.add(matMenu.CssClasses_.RIPPLE);
+			rippleContainer.appendChild(ripple);
+			item.appendChild(rippleContainer);
+
+			item.classList.add(matMenu.CssClasses_.RIPPLE_EFFECT);
+		}
+	}
+
 	var itemsCount = 0;
 
 	var onAddItemClick = function() {
-		ul_menu_var = document.getElementById("ul_menu");
-		var menuUp = ul_menu_var.MaterialMenu;
 
-		anLi = document.createElement('li');
-		anLi.innerHTML = "Another Action " + itemsCount;
+		var menu = document.getElementById("ul_menu");
+		var text = "Another Action " + itemsCount;
 		itemsCount++;
-		anLi.classList.add("mdl-menu__item");
 
-		// Add a listener to each menu item.
-		anLi.addEventListener('click', menuUp.boundItemClick_);
-		// Add a tab index to each menu item.
-		anLi.tabIndex = '-1';
-		// Add a keyboard listener to each menu item.
-		anLi.addEventListener('keydown', menuUp.boundItemKeydown_);
-
-		var rippleContainer = document.createElement('span');
-		rippleContainer.classList.add(menuUp.CssClasses_.ITEM_RIPPLE_CONTAINER);
-
-		var ripple = document.createElement('span');
-		ripple.classList.add(menuUp.CssClasses_.RIPPLE);
-		rippleContainer.appendChild(ripple);
-		anLi.appendChild(rippleContainer);
-
-		anLi.classList.add(menuUp.CssClasses_.RIPPLE_EFFECT);
-
-		menuUp.element_.appendChild(anLi);
-
+		var anLi = createItem(text);
+		expand(menu, anLi);
+		menu.appendChild(anLi);
 		componentHandler.upgradeElement(anLi);
+	}
+
+	var destroy = function(menu, item) {
+
+		var matMenu = menu.MaterialMenu;
+
+		// remove the listener from the item.
+		item.removeEventListener('click', matMenu.boundItemClick_);
+		// Add a keyboard listener to each menu item.
+		item.removeEventListener('keydown', matMenu.boundItemKeydown_);
+
+		componentHandler.downgradeElements([ item ]);
+
+		menu.removeChild(item);
+	}
+
+	var onRemoveItemClick = function() {
+
+		var menu = document.getElementById("remove_menu");
+
+		var action = document.getElementById("remove_action");
+
+		var children = menu.childNodes;
+		var length = children.length;
+		var child;
+		var childrenElts = [];
+
+		for (var i = 0; i < length; i++) {
+			child = children[i];
+			if (child.nodeType === Node.ELEMENT_NODE) {
+				childrenElts.push(child);
+			}
+		}
+
+		destroy(menu, childrenElts[0]);
+
+		if (childrenElts.length == 1) {
+			action.disabled = true;
+		}
 	}
 </script>
 </head>
@@ -77,8 +132,8 @@
 				<div class="mdl-layout-spacer"></div>
 
 				<!-- A link to the javadoc -->
-				<a href="../../apidocs" class="demo-header-link"><span class="icon material-icons">assignment</span><span
-					class="text">Javadoc</span></a>
+				<a href="../../apidocs" class="demo-header-link"><span
+					class="icon material-icons">assignment</span><span class="text">Javadoc</span></a>
 
 				<!-- A link to the source code -->
 				<a href="https://github.com/ilyes4j/material-design-lite-gwt"
@@ -152,25 +207,13 @@
 
 						<pre class="demo-code prettyprint lang-java">{% include "../../../java/com/github/ilyes4j/gwt/mdl/demo/modules/menus/ToggleEnabledDemo.java" %}</pre>
 
-						<h5 class="demo-title">Adding items</h5>
+						<h5 class="demo-title">Adding and removing Items</h5>
 
-						<!-- Left aligned menu below button -->
-						<div style="position: relative">
-							<button id="demo-menu-lower-left"
-								class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">Select</button>
+						<div id="addRemoveItemContainer"></div>
 
-							<ul id="ul_menu"
-								class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--top-left"
-								for="demo-menu-lower-left">
-								<li class="mdl-menu__item">Some Action</li>
-							</ul>
+						<pre class="demo-code prettyprint lang-java">{% include "../../../java/com/github/ilyes4j/gwt/mdl/demo/modules/menus/ItemsMenuDemo.java" %}</pre>
 
-							<button
-								class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
-								onclick="onAddItemClick();">
-								<i class="material-icons">add</i>
-							</button>
-						</div>
+						<pre class="demo-code prettyprint lang-java">{% include "../../../java/com/github/ilyes4j/gwt/mdl/demo/modules/menus/ItemsHelper.java" %}</pre>
 					</div>
 				</div>
 			</div>
