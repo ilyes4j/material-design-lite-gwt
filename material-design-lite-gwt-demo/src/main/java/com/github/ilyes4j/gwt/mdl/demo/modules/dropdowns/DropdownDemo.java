@@ -18,6 +18,7 @@ public class DropdownDemo implements EntryPoint {
     demos.add(new BasicDemo());
     demos.add(new SelectItemDemo());
     demos.add(new ClickEventDropdownDemo());
+    demos.add(new ItemsDropdownDemo());
 
     for (EntryPoint entry : demos) {
       entry.onModuleLoad();
