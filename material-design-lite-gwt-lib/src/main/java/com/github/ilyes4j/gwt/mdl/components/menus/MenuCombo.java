@@ -32,7 +32,8 @@ import com.google.gwt.user.client.ui.FlowPanel;
  * @author Mohamed Ilyes DIMASSI
  *
  */
-public class MenuCombo extends FlowPanel implements IMenu, IHasEventSource {
+public class MenuCombo extends FlowPanel
+    implements IMenuCombo, IHasEventSource {
 
   /**
    * Setup a {@link MenuCombo}.<br>
