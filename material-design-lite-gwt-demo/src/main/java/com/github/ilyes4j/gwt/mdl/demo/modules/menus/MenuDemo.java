@@ -25,6 +25,7 @@ public class MenuDemo implements EntryPoint {
     demos.add(new ToggleEnabledDemo());
     demos.add(new ItemsMenuDemo());
     demos.add(new ClearMenuDemo());
+    demos.add(new EnableMenuDemo());
 
     for (EntryPoint entry : demos) {
       entry.onModuleLoad();
