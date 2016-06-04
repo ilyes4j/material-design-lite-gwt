@@ -6,7 +6,9 @@ import java.util.Collection;
 import com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils;
 import com.google.gwt.core.client.EntryPoint;
 
-/** code samples for the dropdown demo page. */
+/**
+ * code samples for the dropdown demo page.
+ */
 public class DropdownDemo implements EntryPoint {
 
   /**
@@ -20,6 +22,7 @@ public class DropdownDemo implements EntryPoint {
     demos.add(new ClickEventDropdownDemo());
     demos.add(new ItemsDropdownDemo());
     demos.add(new ClearDropdownDemo());
+    demos.add(new EnableDropdownDemo());
 
     for (EntryPoint entry : demos) {
       entry.onModuleLoad();
