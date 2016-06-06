@@ -32,8 +32,7 @@ import com.google.gwt.user.client.ui.FlowPanel;
  * @author Mohamed Ilyes DIMASSI
  *
  */
-public class MenuCombo extends FlowPanel
-    implements IMenuCombo, IHasEventSource {
+public class MenuCombo extends FlowPanel implements IMenuCombo {
 
   /**
    * Setup a {@link MenuCombo}.<br>
@@ -84,10 +83,10 @@ public class MenuCombo extends FlowPanel
 
     // add the menu to the parent element
     add(menu);
-    
+
     // make the button disabled in the absence of items in the menu
     // as soon as the menu acquires some items make it enabled back
-    enableAction();    
+    enableAction();
   }
 
   /**

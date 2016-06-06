@@ -5,7 +5,7 @@ package com.github.ilyes4j.gwt.mdl.components.menus;
  * 
  * @author Moahmed Ilyes DIMASSI
  */
-public interface IMenuCombo extends IMenu {
+public interface IMenuCombo extends IMenu, IHasEventSource {
 
   /**
    * @param enable
