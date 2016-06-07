@@ -202,6 +202,26 @@ public class Dropdown extends Composite implements IMenuCombo {
     }
   }
 
+  @Override
+  public int getTabIndex() {
+    return button.getTabIndex();
+  }
+
+  @Override
+  public void setAccessKey(final char key) {
+    button.setAccessKey(key);
+  }
+
+  @Override
+  public void setFocus(final boolean focused) {
+    button.setFocus(focused);
+  }
+
+  @Override
+  public void setTabIndex(final int index) {
+    button.setTabIndex(index);
+  }
+
   /**
    * @param btn
    *          the button part of the dropdown

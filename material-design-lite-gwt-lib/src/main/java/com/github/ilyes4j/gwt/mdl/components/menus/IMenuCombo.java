@@ -1,11 +1,13 @@
 package com.github.ilyes4j.gwt.mdl.components.menus;
 
+import com.google.gwt.user.client.ui.Focusable;
+
 /**
  * A menu combo is a menu that supports enabling and disabling.
  * 
  * @author Moahmed Ilyes DIMASSI
  */
-public interface IMenuCombo extends IMenu, IHasEventSource {
+public interface IMenuCombo extends IMenu, IHasEventSource, Focusable {
 
   /**
    * @param enable

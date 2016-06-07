@@ -180,6 +180,26 @@ public class MenuCombo extends FlowPanel implements IMenuCombo {
     enableAction();
   }
 
+  @Override
+  public int getTabIndex() {
+    return button.getTabIndex();
+  }
+
+  @Override
+  public void setAccessKey(final char key) {
+    button.setAccessKey(key);
+  }
+
+  @Override
+  public void setFocus(final boolean focused) {
+    button.setFocus(focused);
+  }
+
+  @Override
+  public void setTabIndex(final int index) {
+    button.setTabIndex(index);
+  }
+
   /**
    * Make sure the action button is enabled if the menu contains at least an
    * item. Make it disabled if it does not contain any item.
