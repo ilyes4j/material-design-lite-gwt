@@ -4,7 +4,84 @@ import com.github.ilyes4j.gwt.mdl.components.ComponentHandler;
 import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.editor.client.IsEditor;
+import com.google.gwt.editor.ui.client.adapters.ValueBoxEditor;
+import com.google.gwt.event.dom.client.BlurEvent;
+import com.google.gwt.event.dom.client.BlurHandler;
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.DoubleClickEvent;
+import com.google.gwt.event.dom.client.DoubleClickHandler;
+import com.google.gwt.event.dom.client.DragEndEvent;
+import com.google.gwt.event.dom.client.DragEndHandler;
+import com.google.gwt.event.dom.client.DragEnterEvent;
+import com.google.gwt.event.dom.client.DragEnterHandler;
+import com.google.gwt.event.dom.client.DragEvent;
+import com.google.gwt.event.dom.client.DragHandler;
+import com.google.gwt.event.dom.client.DragLeaveEvent;
+import com.google.gwt.event.dom.client.DragLeaveHandler;
+import com.google.gwt.event.dom.client.DragOverEvent;
+import com.google.gwt.event.dom.client.DragOverHandler;
+import com.google.gwt.event.dom.client.DragStartEvent;
+import com.google.gwt.event.dom.client.DragStartHandler;
+import com.google.gwt.event.dom.client.DropEvent;
+import com.google.gwt.event.dom.client.DropHandler;
+import com.google.gwt.event.dom.client.FocusEvent;
+import com.google.gwt.event.dom.client.FocusHandler;
+import com.google.gwt.event.dom.client.GestureChangeEvent;
+import com.google.gwt.event.dom.client.GestureChangeHandler;
+import com.google.gwt.event.dom.client.GestureEndEvent;
+import com.google.gwt.event.dom.client.GestureEndHandler;
+import com.google.gwt.event.dom.client.GestureStartEvent;
+import com.google.gwt.event.dom.client.GestureStartHandler;
+import com.google.gwt.event.dom.client.HasAllDragAndDropHandlers;
+import com.google.gwt.event.dom.client.HasAllFocusHandlers;
+import com.google.gwt.event.dom.client.HasAllGestureHandlers;
+import com.google.gwt.event.dom.client.HasAllKeyHandlers;
+import com.google.gwt.event.dom.client.HasAllMouseHandlers;
+import com.google.gwt.event.dom.client.HasAllTouchHandlers;
+import com.google.gwt.event.dom.client.HasChangeHandlers;
+import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.dom.client.HasDoubleClickHandlers;
+import com.google.gwt.event.dom.client.KeyDownEvent;
+import com.google.gwt.event.dom.client.KeyDownHandler;
+import com.google.gwt.event.dom.client.KeyPressEvent;
+import com.google.gwt.event.dom.client.KeyPressHandler;
+import com.google.gwt.event.dom.client.KeyUpHandler;
+import com.google.gwt.event.dom.client.MouseDownEvent;
+import com.google.gwt.event.dom.client.MouseDownHandler;
+import com.google.gwt.event.dom.client.MouseMoveEvent;
+import com.google.gwt.event.dom.client.MouseMoveHandler;
+import com.google.gwt.event.dom.client.MouseOutEvent;
+import com.google.gwt.event.dom.client.MouseOutHandler;
+import com.google.gwt.event.dom.client.MouseOverEvent;
+import com.google.gwt.event.dom.client.MouseOverHandler;
+import com.google.gwt.event.dom.client.MouseUpEvent;
+import com.google.gwt.event.dom.client.MouseUpHandler;
+import com.google.gwt.event.dom.client.MouseWheelEvent;
+import com.google.gwt.event.dom.client.MouseWheelHandler;
+import com.google.gwt.event.dom.client.TouchCancelEvent;
+import com.google.gwt.event.dom.client.TouchCancelHandler;
+import com.google.gwt.event.dom.client.TouchEndEvent;
+import com.google.gwt.event.dom.client.TouchEndHandler;
+import com.google.gwt.event.dom.client.TouchMoveEvent;
+import com.google.gwt.event.dom.client.TouchMoveHandler;
+import com.google.gwt.event.dom.client.TouchStartEvent;
+import com.google.gwt.event.dom.client.TouchStartHandler;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.i18n.client.AutoDirectionHandler;
+import com.google.gwt.i18n.shared.DirectionEstimator;
+import com.google.gwt.i18n.shared.HasDirectionEstimator;
 import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.Focusable;
+import com.google.gwt.user.client.ui.HasEnabled;
+import com.google.gwt.user.client.ui.HasName;
+import com.google.gwt.user.client.ui.HasText;
+import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.TextArea;
@@ -45,7 +122,13 @@ import com.google.gwt.user.client.ui.ValueBoxBase;
  * 
  * @author Mohamed Ilyes DIMASSI
  */
-public class TextfieldBase<T extends TextBoxBase> extends FlowPanel {
+public class TextfieldBase<T extends TextBoxBase> extends FlowPanel
+    implements Focusable, HasChangeHandlers, HasName, HasDirectionEstimator,
+    HasValue<String>, HasText, AutoDirectionHandler.Target,
+    IsEditor<ValueBoxEditor<String>>, HasClickHandlers, HasDoubleClickHandlers,
+    HasEnabled, HasAllDragAndDropHandlers, HasAllFocusHandlers,
+    HasAllGestureHandlers, HasAllKeyHandlers, HasAllMouseHandlers,
+    HasAllTouchHandlers {
 
   /**
    * Setup an instance of {@link TextfieldBase} type. The appropriate input
@@ -117,26 +200,6 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel {
   }
 
   /**
-   * The {@link TextfieldBase} contains a sub-type {@link TextBoxBase} under the
-   * hood.
-   * 
-   * @return the underlying input Widget
-   */
-  public final T getTextbox() {
-    return box;
-  }
-
-  /**
-   * The {@link TextfieldBase} contains a {@link Label} under the hood to
-   * display the hint inside the text box when it is empty.
-   * 
-   * @return the label Widget containing the label text
-   */
-  protected final Label getLabel() {
-    return label;
-  }
-
-  /**
    * Set the label of the text field. The label is a text positioned inside the
    * text box instead of traditionally being besides the text box.
    * 
@@ -166,6 +229,286 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel {
     }
   }
 
+  @Override
+  public HandlerRegistration addDragEndHandler(final DragEndHandler handler) {
+    return addBitlessDomHandler(handler, DragEndEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addDragEnterHandler(
+      final DragEnterHandler handler) {
+    return addBitlessDomHandler(handler, DragEnterEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addDragLeaveHandler(
+      final DragLeaveHandler handler) {
+    return addBitlessDomHandler(handler, DragLeaveEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addDragHandler(final DragHandler handler) {
+    return addBitlessDomHandler(handler, DragEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addDragOverHandler(final DragOverHandler handler) {
+    return addBitlessDomHandler(handler, DragOverEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addDragStartHandler(
+      final DragStartHandler handler) {
+    return addBitlessDomHandler(handler, DragStartEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addDropHandler(final DropHandler handler) {
+    return addBitlessDomHandler(handler, DropEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addFocusHandler(final FocusHandler handler) {
+    return addBitlessDomHandler(handler, FocusEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addBlurHandler(final BlurHandler handler) {
+    return addBitlessDomHandler(handler, BlurEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addGestureStartHandler(
+      final GestureStartHandler handler) {
+    return addBitlessDomHandler(handler, GestureStartEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addGestureChangeHandler(
+      final GestureChangeHandler handler) {
+    return addBitlessDomHandler(handler, GestureChangeEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addGestureEndHandler(
+      final GestureEndHandler handler) {
+    return addBitlessDomHandler(handler, GestureEndEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addKeyDownHandler(final KeyDownHandler handler) {
+    return addBitlessDomHandler(handler, KeyDownEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addKeyPressHandler(final KeyPressHandler handler) {
+    return addBitlessDomHandler(handler, KeyPressEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addMouseDownHandler(
+      final MouseDownHandler handler) {
+    return addBitlessDomHandler(handler, MouseDownEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addMouseUpHandler(final MouseUpHandler handler) {
+    return addBitlessDomHandler(handler, MouseUpEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addMouseOutHandler(final MouseOutHandler handler) {
+    return addBitlessDomHandler(handler, MouseOutEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addMouseOverHandler(
+      final MouseOverHandler handler) {
+    return addBitlessDomHandler(handler, MouseOverEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addMouseMoveHandler(
+      final MouseMoveHandler handler) {
+    return addBitlessDomHandler(handler, MouseMoveEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addMouseWheelHandler(
+      final MouseWheelHandler handler) {
+    return addBitlessDomHandler(handler, MouseWheelEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addTouchStartHandler(
+      final TouchStartHandler handler) {
+    return addBitlessDomHandler(handler, TouchStartEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addTouchMoveHandler(
+      final TouchMoveHandler handler) {
+    return addDomHandler(handler, TouchMoveEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addTouchEndHandler(final TouchEndHandler handler) {
+    return addDomHandler(handler, TouchEndEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addTouchCancelHandler(
+      final TouchCancelHandler handler) {
+    return addDomHandler(handler, TouchCancelEvent.getType());
+  }
+
+  @Override
+  public boolean isEnabled() {
+    return box.isEnabled();
+  }
+
+  @Override
+  public void setEnabled(final boolean enabled) {
+    box.setEnabled(enabled);
+  }
+
+  @Override
+  public HandlerRegistration addDoubleClickHandler(
+      final DoubleClickHandler handler) {
+    return addDomHandler(handler, DoubleClickEvent.getType());
+  }
+
+  @Override
+  public HandlerRegistration addClickHandler(final ClickHandler handler) {
+    return addDomHandler(handler, ClickEvent.getType());
+  }
+
+  @Override
+  public int getTabIndex() {
+    return box.getTabIndex();
+  }
+
+  @Override
+  public void setAccessKey(final char key) {
+    box.setAccessKey(key);
+  }
+
+  @Override
+  public void setFocus(final boolean focused) {
+    box.setFocus(focused);
+  }
+
+  @Override
+  public void setTabIndex(final int index) {
+    box.setTabIndex(index);
+  }
+
+  @Override
+  public HandlerRegistration addValueChangeHandler(
+      final ValueChangeHandler<String> handler) {
+    // Initialization code
+    if (!valueChangeHandlerInitialized) {
+      valueChangeHandlerInitialized = true;
+      addChangeHandler(new ChangeHandler() {
+        public void onChange(final ChangeEvent event) {
+          ValueChangeEvent.fire(TextfieldBase.this, getValue());
+        }
+      });
+    }
+    return addHandler(handler, ValueChangeEvent.getType());
+  }
+
+  @Override
+  public void setDirection(final Direction direction) {
+    box.setDirection(direction);
+  }
+
+  @Override
+  public Direction getDirection() {
+    return box.getDirection();
+  }
+
+  @Override
+  public HandlerRegistration addKeyUpHandler(final KeyUpHandler handler) {
+    return box.addKeyUpHandler(handler);
+  }
+
+  @Override
+  public ValueBoxEditor<String> asEditor() {
+    return box.asEditor();
+  }
+
+  @Override
+  public String getText() {
+    return box.getText();
+  }
+
+  @Override
+  public String getValue() {
+    return box.getValue();
+  }
+
+  @Override
+  public void setValue(final String value) {
+    box.setValue(value);
+  }
+
+  @Override
+  public void setValue(final String value, final boolean fireEvents) {
+    box.setValue(value, fireEvents);
+  }
+
+  @Override
+  public DirectionEstimator getDirectionEstimator() {
+    return box.getDirectionEstimator();
+  }
+
+  @Override
+  public void setDirectionEstimator(final boolean enabled) {
+    box.setDirectionEstimator(enabled);
+  }
+
+  @Override
+  public void setDirectionEstimator(
+      final DirectionEstimator directionEstimator) {
+    box.setDirectionEstimator(directionEstimator);
+  }
+
+  @Override
+  public void setName(final String name) {
+    box.setName(name);
+  }
+
+  @Override
+  public String getName() {
+    return box.getName();
+  }
+
+  @Override
+  public HandlerRegistration addChangeHandler(final ChangeHandler handler) {
+    return addDomHandler(handler, ChangeEvent.getType());
+  }
+
+  /**
+   * The {@link TextfieldBase} contains a sub-type {@link TextBoxBase} under the
+   * hood.
+   * 
+   * @return the underlying input Widget
+   */
+  protected final T getTextbox() {
+    return box;
+  }
+
+  /**
+   * The {@link TextfieldBase} contains a {@link Label} under the hood to
+   * display the hint inside the text box when it is empty.
+   * 
+   * @return the label Widget containing the label text
+   */
+  protected final Label getLabel() {
+    return label;
+  }
+  
   @Override
   protected final void onLoad() {
     super.onLoad();
@@ -225,4 +568,9 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel {
    * CSS flag intended for upgrading text field component.
    */
   private static final String MDL_JS_TXTFLD = "mdl-js-textfield";
+
+  /**
+   * Keeps track of the value change handler initialization.
+   */
+  private boolean valueChangeHandlerInitialized;
 }
