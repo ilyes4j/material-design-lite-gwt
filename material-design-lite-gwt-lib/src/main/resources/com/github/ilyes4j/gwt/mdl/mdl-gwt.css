@@ -20,3 +20,7 @@ This technique is used abundantly in mdl components in general.
 .mdl-layout__content {
 	z-index: auto !important;
 }
+
+.mdl-button .mdl-icon-toggle__input {
+	display: none;
+}
