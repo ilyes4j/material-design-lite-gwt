@@ -11,5 +11,10 @@ public enum FlipStyle {
   /**
    * Raised looking face.
    */
-  RAISED
+  RAISED,
+
+  /**
+   * Fab looking face.
+   */
+  FAB
 }

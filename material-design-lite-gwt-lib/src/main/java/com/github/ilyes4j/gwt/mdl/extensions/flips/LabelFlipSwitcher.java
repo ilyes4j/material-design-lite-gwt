@@ -21,6 +21,7 @@ public class LabelFlipSwitcher extends CssSwitcher<FlipStyle> {
       map = new HashMap<FlipStyle, String>();
 
       map.put(FlipStyle.RAISED, "mdl-button-toggle__label");
+      map.put(FlipStyle.FAB, "mdl-button-toggle__label material-icons");
     }
 
     return map;
