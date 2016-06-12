@@ -22,6 +22,7 @@ public class MainFlipSwitcher extends CssSwitcher<FlipStyle> {
 
       map.put(FlipStyle.RAISED, PLAIN_STR);
       map.put(FlipStyle.FAB, FAB_STR);
+      map.put(FlipStyle.MINIFAB, MINIFAB_STR);
     }
 
     return map;
@@ -46,4 +47,9 @@ public class MainFlipSwitcher extends CssSwitcher<FlipStyle> {
    * Fab CSS styles.
    */
   private static final String FAB_STR = BASE_STR + "mdl-button--fab";
+
+  /**
+   * Mini Fab CSS styles.
+   */
+  private static final String MINIFAB_STR = FAB_STR + " mdl-button--mini-fab";
 }

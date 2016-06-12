@@ -23,6 +23,7 @@ public class InputFlipSwitcher extends CssSwitcher<FlipStyle> {
 
       map.put(FlipStyle.RAISED, "mdl-icon-toggle__input");
       map.put(FlipStyle.FAB, "mdl-icon-toggle__input");
+      map.put(FlipStyle.MINIFAB, "mdl-icon-toggle__input");
     }
 
     return map;
