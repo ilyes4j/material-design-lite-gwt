@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+.demo-header-tab-option.demo-is-active {
+	border-bottom: 3px solid rgb(255, 171, 64);
+}
+
+.demo-simplified-header {
+	background-color: rgb(63, 81, 181);
+	color: #FFFFFF;
+}

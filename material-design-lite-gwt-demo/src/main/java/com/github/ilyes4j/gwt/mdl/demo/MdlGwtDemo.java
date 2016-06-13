@@ -3,6 +3,7 @@ package com.github.ilyes4j.gwt.mdl.demo;
 import static com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils.ABOUT;
 import static com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils.BUTTONS;
 import static com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils.DROPS;
+import static com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils.FLIPS;
 import static com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils.MENUS;
 import static com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils.SLIDERS;
 import static com.github.ilyes4j.gwt.mdl.demo.utils.MdlGwtDemoUtils.TOGGLES;
@@ -15,6 +16,7 @@ import java.util.List;
 import com.github.ilyes4j.gwt.mdl.demo.modules.AboutDemo;
 import com.github.ilyes4j.gwt.mdl.demo.modules.buttons.ButtonDemo;
 import com.github.ilyes4j.gwt.mdl.demo.modules.dropdowns.DropdownDemo;
+import com.github.ilyes4j.gwt.mdl.demo.modules.flips.FlipDemo;
 import com.github.ilyes4j.gwt.mdl.demo.modules.menus.MenuDemo;
 import com.github.ilyes4j.gwt.mdl.demo.modules.sliders.SliderDemo;
 import com.github.ilyes4j.gwt.mdl.demo.modules.textfields.TextfieldDemo;
@@ -67,6 +69,7 @@ public class MdlGwtDemo implements EntryPoint {
     entries.add(new ModuleDemo(TOOLTIPS, new TooltipDemo()));
     entries.add(new ModuleDemo(DROPS, new DropdownDemo()));
     entries.add(new ModuleDemo(SLIDERS, new SliderDemo()));
+    entries.add(new ModuleDemo(FLIPS, new FlipDemo()));
   }
 
   /**

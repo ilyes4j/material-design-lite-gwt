@@ -75,12 +75,17 @@ public final class MdlGwtDemoUtils {
    * relative location of the slider demo page.
    */
   public static final String SLIDERS = "components/sliders/sliders.html";
-  
+
   /**
    * relative location of the dropdown demo page.
    */
   public static final String DROPS = "extensions/dropdowns/dropdowns.html";
-  
+
+  /**
+   * relative location of the slider demo page.
+   */
+  public static final String FLIPS = "extensions/flips/flips.html";
+
   /**
    * Setup the components side bar and inject it inside the main section of a
    * demo page.
@@ -127,7 +132,7 @@ public final class MdlGwtDemoUtils {
     slider.setCaption("Sliders");
     slider.setUrl(SLIDERS);
     bar.addLink(slider);
-    
+
     // insert the side bar under the main section of the demo page
     get(MAIN).insert(bar, 0);
   }
@@ -144,6 +149,11 @@ public final class MdlGwtDemoUtils {
     dropdown.setCaption("Dropdowns");
     dropdown.setUrl(DROPS);
     bar.addLink(dropdown);
+
+    ComponentsItem flips = new ComponentsItem("check_circle");
+    flips.setCaption("Flips");
+    flips.setUrl(FLIPS);
+    bar.addLink(flips);
 
     // insert the side bar under the main section of the demo page
     get(MAIN).insert(bar, 0);
