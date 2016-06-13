@@ -9,6 +9,11 @@ package com.github.ilyes4j.gwt.mdl.extensions.flips;
 public enum FlipStyle {
 
   /**
+   * Flat looking face.
+   */
+  FLAT,
+  
+  /**
    * Raised looking face.
    */
   RAISED,

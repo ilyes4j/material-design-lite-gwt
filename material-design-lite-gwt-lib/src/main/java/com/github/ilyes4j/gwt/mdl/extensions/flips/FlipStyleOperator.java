@@ -19,6 +19,6 @@ public class FlipStyleOperator extends ToggleStyleOperator<FlipStyle> {
 
   @Override
   protected FlipStyle defaultFlavor() {
-    return FlipStyle.RAISED;
+    return FlipStyle.FLAT;
   }
 }

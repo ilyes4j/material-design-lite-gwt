@@ -21,6 +21,7 @@ public class InputFlipSwitcher extends CssSwitcher<FlipStyle> {
     if (map == null) {
       map = new HashMap<FlipStyle, String>();
 
+      map.put(FlipStyle.FLAT, "mdl-icon-toggle__input");
       map.put(FlipStyle.RAISED, "mdl-icon-toggle__input");
       map.put(FlipStyle.FAB, "mdl-icon-toggle__input");
       map.put(FlipStyle.MINIFAB, "mdl-icon-toggle__input");
