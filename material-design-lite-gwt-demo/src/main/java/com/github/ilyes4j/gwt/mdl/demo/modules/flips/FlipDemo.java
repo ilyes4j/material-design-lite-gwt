@@ -19,6 +19,7 @@ public class FlipDemo implements EntryPoint {
   public final void onModuleLoad() {
 
     Collection<EntryPoint> demos = new ArrayList<>();
+    demos.add(new FlatFlipDemo());
 
     for (EntryPoint entry : demos) {
       entry.onModuleLoad();
