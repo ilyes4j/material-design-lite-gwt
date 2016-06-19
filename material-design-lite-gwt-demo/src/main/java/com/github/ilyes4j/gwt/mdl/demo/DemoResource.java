@@ -48,4 +48,8 @@ public interface DemoResource extends CssResource {
   /** @return spacing components on the same line */
   @ClassName("component-margin")
   String margin();
+  
+  /** @return vertical margin of 5 px */
+  @ClassName("padding-vertical-5px")
+  String padV5();
 }

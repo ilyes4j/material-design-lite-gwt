@@ -92,3 +92,7 @@
 	margin: 0 20px;
 	display: inline-block;
 }
+
+.padding-vertical-5px {
+		padding: 5px 0;
+}
