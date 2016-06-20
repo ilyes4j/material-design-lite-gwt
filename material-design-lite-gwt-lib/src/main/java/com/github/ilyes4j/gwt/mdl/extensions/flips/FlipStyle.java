@@ -12,7 +12,7 @@ public enum FlipStyle {
    * Flat looking face.
    */
   FLAT,
-  
+
   /**
    * Raised looking face.
    */
@@ -26,5 +26,10 @@ public enum FlipStyle {
   /**
    * Mini fab looking face.
    */
-  MINIFAB
+  MINIFAB,
+
+  /**
+   * Icon looking face.
+   */
+  ICON
 }

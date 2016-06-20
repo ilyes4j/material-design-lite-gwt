@@ -24,6 +24,7 @@ public class MainFlipSwitcher extends CssSwitcher<FlipStyle> {
       map.put(FlipStyle.RAISED, RAISED_STR);
       map.put(FlipStyle.FAB, FAB_STR);
       map.put(FlipStyle.MINIFAB, MINIFAB_STR);
+      map.put(FlipStyle.ICON, ICON_STR);
     }
 
     return map;
@@ -38,7 +39,7 @@ public class MainFlipSwitcher extends CssSwitcher<FlipStyle> {
    * Flat CSS class.
    */
   private static final String FLAT_STR = "mdl-js-button mdl-button";
-  
+
   /**
    * Plain CSS styles.
    */
@@ -53,4 +54,9 @@ public class MainFlipSwitcher extends CssSwitcher<FlipStyle> {
    * Mini Fab CSS styles.
    */
   private static final String MINIFAB_STR = FAB_STR + " mdl-button--mini-fab";
+
+  /**
+   * Icon CSS class.
+   */
+  private static final String ICON_STR = FLAT_STR + " mdl-button--icon";
 }
