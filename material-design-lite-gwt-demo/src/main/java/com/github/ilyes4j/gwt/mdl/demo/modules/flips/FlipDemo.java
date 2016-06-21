@@ -23,6 +23,7 @@ public class FlipDemo implements EntryPoint {
     demos.add(new RaisedFlipDemo());
     demos.add(new FabFlipDemo());
     demos.add(new MinifabFlipDemo());
+    demos.add(new IconFlipDemo());
     demos.add(new ColorDemo());
 
     for (EntryPoint entry : demos) {
