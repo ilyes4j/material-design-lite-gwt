@@ -3,7 +3,6 @@ package com.github.ilyes4j.gwt.mdl.components.buttons;
 import static com.github.ilyes4j.gwt.mdl.components.ComponentHandler.upgradeElement;
 import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
 import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
-import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.FAB;
 
 import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
 import com.github.ilyes4j.gwt.mdl.components.ripples.HasRipple;
@@ -40,12 +39,13 @@ public class ButtonBase implements HasRipple {
   public ButtonBase(final Element inputElement) {
     target = inputElement;
 
-    target.addClassName(MDL_BTN);
-    MdlGwtUtils.addClass(target, MDL_JS_BTN);
-
     ripple = new RippleSwitcher();
     ripple.setTarget(target);
     ripple.setValue(Ripple.NONE);
+
+    typeSwitcher = new ButtonTypeSwitcher();
+    typeSwitcher.setTarget(target);
+    typeSwitcher.setValue(ButtonType.FAB);
   }
 
   /**
@@ -81,7 +81,7 @@ public class ButtonBase implements HasRipple {
    * @return one of the options provided by {@link ButtonType}
    */
   public final ButtonType getType() {
-    return type;
+    return typeSwitcher.getValue();
   }
 
   /**
@@ -93,8 +93,7 @@ public class ButtonBase implements HasRipple {
    *          one of the options provided by {@link ButtonType}
    */
   public final void setType(final ButtonType inputType) {
-    type = inputType;
-    MdlGwtUtils.addClass(target, type);
+    typeSwitcher.setValue(inputType);
   }
 
   /**
@@ -212,9 +211,9 @@ public class ButtonBase implements HasRipple {
   }
 
   /**
-   * The button type, whether it is fab, raised, flat...
+   * CSS switcher for the button type configuration.
    */
-  private ButtonType type = FAB;
+  private ButtonTypeSwitcher typeSwitcher;
 
   /**
    * Depending on the button type, the color can affect the background, the
@@ -250,14 +249,9 @@ public class ButtonBase implements HasRipple {
   private HTMLPanel textContainer;
 
   /**
-   * 
+   * the input element.
    */
   private Element target;
-
-  /**
-   * Main css selector for Material Buttons behaviors.
-   */
-  private static final String MDL_JS_BTN = "mdl-js-button";
 
   /**
    * the i Tag type.
@@ -268,9 +262,4 @@ public class ButtonBase implements HasRipple {
    * The material icons css selector.
    */
   private static final String MATERIAL_ICONS = "material-icons";
-
-  /**
-   * Main css selector for Material Buttons styling.
-   */
-  private static final String MDL_BTN = "mdl-button";
 }
