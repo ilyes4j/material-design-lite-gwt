@@ -1,5 +1,7 @@
 package com.github.ilyes4j.gwt.mdl.extensions.flips;
 
+import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType;
+import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonTypeSwitcher;
 import com.github.ilyes4j.gwt.mdl.components.toggles.ToggleStyleOperator;
 
 /**
@@ -9,16 +11,16 @@ import com.github.ilyes4j.gwt.mdl.components.toggles.ToggleStyleOperator;
  *
  * @see FlipStyleOperator
  */
-public class FlipStyleOperator extends ToggleStyleOperator<FlipStyle> {
+public class FlipStyleOperator extends ToggleStyleOperator<ButtonType> {
 
   /** */
   public FlipStyleOperator() {
-    super(new MainFlipSwitcher(), new InputFlipSwitcher(),
+    super(new ButtonTypeSwitcher(), new InputFlipSwitcher(),
         new LabelFlipSwitcher());
   }
 
   @Override
-  protected FlipStyle defaultFlavor() {
-    return FlipStyle.FLAT;
+  protected ButtonType defaultFlavor() {
+    return ButtonType.FLAT;
   }
 }

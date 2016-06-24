@@ -6,6 +6,7 @@ import java.util.EnumSet;
 import java.util.List;
 
 import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor;
+import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType;
 import com.github.ilyes4j.gwt.mdl.components.menus.ItemClickEvent;
 import com.github.ilyes4j.gwt.mdl.components.menus.Menu.ItemClickListener;
 import com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor;
@@ -14,7 +15,6 @@ import com.github.ilyes4j.gwt.mdl.components.toggles.CheckBoxStyle;
 import com.github.ilyes4j.gwt.mdl.components.toggles.Checkbox;
 import com.github.ilyes4j.gwt.mdl.demo.Demo;
 import com.github.ilyes4j.gwt.mdl.extensions.flips.Flip;
-import com.github.ilyes4j.gwt.mdl.extensions.flips.FlipStyle;
 import com.github.ilyes4j.gwt.mdl.extensions.menus.Dropdown;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
@@ -279,7 +279,7 @@ public class ColorDemo implements EntryPoint {
 
     List<Flip> flips = new ArrayList<>();
 
-    for (FlipStyle type : EnumSet.allOf(FlipStyle.class)) {
+    for (ButtonType type : EnumSet.allOf(ButtonType.class)) {
       flips.add(buildFlip(type, ctnr));
     }
 
@@ -288,7 +288,7 @@ public class ColorDemo implements EntryPoint {
 
   /**
    * 
-   * @param style
+   * @param type
    *          the type of the flip
    * 
    * @param ctnr
@@ -296,9 +296,9 @@ public class ColorDemo implements EntryPoint {
    * 
    * @return the flip to be created
    */
-  private static Flip buildFlip(final FlipStyle style, final HasWidgets ctnr) {
+  private static Flip buildFlip(final ButtonType type, final HasWidgets ctnr) {
     Flip flip = new Flip("checked");
-    flip.setFace(style);
+    flip.setFace(type);
     flip.setRipple(Ripple.HAS_RIPPLE);
     flip.addStyleName(Demo.DEMO.css().inline());
     ctnr.add(flip);

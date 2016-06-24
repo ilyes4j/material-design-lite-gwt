@@ -2,6 +2,7 @@ package com.github.ilyes4j.gwt.mdl.extensions.flips;
 
 import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor;
 import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColorSwitcher;
+import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType;
 import com.github.ilyes4j.gwt.mdl.components.toggles.CheckboxBase;
 import com.github.ilyes4j.gwt.mdl.components.toggles.IToggleFace;
 import com.google.gwt.dom.client.Document;
@@ -19,8 +20,8 @@ import com.google.gwt.safehtml.shared.SafeHtml;
  * 
  * @author Mohamed Ilyes DIMASSI
  */
-public class Flip extends CheckboxBase<FlipStyle>
-    implements IToggleFace<FlipStyle> {
+public class Flip extends CheckboxBase<ButtonType>
+    implements IToggleFace<ButtonType> {
 
   /**
    * Creates a check box with no label.
@@ -137,12 +138,12 @@ public class Flip extends CheckboxBase<FlipStyle>
   }
 
   @Override
-  public FlipStyle getFace() {
+  public ButtonType getFace() {
     return getToggle().getFace();
   }
 
   @Override
-  public void setFace(final FlipStyle flavor) {
+  public void setFace(final ButtonType flavor) {
     getToggle().setFace(flavor);
   }
 

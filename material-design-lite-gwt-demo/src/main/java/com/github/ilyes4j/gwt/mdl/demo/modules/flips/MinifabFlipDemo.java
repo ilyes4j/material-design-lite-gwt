@@ -1,8 +1,8 @@
 package com.github.ilyes4j.gwt.mdl.demo.modules.flips;
 
+import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType;
 import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
 import com.github.ilyes4j.gwt.mdl.extensions.flips.Flip;
-import com.github.ilyes4j.gwt.mdl.extensions.flips.FlipStyle;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
 
@@ -13,7 +13,7 @@ public class MinifabFlipDemo implements EntryPoint {
   public final void onModuleLoad() {
 
     final Flip box = new Flip("add");
-    box.setFace(FlipStyle.MINIFAB);
+    box.setFace(ButtonType.MINIFAB);
     box.setRipple(Ripple.HAS_RIPPLE);
     RootPanel.get("minifabContainer").add(box);
   }
