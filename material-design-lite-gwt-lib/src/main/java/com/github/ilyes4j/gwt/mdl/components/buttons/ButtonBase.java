@@ -2,7 +2,6 @@ package com.github.ilyes4j.gwt.mdl.components.buttons;
 
 import static com.github.ilyes4j.gwt.mdl.components.ComponentHandler.upgradeElement;
 import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
-import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
 
 import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
 import com.github.ilyes4j.gwt.mdl.components.ripples.HasRipple;
@@ -119,28 +118,6 @@ public class ButtonBase implements HasRipple {
   }
 
   /**
-   * Returns the coloring option of the button. The returned result is
-   * unpredictable if the button type is not Fab or a MiniFab.
-   * 
-   * @return one of the options provided by {@link ButtonFabColor}
-   */
-  public final ButtonFabColor getFabColor() {
-    return fabColor;
-  }
-
-  /**
-   * Setup the coloring option of the button. The result is unpredictable if the
-   * button type is Fab or MiniFab.
-   * 
-   * @param inputFabColor
-   *          one of the options provided by {@link ButtonFabColor}
-   */
-  public final void setFabColor(final ButtonFabColor inputFabColor) {
-    fabColor = inputFabColor;
-    MdlGwtUtils.addClass(target, fabColor);
-  }
-
-  /**
    * Returns the ripple option of the button.
    * 
    * @return one of the options provided by {@link Ripple}
@@ -221,12 +198,6 @@ public class ButtonBase implements HasRipple {
    * buttons.
    */
   private ButtonColor color = BTN_NO_COLOR;
-
-  /**
-   * Affects the color of a Fab button. This property is only valid for fab
-   * buttons.
-   */
-  private ButtonFabColor fabColor = FAB_NO_COLOR;
 
   /**
    * Indicate whether the button has a ripple.

@@ -6,7 +6,7 @@ import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.ICON;
 import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.MINIFAB;
 
 import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
-import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonFabColor;
+import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor;
 import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
 import com.google.gwt.user.client.ui.Image;
 
@@ -32,7 +32,7 @@ public class ImgButton extends Button {
    * 
    * @param color
    *          the background color, should be one of the options provided by
-   *          {@link ButtonFabColor}
+   *          {@link ButtonColor}
    * 
    * @param ripple
    *          determines whether the button has a ripple, one of the options
@@ -43,13 +43,13 @@ public class ImgButton extends Button {
    * 
    * @return a fab button
    * 
-   * @see Button#createFab(ButtonFabColor, Ripple, String)
+   * @see Button#createFab(ButtonColor, Ripple, String)
    */
-  public static Button createFabI(final ButtonFabColor color,
-      final Ripple ripple, final Image img) {
+  public static Button createFabI(final ButtonColor color, final Ripple ripple,
+      final Image img) {
     ImgButton button = new ImgButton();
     button.setType(FAB);
-    button.setFabColor(color);
+    button.setColor(color);
     button.setRipple(ripple);
     button.setImage(img);
     button.upgrade();
@@ -85,7 +85,7 @@ public class ImgButton extends Button {
    * 
    * @param color
    *          the background color, should be one of the options provided by
-   *          {@link ButtonFabColor}
+   *          {@link ButtonColor}
    * 
    * @param ripple
    *          determines whether the button has a ripple, one of the options
@@ -96,13 +96,13 @@ public class ImgButton extends Button {
    * 
    * @return A mini baf button
    * 
-   * @see Button#createMiniFab(ButtonFabColor, Ripple, String)
+   * @see Button#createMiniFab(ButtonColor, Ripple, String)
    */
-  public static Button createMiniFabI(final ButtonFabColor color,
+  public static Button createMiniFabI(final ButtonColor color,
       final Ripple ripple, final Image img) {
     ImgButton button = new ImgButton();
     button.setType(MINIFAB);
-    button.setFabColor(color);
+    button.setColor(color);
     button.setRipple(ripple);
     button.setImage(img);
     button.upgrade();

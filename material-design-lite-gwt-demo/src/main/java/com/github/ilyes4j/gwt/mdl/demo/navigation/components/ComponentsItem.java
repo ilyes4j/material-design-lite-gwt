@@ -1,7 +1,7 @@
 package com.github.ilyes4j.gwt.mdl.demo.navigation.components;
 
 import static com.github.ilyes4j.gwt.mdl.components.buttons.Button.createMiniFab;
-import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonFabColor.COLORED;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.ACCENT;
 import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 import static com.google.gwt.user.client.Window.Location.assign;
 
@@ -31,7 +31,7 @@ public class ComponentsItem extends Composite implements INavigationItem {
   public ComponentsItem(final String icon) {
 
     // setup the component icon
-    btn = createMiniFab(COLORED, HAS_RIPPLE, icon);
+    btn = createMiniFab(ACCENT, HAS_RIPPLE, icon);
 
     // setup a container for the icon
     btnContainer = new FlowPanel();

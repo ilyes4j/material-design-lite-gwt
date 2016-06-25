@@ -1,7 +1,7 @@
 package com.github.ilyes4j.gwt.mdl.demo.modules.buttons;
 
 import static com.github.ilyes4j.gwt.mdl.components.buttons.Button.createFab;
-import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
 import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.NONE;
 import static com.google.gwt.user.client.ui.RootPanel.get;
@@ -19,13 +19,13 @@ public class PlainFabDemo implements EntryPoint {
     final String ico = "add";
 
     // Plain fab button with an add icon
-    get("ctnr_03").add(createFab(FAB_NO_COLOR, NONE, ico));
+    get("ctnr_03").add(createFab(BTN_NO_COLOR, NONE, ico));
 
     // Plain fab button with an add icon and ripple
-    get("ctnr_04").add(createFab(FAB_NO_COLOR, HAS_RIPPLE, ico));
+    get("ctnr_04").add(createFab(BTN_NO_COLOR, HAS_RIPPLE, ico));
 
     // Disabled fab button with an add icon
-    Button btnFab = createFab(FAB_NO_COLOR, NONE, ico);
+    Button btnFab = createFab(BTN_NO_COLOR, NONE, ico);
     btnFab.setEnabled(false);
     get("ctnr_05").add(btnFab);
   }

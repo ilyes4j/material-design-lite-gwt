@@ -91,7 +91,7 @@ public class Button extends com.google.gwt.user.client.ui.Button
    * 
    * @param color
    *          the background color, should be one of the options provided by
-   *          {@link ButtonFabColor}
+   *          {@link ButtonColor}
    * 
    * @param ripple
    *          determines whether the button has a ripple, one of the options
@@ -102,11 +102,11 @@ public class Button extends com.google.gwt.user.client.ui.Button
    * 
    * @return a fab button
    */
-  public static Button createFab(final ButtonFabColor color,
-      final Ripple ripple, final String icon) {
+  public static Button createFab(final ButtonColor color, final Ripple ripple,
+      final String icon) {
     Button button = new Button();
     button.setType(FAB);
-    button.setFabColor(color);
+    button.setColor(color);
     button.setRipple(ripple);
     button.setIcon(icon);
     button.upgrade();
@@ -149,7 +149,7 @@ public class Button extends com.google.gwt.user.client.ui.Button
    * 
    * @param color
    *          the background color, should be one of the options provided by
-   *          {@link ButtonFabColor}
+   *          {@link ButtonColor}
    * 
    * @param ripple
    *          determines whether the button has a ripple, one of the options
@@ -160,11 +160,11 @@ public class Button extends com.google.gwt.user.client.ui.Button
    * 
    * @return A raised button.
    */
-  public static Button createMiniFab(final ButtonFabColor color,
+  public static Button createMiniFab(final ButtonColor color,
       final Ripple ripple, final String icon) {
     Button button = new Button();
     button.setType(MINIFAB);
-    button.setFabColor(color);
+    button.setColor(color);
     button.setRipple(ripple);
     button.setIcon(icon);
     button.upgrade();
@@ -232,25 +232,6 @@ public class Button extends com.google.gwt.user.client.ui.Button
    */
   public final void setColor(final ButtonColor inputColor) {
     base.setColor(inputColor);
-  }
-
-  /**
-   * @return one of the options provided by {@link ButtonFabColor}
-   * 
-   * @see ButtonBase#getFabColor()
-   */
-  public final ButtonFabColor getFabColor() {
-    return base.getFabColor();
-  }
-
-  /**
-   * @param inputFabColor
-   *          one of the options provided by {@link ButtonFabColor}
-   * 
-   * @see ButtonBase#setFabColor(ButtonFabColor)
-   */
-  public final void setFabColor(final ButtonFabColor inputFabColor) {
-    base.setFabColor(inputFabColor);
   }
 
   /**

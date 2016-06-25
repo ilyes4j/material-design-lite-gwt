@@ -1,6 +1,6 @@
 package com.github.ilyes4j.gwt.mdl.demo.modules.menus;
 
-import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonFabColor.FAB_NO_COLOR;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
 import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
 
 import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
@@ -37,12 +37,12 @@ public final class ItemsHelper {
     root.add(insert);
 
     // setup the button that adds items to the menu
-    Button addItem = Button.createMiniFab(FAB_NO_COLOR, HAS_RIPPLE, "add");
+    Button addItem = Button.createMiniFab(BTN_NO_COLOR, HAS_RIPPLE, "add");
     addItem.addStyleName(Demo.DEMO.css().inline());
     root.add(addItem);
 
     // setup the button that removes items from the menu
-    Button delItem = Button.createMiniFab(FAB_NO_COLOR, HAS_RIPPLE, "remove");
+    Button delItem = Button.createMiniFab(BTN_NO_COLOR, HAS_RIPPLE, "remove");
     delItem.addStyleName(Demo.DEMO.css().inline());
     root.add(delItem);
 
@@ -67,7 +67,7 @@ public final class ItemsHelper {
     delItem.addClickHandler(new ClickHandler() {
       @Override
       public void onClick(final ClickEvent event) {
-        //the remove index is based on the state of the insert toggle
+        // the remove index is based on the state of the insert toggle
         menu.removeItem(insert.getValue() ? 0 : menu.getItemCount() - 1);
       }
     });
