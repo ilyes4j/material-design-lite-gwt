@@ -4,6 +4,7 @@ import com.github.ilyes4j.gwt.mdl.components.ComponentHandler;
 import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.dom.client.InputElement;
 import com.google.gwt.editor.client.IsEditor;
 import com.google.gwt.editor.ui.client.adapters.ValueBoxEditor;
 import com.google.gwt.event.dom.client.BlurEvent;
@@ -128,7 +129,7 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel
     IsEditor<ValueBoxEditor<String>>, HasClickHandlers, HasDoubleClickHandlers,
     HasEnabled, HasAllDragAndDropHandlers, HasAllFocusHandlers,
     HasAllGestureHandlers, HasAllKeyHandlers, HasAllMouseHandlers,
-    HasAllTouchHandlers {
+    HasAllTouchHandlers, ITextBox {
 
   /**
    * Setup an instance of {@link TextfieldBase} type. The appropriate input
@@ -489,13 +490,33 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel
     return addDomHandler(handler, ChangeEvent.getType());
   }
 
+  @Override
+  public int getMaxLength() {
+    return getInputElement().getMaxLength();
+  }
+
+  @Override
+  public int getVisibleLength() {
+    return getInputElement().getSize();
+  }
+
+  @Override
+  public void setMaxLength(final int length) {
+    getInputElement().setMaxLength(length);
+  }
+
+  @Override
+  public void setVisibleLength(final int length) {
+    getInputElement().setSize(length);
+  }
+
   /**
    * The {@link TextfieldBase} contains a sub-type {@link TextBoxBase} under the
    * hood.
    * 
    * @return the underlying input Widget
    */
-  protected final T getTextbox() {
+  public final T getTextbox() {
     return box;
   }
 
@@ -508,13 +529,20 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel
   protected final Label getLabel() {
     return label;
   }
-  
+
   @Override
   protected final void onLoad() {
     super.onLoad();
 
     // upgrade the component
     ComponentHandler.upgradeElement(getElement());
+  }
+
+  /**
+   * @return the input element
+   */
+  private InputElement getInputElement() {
+    return box.getElement().cast();
   }
 
   /**
