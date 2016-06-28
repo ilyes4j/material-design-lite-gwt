@@ -1,9 +1,11 @@
 package com.github.ilyes4j.gwt.mdl.components.buttons;
 
-import static com.github.ilyes4j.gwt.mdl.components.ComponentHandler.upgradeElement;
 import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
 
+import com.github.ilyes4j.gwt.mdl.components.ComponentHandler;
+import com.github.ilyes4j.gwt.mdl.components.IUpgrade;
 import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
+import com.github.ilyes4j.gwt.mdl.components.UpgradeHelper;
 import com.github.ilyes4j.gwt.mdl.components.ripples.HasRipple;
 import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
 import com.github.ilyes4j.gwt.mdl.components.ripples.RippleSwitcher;
@@ -26,7 +28,7 @@ import com.google.gwt.user.client.ui.HTMLPanel;
  * 
  * @author Mohamed Ilyes DIMASSI
  */
-public class ButtonBase implements HasRipple {
+public class ButtonBase implements HasRipple, IUpgrade {
 
   /**
    * Setup an instance of a material button and provide the target
@@ -61,18 +63,7 @@ public class ButtonBase implements HasRipple {
     }
     iTag.setInnerHTML(icon);
   }
-
-  /**
-   * Apply JavaScript behaviors and effects on the button.
-   */
-  public final void upgrade() {
-    if (upgraded) {
-      return;
-    }
-
-    upgradeElement(target);
-  }
-
+  
   /**
    * Return the material button type provided by one of the options in
    * {@link ButtonType}.
@@ -136,6 +127,19 @@ public class ButtonBase implements HasRipple {
     ripple.setValue(inputRipple);
   }
 
+  @Override
+  public final void upgrade() {
+    
+    ComponentHandler.upgradeElement(target);
+
+    upgrade.upgrade();
+  }
+
+  @Override
+  public boolean isUpgraded() {
+    return upgrade.isUpgraded();
+  }
+  
   /**
    * Set the text to be displayed on the button.<br>
    * <br>
@@ -205,9 +209,9 @@ public class ButtonBase implements HasRipple {
   private RippleSwitcher ripple;
 
   /**
-   * Indicate whether the button is already been upgraded.
+   * Upgrade manager.
    */
-  private boolean upgraded = false;
+  private UpgradeHelper upgrade = new UpgradeHelper();
 
   /**
    * The icon container, only used for buttons having icons.

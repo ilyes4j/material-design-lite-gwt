@@ -6,6 +6,7 @@ import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.ICON;
 import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.MINIFAB;
 import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType.RAISED;
 
+import com.github.ilyes4j.gwt.mdl.components.IUpgrade;
 import com.github.ilyes4j.gwt.mdl.components.ripples.HasRipple;
 import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
 
@@ -20,7 +21,7 @@ import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
  * @author Mohamed Ilyes DIMASSI
  */
 public class Button extends com.google.gwt.user.client.ui.Button
-    implements HasRipple {
+    implements HasRipple, IUpgrade {
 
   /**
    * Setup a raised material button.<br>
@@ -190,13 +191,6 @@ public class Button extends com.google.gwt.user.client.ui.Button
   }
 
   /**
-   * @see ButtonBase#upgrade()
-   */
-  public final void upgrade() {
-    base.upgrade();
-  }
-
-  /**
    * @return one of the options provided by {@link ButtonType}
    * 
    * @see ButtonBase#getType()
@@ -270,6 +264,16 @@ public class Button extends com.google.gwt.user.client.ui.Button
    */
   public final String getText() {
     return base.getText();
+  }
+
+  @Override
+  public final void upgrade() {
+    base.upgrade();
+  }
+
+  @Override
+  public boolean isUpgraded() {
+    return base.isUpgraded();
   }
 
   /**
