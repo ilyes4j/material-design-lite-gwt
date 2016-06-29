@@ -1,5 +1,6 @@
 package com.github.ilyes4j.gwt.mdl.components.menus;
 
+import com.github.ilyes4j.gwt.mdl.components.IUpgrade;
 import com.github.ilyes4j.gwt.mdl.components.menus.Menu.ItemClickListener;
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.IsWidget;
@@ -10,7 +11,7 @@ import com.google.gwt.user.client.ui.IsWidget;
  * 
  * @author Mohamed Ilyes DIMASSI
  */
-public interface IMenu extends IsWidget {
+public interface IMenu extends IsWidget, IUpgrade {
 
   /**
    * Sets the position of the {@link Menu} on the screen related to its

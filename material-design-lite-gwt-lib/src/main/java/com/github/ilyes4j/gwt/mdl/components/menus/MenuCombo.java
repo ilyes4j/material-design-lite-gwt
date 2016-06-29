@@ -200,6 +200,16 @@ public class MenuCombo extends FlowPanel implements IMenuCombo {
     button.setTabIndex(index);
   }
 
+  @Override
+  public void upgrade() {
+    menu.upgrade();
+  }
+
+  @Override
+  public boolean isUpgraded() {
+    return menu.isUpgraded();
+  }
+
   /**
    * Make sure the action button is enabled if the menu contains at least an
    * item. Make it disabled if it does not contain any item.

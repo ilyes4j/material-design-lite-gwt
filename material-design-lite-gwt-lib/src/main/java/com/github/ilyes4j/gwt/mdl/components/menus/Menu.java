@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 
 import com.github.ilyes4j.gwt.mdl.components.ComponentHandler;
 import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
+import com.github.ilyes4j.gwt.mdl.components.UpgradeHelper;
 import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
 import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
 import com.github.ilyes4j.gwt.mdl.components.ripples.RippleSwitcher;
@@ -144,7 +145,7 @@ public class Menu extends HTMLPanel implements IMenu, IHasEventSource {
     // yet upgraded. If the menu is already upgraded it is not possible to
     // re bind it to another button anymore. mdl does not allow such
     // behavior.
-    if (upgraded) {
+    if (isUpgraded()) {
       StringBuilder sb = new StringBuilder();
       sb.append("The menu is already upgraded !\n");
       sb.append("The menu should be bound to an action ");
@@ -167,7 +168,7 @@ public class Menu extends HTMLPanel implements IMenu, IHasEventSource {
   @Override
   public final void setAnchor(final MenuAnchor inputAnchor) {
 
-    if (upgraded) {
+    if (isUpgraded()) {
 
       StringBuilder sb = new StringBuilder();
 
@@ -209,43 +210,8 @@ public class Menu extends HTMLPanel implements IMenu, IHasEventSource {
    */
   @Override
   public final void onLoad() {
-
-    // the menu cannot be upgraded without having a menuId
-    if (menuId == null || menuId.isEmpty()) {
-
-      StringBuilder sb = new StringBuilder();
-
-      sb.append("Attempting to upgrade a menu ");
-      sb.append("with an undefined action button\n");
-      sb.append("Please bind the menu to its action button ");
-      sb.append("before attaching it to the DOM.");
-
-      String msg = sb.toString();
-
-      LOG.warning(msg);
-
-      throw new IllegalStateException(msg);
-    }
-
-    // transform the menu and apply the needed behaviors
-    upgradeElement(getElement());
-
-    LOG.finest("Menu upgraded");
-
-    // mark the component as already upgraded
-    upgraded = true;
-
-    // make sure the menu height does not exceed the threshold.
-    assertHeight();
-
-    // componentHandler.upgradeElement(element) only operates on the very
-    // element it is applied on. It does not operate on inner elements
-    // within. Intuitively, the upgrade should be performed on the DOM tree
-    // that has element as root but this is not the case. This issue is
-    // fixed by upgrading each inner element individually.
-    for (MenuItem item : items) {
-      upgradeElement(item.getElement());
-    }
+    super.onLoad();
+    upgrade();
   }
 
   @Override
@@ -302,7 +268,7 @@ public class Menu extends HTMLPanel implements IMenu, IHasEventSource {
       forceEnable(menuItem);
     }
 
-    if (upgraded) {
+    if (isUpgraded()) {
       prepareAddItem(getElement(), menuItem.getElement());
       assertHeight();
       ComponentHandler.upgradeElement(menuItem.getElement());
@@ -402,6 +368,52 @@ public class Menu extends HTMLPanel implements IMenu, IHasEventSource {
     assertHeight();
   }
 
+  @Override
+  public void upgrade() {
+
+    // the menu cannot be upgraded without having a menuId
+    if (menuId == null || menuId.isEmpty()) {
+
+      StringBuilder sb = new StringBuilder();
+
+      sb.append("Attempting to upgrade a menu ");
+      sb.append("with an undefined action button\n");
+      sb.append("Please bind the menu to its action button ");
+      sb.append("before attaching it to the DOM.");
+
+      String msg = sb.toString();
+
+      LOG.warning(msg);
+
+      throw new IllegalStateException(msg);
+    }
+
+    // transform the menu and apply the needed behaviors
+    upgradeElement(getElement());
+
+    LOG.finest("Menu upgraded");
+
+    // mark the component as already upgraded
+    upgrade.upgrade();
+
+    // make sure the menu height does not exceed the threshold.
+    assertHeight();
+
+    // componentHandler.upgradeElement(element) only operates on the very
+    // element it is applied on. It does not operate on inner elements
+    // within. Intuitively, the upgrade should be performed on the DOM tree
+    // that has element as root but this is not the case. This issue is
+    // fixed by upgrading each inner element individually.
+    for (MenuItem item : items) {
+      upgradeElement(item.getElement());
+    }
+  }
+
+  @Override
+  public boolean isUpgraded() {
+    return upgrade.isUpgraded();
+  }
+
   /**
    * unplug event handlers and downgrade only if the menu is upgraded.
    * 
@@ -409,7 +421,7 @@ public class Menu extends HTMLPanel implements IMenu, IHasEventSource {
    *          the menu item to be downgraded
    */
   private void downgradeItem(final MenuItem item) {
-    if (upgraded) {
+    if (isUpgraded()) {
       // clean up the item from event handlers
       destroyItem(getElement(), item.getElement());
 
@@ -744,11 +756,10 @@ public class Menu extends HTMLPanel implements IMenu, IHasEventSource {
   private MenuAnchorSwitcher anchor;
 
   /**
-   * store the status of the component to indicate whether the component is
-   * already upgraded.
+   * Upgrade manager.
    */
-  private boolean upgraded = false;
-
+  private UpgradeHelper upgrade = new UpgradeHelper();
+  
   /**
    * Default maximum value not to be exceeded by the menu's height.
    */

@@ -222,6 +222,16 @@ public class Dropdown extends Composite implements IMenuCombo {
     button.setTabIndex(index);
   }
 
+  @Override
+  public void upgrade() {
+    combo.upgrade();
+  }
+
+  @Override
+  public boolean isUpgraded() {
+    return combo.isUpgraded();
+  }
+
   /**
    * @param btn
    *          the button part of the dropdown
