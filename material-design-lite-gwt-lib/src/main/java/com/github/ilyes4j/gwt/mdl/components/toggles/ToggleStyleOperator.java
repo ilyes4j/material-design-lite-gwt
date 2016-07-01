@@ -2,6 +2,8 @@ package com.github.ilyes4j.gwt.mdl.components.toggles;
 
 import com.github.ilyes4j.gwt.mdl.components.ComponentHandler;
 import com.github.ilyes4j.gwt.mdl.components.CssSwitcher;
+import com.github.ilyes4j.gwt.mdl.components.IUpgrade;
+import com.github.ilyes4j.gwt.mdl.components.UpgradeHelper;
 import com.github.ilyes4j.gwt.mdl.components.ripples.HasRipple;
 import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
 import com.github.ilyes4j.gwt.mdl.components.ripples.RippleSwitcher;
@@ -42,7 +44,7 @@ import com.google.gwt.user.client.ui.Widget;
  *
  */
 public abstract class ToggleStyleOperator<T extends Enum<T>>
-    implements HasRipple, IToggleFace<T> {
+    implements HasRipple, IToggleFace<T>, IUpgrade {
 
   /**
    * 
@@ -177,9 +179,7 @@ public abstract class ToggleStyleOperator<T extends Enum<T>>
     return ripple.getValue();
   }
 
-  /**
-   * Apply JavaScript behaviors and effects on the component.
-   */
+  @Override
   public void upgrade() {
 
     // retrieve the top level element of the component
@@ -202,7 +202,19 @@ public abstract class ToggleStyleOperator<T extends Enum<T>>
       // apply the upgrade on the ripple container
       ComponentHandler.upgradeElement(rippleContainer);
     }
+
+    upgrade.upgrade();
   }
+
+  @Override
+  public boolean isUpgraded() {
+    return upgrade.isUpgraded();
+  }
+
+  /**
+   * Upgrade manager.
+   */
+  private UpgradeHelper upgrade = new UpgradeHelper();
 
   /**
    * Stores the ripple option and help switch between ripple options.
@@ -228,7 +240,7 @@ public abstract class ToggleStyleOperator<T extends Enum<T>>
    * CSS class applied on the root level to set whether the toggle is enabled.
    */
   private static final String IS_DISABLED = "is-disabled";
-  
+
   /**
    * CSS class applied on the root level to set whether the toggle is checked.
    */

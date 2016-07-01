@@ -1,5 +1,6 @@
 package com.github.ilyes4j.gwt.mdl.components.toggles;
 
+import com.github.ilyes4j.gwt.mdl.components.IUpgrade;
 import com.github.ilyes4j.gwt.mdl.components.ripples.HasRipple;
 import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
 import com.google.gwt.dom.client.Document;
@@ -57,7 +58,7 @@ import com.google.gwt.user.client.ui.Widget;
  */
 public class CheckboxBase<T extends Enum<T>> extends ButtonBase implements
     HasRipple, HasName, HasValue<Boolean>, HasWordWrap, HasDirectionalSafeHtml,
-    HasDirectionEstimator, IsEditor<LeafValueEditor<Boolean>> {
+    HasDirectionEstimator, IsEditor<LeafValueEditor<Boolean>>, IUpgrade {
 
   /**
    * Creates a check box with no label.
@@ -523,6 +524,16 @@ public class CheckboxBase<T extends Enum<T>> extends ButtonBase implements
         .setWhiteSpace(wrap ? WhiteSpace.NORMAL : WhiteSpace.NOWRAP);
   }
 
+  @Override
+  public void upgrade() {
+    toggle.upgrade();
+  }
+
+  @Override
+  public boolean isUpgraded() {
+    return toggle.isUpgraded();
+  }
+
   /**
    * 
    */
@@ -562,7 +573,7 @@ public class CheckboxBase<T extends Enum<T>> extends ButtonBase implements
   protected void onLoad() {
     DOM.setEventListener(inputElem, this);
 
-    toggle.upgrade();
+    upgrade();
   }
 
   /**
