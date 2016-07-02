@@ -4,7 +4,9 @@ import static com.github.ilyes4j.gwt.mdl.components.tooltips.TooltipPosition.BOT
 import static com.github.ilyes4j.gwt.mdl.components.tooltips.TooltipStyle.DEFAULT;
 
 import com.github.ilyes4j.gwt.mdl.components.ComponentHandler;
+import com.github.ilyes4j.gwt.mdl.components.IUpgrade;
 import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
+import com.github.ilyes4j.gwt.mdl.components.UpgradeHelper;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.MouseDownEvent;
 import com.google.gwt.event.dom.client.MouseDownHandler;
@@ -23,7 +25,7 @@ import com.google.gwt.user.client.ui.Widget;
  *
  */
 public class Tooltip extends FlowPanel
-    implements MouseOverHandler, MouseOutHandler, MouseDownHandler {
+    implements MouseOverHandler, MouseOutHandler, MouseDownHandler, IUpgrade {
 
   /**
    * Setup a tooltip instance with all options to be indicated.
@@ -200,7 +202,7 @@ public class Tooltip extends FlowPanel
   public void onLoad() {
     super.onLoad();
 
-    ComponentHandler.upgradeElement(getElement());
+    upgrade();
   }
 
   /**
@@ -216,6 +218,24 @@ public class Tooltip extends FlowPanel
   public void hide() {
     removeFromParent();
   }
+
+  @Override
+  public void upgrade() {
+
+    ComponentHandler.upgradeElement(getElement());
+
+    upgrade.upgrade();
+  }
+
+  @Override
+  public boolean isUpgraded() {
+    return upgrade.isUpgraded();
+  }
+
+  /**
+   * Upgrade manager.
+   */
+  private UpgradeHelper upgrade = new UpgradeHelper();
 
   /**
    * Will the tooltip fire on the next mouse over ?
