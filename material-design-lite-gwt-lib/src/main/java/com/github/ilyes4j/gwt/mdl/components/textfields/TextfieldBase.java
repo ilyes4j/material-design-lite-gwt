@@ -1,7 +1,9 @@
 package com.github.ilyes4j.gwt.mdl.components.textfields;
 
 import com.github.ilyes4j.gwt.mdl.components.ComponentHandler;
+import com.github.ilyes4j.gwt.mdl.components.IUpgrade;
 import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
+import com.github.ilyes4j.gwt.mdl.components.UpgradeHelper;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.InputElement;
@@ -129,7 +131,7 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel
     IsEditor<ValueBoxEditor<String>>, HasClickHandlers, HasDoubleClickHandlers,
     HasEnabled, HasAllDragAndDropHandlers, HasAllFocusHandlers,
     HasAllGestureHandlers, HasAllKeyHandlers, HasAllMouseHandlers,
-    HasAllTouchHandlers, ITextBox {
+    HasAllTouchHandlers, ITextBox, IUpgrade {
 
   /**
    * Setup an instance of {@link TextfieldBase} type. The appropriate input
@@ -534,8 +536,21 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel
   protected final void onLoad() {
     super.onLoad();
 
+    upgrade();
+  }
+
+  @Override
+  public void upgrade() {
+
     // upgrade the component
     ComponentHandler.upgradeElement(getElement());
+
+    upgrade.upgrade();
+  }
+
+  @Override
+  public boolean isUpgraded() {
+    return upgrade.isUpgraded();
   }
 
   /**
@@ -561,6 +576,11 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel
   /*-{
     element.MaterialTextfield.checkDirty();
   }-*/;
+
+  /**
+   * Upgrade manager.
+   */
+  private UpgradeHelper upgrade = new UpgradeHelper();
 
   /**
    * {@link Label} widget for the text field.
