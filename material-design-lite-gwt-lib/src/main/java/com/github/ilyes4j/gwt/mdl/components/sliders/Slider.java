@@ -82,6 +82,16 @@ public class Slider extends FlowPanel implements ISlider {
     return sliderInput.toString();
   }
 
+  @Override
+  public void upgrade() {
+    sliderInput.upgrade();
+  }
+
+  @Override
+  public boolean isUpgraded() {
+    return sliderInput.isUpgraded();
+  }
+
   /**
    * The underlying slider component.
    */

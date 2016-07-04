@@ -1,5 +1,6 @@
 package com.github.ilyes4j.gwt.mdl.components.sliders;
 
+import com.github.ilyes4j.gwt.mdl.components.IUpgrade;
 import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
 
@@ -9,7 +10,7 @@ import com.google.gwt.event.shared.HandlerRegistration;
  * @author Mohamed Ilyes DIMASSI
  *
  */
-public interface ISlider {
+public interface ISlider extends IUpgrade {
 
   /**
    * Adds a {@link InputHandler} handler.

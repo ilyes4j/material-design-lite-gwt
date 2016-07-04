@@ -2,6 +2,7 @@ package com.github.ilyes4j.gwt.mdl.components.sliders;
 
 import com.github.ilyes4j.gwt.mdl.components.ComponentHandler;
 import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
+import com.github.ilyes4j.gwt.mdl.components.UpgradeHelper;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.InputElement;
@@ -124,7 +125,20 @@ public class SliderInput extends FocusWidget implements ISlider {
   protected void onLoad() {
     super.onLoad();
 
+    upgrade();
+  }
+
+  @Override
+  public void upgrade() {
+
+    upgrade.upgrade();
+
     ComponentHandler.upgradeElement(getElement());
+  }
+
+  @Override
+  public boolean isUpgraded() {
+    return upgrade.isUpgraded();
   }
 
   /**
@@ -152,6 +166,11 @@ public class SliderInput extends FocusWidget implements ISlider {
    * the input element.
    */
   private InputElement inputElem;
+
+  /**
+   * Upgrade manager.
+   */
+  private UpgradeHelper upgrade = new UpgradeHelper();
 
   /**
    * The property name of minimum edge.
