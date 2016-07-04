@@ -17,10 +17,15 @@ This technique is used abundantly in mdl components in general.
 .mdl-switch, .mdl-switch__ripple-container,
 .mdl-icon-toggle, .mdl-icon-toggle__ripple-container,
 .mdl-tooltip,
-.mdl-layout__content {
+.mdl-layout__content,
+.mdl-slider.is-upgraded {
 	z-index: auto !important;
 }
 
 .mdl-button .mdl-icon-toggle__input {
 	display: none;
+}
+
+.mdl-slider__background-flex {
+	pointer-events: none;
 }
