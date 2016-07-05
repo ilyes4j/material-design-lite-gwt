@@ -67,8 +67,31 @@ public class SliderInput extends FocusWidget implements ISlider {
 
   @Override
   public void setValue(final double value) {
-    MdlGwtUtils.setProperty(getElement(), VAL, value);
+
+    if (isAttached()) {
+      change(getElement(), value);
+    } else {
+      MdlGwtUtils.setProperty(getElement(), VAL, value);
+    }
   }
+
+  /**
+   * 
+   */
+
+  /**
+   * Invokes the element.MaterialSlider.change(value) native function.
+   * 
+   * @param element
+   *          the input range element
+   * 
+   * @param value
+   *          the value to be applied
+   */
+  private static native void change(final Element element, final double value)
+  /*-{
+     element.MaterialSlider.change(value);
+  }-*/;
 
   @Override
   public double getMin() {
