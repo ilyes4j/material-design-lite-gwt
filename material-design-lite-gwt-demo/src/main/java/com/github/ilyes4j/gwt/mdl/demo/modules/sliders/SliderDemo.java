@@ -24,6 +24,7 @@ public class SliderDemo implements EntryPoint {
     demos.add(new ChangeEventDemo());
     demos.add(new InputEventDemo());
     demos.add(new SliderTooltipDemo());
+    demos.add(new SliderSetValueDemo());
 
     for (EntryPoint entry : demos) {
       entry.onModuleLoad();
