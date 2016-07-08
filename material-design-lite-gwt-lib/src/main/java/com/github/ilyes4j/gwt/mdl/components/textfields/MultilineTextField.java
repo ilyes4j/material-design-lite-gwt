@@ -59,7 +59,7 @@ public class MultilineTextField extends TextfieldBase<TextArea> {
    *          the value of the parameter
    */
   private void setAttribute(final String attribute, final int value) {
-    TextArea area = getTextbox();
+    TextArea area = asTextBoxBase();
     String valueStr = String.valueOf(value);
     area.getElement().setAttribute(attribute, valueStr);
   }

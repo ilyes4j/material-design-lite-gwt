@@ -131,7 +131,7 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel
     IsEditor<ValueBoxEditor<String>>, HasClickHandlers, HasDoubleClickHandlers,
     HasEnabled, HasAllDragAndDropHandlers, HasAllFocusHandlers,
     HasAllGestureHandlers, HasAllKeyHandlers, HasAllMouseHandlers,
-    HasAllTouchHandlers, ITextBox, IUpgrade {
+    HasAllTouchHandlers, ITextBox, IsTextBoxBase<T>, IUpgrade {
 
   /**
    * Setup an instance of {@link TextfieldBase} type. The appropriate input
@@ -512,13 +512,8 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel
     getInputElement().setSize(length);
   }
 
-  /**
-   * The {@link TextfieldBase} contains a sub-type {@link TextBoxBase} under the
-   * hood.
-   * 
-   * @return the underlying input Widget
-   */
-  public final T getTextbox() {
+  @Override
+  public T asTextBoxBase() {
     return box;
   }
 

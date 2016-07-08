@@ -67,7 +67,7 @@ public class ExpandingTextField extends TextField {
     addStyleName(CSS_EXPANDING);
 
     // retrieve the parts of the text field
-    TextBox box = getTextbox();
+    TextBox box = asTextBoxBase();
     Label label = getLabel();
     InlineLabel error = getErrorLabel();
 
