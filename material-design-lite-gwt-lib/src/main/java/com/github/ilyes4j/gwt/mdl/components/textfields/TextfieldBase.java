@@ -82,6 +82,8 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.i18n.client.AutoDirectionHandler;
 import com.google.gwt.i18n.shared.DirectionEstimator;
 import com.google.gwt.i18n.shared.HasDirectionEstimator;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Focusable;
 import com.google.gwt.user.client.ui.HasEnabled;
@@ -597,6 +599,23 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel
   }
 
   @Override
+  public void onBrowserEvent(final Event event) {
+    int type = DOM.eventGetType(event);
+    if ((type & Event.KEYEVENTS) != 0) {
+      // Fire the keyboard event. Hang on to the current event object so that
+      // cancelKey() and setKey() can be implemented.
+      currentEvent = event;
+      // Call the superclass' onBrowserEvent as that includes the key event
+      // handlers.
+      super.onBrowserEvent(event);
+      currentEvent = null;
+    } else {
+      // Handles Focus and Click events.
+      super.onBrowserEvent(event);
+    }
+  }
+
+  @Override
   public void upgrade() {
 
     // upgrade the component
@@ -678,4 +697,9 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel
    * Keeps track of the value change handler initialization.
    */
   private boolean valueChangeHandlerInitialized;
+
+  /**
+   * The currently captured event.
+   */
+  private Event currentEvent;
 }
