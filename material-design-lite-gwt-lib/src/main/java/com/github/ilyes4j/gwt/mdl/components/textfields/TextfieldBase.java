@@ -1,5 +1,7 @@
 package com.github.ilyes4j.gwt.mdl.components.textfields;
 
+import java.text.ParseException;
+
 import com.github.ilyes4j.gwt.mdl.components.ComponentHandler;
 import com.github.ilyes4j.gwt.mdl.components.IUpgrade;
 import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
@@ -52,6 +54,7 @@ import com.google.gwt.event.dom.client.KeyDownEvent;
 import com.google.gwt.event.dom.client.KeyDownHandler;
 import com.google.gwt.event.dom.client.KeyPressEvent;
 import com.google.gwt.event.dom.client.KeyPressHandler;
+import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.event.dom.client.MouseDownEvent;
 import com.google.gwt.event.dom.client.MouseDownHandler;
@@ -91,6 +94,7 @@ import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.TextBoxBase;
 import com.google.gwt.user.client.ui.ValueBoxBase;
+import com.google.gwt.user.client.ui.ValueBoxBase.TextAlignment;
 
 /**
  * A base class for Material Text Fields.
@@ -131,7 +135,8 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel
     IsEditor<ValueBoxEditor<String>>, HasClickHandlers, HasDoubleClickHandlers,
     HasEnabled, HasAllDragAndDropHandlers, HasAllFocusHandlers,
     HasAllGestureHandlers, HasAllKeyHandlers, HasAllMouseHandlers,
-    HasAllTouchHandlers, ITextBox, IsTextBoxBase<T>, IUpgrade {
+    HasAllTouchHandlers, ITextBox, IsTextBoxBase<T>, IsValueBoxBase<String>,
+    IUpgrade {
 
   /**
    * Setup an instance of {@link TextfieldBase} type. The appropriate input
@@ -433,7 +438,7 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel
 
   @Override
   public HandlerRegistration addKeyUpHandler(final KeyUpHandler handler) {
-    return box.addKeyUpHandler(handler);
+    return addDomHandler(handler, KeyUpEvent.getType());
   }
 
   @Override
@@ -515,6 +520,63 @@ public class TextfieldBase<T extends TextBoxBase> extends FlowPanel
   @Override
   public T asTextBoxBase() {
     return box;
+  }
+
+  @Override
+  public void cancelKey() {
+    if (currentEvent != null) {
+      currentEvent.preventDefault();
+    }
+  }
+
+  @Override
+  public int getCursorPos() {
+    return box.getCursorPos();
+  }
+
+  @Override
+  public String getSelectedText() {
+    return box.getSelectedText();
+  }
+
+  @Override
+  public int getSelectionLength() {
+    return box.getSelectionLength();
+  }
+
+  @Override
+  public String getValueOrThrow() throws ParseException {
+    return box.getValueOrThrow();
+  }
+
+  @Override
+  public boolean isReadOnly() {
+    return box.isReadOnly();
+  }
+
+  @Override
+  public void selectAll() {
+    box.selectAll();
+  }
+
+  @Override
+  public void setAlignment(final TextAlignment align) {
+    box.setAlignment(align);
+  }
+
+  @Override
+  public void setCursorPos(final int pos) {
+    box.setCursorPos(pos);
+  }
+
+  @Override
+  public void setReadOnly(final boolean readOnly) {
+    box.setReadOnly(readOnly);
+  }
+
+  @Override
+  public void setSelectionRange(final int pos, final int length) {
+    box.setSelectionRange(pos, length);
   }
 
   /**
