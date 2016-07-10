@@ -15,9 +15,42 @@ import com.google.gwt.user.client.ui.UIObject;
 public final class MdlGwtUtils {
 
   /**
+   * The disabled property name.
+   */
+  public static final String DISABLED = "disabled";
+
+  /**
    * Private constructor for the util class.
    */
   private MdlGwtUtils() {
+  }
+
+  /**
+   * apply the disabled property for a DOM element if the element should be
+   * disabled.
+   * 
+   * @param elt
+   *          the target element
+   * 
+   * @param enabled
+   *          <code>true</code> to remove the disabled property and
+   *          <code>false</code> to add it
+   * 
+   */
+  public static void setEnabled(final Element elt, final boolean enabled) {
+
+    // the provided element is undefined => don't do anything
+    if (elt == null) {
+      return;
+    }
+
+    if (enabled) {
+      // completely remove the disabled property when false
+      elt.removeAttribute(DISABLED);
+    } else {
+      // add the disabled property to the DOM when true
+      elt.setAttribute(DISABLED, "");
+    }
   }
 
   /**

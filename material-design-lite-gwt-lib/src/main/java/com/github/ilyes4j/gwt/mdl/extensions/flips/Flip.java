@@ -1,5 +1,6 @@
 package com.github.ilyes4j.gwt.mdl.extensions.flips;
 
+import com.github.ilyes4j.gwt.mdl.components.MdlGwtUtils;
 import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor;
 import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColorSwitcher;
 import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType;
@@ -157,6 +158,14 @@ public class Flip extends CheckboxBase<ButtonType>
 
     // apply the the appropriate color on the toggle
     setStyle();
+  }
+
+  @Override
+  public void setEnabled(final boolean enabled) {
+    super.setEnabled(enabled);
+
+    // add the disabled property if the component is disabled
+    MdlGwtUtils.setEnabled(getElement(), enabled);
   }
 
   /**
