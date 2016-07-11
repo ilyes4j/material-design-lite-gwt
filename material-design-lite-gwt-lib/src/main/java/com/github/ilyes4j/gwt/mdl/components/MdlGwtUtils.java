@@ -153,7 +153,14 @@ public final class MdlGwtUtils {
    */
   public static native double getProperty(final Element elt, final String prop)
   /*-{
-    return elt[prop];
+    var value = elt[prop];
+    
+    //numeric encoded into a string
+    if(typeof value === "string"){
+      value = parseFloat(value);
+    }
+    
+    return value;
   }-*/;
 
   /**
