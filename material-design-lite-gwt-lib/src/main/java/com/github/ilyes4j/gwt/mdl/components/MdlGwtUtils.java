@@ -254,6 +254,36 @@ public final class MdlGwtUtils {
   }
 
   /**
+   * Is the mouse out of the element bounds.
+   *
+   * @param element
+   *          the target element
+   *
+   * @param x
+   *          the horizontal absolute position of the mouse
+   *
+   * @param y
+   *          the vertical absolute position of the mouse
+   *
+   * @return <code>true</code> if the mouse out of the element bounds
+   */
+  public static boolean mouseOutOfBounds(final Element element, final int x,
+      final int y) {
+
+    boolean left = element.getAbsoluteLeft() > x;
+    boolean right = element.getAbsoluteRight() < x;
+
+    if (left && right) {
+      return true;
+    }
+
+    boolean top = element.getAbsoluteTop() > y;
+    boolean bottom = element.getAbsoluteBottom() < y;
+
+    return top && bottom;
+  }
+
+  /**
    * 
    * Checks whether the css selector can be applied to the element safely.
    * 
