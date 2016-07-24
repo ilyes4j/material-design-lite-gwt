@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Menus</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet"
+	href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-orange.min.css" />
+
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+	type="text/css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="../../index.css">
+<link rel="stylesheet" type="text/css" href="../extensions.css">
+<link rel="stylesheet" type="text/css" href="dropdowns.css">
+
+<script
+	src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+<script
+	src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+
+<script src="../../mdlgwtdemo/mdlgwtdemo.nocache.js"></script>
+
+</head>
+<body class="demo-global">
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header class="demo-simplified-header">
+
+			<!-- On the first row, put the demo title  -->
+			<div class="mdl-layout__header-row">
+
+				<!-- Title -->
+				<span class="mdl-layout-title">Material Design Lite for GWT</span>
+			</div>
+
+			<!-- On the second row put the tabs and external links -->
+			<div id="header-link-row" class="mdl-layout__header-row">
+				<!-- Put a spacer to push the external links to the right -->
+				<div class="mdl-layout-spacer"></div>
+
+				<!-- A link to the javadoc -->
+				<a href="../../apidocs" class="demo-header-link"><span
+					class="icon material-icons">assignment</span><span class="text">Javadoc</span></a>
+
+				<!-- A link to the source code -->
+				<a href="https://github.com/ilyes4j/material-design-lite-gwt"
+					class="demo-header-link"><span class="icon material-icons">code</span><span
+					class="text">GitHub</span></a>
+			</div>
+		</header>
+		<div class="mdl-layout__content">
+			<div id="demo-main" class="demo-main">
+				<div class="page" align="center">
+					<div class="content" align="left">
+						<h4 class="demo-title">Dropdowns</h4>
+
+						<h5 class="demo-title">Basic dropdown</h5>
+
+						<div id="default-dropdown"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.dropdowns;
+
+import static com.google.gwt.user.client.ui.RootPanel.get;
+
+import com.github.ilyes4j.gwt.mdl.extensions.menus.Dropdown;
+import com.google.gwt.core.client.EntryPoint;
+
+/** Setup a basic dropdown menu. */
+public class BasicDemo implements EntryPoint {
+
+  /** When the page loads add the dropdown menu. */
+  public final void onModuleLoad() {
+
+    // instanciate a dropdown
+    Dropdown dropdown = new Dropdown();
+
+    // add the items to the dropdown
+    dropdown.addItem("Some action");
+    dropdown.addItem("Another action");
+    dropdown.addItem("Yet another action");
+
+    // attach the dropdown to its parent
+    get("default-dropdown").add(dropdown);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Programmatic selection</h5>
+
+						<div id="selectContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.dropdowns;
+
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
+import static com.google.gwt.user.client.ui.RootPanel.get;
+
+import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
+import com.github.ilyes4j.gwt.mdl.extensions.menus.Dropdown;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Setup a programmatic item selection for a dropdown menu. */
+public class SelectItemDemo implements EntryPoint {
+
+  /** When the command button is pushed the next item is selected. */
+  public final void onModuleLoad() {
+
+    // retrieve the container
+    RootPanel ctnr = get("selectContainer");
+
+    // attach the toggle to its parent
+    Button select = Button.createRaised(BTN_NO_COLOR, HAS_RIPPLE, "Select");
+    ctnr.add(select);
+
+    // instanciate a dropdown
+    final Dropdown dropdown = new Dropdown();
+    dropdown.addStyleName("demo-menu-event-label");
+
+    // add the items to the dropdown
+    dropdown.addItem("Some action");
+    dropdown.addItem("Another action");
+    dropdown.addItem("Yet another action");
+
+    // attach the dropdown to its parent
+    ctnr.add(dropdown);
+
+    select.addClickHandler(new ClickHandler() {
+
+      @Override
+      public void onClick(final ClickEvent event) {
+        int next = (dropdown.getSelected() + 1) % dropdown.getItemCount();
+        dropdown.setSelected(next);
+      }
+    });
+  }
+}
+</pre>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

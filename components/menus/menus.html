@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Menus</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.blue_grey-red.min.css" />
+
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+	type="text/css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="../../index.css">
+<link rel="stylesheet" type="text/css" href="../components.css">
+<link rel="stylesheet" type="text/css" href="menus.css">
+
+<script
+	src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+<script
+	src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+
+<script src="../../mdlgwtdemo/mdlgwtdemo.nocache.js"></script>
+
+<script type="text/javascript">
+	var itemsCount = 0;
+
+	var onAddItemClick = function() {
+		ul_menu_var = document.getElementById("ul_menu");
+		var menuUp = ul_menu_var.MaterialMenu;
+
+		anLi = document.createElement('li');
+		anLi.innerHTML = "Another Action " + itemsCount;
+		itemsCount++;
+		anLi.classList.add("mdl-menu__item");
+
+		// Add a listener to each menu item.
+		anLi.addEventListener('click', menuUp.boundItemClick_);
+		// Add a tab index to each menu item.
+		anLi.tabIndex = '-1';
+		// Add a keyboard listener to each menu item.
+		anLi.addEventListener('keydown', menuUp.boundItemKeydown_);
+
+		var rippleContainer = document.createElement('span');
+		rippleContainer.classList.add(menuUp.CssClasses_.ITEM_RIPPLE_CONTAINER);
+
+		var ripple = document.createElement('span');
+		ripple.classList.add(menuUp.CssClasses_.RIPPLE);
+		rippleContainer.appendChild(ripple);
+		anLi.appendChild(rippleContainer);
+
+		anLi.classList.add(menuUp.CssClasses_.RIPPLE_EFFECT);
+
+		menuUp.element_.appendChild(anLi);
+
+		componentHandler.upgradeElement(anLi);
+	}
+</script>
+</head>
+<body class="demo-global">
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header class="demo-simplified-header">
+
+			<!-- On the first row, put the demo title  -->
+			<div class="mdl-layout__header-row">
+
+				<!-- Title -->
+				<span class="mdl-layout-title">Material Design Lite for GWT</span>
+			</div>
+
+			<!-- On the second row put the tabs and external links -->
+			<div id="header-link-row" class="mdl-layout__header-row">
+				<!-- Put a spacer to push the external links to the right -->
+				<div class="mdl-layout-spacer"></div>
+
+				<!-- A link to the javadoc -->
+				<a href="../../apidocs" class="demo-header-link"><span class="icon material-icons">assignment</span><span
+					class="text">Javadoc</span></a>
+
+				<!-- A link to the source code -->
+				<a href="https://github.com/ilyes4j/material-design-lite-gwt"
+					class="demo-header-link"><span class="icon material-icons">code</span><span
+					class="text">GitHub</span></a>
+			</div>
+		</header>
+		<div class="mdl-layout__content">
+			<div id="demo-main" class="demo-main">
+				<div class="page" align="center">
+					<div class="content" align="left">
+						<h4 class="demo-title">Menus</h4>
+
+						<span class="demo-text">Lists of clickable actions.</span>
+
+						<h5 class="demo-title">Menu anchor</h5>
+
+						<div align="center">
+							<div align="center" style="display: inline-block">
+								<div class="demo-menu-container mdl-shadow--2dp" align="left">
+									<div class="bar" id="ctnr_01"></div>
+									<div class="background"></div>
+								</div>
+								<div class="demo-button-caption demo-text">Lower left</div>
+							</div>
+							<div align="center" style="display: inline-block">
+								<div class="demo-menu-container mdl-shadow--2dp" align="right">
+									<div class="bar" id="ctnr_02"></div>
+									<div class="background"></div>
+								</div>
+								<div class="demo-button-caption demo-text">Lower right</div>
+							</div>
+						</div>
+
+						<div align="center">
+							<div align="center" style="display: inline-block">
+								<div class="demo-menu-container mdl-shadow--2dp" align="left">
+									<div class="background"></div>
+									<div class="bar" id="ctnr_03"></div>
+								</div>
+								<div class="demo-button-caption demo-text">Upper left</div>
+							</div>
+							<div align="center" style="display: inline-block">
+								<div class="demo-menu-container mdl-shadow--2dp" align="right">
+									<div class="background"></div>
+									<div class="bar" id="ctnr_04"></div>
+								</div>
+								<div class="demo-button-caption demo-text">Upper right</div>
+							</div>
+						</div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.menus;
+
+import static com.github.ilyes4j.gwt.mdl.components.buttons.Button.createIcon;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor.BOTTOM_LEFT;
+import static com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor.BOTTOM_RIGHT;
+import static com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor.TOP_LEFT;
+import static com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor.TOP_RIGHT;
+import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.NONE;
+import static com.google.gwt.user.client.ui.RootPanel.get;
+
+import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
+import com.github.ilyes4j.gwt.mdl.components.menus.Menu;
+import com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor;
+import com.github.ilyes4j.gwt.mdl.components.menus.MenuCombo;
+import com.google.gwt.core.client.EntryPoint;
+
+/** Demonstrates the anchoring alternatives for the menu component. */
+public class AnchorDemo implements EntryPoint {
+
+  /**
+   * Setup the four possible anchoring variations for the {@link Menu} and add
+   * them to the page.
+   */
+  public final void onModuleLoad() {
+
+    // create a MenuCombo anchored to the left bottom corner of its action
+    // button then add it to its container
+    get("ctnr_01").add(createCombo(BOTTOM_LEFT));
+
+    // create a MenuCombo anchored to the right bottom corner of its action
+    // button then add it to its container
+    get("ctnr_02").add(createCombo(BOTTOM_RIGHT));
+
+    // create a MenuCombo anchored to the left top corner of its action
+    // button then add it to its container
+    get("ctnr_03").add(createCombo(TOP_LEFT));
+
+    // create a MenuCombo anchored to the right top corner of its action
+    // button then add it to its container
+    get("ctnr_04").add(createCombo(TOP_RIGHT));
+  }
+
+  /**
+   * Helper method that sets up a template {@link MenuCombo}. The anchor option
+   * is left unspecified to be provided from above.
+   * 
+   * @param anchor
+   *          Determines how the created {@link MenuCombo} is positioned
+   *          compared to its associated {@link Button}
+   * 
+   * @return an instance of {@link MenuCombo} that is anchored according to the
+   *         input {@link MenuAnchor}.
+   */
+  private MenuCombo createCombo(final MenuAnchor anchor) {
+
+    // setup the action button
+    Button btn = createIcon(BTN_NO_COLOR, NONE, "more_vert");
+
+    // setup the menu and its items
+    MenuCombo menu = new MenuCombo(btn);
+
+    // position the menu related to the action button
+    menu.setAnchor(anchor);
+
+    // add some options to the menu
+    menu.addItem("Some action", true);
+    menu.addItem("Another action", true);
+    menu.addItem("Yet another action", true);
+
+    return menu;
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Menu click event</h5>
+						<div id="eventContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.menus;
+
+import static com.github.ilyes4j.gwt.mdl.components.buttons.Button.createRaised;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
+import static com.google.gwt.dom.client.Style.Display.INLINE_BLOCK;
+import static com.google.gwt.user.client.ui.RootPanel.get;
+
+import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
+import com.github.ilyes4j.gwt.mdl.components.menus.ItemClickEvent;
+import com.github.ilyes4j.gwt.mdl.components.menus.Menu;
+import com.github.ilyes4j.gwt.mdl.components.menus.MenuCombo;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Demonstrates the click event of the menu component. */
+public class ClickEventDemo implements EntryPoint {
+
+  /**
+   * Setup a listener for click events on the menu and change a label to the
+   * text of the clicked item.
+   */
+  public final void onModuleLoad() {
+
+    final String txt = "Choose option";
+    final String item = "I choose Option #";
+
+    RootPanel eventPanel = get("eventContainer");
+
+    // setup a label next to the menu to react to click events from the menu
+    final Label lbl = new Label();
+    // set an initial text for the button
+    lbl.setText(txt);
+    // add some css styling to the label
+    lbl.addStyleName("demo-text");
+    lbl.addStyleName("demo-menu-event-label");
+
+    // setup the action button.
+    Button btn = createRaised(BTN_NO_COLOR, HAS_RIPPLE, txt);
+
+    // setup a menu
+    MenuCombo menu = new MenuCombo(btn);
+
+    // set the inline-block
+    menu.getElement().getStyle().setDisplay(INLINE_BLOCK);
+
+    // add items to the menu
+    menu.addItem(item + "1", true);
+    // it is possible to add disabled menu that won't respond to click events
+    menu.addItem(item + "2", false);
+    menu.addItem(item + "3", true);
+    // attach the menu to the DOM
+    eventPanel.add(menu);
+
+    // setup a listener for the menu
+    menu.addItemClickListener(new Menu.ItemClickListener() {
+
+      @Override
+      public void onItemClicked(final ItemClickEvent event) {
+        // change the text of the label when an enabled item is clicked
+        lbl.setText(event.getValue());
+      }
+    });
+
+    // attach the label to the DOM
+    eventPanel.add(lbl);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Menu scroll</h5>
+						<div id="scrollContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.menus;
+
+import static com.github.ilyes4j.gwt.mdl.components.buttons.Button.createRaised;
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor.TOP_LEFT;
+import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
+import static com.google.gwt.user.client.ui.RootPanel.get;
+
+import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
+import com.github.ilyes4j.gwt.mdl.components.menus.MenuCombo;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Demonstrates the scroll behavior for the menu component. */
+public class ScrollDemo implements EntryPoint {
+
+  /** Setup a large number of items to activate the scroll behavior. */
+  public final void onModuleLoad() {
+
+    final int itemCount = 20;
+
+    RootPanel scrollPanel = get("scrollContainer");
+
+    // setup the action button.
+    Button btn = createRaised(BTN_NO_COLOR, HAS_RIPPLE, "I need a scroll");
+
+    MenuCombo menu = new MenuCombo(btn);
+    // prevent the menu from overflowing at the end of the page
+    // by setting the anchoring to top
+    menu.setAnchor(TOP_LEFT);
+
+    // put many items to force the scroll bar to show up
+    for (int i = 0; i < itemCount; i++) {
+      menu.addItem("Menu Option #" + i, true);
+    }
+    scrollPanel.add(menu);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Toggle enabled</h5>
+						<div id="toggleContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.menus;
+
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
+
+import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
+import com.github.ilyes4j.gwt.mdl.components.menus.MenuCombo;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Changing the enabled state of a menu. */
+public class ToggleEnabledDemo implements EntryPoint {
+
+  /** Change the state of the item when a button is clicked. */
+  public final void onModuleLoad() {
+
+    RootPanel cont = RootPanel.get("toggleContainer");
+
+    // attach the toggle to its parent
+    Button toggle = Button.createRaised(BTN_NO_COLOR, HAS_RIPPLE, "Toggle");
+    cont.add(toggle);
+
+    Button btn = Button.createRaised(BTN_NO_COLOR, HAS_RIPPLE, "Menu");
+
+    // Instantiate a menu
+    final MenuCombo menu = new MenuCombo(btn);
+    menu.addStyleName("demo-menu-event-label");
+
+    // add the items to the menu
+    menu.addItem("Some action", true);
+    menu.addItem("Another action", true);
+    menu.addItem("Yet another action", true);
+
+    // attach the menu to its parent
+    cont.add(menu);
+
+    // setup a label next to the menu to react to click events from the toggle
+    final Label lbl = new Label();
+    // set an initial text for the button
+    lbl.setText(FIRST_ITEM_ENABLED);
+    // add some css styling to the label
+    lbl.addStyleName("demo-text");
+    lbl.addStyleName("demo-menu-event-label");
+    cont.add(lbl);
+
+    toggle.addClickHandler(new ClickHandler() {
+
+      @Override
+      public void onClick(final ClickEvent event) {
+        int itemIndex = 0;
+        //toggle the enabled state of the item
+        boolean enabled = !menu.isEnabled(itemIndex);
+        //apply the state to the item
+        menu.setEnabled(itemIndex, enabled);
+        //change the text according to the applied state
+        lbl.setText(enabled ? FIRST_ITEM_ENABLED : FIRST_ITEM_DISABLED);
+      }
+    });
+  }
+  
+  /** Lable displayed when the first of the menu is enabled. */
+  private static final String FIRST_ITEM_ENABLED = "First item is enabled";
+
+  /** Lable displayed when the first of the menu is disabled. */
+  private static final String FIRST_ITEM_DISABLED = "First item is disabled";
+}
+</pre>
+
+						<h5 class="demo-title">Adding items</h5>
+
+						<!-- Left aligned menu below button -->
+						<div style="position: relative">
+							<button id="demo-menu-lower-left"
+								class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">Select</button>
+
+							<ul id="ul_menu"
+								class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--top-left"
+								for="demo-menu-lower-left">
+								<li class="mdl-menu__item">Some Action</li>
+							</ul>
+
+							<button
+								class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
+								onclick="onAddItemClick();">
+								<i class="material-icons">add</i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

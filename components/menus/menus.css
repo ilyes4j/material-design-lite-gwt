@@ -1,0 +1,22 @@
+/*The anchoring demo panel*/
+.demo-menu-container {
+	position: relative;
+	width: 200px;
+	margin: 15px;
+}
+
+/*The content of the anchor panel*/
+.demo-menu-container .background {
+	background: white;
+	height: 100px;
+	width: 100%;
+}
+
+/*The menu bar of the anchor panel*/
+.demo-menu-container .bar {
+	box-sizing: border-box;
+	background: #607D8B;
+	color: white;
+	width: 100%;
+	padding: 16px;
+}
