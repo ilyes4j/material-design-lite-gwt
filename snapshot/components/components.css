@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+/*set the active tab marker according to the the current theme color set*/
+
+.demo-mainbar-item.demo-mainbar-item-active {
+	border-bottom: 3px solid #FFFFFF;
+}
+
+.demo-simplified-header {
+	background-color: #607D8B;
+	color: #FFFFFF;
+}

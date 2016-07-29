@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.7.0//EN" "http://gwtproject.org/doctype/2.7.0/gwt-module.dtd">
+
+<module>
+  <!-- Inherit Core GWT features -->
+  <inherits name="com.google.gwt.user.User" />
+
+  <!-- the root for java source code is in the same directory as the module -->
+  <source path="" />
+
+  <!-- Copy static resources from the same directory as the module -->
+  <public path="" />
+
+  <!-- additional css selectors for additional components -->
+  <stylesheet src="mdl-gwt.css" />
+</module>

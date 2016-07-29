@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Textfields</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet"
+	href="https://code.getmdl.io/1.1.1/material.blue_grey-red.min.css" />
+
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+	type="text/css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="../../index.css">
+<link rel="stylesheet" type="text/css" href="../components.css">
+<link rel="stylesheet" type="text/css" href="textfields.css">
+
+<script
+	src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+<script
+	src="https://storage.googleapis.com/code.getmdl.io/1.1.1/material.min.js"></script>
+
+<script src="../../mdlgwtdemo/mdlgwtdemo.nocache.js"></script>
+
+</head>
+<body class="demo-global">
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header class="demo-simplified-header">
+
+			<!-- On the first row, put the demo title  -->
+			<div class="mdl-layout__header-row">
+
+				<!-- Title -->
+				<span class="mdl-layout-title">Material Design Lite for GWT</span>
+			</div>
+
+			<!-- On the second row put the tabs and external links -->
+			<div id="header-link-row" class="mdl-layout__header-row">
+				<!-- Put a spacer to push the external links to the right -->
+				<div class="mdl-layout-spacer"></div>
+
+				<!-- A link to the javadoc -->
+				<a href="../../apidocs" class="demo-header-link"><span
+					class="icon material-icons">assignment</span><span class="text">Javadoc</span></a>
+
+				<!-- A link to the source code -->
+				<a href="https://github.com/ilyes4j/material-design-lite-gwt"
+					class="demo-header-link"><span class="icon material-icons">code</span><span
+					class="text">GitHub</span></a>
+			</div>
+		</header>
+		<div class="mdl-layout__content">
+			<div id="demo-main" class="demo-main">
+				<div class="page" align="center">
+					<div class="content" align="left">
+						<h4 class="demo-title">Textfields</h4>
+
+						<span class="demo-text">Textual input components.</span>
+
+						<h5 class="demo-title">Default text field</h5>
+
+						<div id="defaultContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.textfields;
+
+import static com.google.gwt.user.client.ui.RootPanel.get;
+
+import com.github.ilyes4j.gwt.mdl.components.textfields.TextField;
+import com.google.gwt.core.client.EntryPoint;
+
+/** Default text field demo. */
+public class DefaultTextfieldDemo implements EntryPoint {
+
+  /** When the page loads add the text field. */
+  public final void onModuleLoad() {
+
+    // setup a text field, provide a label and attach it to the page
+    get("defaultContainer").add(new TextField("Default"));
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Making the label float</h5>
+
+						<div id="floatContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.textfields;
+
+import static com.google.gwt.user.client.ui.RootPanel.get;
+
+import com.github.ilyes4j.gwt.mdl.components.textfields.Float;
+import com.github.ilyes4j.gwt.mdl.components.textfields.TextField;
+import com.google.gwt.core.client.EntryPoint;
+
+/** A floating label for the text field. */
+public class FloatTextfieldDemo implements EntryPoint {
+
+  /** Set the label to float over the text box. */
+  public final void onModuleLoad() {
+
+    // Make a text field with a description label
+    TextField txtfld = new TextField("They all float down here...");
+    // make the label float
+    txtfld.setFloat(Float.FLOAT);
+    // attach the field to the page
+    get("floatContainer").add(txtfld);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Validating a text field</h5>
+
+						<div id="validateContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.textfields;
+
+import static com.google.gwt.user.client.ui.RootPanel.get;
+
+import com.github.ilyes4j.gwt.mdl.components.textfields.Float;
+import com.github.ilyes4j.gwt.mdl.components.textfields.TextField;
+import com.github.ilyes4j.gwt.mdl.components.textfields.TextValidator;
+import com.google.gwt.core.client.EntryPoint;
+
+/** Text field validation demo. */
+public class ValidateTextfieldDemo implements EntryPoint {
+
+  /** Display an error message when the content is invalid. */
+  public final void onModuleLoad() {
+
+    // setup a text field with a label
+    TextField txtfld = new TextField("Validated field...");
+    // attach the field to the page
+    get("validateContainer").add(txtfld);
+    // make the label of the field float
+    txtfld.setFloat(Float.FLOAT);
+    // setup a validator
+    TextValidator validator = new TextValidator();
+    // set an error message when the text is invalid
+    String error = "This field should contain between 4 and 8 characters";
+    validator.setErrorMessage(error);
+    // set the validation regexp to the validator
+    validator.setPattern(".{4,8}");
+    // apply the validator to the field
+    txtfld.setValidator(validator);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Number field</h5>
+
+						<div id="numberContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.textfields;
+
+import static com.google.gwt.user.client.ui.RootPanel.get;
+
+import com.github.ilyes4j.gwt.mdl.components.textfields.Float;
+import com.github.ilyes4j.gwt.mdl.components.textfields.TextField;
+import com.github.ilyes4j.gwt.mdl.components.textfields.TextValidator;
+import com.google.gwt.core.client.EntryPoint;
+
+/** A number field as a demonstration for the validation feature. */
+public class NumberTextfieldDemo implements EntryPoint {
+
+  /** Set a number validator for the text field. */
+  public final void onModuleLoad() {
+
+    // setup a text field with a label
+    TextField txtfld = new TextField("Number");
+    // attach the field to the page
+    get("numberContainer").add(txtfld);
+    // make the label float
+    txtfld.setFloat(Float.FLOAT);
+    // setup a number validation
+    TextValidator validator = new TextValidator();
+    // set the error message to show when the input is not a number
+    validator.setErrorMessage("This is not a number");
+    // set the number validation pattern
+    validator.setPattern("-?[0-9]*(\\.[0-9]+)?");
+    // connect the validator to the field
+    txtfld.setValidator(validator);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Text area field</h5>
+
+						<div id="areaContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.textfields;
+
+import static com.google.gwt.user.client.ui.RootPanel.get;
+
+import com.github.ilyes4j.gwt.mdl.components.textfields.Float;
+import com.github.ilyes4j.gwt.mdl.components.textfields.MultilineTextField;
+import com.google.gwt.core.client.EntryPoint;
+
+/** Text area demo. */
+public class AreaTextfieldDemo implements EntryPoint {
+
+  /** Add a text area to the page. */
+  public final void onModuleLoad() {
+
+    final int minRowCount = 3;
+    final int maxLineCount = 2;
+    // setup a text area and provide a label
+    MultilineTextField areaField = new MultilineTextField("So much space !");
+    // set the minimum displayed row count
+    areaField.setMinRowsCount(minRowCount);
+    // set the maximum input rows by the user
+    areaField.setMaxLines(maxLineCount);
+    // make the label float above the area on focus
+    areaField.setFloat(Float.FLOAT);
+    // attach the text area to the page
+    get("areaContainer").add(areaField);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Expanding text field</h5>
+
+						<div id="expandingContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.textfields;
+
+import static com.google.gwt.user.client.ui.RootPanel.get;
+
+import com.github.ilyes4j.gwt.mdl.components.textfields.ExpandingTextField;
+import com.github.ilyes4j.gwt.mdl.components.textfields.Float;
+import com.github.ilyes4j.gwt.mdl.components.textfields.TextValidator;
+import com.google.gwt.core.client.EntryPoint;
+
+/** Expanding text field demo. */
+public class ExpandingTextfieldDemo implements EntryPoint {
+
+  /** Add a validated exapnding text field. */
+  public final void onModuleLoad() {
+
+    // prepare an expanding text field with a material icon
+    ExpandingTextField expanding = new ExpandingTextField("search");
+    // make the label float on focus
+    expanding.setFloat(Float.FLOAT);
+    // set the label
+    expanding.setLabel("Expanding...");
+
+    // setup a text validation
+    TextValidator validator = new TextValidator();
+    // that insure exactly 5 letter to be input
+    validator.setPattern(".{5,5}");
+    // set the error message to be displayed if the input is invalid
+    validator.setErrorMessage("Should be 5 characters long !");
+    // attach the validator to the text field
+    expanding.setValidator(validator);
+    // attach the text field to the page
+    get("expandingContainer").add(expanding);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Password field</h5>
+
+						<div id="passwordContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.textfields;
+
+import static com.google.gwt.user.client.ui.RootPanel.get;
+
+import com.github.ilyes4j.gwt.mdl.components.textfields.Float;
+import com.github.ilyes4j.gwt.mdl.components.textfields.PasswordField;
+import com.github.ilyes4j.gwt.mdl.components.textfields.TextValidator;
+import com.google.gwt.core.client.EntryPoint;
+
+/** Password field demo. */
+public class PasswordFieldDemo implements EntryPoint {
+
+  /** When the page loads add the password field. */
+  public final void onModuleLoad() {
+
+    // setup a password input field and it's label
+    PasswordField passField = new PasswordField("Enter your password...");
+    // make the label float
+    passField.setFloat(Float.FLOAT);
+    // setup a specific text validator
+    TextValidator validator = new TextValidator();
+    // set the error massage to be displayed when the input text is invalid
+    String err = "Expected alpha-numeric between 8 and 16 characters";
+    validator.setErrorMessage(err);
+    // build the validation regexp
+    validator.setPattern("[A-Za-z0-9]{8,16}");
+    // apply the validator on the field
+    passField.setValidator(validator);
+    // attach the field to the page
+    get("passwordContainer").add(passField);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Setting the text programmatically</h5>
+
+						<div id="setTextContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.textfields;
+
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.components.textfields.Float;
+import com.github.ilyes4j.gwt.mdl.components.textfields.TextField;
+import com.github.ilyes4j.gwt.mdl.components.toggles.CheckBoxStyle;
+import com.github.ilyes4j.gwt.mdl.components.toggles.Checkbox;
+import com.github.ilyes4j.gwt.mdl.demo.Demo;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/**
+ * Change the text programmatically leading to the automatic relocation of the
+ * label depending on the content of the textbox.
+ * 
+ * @author Mohamed Ilyes DIMASSI
+ */
+public class SetTextDemo implements EntryPoint {
+
+  /** When the switch is pushed add/remove the text. */
+  public final void onModuleLoad() {
+
+    RootPanel root = RootPanel.get("setTextContainer");
+
+    final Checkbox setText = new Checkbox();
+    setText.setFace(CheckBoxStyle.SWITCH);
+    setText.setRipple(Ripple.HAS_RIPPLE);
+    setText.setWidth("auto");
+    root.add(setText);
+
+    final TextField txtfld = new TextField("Text label");
+    txtfld.addStyleName(Demo.DEMO.css().inline());
+    txtfld.setFloat(Float.FLOAT);
+    root.add(txtfld);
+
+    setText.addValueChangeHandler(new ValueChangeHandler<Boolean>() {
+
+      @Override
+      public void onValueChange(final ValueChangeEvent<Boolean> event) {
+        txtfld.setText(setText.getValue() ? "Text" : "");
+      }
+    });
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Change Event</h5>
+
+						<div id="changeContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.textfields;
+
+import com.github.ilyes4j.gwt.mdl.components.textfields.Float;
+import com.github.ilyes4j.gwt.mdl.components.textfields.TextField;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.user.client.ui.InlineLabel;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Demo for the textfield value change event. */
+public class TextfieldChangeDemo implements EntryPoint {
+
+  /** Update the label when the textfield content changes. */
+  public final void onModuleLoad() {
+
+    RootPanel root = RootPanel.get("changeContainer");
+    String label = "Type some text then leave the textfield";
+    final TextField txtfld = new TextField(label);
+    txtfld.setFloat(Float.FLOAT);
+    root.add(txtfld);
+
+    final InlineLabel lbl = new InlineLabel();
+    root.add(lbl);
+
+    txtfld.addValueChangeHandler(new ValueChangeHandler<String>() {
+      @Override
+      public void onValueChange(final ValueChangeEvent<String> event) {
+        if (event.getSource() == txtfld) {
+          lbl.setText(txtfld.getText());
+        }
+      }
+    });
+  }
+}
+</pre>
+						
+						<h5 class="demo-title">Keypress Event</h5>
+
+						<div id="keypressContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.textfields;
+
+import com.github.ilyes4j.gwt.mdl.components.textfields.Float;
+import com.github.ilyes4j.gwt.mdl.components.textfields.TextField;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.dom.client.KeyPressEvent;
+import com.google.gwt.event.dom.client.KeyPressHandler;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Demo for filtering typed characters. */
+public class TextfieldKeyPressDemo implements EntryPoint {
+
+  /** When the keyboard is pressed filter undesired keys. */
+  public final void onModuleLoad() {
+
+    RootPanel root = RootPanel.get("keypressContainer");
+
+    String label = "Only 0s and 1s are accepted";
+    final TextField txtfld = new TextField(label);
+    txtfld.setFloat(Float.FLOAT);
+    root.add(txtfld);
+
+    txtfld.addKeyPressHandler(new KeyPressHandler() {
+
+      @Override
+      public void onKeyPress(final KeyPressEvent event) {
+
+        if (event.getSource() == txtfld) {
+
+          final int zero = 48;
+          final int one = 49;
+          int value = event.getCharCode();
+
+          if (value != zero && value != one) {
+            txtfld.cancelKey();
+          }
+        }
+      }
+    });
+  }
+}
+</pre>						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

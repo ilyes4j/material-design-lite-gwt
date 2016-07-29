@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+.mdl-button.mdl-img-button {
+	font-size: initial;
+}
+
+/*
+There is no apparent reason for setting specific index values for toggle parts
+which renders just fine without indexes. Furthermore, the index attribute causes
+the undesired effect of making the said part show up in front of other
+overlaying elements.
+This technique is used abundantly in mdl components in general.
+*/
+.mdl-radio__inner-circle, .mdl-radio__outer-circle,
+.mdl-radio__ripple-container,
+.mdl-checkbox, .mdl-checkbox__box-outline, .mdl-checkbox__ripple-container,
+.mdl-switch, .mdl-switch__ripple-container,
+.mdl-icon-toggle, .mdl-icon-toggle__ripple-container,
+.mdl-tooltip,
+.mdl-layout__content,
+.mdl-slider.is-upgraded {
+	z-index: auto !important;
+}
+
+.mdl-button .mdl-icon-toggle__input {
+	display: none;
+}
+
+.mdl-slider__background-flex {
+	pointer-events: none;
+}

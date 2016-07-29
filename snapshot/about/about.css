@@ -1,0 +1,34 @@
+/*applying a theme to the tab active state*/
+
+.demo-mainbar-item.demo-mainbar-item-active {
+	border-bottom: 3px solid #FFFFFF;
+}
+
+/*applying a theme to the header*/
+
+.demo-simplified-header {
+	background-color: #F44336;
+	color: #FFFFFF;
+}
+
+/*Make the the title bar more bulky*/
+
+.mdl-layout__header-row.large {
+	margin-top: 75px;
+	margin-bottom: 75px;
+}
+
+/*Title typography for the presentation page*/
+.mdl-layout-title.part-1 {
+	font-weight: 500;
+	font-size: 25px;
+}
+
+.mdl-layout-title.part-2 {
+	font-weight: 100;
+}
+
+.mdl-layout-title.part-3 {
+	font-size: 40px;
+	font-weight: 900;
+}

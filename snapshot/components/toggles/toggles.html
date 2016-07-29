@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Toggles</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet"
+	href="https://code.getmdl.io/1.1.3/material.blue_grey-red.min.css" />
+
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+	type="text/css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="../../index.css">
+<link rel="stylesheet" type="text/css" href="../components.css">
+<link rel="stylesheet" type="text/css" href="toggles.css">
+
+<script
+	src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+<script
+	src="https://storage.googleapis.com/code.getmdl.io/1.1.3/material.js"></script>
+
+<script src="../../mdlgwtdemo/mdlgwtdemo.nocache.js"></script>
+
+</head>
+<body class="demo-global">
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header class="demo-simplified-header">
+
+			<!-- On the first row, put the demo title  -->
+			<div class="mdl-layout__header-row">
+
+				<!-- Title -->
+				<span class="mdl-layout-title">Material Design Lite for GWT</span>
+			</div>
+
+			<!-- On the second row put the tabs and external links -->
+			<div id="header-link-row" class="mdl-layout__header-row">
+				<!-- Put a spacer to push the external links to the right -->
+				<div class="mdl-layout-spacer"></div>
+
+				<!-- A link to the javadoc -->
+				<a href="../../apidocs" class="demo-header-link"><span
+					class="icon material-icons">assignment</span><span class="text">Javadoc</span></a>
+
+				<!-- A link to the source code -->
+				<a href="https://github.com/ilyes4j/material-design-lite-gwt"
+					class="demo-header-link"><span class="icon material-icons">code</span><span
+					class="text">GitHub</span></a>
+			</div>
+		</header>
+		<div class="mdl-layout__content">
+			<div id="demo-main" class="demo-main">
+				<div class="page" align="center">
+					<div class="content" align="left">
+						<h4 class="demo-title">Toggles</h4>
+
+						<span class="demo-text">Choose between states.</span>
+
+						<h5 class="demo-title">Checkbox</h5>
+
+						<div id="checkboxContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.toggles;
+
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.components.toggles.Checkbox;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Default check box demo. */
+public class CheckboxDemo implements EntryPoint {
+
+  /** When the page loads add the check box. */
+  public final void onModuleLoad() {
+
+    // create a check box and set the label
+    Checkbox box = new Checkbox("Checkbox");
+    // make the check box checked
+    box.setValue(true);
+    // display a ripple on click
+    box.setRipple(Ripple.HAS_RIPPLE);
+    // attach the check box to the container
+    RootPanel.get("checkboxContainer").add(box);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Radio</h5>
+
+						<div id="radioContainer" align="center"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.toggles;
+
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.components.toggles.RadioButton;
+import com.github.ilyes4j.gwt.mdl.demo.Demo;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Radio Button Demo. */
+public class RadioDemo implements EntryPoint {
+
+  /** Add 3 radio buttons. */
+  public final void onModuleLoad() {
+
+    RootPanel root = RootPanel.get("radioContainer");
+
+    root.add(getRadio("radio1"));
+    root.add(getRadio("radio2"));
+    root.add(getRadio("radio3"));
+  }
+
+  /**
+   * @param value
+   *          the value and text to be set for the radio
+   * 
+   * @return a radio button with a text a value and a ripple
+   */
+  public static RadioButton getRadio(final String value) {
+    String group = "group";
+    RadioButton radio = new RadioButton(group);
+    radio.setRipple(Ripple.HAS_RIPPLE);
+    radio.setText(value);
+    radio.addStyleName(Demo.DEMO.css().margin());
+    return radio;
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Switch</h5>
+
+						<div id="switchContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.toggles;
+
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.components.toggles.CheckBoxStyle;
+import com.github.ilyes4j.gwt.mdl.components.toggles.Checkbox;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Switch demo. */
+public class SwitchDemo implements EntryPoint {
+
+  /** Setup a toggle with a switch face and a ripple. */
+  public final void onModuleLoad() {
+
+    final Checkbox box = new Checkbox("Switch");
+    box.setRipple(Ripple.HAS_RIPPLE);
+    box.setFace(CheckBoxStyle.SWITCH);
+    RootPanel.get("switchContainer").add(box);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Icon</h5>
+
+						<div id="iconContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.toggles;
+
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.components.toggles.CheckBoxStyle;
+import com.github.ilyes4j.gwt.mdl.components.toggles.Checkbox;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Icon demo. */
+public class IconDemo implements EntryPoint {
+
+  /** Add an icon demo with a ripple. */
+  public final void onModuleLoad() {
+
+    final Checkbox box = new Checkbox("add");
+    box.setRipple(Ripple.HAS_RIPPLE);
+    box.setFace(CheckBoxStyle.ICON);
+    RootPanel.get("iconContainer").add(box);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Check Event</h5>
+
+						<div id="checkboxEventContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.toggles;
+
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.components.toggles.Checkbox;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Check box change event demo. */
+public class CheckboxEventDemo implements EntryPoint {
+
+  /** Change the label on check box toggle. */
+  public final void onModuleLoad() {
+
+    // setup a check box and set its label
+    final Checkbox box = new Checkbox("Enabled");
+    // make it checked
+    box.setValue(true);
+    // set a ripple on it
+    box.setRipple(Ripple.HAS_RIPPLE);
+
+    // add a change listener
+    box.addValueChangeHandler(new ValueChangeHandler<Boolean>() {
+
+      @Override
+      public void onValueChange(final ValueChangeEvent<Boolean> event) {
+        // on check toggle change the label
+        box.setText(event.getValue() ? "Enabled" : "Disabled");
+      }
+    });
+
+    // add the check box to the page
+    RootPanel.get("checkboxEventContainer").add(box);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Radio Event</h5>
+
+						<div id="radioEventContainer" align="center"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.toggles;
+
+import com.github.ilyes4j.gwt.mdl.components.toggles.RadioButton;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Radio change event demo. */
+public class RadioEventDemo implements EntryPoint, ValueChangeHandler<Boolean> {
+
+  /** Change the label on radio click. */
+  public final void onModuleLoad() {
+
+    RootPanel root = RootPanel.get("radioEventContainer");
+
+    root.add(getWiredRadio("radio1"));
+    root.add(getWiredRadio("radio2"));
+  }
+
+  @Override
+  public void onValueChange(final ValueChangeEvent<Boolean> event) {
+    // retrieve the radio button from the event
+    RadioButton src = (RadioButton) event.getSource();
+    // change the label of the radio to visually reflect the event propagation
+    src.setText("change_" + counter++);
+  }
+
+  /**
+   * @param value
+   *          the value and text to be set for the radio
+   * 
+   * @return a radio button with a text, a value, a ripple and a change
+   *         listener.
+   * 
+   * @see RadioDemo#getRadio(String)
+   */
+  private RadioButton getWiredRadio(final String value) {
+    RadioButton radio = RadioDemo.getRadio(value);
+    radio.addValueChangeHandler(this);
+    return radio;
+  }
+
+  /**
+   * Track the count of events fired and use it to change the label of the
+   * radios.
+   */
+  private static int counter = 0;
+}
+</pre>
+
+						<h5 class="demo-title">Programmatic enabled state</h5>
+
+						<div id="programmaticEnableContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.toggles;
+
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.components.toggles.CheckBoxStyle;
+import com.github.ilyes4j.gwt.mdl.components.toggles.Checkbox;
+import com.github.ilyes4j.gwt.mdl.demo.Demo;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Setting the enabled state. */
+public class ProgrammaticEnableDemo implements EntryPoint {
+
+  /** Set the enabled state of the switch when the toggle is clicked. */
+  public final void onModuleLoad() {
+
+    RootPanel root = RootPanel.get("programmaticEnableContainer");
+    // enable both toggle to sit on the same line
+    String width = "auto";
+    // the initial state of the switch
+    boolean state = true;
+
+    // setup a toggle to control the enabled state
+    Checkbox enable = new Checkbox("Enable/Disable");
+    enable.setValue(state);
+    enable.setRipple(Ripple.HAS_RIPPLE);
+    enable.setFace(CheckBoxStyle.CHECKBOX);
+    enable.setWidth(width);
+    root.add(enable);
+
+    final Checkbox box = new Checkbox("");
+    box.addStyleName(Demo.DEMO.css().inline());
+    box.setValue(state);
+    box.setRipple(Ripple.HAS_RIPPLE);
+    box.setFace(CheckBoxStyle.SWITCH);
+    box.setWidth(width);
+    root.add(box);
+
+    // toggle the enabled state of the switch when the check box is clicked
+    enable.addValueChangeHandler(new ValueChangeHandler<Boolean>() {
+      @Override
+      public void onValueChange(final ValueChangeEvent<Boolean> event) {
+        box.setEnabled(event.getValue());
+      }
+    });
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Programmatic checked state</h5>
+
+						<div id="programmaticCheckContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.toggles;
+
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.BTN_NO_COLOR;
+import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
+
+import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.components.toggles.CheckBoxStyle;
+import com.github.ilyes4j.gwt.mdl.components.toggles.Checkbox;
+import com.github.ilyes4j.gwt.mdl.demo.Demo;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Setting the checked state. */
+public class ProgrammaticCheckDemo implements EntryPoint {
+
+  /** Set the checked state of the switch when the toggle is clicked. */
+  public final void onModuleLoad() {
+
+    RootPanel root = RootPanel.get("programmaticCheckContainer");
+
+    // setup the button controlling the switch of the checked state for a toggle
+    String text = "Toggle checked";
+    Button enable = Button.createRaised(BTN_NO_COLOR, HAS_RIPPLE, text);
+    enable.setRipple(Ripple.HAS_RIPPLE);
+    root.add(enable);
+
+    // setup the target toggle to be controlled
+    final Checkbox box = new Checkbox("");
+    box.addStyleName(Demo.DEMO.css().inline());
+    box.setValue(true);
+    box.setRipple(Ripple.HAS_RIPPLE);
+    box.setFace(CheckBoxStyle.SWITCH);
+    box.setWidth("auto");
+    root.add(box);
+
+    // flip the checked state when the button is clicked
+    enable.addClickHandler(new ClickHandler() {
+      @Override
+      public void onClick(final ClickEvent event) {
+        box.setValue(!box.getValue());
+      }
+    });
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Events on disabled</h5>
+
+						<div id="eventOnDisabled"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.toggles;
+
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.components.toggles.CheckBoxStyle;
+import com.github.ilyes4j.gwt.mdl.components.toggles.Checkbox;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Check whether events are sent when toggle is disabled. */
+public class EventOnDisabledDemo implements EntryPoint {
+
+  /**
+   * Click the toggle twice to make sure the value change event is not
+   * dispatched when the toggle is disabled.
+   */
+  public void onModuleLoad() {
+
+    final RootPanel root = RootPanel.get("eventOnDisabled");
+
+    // builing the demo instructions message
+    StringBuilder sb = new StringBuilder();
+    sb.append("Click the toggle twice to make sure the value change ");
+    sb.append("event is not dispatched when the toggle is disabled.");
+
+    // setting up the instructions element
+    final Label lbl = new Label();
+    lbl.setText(sb.toString());
+    root.add(lbl);
+
+    // setting up the target of the demonstration
+    Checkbox box = new Checkbox("Disabled");
+    box.setEnabled(false);
+    box.setFace(CheckBoxStyle.CHECKBOX);
+    box.setRipple(Ripple.HAS_RIPPLE);
+    root.add(box);
+
+    box.addValueChangeHandler(new ValueChangeHandler<Boolean>() {
+
+      @Override
+      public void onValueChange(final ValueChangeEvent<Boolean> event) {
+        // display a message if the change even is captured
+        Label lbl = new Label();
+        lbl.setText("Value change Dispatched !");
+        root.add(lbl);
+      }
+    });
+  }
+}
+</pre>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

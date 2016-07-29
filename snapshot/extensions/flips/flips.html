@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Flips</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet"
+	href="https://storage.googleapis.com/code.getmdl.io/1.1.1/material.indigo-orange.min.css" />
+
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+	type="text/css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="../../index.css">
+<link rel="stylesheet" type="text/css" href="../extensions.css">
+<link rel="stylesheet" type="text/css" href="flips.css">
+
+<script
+	src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+<script
+	src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+
+<script src="../../mdlgwtdemo/mdlgwtdemo.nocache.js"></script>
+
+</head>
+<body class="demo-global">
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header class="demo-simplified-header">
+
+			<!-- On the first row, put the demo title  -->
+			<div class="mdl-layout__header-row">
+
+				<!-- Title -->
+				<span class="mdl-layout-title">Material Design Lite for GWT</span>
+			</div>
+
+			<!-- On the second row put the tabs and external links -->
+			<div id="header-link-row" class="mdl-layout__header-row">
+				<!-- Put a spacer to push the external links to the right -->
+				<div class="mdl-layout-spacer"></div>
+
+				<!-- A link to the javadoc -->
+				<a href="../../apidocs" class="demo-header-link"><span
+					class="icon material-icons">assignment</span><span class="text">Javadoc</span></a>
+
+				<!-- A link to the source code -->
+				<a href="https://github.com/ilyes4j/material-design-lite-gwt"
+					class="demo-header-link"><span class="icon material-icons">code</span><span
+					class="text">GitHub</span></a>
+			</div>
+		</header>
+		<div class="mdl-layout__content">
+			<div id="demo-main" class="demo-main">
+				<div class="page" align="center">
+					<div class="content" align="left">
+						<h4 class="demo-title">Flips</h4>
+
+						<h5 class="demo-title">Flat flip</h5>
+
+						<div id="flatContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.flips;
+
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.extensions.flips.Flip;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Demo for the flip flat face. */
+public class FlatFlipDemo implements EntryPoint {
+
+  /** Add a flip with the default face. */
+  public final void onModuleLoad() {
+    final Flip box = new Flip("Flip");
+    box.setRipple(Ripple.HAS_RIPPLE);
+    RootPanel.get("flatContainer").add(box);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Raised flip</h5>
+
+						<div id="raisedContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.flips;
+
+import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType;
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.extensions.flips.Flip;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Demo for the flip raised face. */
+public class RaisedFlipDemo implements EntryPoint {
+
+  /** Add a flip with the raised face and the default color configuration. */
+  public final void onModuleLoad() {
+    final Flip box = new Flip("Flip");
+    box.setFace(ButtonType.RAISED);
+    box.setRipple(Ripple.HAS_RIPPLE);
+    RootPanel.get("raisedContainer").add(box);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Fab flip</h5>
+
+						<div id="fabContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.flips;
+
+import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType;
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.extensions.flips.Flip;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Demo for the flip fab face. */
+public class FabFlipDemo implements EntryPoint {
+
+  /** Add a flip with the fab face. */
+  public final void onModuleLoad() {
+
+    final Flip box = new Flip("add");
+    box.setFace(ButtonType.FAB);
+    box.setRipple(Ripple.HAS_RIPPLE);
+    RootPanel.get("fabContainer").add(box);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Minifab flip</h5>
+
+						<div id="minifabContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.flips;
+
+import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType;
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.extensions.flips.Flip;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Demo for the flip mini fab face. */
+public class MinifabFlipDemo implements EntryPoint {
+
+  /** Add a flip with the raised face and the default color configuration. */
+  public final void onModuleLoad() {
+
+    final Flip box = new Flip("add");
+    box.setFace(ButtonType.MINIFAB);
+    box.setRipple(Ripple.HAS_RIPPLE);
+    RootPanel.get("minifabContainer").add(box);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Icon flip</h5>
+
+						<div id="iconContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.flips;
+
+import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType;
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.extensions.flips.Flip;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Demo for the flip icon face. */
+public class IconFlipDemo implements EntryPoint {
+
+  /** Add a flip with the icon face and the default color configuration. */
+  public final void onModuleLoad() {
+
+    final Flip box = new Flip("add");
+    box.setFace(ButtonType.ICON);
+    box.setRipple(Ripple.HAS_RIPPLE);
+    RootPanel.get("iconContainer").add(box);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Flip Color</h5>
+
+						<span class="demo-text">In this demonstration, the color of
+							the Filp is controlled by 2 Dropdowns. The first dropdown
+							controls the color of the flip when it is unchecked, the second
+							one acts on the color of the flip when it is checked. The checked
+							and unchecked states are controlled independently for better
+							flexibility.</span>
+
+						<div id="colorContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.flips;
+
+import java.util.List;
+
+import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor;
+import com.github.ilyes4j.gwt.mdl.components.menus.ItemClickEvent;
+import com.github.ilyes4j.gwt.mdl.components.menus.Menu.ItemClickListener;
+import com.github.ilyes4j.gwt.mdl.components.menus.MenuAnchor;
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.components.toggles.CheckBoxStyle;
+import com.github.ilyes4j.gwt.mdl.components.toggles.Checkbox;
+import com.github.ilyes4j.gwt.mdl.demo.Demo;
+import com.github.ilyes4j.gwt.mdl.extensions.flips.Flip;
+import com.github.ilyes4j.gwt.mdl.extensions.menus.Dropdown;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.InlineLabel;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Demo for setting the color of the flip. */
+public class ColorDemo implements EntryPoint {
+
+  /** Apply a button face to the toggle. */
+  public final void onModuleLoad() {
+
+    ButtonColor unchkclr = ButtonColor.BTN_NO_COLOR;
+    ButtonColor chkclr = ButtonColor.PRIMARY;
+    boolean val = false;
+
+    RootPanel flipCtnr = RootPanel.get("colorContainer");
+
+    FlexTable table = new FlexTable();
+    flipCtnr.add(table);
+
+    Checkbox valueCtrl = buildValueSetter(table, val);
+
+    Dropdown unchecked = buildColorRow("Unchecked color", table);
+
+    Dropdown checked = buildColorRow("Checked color", table);
+
+    final List<Flip> flips = FlipHelper.buildFlipsRow(table);
+
+    unchecked.setSelected(colorToItem(unchkclr));
+    checked.setSelected(colorToItem(chkclr));
+
+    setValue(flips, val);
+    FlipHelper.setUncheckedColor(flips, unchkclr);
+    FlipHelper.setCheckedColor(flips, chkclr);
+
+    unchecked.addItemClickListener(new ItemClickListener() {
+      @Override
+      public void onItemClicked(final ItemClickEvent event) {
+        FlipHelper.setUncheckedColor(flips, itemToColor(event.getIndex()));
+      }
+    });
+
+    checked.addItemClickListener(new ItemClickListener() {
+      @Override
+      public void onItemClicked(final ItemClickEvent event) {
+        FlipHelper.setCheckedColor(flips, itemToColor(event.getIndex()));
+      }
+    });
+
+    valueCtrl.addValueChangeHandler(new ValueChangeHandler<Boolean>() {
+
+      @Override
+      public void onValueChange(final ValueChangeEvent<Boolean> event) {
+        setValue(flips, event.getValue());
+      }
+    });
+  }
+
+  /**
+   * Set the checked state for all the flips.
+   * 
+   * @param flips
+   *          the target
+   * 
+   * @param value
+   *          the value to be set for the flips
+   */
+  private static void setValue(final List<Flip> flips, final boolean value) {
+
+    for (Flip flip : flips) {
+      flip.setValue(value);
+    }
+
+    final int start = 0;
+    final int flip = 2;
+    final int last = 5;
+
+    for (int i = start; i < flip; i++) {
+      flips.get(i).setText("flip");
+    }
+
+    for (int i = flip; i < last; i++) {
+      flips.get(i).setText("checked");
+    }
+  }
+
+  /**
+   * @param table
+   *          the table in which the value setter is attached
+   *
+   * @param value
+   *          the initial checked state
+   * 
+   * @return the checkbox that controls the value of the flips.
+   */
+  private static Checkbox buildValueSetter(final FlexTable table,
+      final boolean value) {
+
+    int index = table.getRowCount();
+
+    final InlineLabel uncheckedLbl = new InlineLabel();
+    uncheckedLbl.setText("Value control");
+    table.setWidget(index, 0, uncheckedLbl);
+
+    final Checkbox valueCtrl = new Checkbox();
+    valueCtrl.setRipple(Ripple.HAS_RIPPLE);
+    valueCtrl.setFace(CheckBoxStyle.SWITCH);
+    valueCtrl.setValue(value);
+    valueCtrl.addStyleName(Demo.DEMO.css().inline());
+    table.setWidget(index, 1, valueCtrl);
+
+    return valueCtrl;
+  }
+
+  /**
+   * Builds a color chooser for the flip state.
+   * 
+   * @param lbl
+   *          the label of the chooser
+   * 
+   * @param table
+   *          the table to put the chooser in
+   * 
+   * @return the chooser
+   */
+  private static Dropdown buildColorRow(final String lbl,
+      final FlexTable table) {
+
+    int index = table.getRowCount();
+
+    final InlineLabel uncheckedLbl = new InlineLabel();
+    uncheckedLbl.setText("Unchecked color");
+    table.setWidget(index, 0, uncheckedLbl);
+
+    final Dropdown unchecked = buildColor();
+    table.setWidget(index, 1, unchecked);
+    table.getCellFormatter().addStyleName(0, 1, Demo.DEMO.css().padV5());
+
+    return unchecked;
+  }
+
+  /**
+   * @return a color selector for flip toggles
+   */
+  private static Dropdown buildColor() {
+    Dropdown color = new Dropdown();
+    color.setAnchor(MenuAnchor.TOP_LEFT);
+    color.addItem("no color", true);
+    color.addItem("primary color", true);
+    color.addItem("accent color", true);
+    color.addStyleName(Demo.DEMO.css().inline());
+    return color;
+  }
+
+  /**
+   * translates choices from the dropdown to button colors enums.
+   * 
+   * @param index
+   *          the drop down choice position
+   * 
+   * @return the color enumeration
+   */
+  private static ButtonColor itemToColor(final int index) {
+
+    switch (index) {
+    case 0:
+      return ButtonColor.BTN_NO_COLOR;
+    case 1:
+      return ButtonColor.PRIMARY;
+    default:
+      return ButtonColor.ACCENT;
+    }
+  }
+
+  /**
+   * translates choices back from button colors enums to dropdown items.
+   * 
+   * @param item
+   *          the drop down choice position
+   * 
+   * @return the color enumeration
+   */
+  private static int colorToItem(final ButtonColor item) {
+
+    switch (item) {
+    case BTN_NO_COLOR:
+      return 0;
+    case PRIMARY:
+      return 1;
+    default:
+      return 2;
+    }
+  }
+}
+</pre>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.flips;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.EnumSet;
+import java.util.List;
+
+import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor;
+import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType;
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.demo.Demo;
+import com.github.ilyes4j.gwt.mdl.extensions.flips.Flip;
+import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.HasWidgets;
+import com.google.gwt.user.client.ui.InlineLabel;
+
+/** Common services to help dealing with flip demos. */
+public final class FlipHelper {
+
+  /** Private constructor for helper class. */
+  private FlipHelper() {
+  }
+
+  /**
+   * 
+   * @param type
+   *          the type of the flip
+   * 
+   * @param ctnr
+   *          the container in which the flip is inserted
+   * 
+   * @return the flip to be created
+   */
+  public static Flip buildFlip(final ButtonType type, final HasWidgets ctnr) {
+    Flip flip = new Flip("checked");
+    flip.setFace(type);
+    flip.setRipple(Ripple.HAS_RIPPLE);
+    flip.addStyleName(Demo.DEMO.css().inline());
+    ctnr.add(flip);
+    return flip;
+  }
+
+  /**
+   * Build all the types of the flip component.
+   * 
+   * @param ctnr
+   *          the container in which the flip is inserted
+   * 
+   * @return the flip to be created
+   */
+  public static List<Flip> buildFlips(final HasWidgets ctnr) {
+
+    List<Flip> flips = new ArrayList<>();
+
+    for (ButtonType type : EnumSet.allOf(ButtonType.class)) {
+      flips.add(FlipHelper.buildFlip(type, ctnr));
+    }
+
+    return flips;
+  }
+
+  /**
+   * @param table
+   *          the table to put the flips in
+   * 
+   * @return the flips
+   */
+  public static List<Flip> buildFlipsRow(final FlexTable table) {
+
+    int index = table.getRowCount();
+
+    final InlineLabel target = new InlineLabel();
+    target.setText("target");
+    table.setWidget(index, 0, target);
+
+    FlowPanel panel = new FlowPanel();
+    table.setWidget(index, 1, panel);
+    table.getCellFormatter().addStyleName(2, 1, Demo.DEMO.css().padV5());
+
+    return FlipHelper.buildFlips(panel);
+  }
+
+  /**
+   * Set the unchecked state color for all the flips.
+   * 
+   * @param flips
+   *          the target
+   * 
+   * @param color
+   *          the color to be set
+   */
+  public static void setUncheckedColor(final Collection<Flip> flips,
+      final ButtonColor color) {
+    for (Flip flip : flips) {
+      flip.setUncheckedColor(color);
+    }
+  }
+
+  /**
+   * Set the checked state color for all the flips.
+   * 
+   * @param flips
+   *          the target
+   * 
+   * @param color
+   *          the color to be set
+   */
+  public static void setCheckedColor(final Collection<Flip> flips,
+      final ButtonColor color) {
+    for (Flip flip : flips) {
+      flip.setCheckedColor(color);
+    }
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Enabled Flip</h5>
+
+						<div id="enabledContainer"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.flips;
+
+import java.util.List;
+
+import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor;
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.components.toggles.CheckBoxStyle;
+import com.github.ilyes4j.gwt.mdl.components.toggles.Checkbox;
+import com.github.ilyes4j.gwt.mdl.demo.Demo;
+import com.github.ilyes4j.gwt.mdl.extensions.flips.Flip;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.InlineLabel;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Demo for enabling/disabling flips. */
+public class EnabledFlipDemo implements EntryPoint {
+
+  /** When the switch is pushed enable/disable the flips. */
+  public final void onModuleLoad() {
+
+    ButtonColor unchkclr = ButtonColor.BTN_NO_COLOR;
+    ButtonColor chkclr = ButtonColor.PRIMARY;
+    boolean enabled = false;
+
+    RootPanel flipCtnr = RootPanel.get("enabledContainer");
+
+    FlexTable table = new FlexTable();
+    flipCtnr.add(table);
+
+    Checkbox enabledCtrl = buildPropControl(table, enabled, "Enabled");
+
+    final List<Flip> flips = FlipHelper.buildFlipsRow(table);
+
+    setEnabled(flips, enabled);
+    FlipHelper.setUncheckedColor(flips, unchkclr);
+    FlipHelper.setCheckedColor(flips, chkclr);
+
+    enabledCtrl.addValueChangeHandler(new ValueChangeHandler<Boolean>() {
+
+      @Override
+      public void onValueChange(final ValueChangeEvent<Boolean> event) {
+        setEnabled(flips, event.getValue());
+      }
+    });
+  }
+
+  /**
+   * Set the checked state for all the flips.
+   * 
+   * @param flips
+   *          the target
+   * 
+   * @param value
+   *          the value to be set for the flips
+   */
+  private static void setEnabled(final List<Flip> flips, final boolean value) {
+
+    for (Flip flip : flips) {
+      flip.setEnabled(value);
+    }
+  }
+
+  /**
+   * @param table
+   *          the table in which the property controller is attached
+   *
+   * @param value
+   *          the initial property state
+   * 
+   * @param label
+   *          the label of the property
+   * 
+   * @return the checkbox that controls the property
+   */
+  private static Checkbox buildPropControl(final FlexTable table,
+      final boolean value, final String label) {
+
+    int index = table.getRowCount();
+
+    final InlineLabel disabledLbl = new InlineLabel();
+    disabledLbl.setText(label);
+    table.setWidget(index, 0, disabledLbl);
+
+    final Checkbox valueCtrl = new Checkbox();
+    valueCtrl.setRipple(Ripple.HAS_RIPPLE);
+    valueCtrl.setFace(CheckBoxStyle.SWITCH);
+    valueCtrl.setValue(value);
+    valueCtrl.addStyleName(Demo.DEMO.css().inline());
+    table.setWidget(index, 1, valueCtrl);
+
+    return valueCtrl;
+  }
+}
+</pre>
+						
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.flips;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.EnumSet;
+import java.util.List;
+
+import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor;
+import com.github.ilyes4j.gwt.mdl.components.buttons.ButtonType;
+import com.github.ilyes4j.gwt.mdl.components.ripples.Ripple;
+import com.github.ilyes4j.gwt.mdl.demo.Demo;
+import com.github.ilyes4j.gwt.mdl.extensions.flips.Flip;
+import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.HasWidgets;
+import com.google.gwt.user.client.ui.InlineLabel;
+
+/** Common services to help dealing with flip demos. */
+public final class FlipHelper {
+
+  /** Private constructor for helper class. */
+  private FlipHelper() {
+  }
+
+  /**
+   * 
+   * @param type
+   *          the type of the flip
+   * 
+   * @param ctnr
+   *          the container in which the flip is inserted
+   * 
+   * @return the flip to be created
+   */
+  public static Flip buildFlip(final ButtonType type, final HasWidgets ctnr) {
+    Flip flip = new Flip("checked");
+    flip.setFace(type);
+    flip.setRipple(Ripple.HAS_RIPPLE);
+    flip.addStyleName(Demo.DEMO.css().inline());
+    ctnr.add(flip);
+    return flip;
+  }
+
+  /**
+   * Build all the types of the flip component.
+   * 
+   * @param ctnr
+   *          the container in which the flip is inserted
+   * 
+   * @return the flip to be created
+   */
+  public static List<Flip> buildFlips(final HasWidgets ctnr) {
+
+    List<Flip> flips = new ArrayList<>();
+
+    for (ButtonType type : EnumSet.allOf(ButtonType.class)) {
+      flips.add(FlipHelper.buildFlip(type, ctnr));
+    }
+
+    return flips;
+  }
+
+  /**
+   * @param table
+   *          the table to put the flips in
+   * 
+   * @return the flips
+   */
+  public static List<Flip> buildFlipsRow(final FlexTable table) {
+
+    int index = table.getRowCount();
+
+    final InlineLabel target = new InlineLabel();
+    target.setText("target");
+    table.setWidget(index, 0, target);
+
+    FlowPanel panel = new FlowPanel();
+    table.setWidget(index, 1, panel);
+    table.getCellFormatter().addStyleName(2, 1, Demo.DEMO.css().padV5());
+
+    return FlipHelper.buildFlips(panel);
+  }
+
+  /**
+   * Set the unchecked state color for all the flips.
+   * 
+   * @param flips
+   *          the target
+   * 
+   * @param color
+   *          the color to be set
+   */
+  public static void setUncheckedColor(final Collection<Flip> flips,
+      final ButtonColor color) {
+    for (Flip flip : flips) {
+      flip.setUncheckedColor(color);
+    }
+  }
+
+  /**
+   * Set the checked state color for all the flips.
+   * 
+   * @param flips
+   *          the target
+   * 
+   * @param color
+   *          the color to be set
+   */
+  public static void setCheckedColor(final Collection<Flip> flips,
+      final ButtonColor color) {
+    for (Flip flip : flips) {
+      flip.setCheckedColor(color);
+    }
+  }
+}
+</pre>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

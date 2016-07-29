@@ -1,0 +1,111 @@
+/*Make roboto the default font for the demo*/
+
+.demo-global {
+	font-family: "roboto", "Helvetica", "Arial", sans-serif;
+}
+
+/*Because of https://github.com/google/material-design-lite/issues/1676
+we are dropping the mdl-layout__header for a less fancy implementation but
+at least the header renders nicely across browsers. This selector contains
+the base setup for the header. On older version of firefox 26 this setup
+ensures the header is not squashed when the page has a scrollbar*/
+
+.demo-simplified-header {
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+}
+
+/*the main section of the page*/
+
+.demo-main {
+	display: -ms-flex;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: flex;
+}
+
+/*link on the header containing an icon and a caption*/
+
+.demo-header-link {
+	text-decoration: none;
+	color: hsl(0, 0%, 100%);
+	display: table;
+	height: 100%;
+	padding-bottom: 10px;
+	margin-left: 25px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* the icon inside the header link */
+
+.demo-header-link .icon {
+	display: table-cell;
+	vertical-align: bottom;
+	padding-right: 2px;
+}
+
+/*the caption following the icon*/
+
+.demo-header-link .text {
+	display: table-cell;
+	vertical-align: bottom;
+}
+
+/*make the icon stand out when hovered*/
+
+.demo-header-link:hover {
+	text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5);
+}
+
+/*when the screen width is less than 960px rearrange the layout */
+
+@media all and (max-width: 960px) {
+	/*stack the nav and the main page*/
+	.demo-main {
+		flex-direction: column;
+	}
+}
+
+/*make the content area take all the space to be able to center the content*/
+
+.demo-main .page {
+	margin-top: 32px;
+	margin-bottom: 50px;
+	width: 100%;
+}
+
+/*limit the width of the content for better readability*/
+
+.demo-main .page .content {
+	max-width: 640px;
+}
+
+/*leave a space before every title*/
+
+.demo-title {
+	padding-top: 30px;
+}
+
+/*default color for paragraphs and titles*/
+
+.demo-title, .demo-text {
+	color: hsl(0, 0%, 46%);
+}
+
+/*make backgrounds grey*/
+
+pre.prettyprint {
+	background-color: hsl(0, 0%, 90%);
+}
+
+/*remove the black thin border*/
+
+pre.prettyprint.demo-code {
+	border: none;
+	font-size: 12px;
+	border-radius: 3px;
+	padding: 10px 15px;
+}

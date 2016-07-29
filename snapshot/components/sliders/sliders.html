@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sliders</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet"
+	href="https://code.getmdl.io/1.1.3/material.blue_grey-red.min.css" />
+
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+	type="text/css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="../../index.css">
+<link rel="stylesheet" type="text/css" href="../components.css">
+<link rel="stylesheet" type="text/css" href="sliders.css">
+
+<script
+	src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+<script
+	src="https://storage.googleapis.com/code.getmdl.io/1.1.3/material.js"></script>
+
+<script src="../../mdlgwtdemo/mdlgwtdemo.nocache.js"></script>
+
+</head>
+<body class="demo-global">
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header class="demo-simplified-header">
+
+			<!-- On the first row, put the demo title  -->
+			<div class="mdl-layout__header-row">
+
+				<!-- Title -->
+				<span class="mdl-layout-title">Material Design Lite for GWT</span>
+			</div>
+
+			<!-- On the second row put the tabs and external links -->
+			<div id="header-link-row" class="mdl-layout__header-row">
+				<!-- Put a spacer to push the external links to the right -->
+				<div class="mdl-layout-spacer"></div>
+
+				<!-- A link to the javadoc -->
+				<a href="../../apidocs" class="demo-header-link"><span
+					class="icon material-icons">assignment</span><span class="text">Javadoc</span></a>
+
+				<!-- A link to the source code -->
+				<a href="https://github.com/ilyes4j/material-design-lite-gwt"
+					class="demo-header-link"><span class="icon material-icons">code</span><span
+					class="text">GitHub</span></a>
+			</div>
+		</header>
+		<div class="mdl-layout__content">
+			<div id="demo-main" class="demo-main">
+				<div class="page" align="center">
+					<div class="content" align="left">
+						<h4 class="demo-title">Sliders</h4>
+
+						<span class="demo-text">Selecting a value out of a range.</span>
+
+						<h5 class="demo-title">Default Slider</h5>
+
+						<div id="defaultDemo" align="center"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.sliders;
+
+import com.github.ilyes4j.gwt.mdl.components.sliders.Slider;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Demo for a basic slider component. */
+public class DefaultSliderDemo implements EntryPoint {
+
+  /** Setup the most basic slider. */
+  public final void onModuleLoad() {
+    RootPanel.get("defaultDemo").add(new Slider());
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Slider width</h5>
+
+						<div id="widthDemo" align="center"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.sliders;
+
+import com.github.ilyes4j.gwt.mdl.components.sliders.Slider;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Demo for changing the width of the slider. */
+public class SliderWidthDemo implements EntryPoint {
+
+  /** Apply a fixed width on the slider. */
+  public final void onModuleLoad() {
+
+    RootPanel root = RootPanel.get("widthDemo");
+    Slider slider = new Slider();
+    slider.setWidth("300px");
+    root.add(slider);
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Slider change event</h5>
+
+						<div id="changeDemo" align="center"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.sliders;
+
+import com.github.ilyes4j.gwt.mdl.components.sliders.Slider;
+import com.github.ilyes4j.gwt.mdl.components.sliders.SliderInput;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Demo for the slider change event. */
+public class ChangeEventDemo implements EntryPoint {
+
+  /** Perform an action when the value of the slider changes. */
+  public final void onModuleLoad() {
+
+    RootPanel root = RootPanel.get("changeDemo");
+
+    Slider slider = new Slider();
+    slider.setWidth("300px");
+    root.add(slider);
+
+    final Label lbl = new Label();
+    lbl.setText(slider.toString());
+    root.add(lbl);
+
+    slider.addChangeHandler(new ChangeHandler() {
+
+      @Override
+      public void onChange(final ChangeEvent event) {
+        SliderInput source = (SliderInput) event.getSource();
+        lbl.setText(source.toString());
+      }
+    });
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Slider input event</h5>
+
+						<div id="inputDemo" align="center"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.sliders;
+
+import com.github.ilyes4j.gwt.mdl.components.sliders.InputEvent;
+import com.github.ilyes4j.gwt.mdl.components.sliders.InputHandler;
+import com.github.ilyes4j.gwt.mdl.components.sliders.Slider;
+import com.github.ilyes4j.gwt.mdl.components.sliders.SliderInput;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Demo for a basic slider component. */
+public class InputEventDemo implements EntryPoint {
+
+  /** Setup a simple slider. */
+  public final void onModuleLoad() {
+
+    RootPanel root = RootPanel.get("inputDemo");
+
+    Slider slider = new Slider();
+    slider.setWidth("300px");
+    root.add(slider);
+
+    final Label lbl = new Label();
+    lbl.setText(slider.toString());
+    root.add(lbl);
+
+    slider.addInputHandler(new InputHandler() {
+
+      @Override
+      public void onInput(final InputEvent event) {
+        SliderInput source = (SliderInput) event.getSource();
+        lbl.setText(source.toString());
+      }
+    });
+  }
+}
+</pre>
+
+						<h5 class="demo-title">Slider with tooltip</h5>
+
+						<div id="tooltipDemo" align="center"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.sliders;
+
+import com.github.ilyes4j.gwt.mdl.components.sliders.InputEvent;
+import com.github.ilyes4j.gwt.mdl.components.sliders.InputHandler;
+import com.github.ilyes4j.gwt.mdl.components.sliders.Slider;
+import com.github.ilyes4j.gwt.mdl.components.tooltips.Tooltip;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.i18n.client.NumberFormat;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Demo for a slider with a tooltip. */
+public class SliderTooltipDemo implements EntryPoint {
+
+  /** Setup a slider with a tooltip. */
+  public final void onModuleLoad() {
+
+    final Slider slider = new Slider();
+
+    final Tooltip tip = new Tooltip(slider, "");
+    tip.setText(toPercent(slider, 2));
+
+    slider.addInputHandler(new InputHandler() {
+
+      @Override
+      public void onInput(final InputEvent event) {
+        tip.setText(toPercent(slider, 2));
+      }
+    });
+
+    RootPanel.get("tooltipDemo").add(slider);
+  }
+
+  /**
+   * @param slider
+   *          the target slider
+   * 
+   * @param precision
+   *          the percent precision
+   * 
+   * @return the formatted percent
+   */
+  private static String toPercent(final Slider slider, final int precision) {
+
+    final double percentMax = 100;
+    double value = slider.getValue();
+    double min = slider.getMin();
+    double max = slider.getMax();
+    double result = value * percentMax / (max - min);
+
+    NumberFormat fmt = NumberFormat.getDecimalFormat();
+
+    String resStr = fmt.format(result);
+
+    return resStr + "%";
+  }
+}
+</pre>
+						
+						<h5 class="demo-title">Programmatic Slider Value</h5>
+
+						<div id="setValueDemo" align="center"></div>
+
+						<pre class="demo-code prettyprint lang-java">package com.github.ilyes4j.gwt.mdl.demo.modules.sliders;
+
+import static com.github.ilyes4j.gwt.mdl.components.buttons.ButtonColor.PRIMARY;
+import static com.github.ilyes4j.gwt.mdl.components.ripples.Ripple.HAS_RIPPLE;
+
+import com.github.ilyes4j.gwt.mdl.components.buttons.Button;
+import com.github.ilyes4j.gwt.mdl.components.sliders.Slider;
+import com.github.ilyes4j.gwt.mdl.demo.Demo;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/** Demo for setting the slider value programmatically. */
+public class SliderSetValueDemo implements EntryPoint {
+
+  /** When the button is pushed set the value of the slider. */
+  public final void onModuleLoad() {
+
+    final int value = 20;
+    final String valStr = String.valueOf(20);
+
+    RootPanel root = RootPanel.get("setValueDemo");
+
+    Button btn = Button.createRaised(PRIMARY, HAS_RIPPLE, valStr);
+    root.add(btn);
+
+    final Slider slider = new Slider();
+    slider.addStyleName(Demo.DEMO.css().inline());
+    slider.setWidth("200px");
+    root.add(slider);
+
+    btn.addClickHandler(new ClickHandler() {
+
+      @Override
+      public void onClick(final ClickEvent event) {
+        slider.setValue(value);
+      }
+    });
+  }
+}
+</pre>																
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
